@@ -33,6 +33,7 @@ import scade.code.suite.sctoc as sctoc
 import scade.model.suite.displaycoupling as displaycoupling
 import scade.model.suite.suite as suite
 
+from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux.wux import writeln
 
 # ----------------------------------------------------------------------------
@@ -67,7 +68,7 @@ def set_variables(project, configuration, roots):
     if not project:
         return
 
-    ansys_scade_dir = pathlib.Path(os.environ['SCADE']).parent
+    ansys_scade_dir = get_scade_home()
     sdy_display_home = str(ansys_scade_dir / 'SCADE Display')
     sdy_rapidproto_home = str(ansys_scade_dir / 'SCADE Test' / 'Rapid Prototyper')
 
