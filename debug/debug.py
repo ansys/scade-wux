@@ -34,8 +34,10 @@ Cf. ESEG-EN-062 Debugging Python Wrappers.
 # O:\Suite\x64 - Release
 
 import argparse
+import os
 
 from ansys.scade.apitools import declare_project
+from ansys.scade.apitools.info import get_scade_home
 
 # apitools must be imported before using any scade.* import
 # to make sure sys.path is set properly
@@ -63,7 +65,7 @@ options = parser.parse_args()
 
 declare_project(options.project)
 
-
+os.environ['SCADE'] = str(get_scade_home())
 raw_tcl('CgMap init_kcg "%s"' % options.configuration)
 raw_tcl('KcgMF init "%s"' % options.configuration)
 sc_to_c_core(options.action, options.configuration)
@@ -71,7 +73,7 @@ sc_to_c_core(options.action, options.configuration)
 # debug
 """
 debug command line
--p ../Tests/Variables/Variables.etp -c SdyExt -a Generate
--p ../Tests/Variables/Variables.etp -c Simulation -a Generate
--p ../../SCADE-VRX-DS/Tests/SimpleController/Model/SimpleController.etp -c "VRX DS Plugin Simulation" -a Build
+-p tests/Variables/Variables.etp -c KCG -a Generate
+-p tests/Variables/Variables.etp -c SdyExt -a Generate
+-p tests/Variables/Variables.etp -c Simulation -a Generate
 """
