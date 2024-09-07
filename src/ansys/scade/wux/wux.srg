@@ -1,0 +1,15 @@
+[Scade/Generator/WUX2_MODULE]
+"Version"="25100"
+"Class"="ansys.scade.wux.module.WuxModule"
+
+[Scade/Simulator/Extensions/WUX2_GOWRP]
+"Server1"="DisplayExt"
+"Kind"="Target"
+"Version"="25100"
+"DisplayName"="Generic Integration"
+"AllowRun"="true"
+"CPU"="win64"
+
+[Scade/Generator/WUX2_GOWRP]
+"Version"="25100"
+"Pathname"="ansys.scade.wux.gowrapper.GoWrapper"
