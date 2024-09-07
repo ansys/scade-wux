@@ -5,9 +5,5 @@ ansys
 scade
 Scade
 SCADE
-endblock
-endif
-endfor
-fullname
 isort
 pytest
