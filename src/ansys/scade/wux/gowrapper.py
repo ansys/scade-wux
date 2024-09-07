@@ -46,7 +46,7 @@ class GoWrapper:
 
     # identification
     tool = 'Generic Integration'
-    version = __version__
+    banner = '%s (WUX %s)' % (tool, __version__)
 
     script_path = Path(__file__)
     script_dir = script_path.parent
@@ -74,7 +74,6 @@ class GoWrapper:
     @classmethod
     def generate(cls, target_dir: str, project: Project, configuration: Configuration):
         """TODO."""
-        cls.banner = '{0} {1}'.format(cls.tool, cls.version)
         print(cls.banner)
 
         # build
