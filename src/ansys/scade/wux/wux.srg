@@ -12,4 +12,4 @@
 
 [Scade/Generator/WUX2_GOWRP]
 "Version"="25100"
-"Pathname"="ansys.scade.wux.gowrapper.GoWrapper"
+"Class"="ansys.scade.wux.gowrapper.GoWrapper"
