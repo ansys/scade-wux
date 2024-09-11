@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 """
-Patch simulator's interface file for allowoing multiple hooks.
+Patch simulator's interface file for allowing multiple hooks.
 
 The interface file allows only one hook, ``EXTENDED_SIM``.
 This enhancement replaces the calls to a custom hook that can hold several hooks.

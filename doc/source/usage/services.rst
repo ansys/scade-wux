@@ -189,7 +189,7 @@ The wrappers that want to hook the SCADE Simulator, or to be compatible with
 the wrapper ``Integration``, must create a static instance of a class deriving
 from ``CWuxSimulatorExtension``:
 
-.. code-block:: c++
+.. code-block:: cpp
 
   class CWuxSimulatorExtension
   {
@@ -228,7 +228,7 @@ from ``CWuxSimulatorExtension``:
 
 The example hereafter shows the usage of this feature for the wrapper Connext-DDS:
 
-.. code-block:: c++
+.. code-block:: cpp
 
   static class MySimulatorExtension : public CWuxSimulatorExtension
   {
@@ -293,7 +293,7 @@ services to subscribe to ``DllMain``.
 A wrapper which needs an access to ``DllMain`` must include ``WuxDllExt.h``
 and define a static instance of a class deriving from ``CWuxDllInstance``:
 
-.. code-block:: c++
+.. code-block:: cpp
 
   class CWuxDllInstance
   {

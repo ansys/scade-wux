@@ -25,7 +25,7 @@ Interface
 
 The extensions can redefine the following functions:
 
-.. code-block:: c++
+.. code-block:: cpp
 
   class CWuxSimulatorExtension
   {
