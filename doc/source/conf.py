@@ -14,6 +14,7 @@ project = 'ansys-scade-wux'
 copyright = f'(c) {datetime.now().year} ANSYS, Inc. All rights reserved'
 author = 'ANSYS, Inc.'
 release = version = __version__
+switcher_version = get_version_match(version)
 
 # Select desired logo, theme, and declare the html title
 html_theme = 'ansys_sphinx_theme'
@@ -33,7 +34,7 @@ html_theme_options = {
     ],
     'switcher': {
         'json_url': f'https://{cname}/versions.json',
-        'version_match': get_version_match(version),
+        'version_match': switcher_version,
     },
     'logo': 'pyansys',
     'ansys_sphinx_theme_autoapi': {
@@ -144,3 +145,6 @@ linkcheck_ignore = [
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
 ]
+
+if switcher_version != 'dev':
+    linkcheck_ignore.append(f'https://github.com/ansys/scade-git/releases/tag/v{__version__}')
