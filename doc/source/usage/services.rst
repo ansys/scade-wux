@@ -16,7 +16,7 @@ The module registers all the included generation services to the Code Generator.
 * Context allocation for Scade root operators (``WUX2_CTX``):
 
   * Instantiate ``MappingFile``, ``MappingHelper`` and ``InterfacePrinter``
-    for the root operators(s).
+    for the root operators.
   * Generate the header/source files for declaring/defining for SCADE generated code contexts.
 
     **Note**: The current version is not expected to support options like
@@ -276,7 +276,7 @@ The example hereafter shows the usage of this feature for the wrapper Connext-DD
 * The initialization/termination of the external environment has no more to be
   done in ``DllMain``, which often lead to thread issues.
 
-This design allows using graphical panels in the Simulation... or not.
+This design allows using graphical panels in the Simulation. Or not.
 
 .. Note:
   All target wrappers embedding these extensions must define the preprocessor

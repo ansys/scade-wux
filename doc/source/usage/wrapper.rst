@@ -9,8 +9,9 @@ extensions. It has a behavior comparable to the SCADE Simulator:
 
 * It manages the graphical panels, UAs and/or A661 server connections
   when available.
-* It manages the registered extensions, e.g. instances of classes derived from
-  ``CWuxSimulatorExtension`` through calls to the ``WuxXxx`` simulation hooks.
+* It manages the registered extensions, for example instances of classes
+  derived from ``CWuxSimulatorExtension`` through calls to the ``WuxXxx``
+  simulation hooks.
 
 The wrapper does not generate code: it provides the ``main`` function,
 defined in ``WuxGoMain.cpp``, and declares a target to the build system with

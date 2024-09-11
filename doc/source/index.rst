@@ -2,7 +2,7 @@
 =====================
 
 Refer to the Section *Generating Integration Code from SCADE Suite*, in the
-chapter *SCADE Products API Resources* of the SCADE Suite documentation,
+document *SCADE Products API Resources* of the SCADE Suite documentation,
 for a complete reference of SCADE Code Generator extensions, A.K.A wrappers.
 
 This package contains:
