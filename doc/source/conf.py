@@ -37,6 +37,7 @@ html_theme_options = {
         'version_match': switcher_version,
     },
     'logo': 'pyansys',
+    'check_switcher': False,
     'ansys_sphinx_theme_autoapi': {
         'project': project,
         'own_page_level': 'function',
