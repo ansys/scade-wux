@@ -29,7 +29,7 @@ The class ``Wux`` gives access to the KCG mapping file API and to all the source
           self.includes: set[str] = []
           self.definitions: set[str] = []
 
-.. Note:
+.. Note::
 
   The variables ``mf``, ``mh`` and ``ips`` are initialized by the
   generation service ``WUX_CTX``. They remain uninitialized if this service

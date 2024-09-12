@@ -59,7 +59,7 @@ When no extension is self-paced, the period is the one defined in the
 Code Generator Integration settings; Else, the period can be specified
 on the command line with the option ``-latency`` (ms) otherwise it is ``0``.
 
-.. Note:
+.. Note::
 
   The behavior is unclear when several extensions are registered and if at
   least one of them is self-paced.
