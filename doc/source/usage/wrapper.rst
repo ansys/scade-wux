@@ -61,8 +61,8 @@ on the command line with the option ``-latency`` (ms) otherwise it is ``0``.
 
 .. Note::
 
-  The behavior is unclear when several extensions are registered and if at
-  least one of them is self-paced.
-  For a project involving conflicting extensions, we advise you provide a
-  customized version of ``lib/WuxGoMain.cpp`` to implement the desired
-  scheduling and interactions between the required extensions.
+   The behavior is unclear when several extensions are registered and if at
+   least one of them is self-paced.
+   For a project involving conflicting extensions, we advise you provide a
+   customized version of ``lib/WuxGoMain.cpp`` to implement the desired
+   scheduling and interactions between the required extensions.

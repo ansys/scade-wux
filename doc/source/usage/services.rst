@@ -138,8 +138,8 @@ added to `wux.sources`.
 
 .. Note::
 
-  The functions are always generated to avoid link errors,
-  but are empty if no graphical panel is referenced in the configuration.
+   The functions are always generated to avoid link errors,
+   but are empty if no graphical panel is referenced in the configuration.
 
 All the generated functions are declared in ``include/WuxA661Ext.h``,
 and the containing directory is added to ``wux.includes``.
@@ -152,14 +152,14 @@ Extension for Integration's/ Simulator's extensions (``WUX2_SIMU_EXT``)
 
 .. Note::
 
-  This generation service has been initially designed to allow the
-  usage of SCADE Simulator with one or more wrappers together with
-  SCADE graphical panels.
-  It has then been extended to provide a generic way of integrating extensions
-  with the Wrapper ``Generic Integration`` described in the next section.
-  It has not been renamed for compatibility reasons.
-  The following text describes the connection to the SCADE Simulator but this
-  applies to any host.
+   This generation service has been initially designed to allow the
+   usage of SCADE Simulator with one or more wrappers together with
+   SCADE graphical panels.
+   It has then been extended to provide a generic way of integrating extensions
+   with the Wrapper ``Generic Integration`` described in the next section.
+   It has not been renamed for compatibility reasons.
+   The following text describes the connection to the SCADE Simulator but this
+   applies to any host.
 
 This generation service does not generate new files, but provides a workaround
 for a limitation of the SCADE Simulator interface. Indeed, the SCADE Simulator
@@ -281,10 +281,10 @@ The example hereafter shows the usage of this feature for the wrapper Connext-DD
 This design allows using graphical panels in the Simulation. Or not.
 
 .. Note::
-  All target wrappers embedding these extensions must define the preprocessor
-  directive ``WUX_STANDALONE``. In other words, the macro ``WUX_STANDALONE``
-  is not defined if and only if the extension is used in the context of the
-  SCADE Simulator.
+   All target wrappers embedding these extensions must define the preprocessor
+   directive ``WUX_STANDALONE``. In other words, the macro ``WUX_STANDALONE``
+   is not defined if and only if the extension is used in the context of the
+   SCADE Simulator.
 
 Extension for DllMain (``WUX2_DLL_EXT``)
 ----------------------------------------
