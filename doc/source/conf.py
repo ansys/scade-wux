@@ -18,7 +18,7 @@ switcher_version = get_version_match(version)
 
 # Select desired logo, theme, and declare the html title
 html_theme = 'ansys_sphinx_theme'
-html_short_title = html_title = '{{Title}}'
+html_short_title = html_title = 'Ansys SCADE Wrapper Tools'
 
 # multi-version documentation
 cname = os.getenv('DOCUMENTATION_CNAME', 'wux.scade.docs.pyansys.com')

@@ -30,12 +30,14 @@ The class ``Wux`` gives access to the KCG mapping file API and to all the source
           self.definitions: set[str] = []
 
 .. Note:
+
   The variables ``mf``, ``mh`` and ``ips`` are initialized by the
   generation service ``WUX_CTX``. They remain uninitialized if this service
   is not explicitly requested by a wrapper.
 
 
 .. code: python
+
   sctoc.add_c_files(files, False, 'WUX')
 
 Use the dependency ``WUX`` to declare a new target containing the sources from
