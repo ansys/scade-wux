@@ -9,9 +9,9 @@ page on the Ansys website.
 Requirements
 ------------
 The ``ansys-scade-wux`` package supports only the versions of Python delivered with
-Ansys SCADE, starting from 2025 R1:
+Ansys SCADE, starting from 2023 R2:
 
-* 2025 R1 and later: Python 3.10
+* 2023 R2 and later: Python 3.10
 
 Install in user mode
 --------------------
@@ -30,12 +30,19 @@ see :ref:`contribute_scade_wux` for the steps for installing in developer mode.
 
    .. code:: bash
 
-       python -m pip install ansys-scade-wux
+       python -m pip install --user ansys-scade-wux
 
+#. For Ansys SCADE releases 2024 R2 and below, complete the installation with
+   this command:
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Contents:
+   .. code:: bash
+
+      python -m ansys.scade.wux.register
+
+   .. Note::
+
+      This additional step is not required when installing the package with
+      Ansys SCADE Extension Manager.
 
 .. LINKS AND REFERENCES
 .. _pip: https://pypi.org/project/pip/

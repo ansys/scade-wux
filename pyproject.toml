@@ -66,6 +66,8 @@ Documentation = "https://wux.scade.docs.pyansys.com"
 Releases = "https://github.com/ansys/scade-wux/releases"
 Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[project.scripts]
+register_ansys_scade_wux = "ansys.scade.wux.register:main"
 
 [tool.ruff]
 line-length = 100
