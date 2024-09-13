@@ -1,4 +1,4 @@
-# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,19 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Generic code integration wrapper and utilities for SCADE."""
-
-import importlib.metadata as importlib_metadata
-from pathlib import Path
-
-try:
-    __version__ = importlib_metadata.version(__name__.replace('.', '-'))
-except (importlib_metadata.PackageNotFoundError, AttributeError):
-    # Handle the case where version cannot be determined
-    __version__ = '0.0.0'
-
-
-def srg() -> str:
-    """Path of the SCADE Studio registry file."""
-    # the package's srg file is located in the same directory
-    return str(Path(__file__).parent / 'wux.srg')
+target_sources(Wrapper PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/A661Connect.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/WuxDllExt.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/WuxGoMain.cpp
+    # ${CMAKE_CURRENT_SOURCE_DIR}/lib/WuxSdyProxy.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/WuxSimuExt.cpp
+)
+target_include_directories(Wrapper PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

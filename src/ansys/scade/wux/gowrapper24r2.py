@@ -1,4 +1,4 @@
-# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,19 +20,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Generic code integration wrapper and utilities for SCADE."""
+"""
+Generic wrapper for hosting combined SCADE Suite integration extensions.
 
-import importlib.metadata as importlib_metadata
-from pathlib import Path
+Proxy to the main implementation, for interfacing releases of SCADE
+prior to 2025 R1.
+"""
 
-try:
-    __version__ = importlib_metadata.version(__name__.replace('.', '-'))
-except (importlib_metadata.PackageNotFoundError, AttributeError):
-    # Handle the case where version cannot be determined
-    __version__ = '0.0.0'
+from ansys.scade.wux.gowrapper import GoWrapper
 
 
-def srg() -> str:
-    """Path of the SCADE Studio registry file."""
-    # the package's srg file is located in the same directory
-    return str(Path(__file__).parent / 'wux.srg')
+class GoWrapper24R2(GoWrapper):
+    """TODO."""
+
+    pass

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?dom version="19.0" ?>
+
+<specification>
+    <IDE>
+        <project path="Displays.etp"/>
+        <ratio horizontal="1" vertical="1"/>
+    </IDE>
+    <symbology>
+        <dimension height="128" width="128"/>
+    </symbology>
+    <children>
+        <layer oid="67bcf74d-6371-457f-a6f9-4a49a4e9d72d">
+            <pathFromRoot value=""/>
+            <declaration/>
+            <properties name="Throttles">
+                <visible>
+                    <init>true</init>
+                </visible>
+                <origin>
+                    <x>
+                        <init>0.0</init>
+                    </x>
+                    <y>
+                        <init>0.0</init>
+                    </y>
+                </origin>
+                <id>
+                    <init>2</init>
+                </id>
+                <ratio horizontal="1" vertical="1"/>
+            </properties>
+            <children/>
+        </layer>
+    </children>
+</specification>
+
+<!-- crc32 : 110578316 -->
+

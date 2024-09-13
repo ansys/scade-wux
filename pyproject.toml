@@ -66,6 +66,8 @@ Documentation = "https://wux.scade.docs.pyansys.com"
 Releases = "https://github.com/ansys/scade-wux/releases"
 Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[project.scripts]
+register_ansys_scade_wux = "ansys.scade.wux.register:main"
 
 [tool.ruff]
 line-length = 100
@@ -79,12 +81,13 @@ lint.select = [
 lint.ignore = [
     "E501",  # Line too long. Ignoring this so "ruff.formatter" manages line length.
     "D203",  # One blank line required before class docstring.
-    "D204"  # One blank line required after class docstring.
+    "D204",  # One blank line required after class docstring.
+    "D206",  # To ignore: conflict with the formatter
 ]
 
 # TODO: preserve leads to an error, although it is documented
-# [tool.ruff.format]
-# quote-style = "preserve"
+[tool.ruff.format]
+quote-style = "single"
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
@@ -105,4 +108,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 testpaths = "tests"
-addopts = "-ra --cov=ansys.scade --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
+addopts = "-ra --cov=ansys.scade.wux --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
+
+[project.entry-points."ansys.scade.registry"]
+srg = "ansys.scade.wux:srg"

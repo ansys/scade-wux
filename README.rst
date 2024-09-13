@@ -1,5 +1,5 @@
-{{Title}}
-=====================
+Ansys SCADE Wrapper Tools
+=========================
 |pyansys| |python| |pypi| |GH-CI| |codecov| |MIT| |ruff| |doc|
 
 ..
@@ -40,7 +40,14 @@
 
 Overview
 --------
-{{Title}} is <TODO>.
+Ansys SCADE Wrapper Tools is a collection of tools for developing
+SCADE Code Generator extensions. It contains:
+
+* A SCADE Code Generator extension, `Generic Integration`, that produces
+  a standalone executable and schedules optional additional wrappers.
+* Utility SCADE Code Generator generation services that can be involved
+  by wrappers.
+* A Python library for developing wrappers.
 
 Requirements
 ------------
@@ -49,26 +56,26 @@ Ansys SCADE, starting from 2025 R1:
 
 * 2025 R1 and later: Python 3.10
 
-{{Title}} has two installation modes: user and developer. To install for use,
+Ansys SCADE Wrapper Tools has two installation modes: user and developer. To install for use,
 see `Getting started <https://wux.scade.docs.pyansys.com/version/stable/getting_started/index.html>`_.
 To install for development, see `Contribute <https://wux.scade.docs.pyansys.com/version/stable/contributing.html>`_.
 
 Documentation and issues
 ------------------------
-Documentation for the latest stable release of {{Title}} is hosted at
-`{{Title}} documentation <https://wux.scade.docs.pyansys.com/>`_.
+Documentation for the latest stable release of Ansys SCADE Wrapper Tools is hosted at
+`Ansys SCADE Wrapper Tools documentation <https://wux.scade.docs.pyansys.com/>`_.
 
 In the upper right corner of the documentation's title bar, there is an option for
 switching from viewing the documentation for the latest stable release to viewing the
 documentation for the development version or previously released versions.
 
-On the `{{Title}} Issues <https://github.com/ansys/scade-wux/issues>`_
+On the `Ansys SCADE Wrapper Tools Issues <https://github.com/ansys/scade-wux/issues>`_
 page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
 page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 
 License
 ~~~~~~~
-{{Title}} is licensed under the MIT license.
+Ansys SCADE Wrapper Tools is licensed under the MIT license.
 
 This toolkit makes no commercial claim over Ansys whatsoever. The use of this toolkit
 requires a legally licensed copy of the Ansys SCADE Suite. For more information,

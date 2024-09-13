@@ -1,0 +1,18 @@
+[Scade/Generator/WUX2_24R2_MODULE]
+"Version"="23200"
+"Expire"="25100"
+"Pathname"="%TARGETDIR%/Module24R2.py"
+
+[Scade/Simulator/Extensions/WUX2_24R2_GOWRP]
+"Server1"="DisplayExt"
+"Kind"="Target"
+"Version"="23200"
+"Expire"="25100"
+"DisplayName"="Generic Integration"
+"AllowRun"="true"
+"CPU"="win64"
+
+[Scade/Generator/WUX2_24R2_GOWRP]
+"Version"="23200"
+"Expire"="25100"
+"Pathname"="%TARGETDIR%/GoWrapper24R2.py"

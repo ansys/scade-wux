@@ -1,4 +1,4 @@
-# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,19 +20,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Generic code integration wrapper and utilities for SCADE."""
+"""Registers the Code Generator extensions."""
 
-import importlib.metadata as importlib_metadata
+import os
 from pathlib import Path
 
-try:
-    __version__ = importlib_metadata.version(__name__.replace('.', '-'))
-except (importlib_metadata.PackageNotFoundError, AttributeError):
-    # Handle the case where version cannot be determined
-    __version__ = '0.0.0'
+APPDATA = os.getenv('APPDATA')
 
 
-def srg() -> str:
-    """Path of the SCADE Studio registry file."""
-    # the package's srg file is located in the same directory
-    return str(Path(__file__).parent / 'wux.srg')
+def register_srg_file(srg: Path, install: Path):
+    """Copy the srg file to Customize and patch it with the installation directory."""
+    text = srg.open().read()
+    text = text.replace('%TARGETDIR%', install.as_posix())
+    dst = Path(APPDATA, 'SCADE', 'Customize', srg.name)
+    dst.open('w').write(text)
+
+
+def wux_config():
+    """Register the Code Generator extension srg files."""
+    script_dir = Path(__file__).parent
+    register_srg_file(script_dir / 'wux24r2.srg', script_dir)
+
+
+def main():
+    """Register package."""
+    wux_config()
+
+
+if __name__ == '__main__':
+    main()

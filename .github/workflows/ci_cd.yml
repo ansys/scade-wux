@@ -43,7 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        python-version: ['3.7']
+        python-version: ['3.10']
     steps:
       - uses: ansys/actions/build-wheelhouse@v6
         with:
@@ -52,31 +52,15 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
   tests:
+    # no unit tests for now
     name: "Tests"
-    # runs-on: ${{ matrix.os }}
-    runs-on: [self-hosted, 'SCADE']
+    runs-on: ubuntu-latest
     needs: [smoke-tests]
-    strategy:
-      matrix:
-        os: [windows-latest]
-        scade-version: ['24.2']
-      fail-fast: false
     steps:
-      - name: "Install Git and clone project"
-        uses: actions/checkout@v4
-
-      - uses: ansys/scade-actions/scade-tests-pytest@v1
-        with:
-          checkout: false
-          pytest-extra-args: "--cov=ansys --cov-report=term --cov-branch --cov-report=html:.cov/html --cov-report=xml:.cov/xml"
-          scade-version: ${{ matrix.scade-version }}
-
-      # - name: "Upload coverage reports to Codecov"
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     slug: ansys/scade-wux
-      #     files: .cov/xml
+      - name: "Placeholder for tests"
+        # shell: bash
+        run: |
+          echo placeholder for tests
 
   doc-build:
     name: "Build documentation"
@@ -87,19 +71,6 @@ jobs:
       - uses: ansys/actions/doc-build@v6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
-
-      # - name: "Zipping the examples directory"
-      #   run: |
-      #     sudo apt-get install zip
-      #     zip -r examples.zip ./examples
-#
-      # - name: "Upload zip to artifacts"
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: examples
-      #     path: ./examples.zip
-      #     retention-days: 7
-      #     if-no-files-found: error
 
   build-library:
     name: "Build library basic example"
@@ -118,18 +89,17 @@ jobs:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
     steps:
 
-      # - name: "Release to public PyPI"
-      #   uses: ansys/actions/release-pypi-public@v6
-      #   with:
-      #     library-name: ${{ env.LIBRARY_NAME }}
-      #     twine-username: "__token__"
-      #     twine-token: ${{ secrets.PYPI_TOKEN }}
+      - name: "Release to public PyPI"
+        uses: ansys/actions/release-pypi-public@v6
+        with:
+          library-name: ${{ env.LIBRARY_NAME }}
+          twine-username: "__token__"
+          twine-token: ${{ secrets.PYPI_TOKEN }}
 
       - name: "Release to GitHub"
         uses: ansys/actions/release-github@v6
         with:
           library-name: ${{ env.LIBRARY_NAME }}
-          additional-artifacts: 'examples'
 
   doc-deploy-dev:
     name: "Deploy development documentation"

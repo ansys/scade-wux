@@ -20,19 +20,44 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Generic code integration wrapper and utilities for SCADE."""
+"""
+SCADE Code Generation Module for utility SCADE Code Generation Services.
 
-import importlib.metadata as importlib_metadata
+These services can be included on demand by SCADE Code Generator targets or extensions.
+"""
+
 from pathlib import Path
 
-try:
-    __version__ = importlib_metadata.version(__name__.replace('.', '-'))
-except (importlib_metadata.PackageNotFoundError, AttributeError):
-    # Handle the case where version cannot be determined
-    __version__ = '0.0.0'
+from ansys.scade.wux import __version__
+import ansys.scade.wux.a661 as a661
+import ansys.scade.wux.dllext as dllext
+import ansys.scade.wux.kcgcontext as kcgcontext
+import ansys.scade.wux.sdyext as sdyext
+import ansys.scade.wux.simuext as simuext
 
 
-def srg() -> str:
-    """Path of the SCADE Studio registry file."""
-    # the package's srg file is located in the same directory
-    return str(Path(__file__).parent / 'wux.srg')
+class WuxModule:
+    """TODO."""
+
+    # identification
+    tool = 'Utility services for wrappers'
+    version = __version__
+
+    script_path = Path(__file__)
+    script_dir = script_path.parent
+
+    # TODO: not sure this is used
+    # simulation mode: flag set by other service (side effect)
+    x_simulation = False
+
+    @classmethod
+    def get_services(cls):
+        """Declare all the provided utility services."""
+        print(cls.tool, cls.version)
+        services = []
+        services.extend(kcgcontext.get_services())
+        services.extend(sdyext.get_services())
+        services.extend(a661.get_services())
+        services.extend(simuext.get_services())
+        services.extend(dllext.get_services())
+        return services
