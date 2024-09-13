@@ -108,7 +108,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 testpaths = "tests"
-addopts = "-ra --cov=ansys.scade.wyx --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
+addopts = "-ra --cov=ansys.scade.wux --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
 
 [project.entry-points."ansys.scade.registry"]
 srg = "ansys.scade.wux:srg"
