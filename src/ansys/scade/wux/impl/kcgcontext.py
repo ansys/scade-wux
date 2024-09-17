@@ -190,18 +190,6 @@ class WuxContext:
             ip = _WuxInterfacePrinter(wux.mh, root.get_scade_path(), simulation=cls.simulation)
             wux.ips.append(ip)
 
-            if False:
-                # prevent extending the FACE wrapper
-                # get simpler names
-                substs = {
-                    'wu_struct_type': 'WuxCtx' + str(index + 1),
-                    'wu_struct_var': 'wux' + str(index + 1),
-                    'ctx_var': 'outC',
-                    'in_struct_var': 'inC',
-                    'out_struct_var': 'outS',
-                }
-                ip.set_substitutions(substs)
-
     @classmethod
     def gen_kcg_includes(cls, f):
         """TODO."""
