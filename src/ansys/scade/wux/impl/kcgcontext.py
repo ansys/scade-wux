@@ -31,16 +31,8 @@ from scade.code.suite.wrapgen.model import MappingHelpers
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
-from ansys.scade.wux.wux import (
-    gen_end_protect,
-    gen_footer,
-    gen_header,
-    gen_includes,
-    gen_start_protect,
-    write_indent,
-    writeln,
-    wux as _wux,
-)
+import ansys.scade.wux.wux as wux
+from ansys.scade.wux.wux import writeln
 
 
 class _WuxInterfacePrinter(InterfacePrinter):
@@ -151,25 +143,25 @@ class WuxContext:
         pathheader = pathname.with_suffix('.h')
         sctoc.add_generated_files(cls.tool, [pathheader.name])
         with open(str(pathheader), 'w') as f:
-            gen_header(f, cls.banner)
-            gen_start_protect(f, pathheader.name)
+            wux.gen_header(f, cls.banner)
+            wux.gen_start_protect(f, pathheader.name)
             cls.gen_kcg_includes(f)
             cls.gen_contexts_declaration(f, project)
-            gen_end_protect(f, pathheader.name)
-            gen_footer(f)
+            wux.gen_end_protect(f, pathheader.name)
+            wux.gen_footer(f)
 
         pathsource = pathname.with_suffix('.c')
         sctoc.add_generated_files(cls.tool, [pathsource.name])
         cls.sources.append(pathsource)
         with open(str(pathsource), 'w') as f:
-            gen_header(f, cls.banner)
-            gen_includes(f, [pathheader.name])
+            wux.gen_header(f, cls.banner)
+            wux.gen_includes(f, [pathheader.name])
             cls.gen_contexts_definition(f)
             cls.gen_sensors(f)
             cls.gen_init(f)
             cls.gen_cycles(f)
             cls.gen_period(f)
-            gen_footer(f)
+            wux.gen_footer(f)
 
         # build
         cls.declare_target(target_dir, project, configuration)
@@ -190,13 +182,13 @@ class WuxContext:
     @classmethod
     def set_globals(cls, target_dir: str, project: Project, configuration: Configuration):
         """TODO."""
-        _wux.mf = MappingFile((Path(target_dir) / 'mapping.xml').as_posix())
-        _wux.mh = MappingHelpers(_wux.mf)
-        roots = _wux.mf.get_root_operators()
-        _wux.ips = []
+        wux.mf = MappingFile((Path(target_dir) / 'mapping.xml').as_posix())
+        wux.mh = MappingHelpers(wux.mf)
+        roots = wux.mf.get_root_operators()
+        wux.ips = []
         for index, root in enumerate(roots):
-            ip = _WuxInterfacePrinter(_wux.mh, root.get_scade_path(), simulation=cls.simulation)
-            _wux.ips.append(ip)
+            ip = _WuxInterfacePrinter(wux.mh, root.get_scade_path(), simulation=cls.simulation)
+            wux.ips.append(ip)
 
             if False:
                 # prevent extending the FACE wrapper
@@ -214,7 +206,7 @@ class WuxContext:
     def gen_kcg_includes(cls, f):
         """TODO."""
         writeln(f, 0, '/* KCG generated files */')
-        for ip in _wux.ips:
+        for ip in wux.ips:
             f.write(ip.print_includes())
         writeln(f)
 
@@ -228,7 +220,7 @@ class WuxContext:
             writeln(f, 0, '')
         else:
             writeln(f, 0, '/* contexts */')
-            for ip in _wux.ips:
+            for ip in wux.ips:
                 writeln(f, 0, ip.print_context_def().replace('  ', '    '))
                 writeln(
                     f,
@@ -242,7 +234,7 @@ class WuxContext:
         """TODO."""
         writeln(f, 0, '/* contexts */')
         if not cls.simulation:
-            for ip in _wux.ips:
+            for ip in wux.ips:
                 writeln(
                     f, 0, '{wu_struct_type} {wu_struct_var};'.format_map(ip.get_substitutions())
                 )
@@ -251,7 +243,7 @@ class WuxContext:
     @classmethod
     def gen_sensors(cls, f):
         """TODO."""
-        sensors = _wux.mf.get_all_sensors()
+        sensors = wux.mf.get_all_sensors()
         if not cls.simulation and not cls.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')
             for sensor in sensors:
@@ -277,7 +269,7 @@ class WuxContext:
         writeln(f, 0, '{')
         if not cls.simulation:
             sep = ''
-            for ip in _wux.ips:
+            for ip in wux.ips:
                 f.write(sep)
                 init = ip.print_context_init()
                 if init != '':
@@ -300,8 +292,8 @@ class WuxContext:
         writeln(f, 0, 'void WuxCycle()')
         writeln(f, 0, '{')
         if not cls.simulation:
-            for ip in _wux.ips:
-                write_indent(f, '    ', ip.print_cycle_call())
+            for ip in wux.ips:
+                wux.write_indent(f, '    ', ip.print_cycle_call())
         writeln(f, 0, '}')
         writeln(f)
 
@@ -321,10 +313,10 @@ class WuxContext:
     @classmethod
     def declare_target(cls, target_dir, project, configuration):
         """TODO."""
-        _wux.add_sources(cls.sources)
+        wux.add_sources(cls.sources)
         # runtime files
         include = Path(cls.script_dir).parent / 'include'
-        _wux.add_includes([include])
+        wux.add_includes([include])
 
 
 # ----------------------------------------------------------------------------

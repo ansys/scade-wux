@@ -30,73 +30,58 @@ import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
 
-
-class Wux:
-    """TODO."""
-
-    def __init__(self):
-        """TODO."""
-        # context
-        self.mf: Optional[MappingFile] = None
-        self.mh: Optional[MappingHelpers] = None
-        self.ips: list[InterfacePrinter] = []
-
-        # generated C files, for makefile
-        self._sources: set[str] = set()
-        # build
-        self._libraries: set[str] = set()
-        self._includes: set[str] = set()
-        self._definitions: set[str] = set()
-
-    # store the declared source files for backward compatibility
-    # and prevent adding the same source twice to sctoc
-    def add_sources(self, paths: list[Path]):
-        """TODO."""
-        paths = {_.as_posix() for _ in paths}
-        sctoc.add_c_files(list(paths - self._sources), False, 'WUX')
-        self._sources |= paths
-
-    # store the declared include paths for backward compatibility
-    # and prevent adding the same include twice to sctoc
-    def add_includes(self, paths: List[Path]):
-        """TODO."""
-        paths = {_.as_posix() for _ in paths}
-        sctoc.add_include_files(list(paths - self._includes), False)
-        self._includes |= paths
-
-    # store the declared libraries for backward compatibility
-    # and prevent adding the same library twice to sctoc
-    def add_libraries(self, paths: List[Path]):
-        """TODO."""
-        paths = {_.as_posix() for _ in paths}
-        sctoc.add_obj_files(list(paths - self._libraries), False)
-        self._libraries |= paths
-
-    # prevent adding the preprocessor definition twice to sctoc
-    def add_definitions(self, *definitions: str):
-        """TODO."""
-        definitions = {_ for _ in definitions}
-        sctoc.add_preprocessor_definitions(*(definitions - self._definitions))
-        self._definitions |= definitions
-
-    # # compatibility
-    # @property
-    # def sources(self):
-    #     return list(self._sources)
-    #
-    #
-    # @property
-    # def includes(self):
-    #     return list(self._includes)
-    #
-    #
-    # @property
-    # def libraries(self):
-    #     return list(self._libraries)
-
-
 # globals
-wux = Wux()
+# context
+mf: Optional[MappingFile] = None
+mh: Optional[MappingHelpers] = None
+ips: list[InterfacePrinter] = []
+
+
+# generated C files, for makefile
+_sources: set[str] = set()
+# build
+_libraries: set[str] = set()
+_includes: set[str] = set()
+_definitions: set[str] = set()
+
+
+# store the declared source files for backward compatibility
+# and prevent adding the same source twice to sctoc
+def add_sources(paths: list[Path]):
+    """TODO."""
+    global _sources
+    paths = {_.as_posix() for _ in paths}
+    sctoc.add_c_files(list(paths - _sources), False, 'WUX')
+    _sources |= paths
+
+
+# store the declared include paths for backward compatibility
+# and prevent adding the same include twice to sctoc
+def add_includes(paths: List[Path]):
+    """TODO."""
+    global _includes
+    paths = {_.as_posix() for _ in paths}
+    sctoc.add_include_files(list(paths - _includes), False)
+    _includes |= paths
+
+
+# store the declared libraries for backward compatibility
+# and prevent adding the same library twice to sctoc
+def add_libraries(paths: List[Path]):
+    """TODO."""
+    global _libraries
+    paths = {_.as_posix() for _ in paths}
+    sctoc.add_obj_files(list(paths - _libraries), False)
+    _libraries |= paths
+
+
+# prevent adding the preprocessor definition twice to sctoc
+def add_definitions(*definitions: str):
+    """TODO."""
+    global _definitions
+    definitions = {_ for _ in definitions}
+    sctoc.add_preprocessor_definitions(*(definitions - _definitions))
+    _definitions |= definitions
 
 
 def writeln(f, nbtabs: int = 0, text: str = ''):

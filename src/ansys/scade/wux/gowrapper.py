@@ -38,7 +38,7 @@ import scade.code.suite.sctoc as sctoc
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
-from ansys.scade.wux.wux import wux as _wux
+import ansys.scade.wux.wux as wux
 
 
 class GoWrapper:
@@ -104,12 +104,12 @@ class GoWrapper:
         """TODO."""
         # add the wrapper's main file
         lib = cls.script_dir / 'lib'
-        _wux.add_sources([lib / 'WuxGoMain.cpp'])
-        _wux.add_definitions('WUX_INTEGRATION', 'WUX_STANDALONE')
+        wux.add_sources([lib / 'WuxGoMain.cpp'])
+        wux.add_definitions('WUX_INTEGRATION', 'WUX_STANDALONE')
         # temporary hack: reuse the design developed for the so-simulation
         include = cls.script_dir / 'include'
-        _wux.add_includes([include])
-        _wux.add_sources([lib / 'WuxSimuExt.cpp'])
+        wux.add_includes([include])
+        wux.add_sources([lib / 'WuxSimuExt.cpp'])
 
         # declare the target to sctoc
         path = cls.get_target_exe(target_dir, project, configuration)

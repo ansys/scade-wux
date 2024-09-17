@@ -31,7 +31,6 @@ from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.display as display
 import ansys.scade.wux.impl.proxy as proxy
 import ansys.scade.wux.wux as wux
-from ansys.scade.wux.wux import wux as _wux
 
 # ----------------------------------------------------------------------------
 # wrapper interface: class and methods
@@ -63,10 +62,10 @@ class SdyExt:
         """TODO."""
         print(cls.banner)
 
-        roots = _wux.mf.get_root_operators()
+        roots = wux.mf.get_root_operators()
 
         # generation
-        cls.generate_display(target_dir, project, configuration, roots, _wux.ips)
+        cls.generate_display(target_dir, project, configuration, roots, wux.ips)
         cls.generate_proxy_file(target_dir, project, configuration, roots)
 
         # build
@@ -117,11 +116,11 @@ class SdyExt:
         """TODO."""
         # runtime files
         include = cls.script_dir.parent / 'include'
-        _wux.add_includes([include])
-        _wux.add_sources(cls.sources)
+        wux.add_includes([include])
+        wux.add_sources(cls.sources)
         if display.get_specifications():
             lib = cls.script_dir.parent / 'lib'
-            _wux.add_sources([lib / 'WuxSdyProxy.cpp'])
+            wux.add_sources([lib / 'WuxSdyProxy.cpp'])
 
 
 # ----------------------------------------------------------------------------

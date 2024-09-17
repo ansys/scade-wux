@@ -27,7 +27,7 @@ from pathlib import Path
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
-from ansys.scade.wux.wux import wux as _wux
+import ansys.scade.wux.wux as wux
 
 
 class WuxDllExt:
@@ -53,9 +53,9 @@ class WuxDllExt:
         # always add the files, to ease the integration
         # runtime files
         include = cls.script_dir.parent / 'include'
-        _wux.add_includes([include])
+        wux.add_includes([include])
         lib = cls.script_dir.parent / 'lib'
-        _wux.add_sources([lib / 'WuxDllExt.cpp'])
+        wux.add_sources([lib / 'WuxDllExt.cpp'])
 
         return True
 
