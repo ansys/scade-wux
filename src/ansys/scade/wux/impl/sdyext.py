@@ -28,8 +28,8 @@ from pathlib import Path
 import scade.code.suite.sctoc as sctoc
 
 from ansys.scade.wux import __version__
-import ansys.scade.wux.display as display
-import ansys.scade.wux.proxy as proxy
+import ansys.scade.wux.impl.display as display
+import ansys.scade.wux.impl.proxy as proxy
 import ansys.scade.wux.wux as wux
 from ansys.scade.wux.wux import wux as _wux
 
@@ -116,11 +116,11 @@ class SdyExt:
     def declare_target(cls, target_dir, project, configuration, roots):
         """TODO."""
         # runtime files
-        include = cls.script_dir / 'include'
+        include = cls.script_dir.parent / 'include'
         _wux.add_includes([include])
         _wux.add_sources(cls.sources)
         if display.get_specifications():
-            lib = cls.script_dir / 'lib'
+            lib = cls.script_dir.parent / 'lib'
             _wux.add_sources([lib / 'WuxSdyProxy.cpp'])
 
 

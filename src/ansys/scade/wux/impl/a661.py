@@ -264,12 +264,12 @@ class A661UAA:
     @classmethod
     def declare_target(cls, target_dir, project, configuration):
         """TODO."""
-        include = cls.script_dir / 'include'
+        include = cls.script_dir.parent / 'include'
         _wux.add_includes([include])
         if len(cls.sources) != 0:
             _wux.add_sources(cls.sources)
             # code has been generated, add A661Connect to the makefile
-            lib = cls.script_dir / 'lib'
+            lib = cls.script_dir.parent / 'lib'
             _wux.add_sources([lib / 'A661connect.c'])
 
     # ------------------------------------------------------------------------
