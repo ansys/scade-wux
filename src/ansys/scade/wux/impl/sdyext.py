@@ -38,8 +38,6 @@ import ansys.scade.wux.wux as wux
 
 
 class SdyExt:
-    """TODO."""
-
     ID = 'WUX2_SDY'
     tool = 'SCADE Suite-Display Extension'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -52,14 +50,12 @@ class SdyExt:
 
     @classmethod
     def init(cls, target_dir, project, configuration):
-        """TODO."""
         cg = ('Code Generator', ('-Order', 'Before'))
         ctx = ('WUX2_CTX', ('-Order', 'Before'))
         return [cg, ctx]
 
     @classmethod
     def generate(cls, target_dir, project, configuration):
-        """TODO."""
         print(cls.banner)
 
         roots = wux.mf.get_root_operators()
@@ -75,7 +71,6 @@ class SdyExt:
 
     @classmethod
     def build(cls, target_dir, project, configuration):
-        """TODO."""
         display.build(target_dir, project, configuration)
         return True
 
@@ -85,7 +80,6 @@ class SdyExt:
 
     @classmethod
     def generate_display(cls, target_dir, project, configuration, roots, ips):
-        """TODO."""
         path = Path(project.pathname)
         pathname = Path(target_dir) / ('wuxsdy' + path.stem + '.c')
         sctoc.add_generated_files(cls.tool, [pathname.name])
@@ -97,7 +91,6 @@ class SdyExt:
 
     @classmethod
     def generate_proxy_file(cls, target_dir, project, configuration, roots):
-        """TODO."""
         path = Path(project.pathname)
         pathname = Path(target_dir) / ('wuxsdyprx' + path.stem + '.cpp')
         sctoc.add_generated_files(cls.tool, [pathname.name])
@@ -113,7 +106,6 @@ class SdyExt:
 
     @classmethod
     def declare_target(cls, target_dir, project, configuration, roots):
-        """TODO."""
         # runtime files
         include = cls.script_dir.parent / 'include'
         wux.add_includes([include])
@@ -129,7 +121,6 @@ class SdyExt:
 
 
 def get_services():
-    """TODO."""
     scx = (
         SdyExt.ID,
         ('-OnInit', SdyExt.init),

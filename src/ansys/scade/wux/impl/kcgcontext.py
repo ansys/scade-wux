@@ -47,12 +47,10 @@ class _WuxInterfacePrinter(InterfacePrinter):
     """
 
     def __init__(self, mh, root, sep_ctx=False, indent='  ', simulation=False):
-        """TODO."""
         super().__init__(mh, root, sep_ctx=sep_ctx, indent=indent)
         self.simulation = simulation
 
     def get_generated_path(self, var_path, subst=None):
-        """TODO."""
         path = super().get_generated_path(var_path, subst=subst)
         if self.simulation:
             # TODO: code valid for standard generation only (no separate_io, no global_root_context, etc.)
@@ -68,7 +66,6 @@ class _WuxInterfacePrinter(InterfacePrinter):
             return path
 
     def get_in_context_var(self):
-        """TODO."""
         ctx_acc = (
             '%s.%s' % (self._subst['wu_struct_var'], self._subst['inc_var'])
             if not self._sep_ctx and self._subst['wu_struct_var']
@@ -77,7 +74,6 @@ class _WuxInterfacePrinter(InterfacePrinter):
         return ctx_acc
 
     def get_out_context_var(self):
-        """TODO."""
         ctx_acc = (
             '%s.%s' % (self._subst['wu_struct_var'], self._subst['ctx_var'])
             if not self._sep_ctx and self._subst['wu_struct_var']
@@ -117,14 +113,12 @@ class WuxContext:
 
     @classmethod
     def init(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         # KCG needed
         cg = ('Code Generator', ('-Order', 'Before'))
         return [cg]
 
     @classmethod
     def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         print(cls.banner)
 
         # check simulation mode
@@ -170,7 +164,6 @@ class WuxContext:
 
     @classmethod
     def set_simulation(cls, project: Project, configuration: Configuration):
-        """TODO."""
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
@@ -181,7 +174,6 @@ class WuxContext:
 
     @classmethod
     def set_globals(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         wux.mf = MappingFile((Path(target_dir) / 'mapping.xml').as_posix())
         wux.mh = MappingHelpers(wux.mf)
         roots = wux.mf.get_root_operators()
@@ -192,7 +184,6 @@ class WuxContext:
 
     @classmethod
     def gen_kcg_includes(cls, f):
-        """TODO."""
         writeln(f, 0, '/* KCG generated files */')
         for ip in wux.ips:
             f.write(ip.print_includes())
@@ -200,7 +191,6 @@ class WuxContext:
 
     @classmethod
     def gen_contexts_declaration(cls, f, project):
-        """TODO."""
         if cls.simulation:
             # cf. <project>_interface.h
             writeln(f, 0, '/* Simulator generated files */')
@@ -219,7 +209,6 @@ class WuxContext:
 
     @classmethod
     def gen_contexts_definition(cls, f):
-        """TODO."""
         writeln(f, 0, '/* contexts */')
         if not cls.simulation:
             for ip in wux.ips:
@@ -230,7 +219,6 @@ class WuxContext:
 
     @classmethod
     def gen_sensors(cls, f):
-        """TODO."""
         sensors = wux.mf.get_all_sensors()
         if not cls.simulation and not cls.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')
@@ -247,7 +235,6 @@ class WuxContext:
 
     @classmethod
     def gen_init(cls, f):
-        """TODO."""
         writeln(f, 0, '/* initializations */')
         writeln(f, 0, 'void WuxReset()')
         writeln(f, 0, '{')
@@ -276,7 +263,6 @@ class WuxContext:
 
     @classmethod
     def gen_cycles(cls, f):
-        """TODO."""
         writeln(f, 0, 'void WuxCycle()')
         writeln(f, 0, '{')
         if not cls.simulation:
@@ -287,7 +273,6 @@ class WuxContext:
 
     @classmethod
     def gen_period(cls, f):
-        """TODO."""
         writeln(f, 0, 'double WuxGetPeriod()')
         writeln(f, 0, '{')
         writeln(f, 0, '    return {0};'.format(sctoc.get_operator_sample_time()[0]))
@@ -300,7 +285,6 @@ class WuxContext:
 
     @classmethod
     def declare_target(cls, target_dir, project, configuration):
-        """TODO."""
         wux.add_sources(cls.sources)
         # runtime files
         include = Path(cls.script_dir).parent / 'include'

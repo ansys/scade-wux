@@ -99,6 +99,7 @@ convention = "numpy"
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["D",]
+"src/ansys/scade/wux/impl/*.py" = ["D101", "D102", "D103"]
 
 [tool.coverage.run]
 source = ["ansys.scade.wux"]

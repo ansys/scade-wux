@@ -31,8 +31,6 @@ import ansys.scade.wux.wux as wux
 
 
 class WuxDllExt:
-    """TODO."""
-
     ID = 'WUX2_DLL_EXT'
     tool = 'Support for sharing DllMain'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -42,12 +40,10 @@ class WuxDllExt:
 
     @classmethod
     def init(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         return []
 
     @classmethod
     def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         print(cls.banner)
 
         # always add the files, to ease the integration
@@ -66,6 +62,5 @@ class WuxDllExt:
 
 
 def get_services():
-    """TODO."""
     wux_ctx = (WuxDllExt.ID, ('-OnInit', WuxDllExt.init), ('-OnGenerate', WuxDllExt.generate))
     return [wux_ctx]

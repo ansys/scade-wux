@@ -38,8 +38,6 @@ import ansys.scade.wux.wux as wux
 
 
 class A661UAA:
-    """TODO."""
-
     ID = 'WUX2_UAA'
     tool = 'SCADE Suite UA Adaptor Extension'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -68,14 +66,12 @@ class A661UAA:
 
     @classmethod
     def init(cls, target_dir, project, configuration):
-        """TODO."""
         cg = ('Code Generator', ('-Order', 'Before'))
         ctx = ('WUX2_CTX', ('-Order', 'Before'))
         return [cg, ctx]
 
     @classmethod
     def generate(cls, target_dir, project, configuration):
-        """TODO."""
         print(cls.banner)
 
         roots = wux.mf.get_root_operators()
@@ -98,7 +94,6 @@ class A661UAA:
 
     @classmethod
     def gen_includes(cls, f, project):
-        """TODO."""
         f.write('/* includes */\n')
         # f.write('#include <windows.h>\n')
         # f.write('\n')
@@ -118,7 +113,6 @@ class A661UAA:
 
     @classmethod
     def gen_connect(cls, f):
-        """TODO."""
         f.write('int WuxA661ConnectServer()\n')
         f.write('{\n')
         if cls.ua_base_name is not None:
@@ -134,7 +128,6 @@ class A661UAA:
 
     @classmethod
     def gen_disconnect(cls, f):
-        """TODO."""
         f.write('int WuxA661DisconnectServer()\n')
         f.write('{\n')
         if cls.ua_base_name is not None:
@@ -146,7 +139,6 @@ class A661UAA:
 
     @classmethod
     def gen_receive(cls, f):
-        """TODO."""
         f.write('void WuxA661ReceiveMessages()\n')
         f.write('{\n')
         if cls.ua_base_name is not None:
@@ -170,7 +162,6 @@ class A661UAA:
 
     @classmethod
     def gen_send(cls, f):
-        """TODO."""
         f.write('void WuxA661SendMessages()\n')
         f.write('{\n')
         if cls.ua_base_name is not None:
@@ -195,7 +186,6 @@ class A661UAA:
 
     @classmethod
     def generate_interface(cls, target_dir, project, configuration):
-        """TODO."""
         path = Path(project.pathname)
         pathname = Path(target_dir) / (cls.PREFIX + path.stem + '.c')
         sctoc.add_generated_files(cls.tool, [pathname.name])
@@ -219,7 +209,6 @@ class A661UAA:
 
     @classmethod
     def run_uua(cls, target_dir, project, configuration):
-        """TODO."""
         # run UA Adaptor if needed
         if cls.ua_base_name is None:
             return
@@ -262,7 +251,6 @@ class A661UAA:
 
     @classmethod
     def declare_target(cls, target_dir, project, configuration):
-        """TODO."""
         include = cls.script_dir.parent / 'include'
         wux.add_includes([include])
         if len(cls.sources) != 0:
@@ -277,13 +265,11 @@ class A661UAA:
 
     @classmethod
     def is_spec_a661(cls, specification):
-        """TODO."""
         project = specification.sdy_project
         return project is not None and project.is_uapc()
 
     @classmethod
     def set_a661_globals(cls, target_dir, project, configuration):
-        """TODO."""
         enabled_specs = [
             Path(pair.split(',')[0]).name
             for pair in project.get_tool_prop_def(

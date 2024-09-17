@@ -58,7 +58,6 @@ class WuxSimuExt:
 
     @classmethod
     def init(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         # check simulation mode
         cls.set_simulation(project, configuration)
         # if the simulator in involved, it must be executed before
@@ -70,7 +69,6 @@ class WuxSimuExt:
 
     @classmethod
     def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         if not cls.simulation:
             return True
 
@@ -137,7 +135,6 @@ class WuxSimuExt:
 
     @classmethod
     def set_simulation(cls, project: Project, configuration: Configuration):
-        """TODO."""
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
