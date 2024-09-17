@@ -35,7 +35,6 @@ import scade.model.suite.displaycoupling as display
 from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux import __version__
 import ansys.scade.wux.wux as wux
-from ansys.scade.wux.wux import wux as _wux
 
 
 class A661UAA:
@@ -79,7 +78,7 @@ class A661UAA:
         """TODO."""
         print(cls.banner)
 
-        roots = _wux.mf.get_root_operators()
+        roots = wux.mf.get_root_operators()
         cls.root = roots[0]
 
         cls.set_a661_globals(target_dir, project, configuration)
@@ -152,7 +151,7 @@ class A661UAA:
         f.write('{\n')
         if cls.ua_base_name is not None:
             # assume only one root node
-            ip = _wux.ips[0]
+            ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
             inctxvar = ip.get_in_context_var()
             addr = 'NULL' if len(cls.root.get_inputs()) == 0 or inctxvar == '' else '&' + inctxvar
@@ -176,7 +175,7 @@ class A661UAA:
         f.write('{\n')
         if cls.ua_base_name is not None:
             # assume only one root node
-            ip = _wux.ips[0]
+            ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
             outctxvar = ip.get_out_context_var()
             addr = (
@@ -264,13 +263,13 @@ class A661UAA:
     @classmethod
     def declare_target(cls, target_dir, project, configuration):
         """TODO."""
-        include = cls.script_dir / 'include'
-        _wux.add_includes([include])
+        include = cls.script_dir.parent / 'include'
+        wux.add_includes([include])
         if len(cls.sources) != 0:
-            _wux.add_sources(cls.sources)
+            wux.add_sources(cls.sources)
             # code has been generated, add A661Connect to the makefile
-            lib = cls.script_dir / 'lib'
-            _wux.add_sources([lib / 'A661connect.c'])
+            lib = cls.script_dir.parent / 'lib'
+            wux.add_sources([lib / 'A661connect.c'])
 
     # ------------------------------------------------------------------------
     # settings

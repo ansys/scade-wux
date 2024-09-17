@@ -1,4 +1,4 @@
-# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,17 +20,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-Generic wrapper for hosting combined SCADE Suite integration extensions.
-
-Proxy to the main implementation, for interfacing releases of SCADE
-prior to 2025 R1.
-"""
-
-from ansys.scade.wux.gowrapper import GoWrapper
-
-
-class GoWrapper24R2(GoWrapper):
-    """TODO."""
-
-    pass
+"""TODO."""

@@ -1,4 +1,4 @@
-# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -23,14 +23,32 @@
 """
 SCADE Code Generation Module for utility SCADE Code Generation Services.
 
-Proxy to the main implementation, for interfacing releases of SCADE
-prior to 2025 R1.
+These services can be included on demand by SCADE Code Generator targets or extensions.
 """
 
-from ansys.scade.wux.module import WuxModule
+from ansys.scade.wux import __version__
+import ansys.scade.wux.impl.a661 as a661
+import ansys.scade.wux.impl.dllext as dllext
+import ansys.scade.wux.impl.kcgcontext as kcgcontext
+import ansys.scade.wux.impl.sdyext as sdyext
+import ansys.scade.wux.impl.simuext as simuext
 
 
-class Module24R2(WuxModule):
+class WuxModule:
     """TODO."""
 
-    pass
+    # identification
+    tool = 'Utility services for wrappers'
+    version = __version__
+
+    @classmethod
+    def get_services(cls):
+        """Declare all the provided utility services."""
+        print(cls.tool, cls.version)
+        services = []
+        services.extend(kcgcontext.get_services())
+        services.extend(sdyext.get_services())
+        services.extend(a661.get_services())
+        services.extend(simuext.get_services())
+        services.extend(dllext.get_services())
+        return services

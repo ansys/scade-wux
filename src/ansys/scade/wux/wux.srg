@@ -1,6 +1,6 @@
 [Scade/Generator/WUX2_MODULE]
 "Version"="25100"
-"Class"="ansys.scade.wux.module.WuxModule"
+"Class"="ansys.scade.wux.wuxmodule.WuxModule"
 
 [Scade/Simulator/Extensions/WUX2_GOWRP]
 "Server1"="DisplayExt"
