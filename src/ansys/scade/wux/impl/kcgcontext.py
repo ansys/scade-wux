@@ -88,7 +88,7 @@ class _WuxInterfacePrinter(InterfacePrinter):
 
 class WuxContext:
     """
-    Code Generator service for the integration.
+    Generator service for the integration (``WUX2_CTX``).
 
     * Context management
     * Sensors definition
@@ -313,6 +313,6 @@ class WuxContext:
 
 
 def get_services():
-    """TODO."""
+    """Return the list of Generation services implemented by this module."""
     wux_ctx = (WuxContext.ID, ('-OnInit', WuxContext.init), ('-OnGenerate', WuxContext.generate))
     return [wux_ctx]

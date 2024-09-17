@@ -20,31 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Registers the Code Generator extensions."""
+"""
+Registers the Code Generator extension registry files (SRG).
+
+Refer to the :ref:`installation <getting_started/index:install in user mode>`
+steps for more information.
+
+It addresses SCADE 2024 R2 and prior releases.
+SCADE 2025 R1 and above use the package's
+``ansys.scade.registry`` entry point.
+"""
 
 import os
 from pathlib import Path
 
-APPDATA = os.getenv('APPDATA')
+_APPDATA = os.getenv('APPDATA')
 
 
-def register_srg_file(srg: Path, install: Path):
-    """Copy the srg file to Customize and patch it with the installation directory."""
+def _register_srg_file(srg: Path, install: Path):
+    # copy the srg file to Customize and patch it with the installation directory.
     text = srg.open().read()
     text = text.replace('%TARGETDIR%', install.as_posix())
-    dst = Path(APPDATA, 'SCADE', 'Customize', srg.name)
+    dst = Path(_APPDATA, 'SCADE', 'Customize', srg.name)
+    dst.parent.mkdir(parents=True, exist_ok=True)
     dst.open('w').write(text)
 
 
-def wux_config():
-    """Register the Code Generator extension srg files."""
+def _wux_config():
+    # register the Code Generator extension registry files (SRG).
     script_dir = Path(__file__).parent
-    register_srg_file(script_dir / 'wux24r2.srg', script_dir)
+    _register_srg_file(script_dir / 'wux24r2.srg', script_dir)
 
 
 def main():
-    """Register package."""
-    wux_config()
+    """Implement the ``ansys.scade.wux.register`` packages's project script."""
+    _wux_config()
 
 
 if __name__ == '__main__':

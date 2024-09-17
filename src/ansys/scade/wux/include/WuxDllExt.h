@@ -36,10 +36,10 @@ public:
     CWuxDllInstance();
     virtual ~CWuxDllInstance();
     // interface
-    virtual BOOL OnProcessAttach(HMODULE htDllInstance);
-    virtual BOOL OnThreadAttach(HMODULE htDllInstance);
-    virtual BOOL OnThreadDetach(HMODULE htDllInstance);
-    virtual BOOL OnProcessDetach(HMODULE htDllInstance);
+    virtual BOOL OnProcessAttach(HMODULE hDllInstance);
+    virtual BOOL OnThreadAttach(HMODULE hDllInstance);
+    virtual BOOL OnThreadDetach(HMODULE hDllInstance);
+    virtual BOOL OnProcessDetach(HMODULE hDllInstance);
 };
 
 // access to the registered instances

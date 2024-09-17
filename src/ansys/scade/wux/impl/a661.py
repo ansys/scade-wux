@@ -342,6 +342,6 @@ class A661UAA:
 
 
 def get_services():
-    """TODO."""
+    """Return the list of Generation services implemented by this module."""
     uaa = ('WUX2_UAA', ('-OnInit', A661UAA.init), ('-OnGenerate', A661UAA.generate))
     return [uaa]

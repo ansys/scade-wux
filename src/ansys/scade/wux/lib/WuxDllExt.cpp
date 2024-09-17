@@ -63,22 +63,22 @@ CWuxDllInstance::~CWuxDllInstance()
 {
 }
 
-BOOL CWuxDllInstance::OnProcessAttach(HMODULE htDllInstance)
+BOOL CWuxDllInstance::OnProcessAttach(HMODULE hDllInstance)
 {
     return TRUE;
 }
 
-BOOL CWuxDllInstance::OnThreadAttach(HMODULE htDllInstance)
+BOOL CWuxDllInstance::OnThreadAttach(HMODULE hDllInstance)
 {
     return TRUE;
 }
 
-BOOL CWuxDllInstance::OnThreadDetach(HMODULE htDllInstance)
+BOOL CWuxDllInstance::OnThreadDetach(HMODULE hDllInstance)
 {
     return TRUE;
 }
 
-BOOL CWuxDllInstance::OnProcessDetach(HMODULE htDllInstance)
+BOOL CWuxDllInstance::OnProcessDetach(HMODULE hDllInstance)
 {
     return TRUE;
 }

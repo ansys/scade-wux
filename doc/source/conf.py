@@ -44,6 +44,7 @@ html_theme_options = {
         # "directory": "src/ansys",
         'class_content': 'both',  # documentation in https://sphinxdocs.ansys.com/version/stable/user-guide/autoapi.html
         'member_order': 'alphabetical',
+        'ignore': ['*/src/ansys/scade/wux/impl/*'],
     },
 }
 
@@ -57,7 +58,11 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_design',
     'ansys_sphinx_theme.extension.autoapi',
+    'sphinx.ext.autosectionlabel',
 ]
+
+# Make sure the target is unique
+autosectionlabel_prefix_document = True
 
 # Print the type annotations from the signature in the description only
 autodoc_typehints = 'description'

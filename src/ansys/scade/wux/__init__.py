@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Generic code integration wrapper and utilities for SCADE."""
+"""Provides a Generic code integration wrapper and utilities for SCADE."""
 
 import importlib.metadata as importlib_metadata
 from pathlib import Path
@@ -33,6 +33,12 @@ except (importlib_metadata.PackageNotFoundError, AttributeError):
 
 
 def srg() -> str:
-    """Path of the SCADE Studio registry file."""
+    r"""
+    Return the path of the SCADE Studio registry file.
+
+    This function implements the entry point "ansys.scade.registry/srg"
+    introduced in SCADE 2025 R1. It avoids creating an explicit srg file
+    in ``%APPDATA%\Scade\Customize`` when the package is installed.
+    """
     # the package's srg file is located in the same directory
     return str(Path(__file__).parent / 'wux.srg')

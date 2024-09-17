@@ -23,6 +23,8 @@
 
 """Proxies to the SCADE Display DLLs."""
 
+from typing import List
+
 import scade.model.suite.displaycoupling as sdy
 
 from ansys.scade.wux.impl.display import get_specifications
@@ -32,7 +34,7 @@ from ansys.scade.wux.wux import writeln
 # variables
 # ----------------------------------------------------------------------------
 
-_sdy_specifications: list[sdy.Specification] = []
+_sdy_specifications: List[sdy.Specification] = []
 
 # ----------------------------------------------------------------------------
 # generation

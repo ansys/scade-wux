@@ -37,7 +37,12 @@ import ansys.scade.wux.wux as wux
 
 
 class WuxSimuExt:
-    """TODO."""
+    """
+    Generator service for the integration (``WUX2_SIMU_EXT``).
+
+    * Patch the ``xxx_interface.c`` file from the SCADE Simulator
+      to replace the hooks
+    """
 
     ID = 'WUX2_SIMU_EXT'
     tool = "Extension for Simulator's extensions"
@@ -148,6 +153,6 @@ class WuxSimuExt:
 
 
 def get_services():
-    """TODO."""
+    """Return the list of Generation services implemented by this module."""
     wux_ctx = (WuxSimuExt.ID, ('-OnInit', WuxSimuExt.init), ('-OnGenerate', WuxSimuExt.generate))
     return [wux_ctx]

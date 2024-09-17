@@ -13,9 +13,11 @@ This package contains:
   by wrappers.
 * A Python library for developing wrappers.
 
+Contents
+--------
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
 
    getting_started/index
    usage/index
