@@ -33,15 +33,18 @@ extern "C" {
 #define SIM_INFO    1
 #define SIM_WARNING 2
 #define SIM_ERROR   3
+#ifndef NO_DOXYGEN
 #ifndef WUX_STANDALONE
 extern void SsmOutputMessage(int level, const char* str);
 #endif
+#endif /* NO_DOXYGEN */
 //}}
 
  /* ---------------------------------------------------------------------------
   * C interface for the simulator
   * ------------------------------------------------------------------------ */
 
+#ifndef NO_DOXYGEN
 extern void WuxBeforeSimInit();
 extern void WuxAfterSimInit();
 extern void WuxBeforeSimStep();
@@ -55,6 +58,7 @@ extern void WuxUpdateSimulatorValues();
 
 /* defined in xxx_interface.c */
 extern int GraphicalInputsConnected;
+#endif /* NO_DOXYGEN */
 
 #ifdef __cplusplus
 }
@@ -65,33 +69,204 @@ extern int GraphicalInputsConnected;
  * extension interface and registration
  * ------------------------------------------------------------------------ */
 
+ /**
+  * @brief Base class for extending a standalone executable or a SCADE
+  * simulation DLL.
+  *
+  * This class provides two interfaces:
+  *
+  * * Callbacks for the integrating application, for example the
+  *   SCADE Simulator or the *Generic Integration* wrapper's standalone
+  *   executable.
+  * * Extended callbacks for integration applications other than the
+  *   SCADE Simulator.
+  *
+  */
 class CWuxSimulatorExtension
 {
 public:
+    /**
+     * @brief Construct the instance and registers it.
+     *
+     */
     CWuxSimulatorExtension();
+    /**
+     * @brief Unregister the instance.
+     */
     virtual ~CWuxSimulatorExtension();
+
     // simulator interface
+    /**
+     * @brief Process the notification ``BeforeSimInit``.
+     *
+     * This notification is sent before the initialization of the generated
+     * code, either from SCADE Suite or from SCADE Display.
+     *
+     * The default implementation is empty.
+     */
     virtual void BeforeSimInit();
+    /**
+     * @brief Process the notification ``AfterSimInit``.
+     *
+     * This notification is sent after the initialization of the generated
+     * code, either from SCADE Suite or from SCADE Display.
+     *
+     * The default implementation is empty.
+     */
     virtual void AfterSimInit();
+    /**
+     * @brief Process the notification ``BeforeSimStep``.
+     *
+     * This notification is sent before the call to to the cyclic functions
+     * of the root operators.
+     *
+     * The default implementation is empty.
+     */
     virtual void BeforeSimStep();
+    /**
+     * @brief Process the notification ``AfterSimStep``.
+     *
+     * This notification is sent after the call to to the cyclic functions
+     * of the root operators.
+     *
+     * The default implementation is empty.
+     */
     virtual void AfterSimStep();
+    /**
+     * @brief Process the notification ``ExtendedSimStop``.
+     *
+     * This notification is sent when the main loop exits.
+     *
+     * The default implementation is empty.
+     */
     virtual void ExtendedSimStop();
+    /**
+     * @brief Retrieve additional dump data.
+     *
+     * This function is called by the SCADE Simulator and its
+     * purpose is unclear.
+     *
+     * The default implementation is empty.
+     */
     virtual void ExtendedGatherDumpData(char* pData);
+    /**
+     * @brief Restore additional dump data.
+     *
+     * This function is called by the SCADE Simulator and its
+     * purpose is unclear.
+     *
+     * The default implementation is empty.
+     */
     virtual void ExtendedRestoreDumpData(const char* pData);
+    /**
+     * @brief Return the size of additional dump data.
+     *
+     * This function is called by the SCADE Simulator and its
+     * purpose is unclear.
+     *
+     * The default implementation returns 0.
+     */
     virtual int ExtendedGetDumpSize();
+    /**
+     * @brief Process the notification ``UpdateValues``.
+     *
+     * This function is called by the SCADE Simulator and its
+     * purpose is unclear.
+     *
+     * The default implementation is empty.
+     * @return int
+     */
     virtual void UpdateValues();
+    /**
+     * @brief Process the notification ``UpdateSimulatorValues``.
+     *
+     * This function is called by the SCADE Simulator and its
+     * purpose is unclear.
+     *
+     * The default implementation is empty.
+     */
     virtual void UpdateSimulatorValues();
+
     // integration interface
+    /**
+     * @brief Return the identifier of the extension.
+     *
+     * The default implementation returns ``"<none>"``.
+     * @return const char*
+     */
     virtual const char* GetIdent();
+    /**
+     * @brief Process the notification ``IntegrationStart``.
+     *
+     * This function is called at startup, when the target is not the
+     * SCADE Simulator. It allows accessing the command line parameters
+     * specified when running the standalone executable.
+     *
+     * Return ``false`` to stop the process, otherwise ``true``.
+     *
+     * The default implementation is empty and returns ``true``.
+     *
+     * @param argc number of parameters
+     * @param argv array of parameters
+     * @ return bool
+     */
     virtual bool IntegrationStart(int argc, char* argv[]);
+    /**
+     * @brief Process the notification ``IntegrationStop``.
+     *
+     * This function is called before the process stops, when the target is
+     * not the SCADE Simulator.
+     *
+     * The default implementation is empty.
+     */
     virtual void IntegrationStop();
+    /**
+     * @brief Return whether the extension has its own synchronization mechanism.
+     *
+     * When none of the registered extensions returns ``true``, the integration
+     * uses the specified period to clock the main loop.
+     *
+     * This function is not called when the target is the SCADE Simulator.
+     *
+     * The default implementation returns ``false``.
+     */
     virtual bool SelfPaced();
+    /**
+     * @brief Return whether the extension is alive.
+     *
+     * The process stops assoon as a registered extensions returns ``false``.
+     * For example, when a connection is closed.
+     *
+     * This function is not called when the target is the SCADE Simulator.
+     *
+     * The default implementation returns ``true``.
+     */
     virtual bool IsAlive();
+    /**
+     * @brief Log a message.
+     *
+     * The message is logged to the standard output, or to the *Simulator* tab
+     * of the output window when the target is the SCADE Simulator.
+     *
+     * @param nLevel SIM_INFO, SIM_WARNING or SIM_ERROR
+     * @param pszFormat Format control
+     * @param ... Optional arguments
+     */
     virtual void Logf(int nLevel, const char* pszFormat, ...);
 };
 
 // access to the registered extensions
+/**
+ * @brief Return the number of registered extensions.
+ * @return int
+ */
 int WuxGetExtensionsCount();
+/**
+ * @brief Return the array of the registered extensions.
+ *
+ * The number of elements is provided by ``WuxGetExtensionsCount``.
+ * @return CWuxSimulatorExtension**
+ */
 CWuxSimulatorExtension** WuxGetExtensions();
 
 #endif /* __cplusplus */
