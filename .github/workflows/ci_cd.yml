@@ -68,7 +68,13 @@ jobs:
     timeout-minutes: 30
     needs: [doc-style]
     steps:
-      - uses: ansys/actions/doc-build@v6
+      - name: "Install doxygen"
+        run: |
+          sudo apt update
+          sudo apt install doxygen
+
+      - name: "Build documentation"
+        uses: ansys/actions/doc-build@v6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
