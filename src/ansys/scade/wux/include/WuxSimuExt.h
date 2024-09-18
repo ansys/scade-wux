@@ -25,6 +25,12 @@
 #ifndef _WUX_SIMU_EXT_H_88D3C7D0_032B_4F14_A265_7950453CC8D1_
 #define _WUX_SIMU_EXT_H_88D3C7D0_032B_4F14_A265_7950453CC8D1_
 
+/**
+ * @file
+ * @brief Interfaces for standalone executables or simulation DLL extensions.
+ *
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -174,7 +180,6 @@ public:
      * purpose is unclear.
      *
      * The default implementation is empty.
-     * @return int
      */
     virtual void UpdateValues();
     /**

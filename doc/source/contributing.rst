@@ -58,6 +58,10 @@ source and enhance it.
       python -m pip install .[tests]   # for testing the package
       python -m pip install .[doc]     # for building the documentation
 
+#. Install `doxygen`_
+
+   https://www.doxygen.nl/download.html
+
 #. Install the project in editable mode:
 
    .. code:: bash
@@ -185,3 +189,4 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _wheel file: https://github.com/ansys/scade-wux/releases
+.. _doxygen: https://www.doxygen.nl/

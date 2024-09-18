@@ -22,6 +22,7 @@ Contents
    getting_started/index
    usage/index
    api/index
+   runtime/index
    contributing
 
 Indices and tables

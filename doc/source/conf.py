@@ -1,6 +1,8 @@
 """Sphinx documentation configuration file."""
 from datetime import datetime
 import os
+from pathlib import Path
+import subprocess
 
 from ansys_sphinx_theme import (
     ansys_favicon,
@@ -59,6 +61,7 @@ extensions = [
     'sphinx_design',
     'ansys_sphinx_theme.extension.autoapi',
     'sphinx.ext.autosectionlabel',
+    'breathe',
 ]
 
 # Make sure the target is unique
@@ -156,3 +159,42 @@ linkcheck_ignore = [
 
 if switcher_version != 'dev':
     linkcheck_ignore.append(f'https://github.com/ansys/scade-git/releases/tag/v{__version__}')
+
+# -- Import the C++ docs -----------------------------------------------------
+
+source_dir = Path(__file__).parent
+root_dir = source_dir.parent.parent
+# output directory: make sure it exists
+doxygen_dir = source_dir / '_doxygen'
+doxygen_dir.mkdir(exist_ok=True)
+
+# path of doxygen configuration files are relative to the current directory
+# -> copy the configuration file from a template, patched with an
+#    absolute directory, so that the command is independent from the
+#    current directory
+# read the doxygen configuration template file
+text = (source_dir / '_templates' / 'includes.dox').open().read()
+# replace the macro {{repository}} by root_dir
+text = text.replace('{{repository}}', str(root_dir))
+# write the configuration file to the doxygen target directory
+(doxygen_dir / 'includes.dox').open('w').write(text)
+
+subprocess.call('doxygen %s/includes.dox' % doxygen_dir, shell=True)
+
+breathe_projects = {
+    'interfaces': '%s/xml/' % doxygen_dir,
+}
+breathe_default_project = 'interfaces'
+
+breathe_projects_source = {
+    'interfaces': (
+        '%s/src/ansys/scade/wux/include' % root_dir,
+        ['WuxA661Ext.h', 'WuxCtxExt.h', 'WuxDllExt.h', 'WuxSdyExt.h', 'WuxSimuExt.h'],
+    ),
+}
+breathe_show_include = False
+breathe_separate_member_pages = True
+
+breathe_doxygen_config_options = {
+    'PREDEFINED': '__cplusplus NO_DOXYGEN',
+}

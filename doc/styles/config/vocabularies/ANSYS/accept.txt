@@ -11,3 +11,4 @@ DLLs
 wux
 pytest
 preprocessor
+doxygen
