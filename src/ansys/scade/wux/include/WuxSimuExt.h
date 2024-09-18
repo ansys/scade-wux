@@ -36,8 +36,20 @@ extern "C" {
 #endif
 
 //{{ definitions from xxx_interface.h: no easy way to include this generated file from the runtime
+/**
+ * @brief "Information" level for CWuxSimulatorExtension::Logf
+ *
+ */
 #define SIM_INFO    1
+ /**
+  * @brief "Warning" level for CWuxSimulatorExtension::Logf
+  *
+  */
 #define SIM_WARNING 2
+/**
+ * @brief "Error" level for CWuxSimulatorExtension::Logf
+ *
+ */
 #define SIM_ERROR   3
 #ifndef NO_DOXYGEN
 #ifndef WUX_STANDALONE
