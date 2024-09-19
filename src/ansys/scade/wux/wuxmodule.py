@@ -23,7 +23,8 @@
 """
 SCADE Code Generation Module for utility SCADE Code Generation Services.
 
-These services can be included on demand by SCADE Code Generator targets or extensions.
+These :ref:`services <usage/services:generation services>` can be included
+on demand by SCADE Code Generator extensions: target, adaptor or extension.
 """
 
 from ansys.scade.wux import __version__
@@ -35,16 +36,22 @@ import ansys.scade.wux.impl.simuext as simuext
 
 
 class WuxModule:
-    """TODO."""
+    """
+    Implements the generation module interface for ``WUX2_MODULE``.
+
+    Refer to :ref:`usage/services:generation services` to for its usage.
+
+    Refer to *Generation Module* in the User Documentation,
+    section *Declaring Code Generator Extension*.
+    """
 
     # identification
-    tool = 'Utility services for wrappers'
-    version = __version__
+    _tool = 'Utility services for wrappers'
 
     @classmethod
     def get_services(cls):
         """Declare all the provided utility services."""
-        print(cls.tool, cls.version)
+        print(cls._tool, __version__)
         services = []
         services.extend(kcgcontext.get_services())
         services.extend(sdyext.get_services())

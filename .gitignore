@@ -163,3 +163,4 @@ cython_debug/
 *.sln
 *.pyproj
 doc/source/api/
+doc/source/_doxygen/

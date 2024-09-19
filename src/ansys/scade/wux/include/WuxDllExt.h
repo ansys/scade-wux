@@ -25,25 +25,90 @@
 #ifndef _WUX_DLL_EXT_H_513696AF_1B4F_4788_AFAE_399735605667_
 #define _WUX_DLL_EXT_H_513696AF_1B4F_4788_AFAE_399735605667_
 
+/**
+ * @file
+ * @brief Interfaces for subscribing to ``DllMain`` callbacks.
+ *
+ * The ``lib/WuxDllExt.cpp`` runtime file defines ``DllMain`` and calls
+ * all the registered clients.
+ *
+ * This is relevant if and only if the target is a DLL and not a
+ * standalone executable.
+ */
+
 /* ---------------------------------------------------------------------------
  * extension interface and registration
  * ------------------------------------------------------------------------ */
 
 #ifdef __cplusplus
+/**
+ * @brief Base class for ``DllMain`` clients.
+ *
+ */
 class CWuxDllInstance
 {
 public:
+    /**
+     * @brief Construct the instance and register it to ``DllMain``.
+     *
+     */
     CWuxDllInstance();
+    /**
+     * @brief Unregister the instance from ``DllMain``.
+     *
+     */
     virtual ~CWuxDllInstance();
     // interface
-    virtual BOOL OnProcessAttach(HMODULE htDllInstance);
-    virtual BOOL OnThreadAttach(HMODULE htDllInstance);
-    virtual BOOL OnThreadDetach(HMODULE htDllInstance);
-    virtual BOOL OnProcessDetach(HMODULE htDllInstance);
+    /**
+     * @brief Process the ``DLL_PROCESS_ATTACH`` notification.
+     *
+     * Return TRUE on success, otherwise FALSE.
+     *
+     * The default implementation is empty and returns True.
+     * @return bool
+     */
+    virtual BOOL OnProcessAttach(HMODULE hDllInstance);
+    /**
+     * @brief Process the ``DLL_THREAD_ATTACH`` notification.
+     *
+     * Return TRUE on success, otherwise FALSE.
+     *
+     * The default implementation is empty and returns True.
+     * @return bool
+     */
+    virtual BOOL OnThreadAttach(HMODULE hDllInstance);
+    /**
+     * @brief Process the ``DLL_THREAD_DETACH`` notification.
+     *
+     * Return TRUE on success, otherwise FALSE.
+     *
+     * The default implementation is empty and returns True.
+     * @return bool
+     */
+    virtual BOOL OnThreadDetach(HMODULE hDllInstance);
+    /**
+     * @brief Process the ``DLL_PROCESS_DETACH`` notification.
+     *
+     * Return TRUE on success, otherwise FALSE.
+     *
+     * The default implementation is empty and returns True.
+     * @return bool
+     */
+    virtual BOOL OnProcessDetach(HMODULE hDllInstance);
 };
 
 // access to the registered instances
+/**
+ * @brief Return the number of registered clients.
+ * @return int
+ */
 int WuxGetDllInstancesCount();
+/**
+ * @brief Return the array of the registered clients.
+ *
+ * The number of elements is provided by ``WuxGetDllInstancesCount``.
+ * @return CWuxDllInstance**
+ */
 CWuxDllInstance** WuxGetDllInstances();
 #endif /* __cplusplus */
 
@@ -51,6 +116,13 @@ CWuxDllInstance** WuxGetDllInstances();
 extern "C" {
 #endif
 
+/**
+ * @brief Return the instance of the DLL.
+ *
+ * This handle is cached when ``DllMain`` is called with the reason
+ * ``DLL_PROCESS_ATTACH``.
+ * @return HMODULE
+ */
 extern HMODULE WuxGetDllInstance();
 
 #ifdef __cplusplus

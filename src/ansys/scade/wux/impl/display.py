@@ -50,7 +50,6 @@ sdy_specifications = []
 
 # Initialize all script global variables
 def set_variables(project, configuration, roots):
-    """TODO."""
     global sdy_display_home
     global sdy_rapidproto_home
     global sdy_appplication
@@ -119,7 +118,6 @@ def set_variables(project, configuration, roots):
 
 # Find spec by basename
 def get_spec_from_basename(basename):
-    """TODO."""
     for spec in sdy_specifications:
         if os.path.abspath(spec.pathname) == os.path.abspath(
             os.path.join(sdy_map_file_dir, basename)
@@ -129,7 +127,6 @@ def get_spec_from_basename(basename):
 
 
 def is_scalar(sctype):
-    """TODO."""
     if sctype.is_predefined():
         return True
     if isinstance(sctype, suite.Enumeration):
@@ -140,7 +137,6 @@ def is_scalar(sctype):
 
 
 def get_specifications():
-    """TODO."""
     return sdy_specifications
 
 
@@ -150,19 +146,16 @@ def get_specifications():
 
 
 def print_info(*messages):
-    """TODO."""
     print(*messages)
 
 
 def print_error(message):
-    """TODO."""
     print('ERROR: ', message)
 
 
 def declare_local_vars(
     f, scs_class, scs_subelement, local_var_name, sdy_class, sdy_type, sdy_prefix
 ):
-    """TODO."""
     # Resolve class types
     while isinstance(sdy_class, suite.NamedType) and not sdy_class.is_predefined():
         sdy_class = sdy_class.type
@@ -272,7 +265,6 @@ def declare_local_vars(
 
 
 def fix_indexes(subelements):
-    """TODO."""
     # Subtract 1 to indexes (in connection file, indexing starts at 1)
     return re.sub(r'\[(\d+)\]', lambda m: '[{}]'.format(int(m.group(1)) - 1), subelements)
 
@@ -280,7 +272,6 @@ def fix_indexes(subelements):
 def convert_var(
     f, kind, level, scs_class, scs_subelement, local_var_name, cpath, sdy_class, pluggable
 ):
-    """TODO."""
     # Resolve class types
     while isinstance(sdy_class, suite.NamedType) and not sdy_class.is_predefined():
         sdy_class = sdy_class.type
@@ -391,7 +382,6 @@ def convert_var(
 
 
 def gen_suite_display_connection(f, ip, output, input):
-    """TODO."""
     # Compute SCADE Suite output characteristics
     output_instance_path = output.instancepath
     if output_instance_path == '':
@@ -493,7 +483,6 @@ def gen_suite_display_connection(f, ip, output, input):
 
 
 def gen_display_suite_connection(f, ip, output, input):
-    """TODO."""
     # Compute SCADE Suite input characteristics
     input_instance_path = input.instancepath
     if input_instance_path == '':
@@ -624,7 +613,6 @@ def gen_display_suite_connection(f, ip, output, input):
 
 
 def gen_includes(f, project):
-    """TODO."""
     writeln(f, 0, '/* SCADE Suite contexts */')
     writeln(f, 0, '#include "wuxctx%s.h"' % pathlib.Path(project.pathname).stem)
     writeln(f)
@@ -640,7 +628,6 @@ def gen_includes(f, project):
 
 
 def gen_init(f):
-    """TODO."""
     count = len(sdy_specifications)
     writeln(f, 0, '/* SCADE Display init */')
     writeln(f, 0, '#ifdef WUX_DISPLAY_AS_BUFFERS')
@@ -680,7 +667,6 @@ def gen_init(f):
 
 
 def gen_draw(f):
-    """TODO."""
     writeln(f, 0, '/* SCADE Display cycle */')
     writeln(f, 0, 'void WuxSdyDraw()')
     writeln(f, 0, '{')
@@ -692,7 +678,6 @@ def gen_draw(f):
 
 
 def gen_ios(f, ips):
-    """TODO."""
     writeln(f, 0, '/* Connections Suite => Display */')
     writeln(f, 0, 'void WuxSdySetInputs()')
     writeln(f, 0, '{')
@@ -730,7 +715,6 @@ def gen_ios(f, ips):
 
 
 def gen_cancelled(f):
-    """TODO."""
     writeln(f, 0, '/* SCADE Display cancelled */')
     writeln(f, 0, 'int WuxSdyCancelled()')
     writeln(f, 0, '{')
@@ -742,7 +726,6 @@ def gen_cancelled(f):
 
 
 def generate(f, target_dir, project, configuration, roots, ips):
-    """TODO."""
     set_variables(project, configuration, roots)
     gen_includes(f, project)
     gen_init(f)
@@ -757,7 +740,6 @@ def generate(f, target_dir, project, configuration, roots, ips):
 
 
 def build(target_dir, project, configuration):
-    """TODO."""
     ok = True
     # generate in a sub directory to not have the header files deleted by
     # the generation process (bourrin) prior any generation

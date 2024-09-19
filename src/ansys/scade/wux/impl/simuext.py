@@ -37,7 +37,12 @@ import ansys.scade.wux.wux as wux
 
 
 class WuxSimuExt:
-    """TODO."""
+    """
+    Generator service for the integration (``WUX2_SIMU_EXT``).
+
+    * Patch the ``xxx_interface.c`` file from the SCADE Simulator
+      to replace the hooks
+    """
 
     ID = 'WUX2_SIMU_EXT'
     tool = "Extension for Simulator's extensions"
@@ -53,7 +58,6 @@ class WuxSimuExt:
 
     @classmethod
     def init(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         # check simulation mode
         cls.set_simulation(project, configuration)
         # if the simulator in involved, it must be executed before
@@ -65,7 +69,6 @@ class WuxSimuExt:
 
     @classmethod
     def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        """TODO."""
         if not cls.simulation:
             return True
 
@@ -132,7 +135,6 @@ class WuxSimuExt:
 
     @classmethod
     def set_simulation(cls, project: Project, configuration: Configuration):
-        """TODO."""
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
@@ -148,6 +150,6 @@ class WuxSimuExt:
 
 
 def get_services():
-    """TODO."""
+    """Return the list of Generation services implemented by this module."""
     wux_ctx = (WuxSimuExt.ID, ('-OnInit', WuxSimuExt.init), ('-OnGenerate', WuxSimuExt.generate))
     return [wux_ctx]

@@ -23,6 +23,8 @@
 
 """Proxies to the SCADE Display DLLs."""
 
+from typing import List
+
 import scade.model.suite.displaycoupling as sdy
 
 from ansys.scade.wux.impl.display import get_specifications
@@ -32,7 +34,7 @@ from ansys.scade.wux.wux import writeln
 # variables
 # ----------------------------------------------------------------------------
 
-_sdy_specifications: list[sdy.Specification] = []
+_sdy_specifications: List[sdy.Specification] = []
 
 # ----------------------------------------------------------------------------
 # generation
@@ -40,7 +42,6 @@ _sdy_specifications: list[sdy.Specification] = []
 
 
 def gen_includes(f):
-    """TODO."""
     writeln(f, 0, '#include <windows.h>')
     writeln(f, 0, '#include <stdio.h>')
     writeln(f)
@@ -60,7 +61,6 @@ def gen_includes(f):
 
 
 def gen_proxy_class(f, spec):
-    """TODO."""
     prefix = spec.prefix
     writeln(f, 0, 'class C{0}DllProxy : public CSdyDllProxy'.format(prefix))
     writeln(f, 0, '{')
@@ -80,7 +80,6 @@ def gen_proxy_class(f, spec):
 
 
 def gen_proxy_functions(f, spec):
-    """TODO."""
     prefix = spec.prefix
     writeln(f, 0, 'void C{0}DllProxy::ZeroPointers()'.format(prefix))
     writeln(f, 0, '{')
@@ -133,7 +132,6 @@ def gen_proxy_functions(f, spec):
 
 
 def gen_instances(f):
-    """TODO."""
     if _sdy_specifications:
         writeln(
             f,
@@ -147,7 +145,6 @@ def gen_instances(f):
 
 
 def gen_load(f):
-    """TODO."""
     writeln(f, 0, 'int WuxLoadSdyDlls(/*HINSTANCE*/ void* hinstDll)')
     writeln(f, 0, '{')
     if _sdy_specifications:
@@ -168,7 +165,6 @@ def gen_load(f):
 
 
 def gen_unload(f):
-    """TODO."""
     writeln(f, 0, 'int WuxUnloadSdyDlls(/*HINSTANCE*/ void* hinstDll)')
     writeln(f, 0, '{')
     if _sdy_specifications:
@@ -183,7 +179,6 @@ def gen_unload(f):
 
 
 def generate(f, target_dir, project, configuration):
-    """TODO."""
     global _sdy_specifications
 
     _sdy_specifications = get_specifications()
