@@ -39,6 +39,7 @@
 typedef struct SA661ConnectGlobals {
     SOCKET m_SockFd;
     char m_szErrMsg[ERRMSG_SIZE];
+    int m_nError;
     int m_bConnected;
     unsigned m_nPort;
     char m_szHostName[BUF_SIZE];
@@ -47,7 +48,7 @@ typedef struct SA661ConnectGlobals {
 } A661ConnectGlobals;
 
 static A661ConnectGlobals Globals = {
-    INVALID_SOCKET, "", 0, 0, DEFAULT_HOSTNAME, 0, 0
+    INVALID_SOCKET, "", 0, 0, 0, DEFAULT_HOSTNAME, 0, 0
 };
 
 static int A661ReconnectServer();
@@ -55,25 +56,25 @@ static int A661ReconnectServer();
 /*
  * Receive Message
  */
-int A661ReceiveEx(unsigned char *pszBuffer, int nBufSize, int bWait)
+size_t A661ReceiveEx(unsigned char *pszBuffer, size_t nBufSize, int bWait)
 {
     int nRecv;
-    unsigned int len;
+    size_t len;
     unsigned long argp;
-    int offset;
+    size_t offset;
 
     *Globals.m_szErrMsg = '\0';
 
     if (A661ReconnectServer() != OK) {
         sprintf(Globals.m_szErrMsg, "not connected\n");
-        return NOTCONNECTED_ERROR;
+        Globals.m_nError = NOTCONNECTED_ERROR;
+        return 0;
     }
 
     argp = bWait ? 0 : 1;
     ioctlsocket(Globals.m_SockFd, FIONBIO, &argp);
     /* read header */
-    len = 8;
-    nRecv = recv(Globals.m_SockFd, (char *) pszBuffer, len, 0);
+    nRecv = recv(Globals.m_SockFd, (char *) pszBuffer, 8, 0);
     if (nRecv == SOCKET_ERROR) {
         int code = WSAGetLastError();
         switch (code) {
@@ -84,10 +85,12 @@ int A661ReceiveEx(unsigned char *pszBuffer, int nBufSize, int bWait)
                 sprintf(Globals.m_szErrMsg, "lost connection %d\n", code);
                 /* disconnect */
                 A661DisconnectServer();
-                return NOTCONNECTED_ERROR;
+                Globals.m_nError = NOTCONNECTED_ERROR;
+                return 0;
             default:
                 sprintf(Globals.m_szErrMsg, "recv error %d\n", code);
-                return RECEIVE_ERROR;
+                Globals.m_nError = RECEIVE_ERROR;
+                return 0;
         }
     }
     if (nRecv == 0) {
@@ -96,34 +99,39 @@ int A661ReceiveEx(unsigned char *pszBuffer, int nBufSize, int bWait)
     }
     if (nRecv < 0) {
         sprintf(Globals.m_szErrMsg, "receive error\n");
-        return RECEIVE_ERROR;
+        Globals.m_nError = RECEIVE_ERROR;
+        return 0;
     }
     if (nRecv < 8) {
         sprintf(Globals.m_szErrMsg, "not enough bytes: %d (expected at least 8)\n", nRecv);
-        return RECEIVE_ERROR;
+        Globals.m_nError = RECEIVE_ERROR;
+        return 0;
     }
     // len = (pszBuffer[4] << 3) + (pszBuffer[5] << 2) + (pszBuffer[6] << 1) + pszBuffer[7];
     len = (pszBuffer[4] << 24) + (pszBuffer[5] << 16) + (pszBuffer[6] << 8) + pszBuffer[7];
     if (pszBuffer[0] != 0xB0) {
         sprintf(Globals.m_szErrMsg, "header error: %08x%08x\n", ((unsigned long*) pszBuffer)[0], ((unsigned long*) pszBuffer)[1]);
-        return RECEIVE_ERROR;
+        Globals.m_nError = RECEIVE_ERROR;
+        return 0;
     }
     if (len > nBufSize) {
-        sprintf(Globals.m_szErrMsg, "buffer overflow %d (max %d)\n", len, nBufSize);
-        return OVERFLOW_ERROR;
+        sprintf(Globals.m_szErrMsg, "buffer overflow %zu (max %zu)\n", len, nBufSize);
+        Globals.m_nError = OVERFLOW_ERROR;
+        return 0;
     }
 
     /* read message */
     for (offset = nRecv; offset < len; offset += nRecv) {
-        nRecv = recv(Globals.m_SockFd, (char *) &pszBuffer[offset], len - offset, 0);
+        nRecv = recv(Globals.m_SockFd, (char *) &pszBuffer[offset], (int) (len - offset), 0);
         if (nRecv < 0) {
             sprintf(Globals.m_szErrMsg, "receive error\n");
-            return RECEIVE_ERROR;
+            Globals.m_nError = RECEIVE_ERROR;
+            return 0;
         }
     }
 
     if (Globals.m_fdLog != NULL) {
-        int i, j, k;
+        size_t i, j, k;
         fprintf(Globals.m_fdLog, "receive buffer:\n");
         for (i = 0; i < len; i += 16) {
             for (j = i; j < (i + 16) && j < len; j += 4) {
@@ -138,10 +146,11 @@ int A661ReceiveEx(unsigned char *pszBuffer, int nBufSize, int bWait)
         fflush(Globals.m_fdLog);
     }
 
-    return OK;
+    // return OK;
+    return (int) len;
 }
 
-int A661Receive(unsigned char* pszBuffer, int nBufSize)
+size_t A661Receive(unsigned char* pszBuffer, size_t nBufSize)
 {
     // former implementation does not wait
     return A661ReceiveEx(pszBuffer, nBufSize, 0);
@@ -150,12 +159,12 @@ int A661Receive(unsigned char* pszBuffer, int nBufSize)
 /*
  * Send Message
  */
-int A661Send(unsigned char *msg, int msg_len)
+int A661Send(unsigned char *msg, size_t msg_len)
 {
     unsigned long argp = 0;
 
     if (Globals.m_fdLog != NULL) {
-        int i, j, k;
+        size_t i, j, k;
         fprintf(Globals.m_fdLog, "send buffer:\n");
         for (i = 0; i < msg_len; i += 16) {
             for (j = i; j < (i + 16) && j < msg_len; j += 4) {
@@ -175,7 +184,7 @@ int A661Send(unsigned char *msg, int msg_len)
     }
 
     ioctlsocket(Globals.m_SockFd, FIONBIO, &argp);
-    if (send(Globals.m_SockFd, (char *) msg, msg_len, 0) != msg_len) {
+    if (send(Globals.m_SockFd, (char *) msg, (int) msg_len, 0) != msg_len) {
         return SEND_ERROR;
     }
 
@@ -324,6 +333,6 @@ int A661SetLogFile(const char *pszPath)
 int A661GetLastError(const char** ppszError)
 {
     *ppszError = Globals.m_szErrMsg;
-    return OK;
+    return Globals.m_nError;
 }
 #endif /* _WIN32 */

@@ -1,9 +1,9 @@
 # Integration test for SCADE Display
 ## Overview
-The project variables allows testing manually the Generic Integration wrapper and the following generation services:
+The project `Variables` allows testing manually the Generic Integration wrapper and the following generation services:
 
+* WUX2_CTX
 * WUX2_SDY
-* WUX2_SIMU_EXT
 
 ## Setup
 Register the package to SCADE:

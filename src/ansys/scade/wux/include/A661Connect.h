@@ -31,9 +31,9 @@ extern "C" {
 extern int A661SetLogFile(const char* pszPath);
 extern int A661ConnectServer(const char* pszHostName, unsigned short nPort);
 extern int A661DisconnectServer();
-extern int A661Receive(unsigned char* pszBuffer, int nBufSize);
-extern int A661ReceiveEx(unsigned char* pszBuffer, int nBufSize, int bWait);
-extern int A661Send(unsigned char* pszMessage, int nMsgLen);
+extern size_t A661Receive(unsigned char* pszBuffer, size_t nBufSize);
+extern size_t A661ReceiveEx(unsigned char* pszBuffer, size_t nBufSize, int bWait);
+extern int A661Send(unsigned char* pszMessage, size_t nMsgLen);
 extern int A661GetLastError(const char** ppszError);
 #ifdef __cplusplus
 }

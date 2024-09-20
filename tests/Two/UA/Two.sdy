@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MappingFile xmlns:a661="http://www.esterel-technologies.com/ns/a661/1">
+	 	<operatorMappings>
+		<OperatorMapping name="Two" oid="!ed/17fd/7287/5AB4/5b3bdf5a1df9">
+			<mappingItems>
+				<MappingItem>
+					<output>
+						<Variable name="duPowerLeft" type="bool" oid="!ed/2b91/3DBB/38C4/5b3c95285e30" subelement=".Emit" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Emit" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="b2fbe067-61f8-4d84-a492-88d44f292b08" LayerIdent="21" WidgetIdent="7" ParameterIdent="A661_VALUE" WidgetType="NumericReadout" WidgetName="PWR LEFT">
+							<A661Data>
+								<Emit/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duPowerLeft" type="float32" oid="!ed/2b91/3DBB/38C4/5b3c95285e30" subelement=".Value" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="b2fbe067-61f8-4d84-a492-88d44f292b08" LayerIdent="21" WidgetIdent="7" ParameterIdent="A661_VALUE" WidgetType="NumericReadout" WidgetName="PWR LEFT">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duPowerRight" type="bool" oid="!ed/668c/3DBB/38C4/5b3cbf061aa6" subelement=".Emit" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Emit" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="634ae3dc-3a07-4816-bea1-ba8daf02dc77" LayerIdent="21" WidgetIdent="6" ParameterIdent="A661_VALUE" WidgetType="NumericReadout" WidgetName="PWR RIGHT">
+							<A661Data>
+								<Emit/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duPowerRight" type="float32" oid="!ed/668c/3DBB/38C4/5b3cbf061aa6" subelement=".Value" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="634ae3dc-3a07-4816-bea1-ba8daf02dc77" LayerIdent="21" WidgetIdent="6" ParameterIdent="A661_VALUE" WidgetType="NumericReadout" WidgetName="PWR RIGHT">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duThrottleValueRight" type="bool" oid="!ed/1b30/6B3E/4784/5b3cd01d5768" subelement=".Emit" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Emit" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="99bfd1df-2352-4170-b85b-c3fecc527f6c" LayerIdent="21" WidgetIdent="9" ParameterIdent="A661_VALUE" WidgetType="Slider" WidgetName="ENG RIGHT LVR">
+							<A661Data>
+								<Emit/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duThrottleValueRight" type="float32" oid="!ed/1b30/6B3E/4784/5b3cd01d5768" subelement=".Value" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="99bfd1df-2352-4170-b85b-c3fecc527f6c" LayerIdent="21" WidgetIdent="9" ParameterIdent="A661_VALUE" WidgetType="Slider" WidgetName="ENG RIGHT LVR">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duThrottleValueLeft" type="bool" oid="!ed/1b29/6B3E/4784/5b3cd01d4a8" subelement=".Emit" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Emit" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="30060458-f454-47ae-9c31-265a32b601a1" LayerIdent="21" WidgetIdent="2" ParameterIdent="A661_VALUE" WidgetType="Slider" WidgetName="ENG LEFT LVR">
+							<A661Data>
+								<Emit/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duThrottleValueLeft" type="float32" oid="!ed/1b29/6B3E/4784/5b3cd01d4a8" subelement=".Value" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="30060458-f454-47ae-9c31-265a32b601a1" LayerIdent="21" WidgetIdent="2" ParameterIdent="A661_VALUE" WidgetType="Slider" WidgetName="ENG LEFT LVR">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="Notify" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="aaed92d6-9187-4c1b-a284-9c4bf9b4ae7f" LayerIdent="21" WidgetIdent="8" ParameterIdent="A661_EVT_STATE_CHANGE" WidgetType="ToggleButton" WidgetName="LOCK LEVERS">
+							<A661Data>
+								<Notify/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleLockState" type="bool" oid="!ed/673e/3DBB/38C4/5b3cc2247b81" subelement=".Emit" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="Notify" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="99bfd1df-2352-4170-b85b-c3fecc527f6c" LayerIdent="21" WidgetIdent="9" ParameterIdent="A661_EVT_VALUE_CHANGE" WidgetType="Slider" WidgetName="ENG RIGHT LVR">
+							<A661Data>
+								<Notify/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleChangedRight" type="bool" oid="!ed/669f/3DBB/38C4/5b3cbfca2878" subelement=".Emit" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="Notify" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="30060458-f454-47ae-9c31-265a32b601a1" LayerIdent="21" WidgetIdent="2" ParameterIdent="A661_EVT_VALUE_CHANGE" WidgetType="Slider" WidgetName="ENG LEFT LVR">
+							<A661Data>
+								<Notify/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleChangedLeft" type="bool" oid="!ed/1809/7287/5AB4/5b3be0357aeb" subelement=".Emit" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duInitLockState" type="bool" oid="!ed/4963/7D79/326C/5b50f28f78c7" subelement=".Emit" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="Emit" type="bit" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="aaed92d6-9187-4c1b-a284-9c4bf9b4ae7f" LayerIdent="21" WidgetIdent="8" ParameterIdent="A661_INNER_STATE_TOGGLE" WidgetType="ToggleButton" WidgetName="LOCK LEVERS">
+							<A661Data>
+								<Emit/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="duInitLockState" type="uint8" oid="!ed/4963/7D79/326C/5b50f28f78c7" subelement=".Value" instancepath="Two/"/>
+					</output>
+					<inputs>
+						<A661_CMD_SET_PARAMETER name="ToggleState" type="a661_selection" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="aaed92d6-9187-4c1b-a284-9c4bf9b4ae7f" LayerIdent="21" WidgetIdent="8" ParameterIdent="A661_INNER_STATE_TOGGLE" WidgetType="ToggleButton" WidgetName="LOCK LEVERS">
+							<A661Data>
+								<DataField value="ToggleState"/>
+							</A661Data>
+						</A661_CMD_SET_PARAMETER>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="30060458-f454-47ae-9c31-265a32b601a1" LayerIdent="21" WidgetIdent="2" ParameterIdent="A661_EVT_VALUE_CHANGE" WidgetType="Slider" WidgetName="ENG LEFT LVR">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleChangedLeft" type="float32" oid="!ed/1809/7287/5AB4/5b3be0357aeb" subelement=".Value" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="Value" type="a661_float" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="99bfd1df-2352-4170-b85b-c3fecc527f6c" LayerIdent="21" WidgetIdent="9" ParameterIdent="A661_EVT_VALUE_CHANGE" WidgetType="Slider" WidgetName="ENG RIGHT LVR">
+							<A661Data>
+								<DataField value="Value"/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleChangedRight" type="float32" oid="!ed/669f/3DBB/38C4/5b3cbfca2878" subelement=".Value" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<A661_NOTIFY_WIDGET_EVENT name="ToggleState" type="a661_selection" pathname="..\DF\Two.sgfx" layer="a661_two_layer_1" layerOid="7ecc9998-ee32-48cd-a249-bb99069634a7" widgetOid="aaed92d6-9187-4c1b-a284-9c4bf9b4ae7f" LayerIdent="21" WidgetIdent="8" ParameterIdent="A661_EVT_STATE_CHANGE" WidgetType="ToggleButton" WidgetName="LOCK LEVERS">
+							<A661Data>
+								<DataField value="ToggleState"/>
+							</A661Data>
+						</A661_NOTIFY_WIDGET_EVENT>
+					</output>
+					<inputs>
+						<Variable name="duThrottleLockState" type="uint8" oid="!ed/673e/3DBB/38C4/5b3cc2247b81" subelement=".Value" instancepath="Two/"/>
+					</inputs>
+				</MappingItem>
+			</mappingItems>
+		</OperatorMapping>
+	</operatorMappings>
+</MappingFile>
