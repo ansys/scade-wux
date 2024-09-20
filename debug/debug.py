@@ -80,5 +80,6 @@ debug command lines
 -p tests/Variables/Variables.etp -c KCG -a Generate
 -p tests/Variables/Variables.etp -c SdyExt -a Generate
 -p tests/Variables/Variables.etp -c Simulation -a Generate
+-p tests/UTExtension/Model/Model.etp -c Integration -a Generate
 -p tests/Two/UA/Two.etp -c "A661 24R2" -a Build
 """

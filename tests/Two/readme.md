@@ -24,7 +24,7 @@ The project `Two` allows testing manually the Generic Integration wrapper and th
 * Open `DF/TwoDF.etp` with SCADE UA Page Creator and launch the command `Project/Generator/Generate`.
 
 ## Test
-* Execute `start_server.bat` to start the A661 server and verify is starts successfully and displays the following page:
+* Execute `start_server.bat` to start the A661 server and verify it starts successfully and displays the following page:
 
   ![Two](img/two.png)
 * Open `UA/Two.etp` with SCADE Suite.
