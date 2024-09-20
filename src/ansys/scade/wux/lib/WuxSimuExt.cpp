@@ -133,7 +133,8 @@ bool CWuxSimulatorExtension::IsAlive()
     return true;
 }
 
-void CWuxSimulatorExtension::Logf(int nLevel, const char* pszFormat, ...)
+// logging
+void WuxLogf(int nLevel, const char* pszFormat, ...)
 {
     va_list args;
     va_start(args, pszFormat);

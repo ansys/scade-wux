@@ -37,26 +37,39 @@ extern "C" {
 
 //{{ definitions from xxx_interface.h: no easy way to include this generated file from the runtime
 /**
- * @brief "Information" level for CWuxSimulatorExtension::Logf
+ * @brief "Information" level for WuxLogf
  *
  */
 #define SIM_INFO    1
  /**
-  * @brief "Warning" level for CWuxSimulatorExtension::Logf
+  * @brief "Warning" level for WuxLogf
   *
   */
 #define SIM_WARNING 2
-/**
- * @brief "Error" level for CWuxSimulatorExtension::Logf
- *
- */
+  /**
+   * @brief "Error" level for WuxLogf
+   *
+   */
 #define SIM_ERROR   3
+
 #ifndef NO_DOXYGEN
 #ifndef WUX_STANDALONE
 extern void SsmOutputMessage(int level, const char* str);
 #endif
 #endif /* NO_DOXYGEN */
 //}}
+
+/**
+ * @brief Log a message.
+ *
+ * The message is logged to the standard output, or to the *Simulator* tab
+ * of the output window when the target is the SCADE Simulator.
+ *
+ * @param nLevel SIM_INFO, SIM_WARNING or SIM_ERROR
+ * @param pszFormat Format control
+ * @param ... Optional arguments
+ */
+void WuxLogf(int nLevel, const char* pszFormat, ...);
 
  /* ---------------------------------------------------------------------------
   * C interface for the simulator
@@ -259,17 +272,6 @@ public:
      * The default implementation returns ``true``.
      */
     virtual bool IsAlive();
-    /**
-     * @brief Log a message.
-     *
-     * The message is logged to the standard output, or to the *Simulator* tab
-     * of the output window when the target is the SCADE Simulator.
-     *
-     * @param nLevel SIM_INFO, SIM_WARNING or SIM_ERROR
-     * @param pszFormat Format control
-     * @param ... Optional arguments
-     */
-    virtual void Logf(int nLevel, const char* pszFormat, ...);
 };
 
 // access to the registered extensions
