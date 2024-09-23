@@ -27,11 +27,8 @@ Cf. ESEG-EN-062 Debugging Python Wrappers.
 """
 
 # product search paths
-# C:\Program Files\ANSYS Inc\v251\SCADE\SCADE\APIs\Python\lib
-# C:\Program Files\ANSYS Inc\v251\SCADE\SCADE\bin
-# debug search paths
-# O:\SCADE\APIs\Python\lib
-# O:\Suite\x64 - Release
+# C:\Program Files\ANSYS Inc\v242\SCADE\SCADE\APIs\Python\lib
+# C:\Program Files\ANSYS Inc\v242\SCADE\SCADE\bin
 
 import argparse
 import os
@@ -76,10 +73,9 @@ sc_to_c_core(options.action, options.configuration)
 
 # debug
 """
-debug command lines
--p tests/Variables/Variables.etp -c KCG -a Generate
--p tests/Variables/Variables.etp -c SdyExt -a Generate
--p tests/Variables/Variables.etp -c Simulation -a Generate
--p tests/UTExtension/Model/Model.etp -c Integration -a Generate
--p tests/Two/UA/Two.etp -c "A661 24R2" -a Build
+example of debug command lines:
+-p ./tests/Variables/Variables.etp -c SdyExt -a Generate
+-p ./tests/Variables/Variables.etp -c SdyExt -a Build
+-p ./tests/UTExtension/Model/Model.etp -c Integration -a Generate
+-p ./tests/Two/UA/Two.etp -c "A661 24R2" -a Build
 """

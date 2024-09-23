@@ -8,23 +8,10 @@ The project `UTExtension` allows testing manually the Generic Integration wrappe
 It consists of a code generation extension that logs the available callbacks and illustrates how to generate C code.
 
 ## Setup
-* Register the package to SCADE:
-
-  ```cmd
-  <python310.exe> -m pip install --user --editable .
-  ```
-
-  You can reuse any `<SCADE Installation dir>\SCADE\contrib\Python310\python.exe` or Python 3.10 installation on your computer.
-
-* If you are using SCADE 2024 R2 or below, register the package to SCADE:
-
-  ```cmd
-  <python310.exe> -m ansys.scade.wux.register
-  ```
-
-* Register the test extension to SCADE
-
-  Run the PowerShell script `Extension\reggitext.ps1`, from its directory.
+* Register the package to SCADE as detailed in
+  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#install-in-user-mode>).
+* Register the test extension to SCADE: Run the PowerShell script
+  `Extension\reggitext.ps1`, from its directory.
   A right click *Run with PowerShell* in the explorer window is easier.
 
   This commands copies `Extension\wux_ut_ext.srg` to `%APPDATA%\SCADE\Customize` and updates it according to your working directory.
@@ -96,21 +83,13 @@ It consists of a code generation extension that logs the available callbacks and
     ...
     ```
 
-## Cleaning
+## Clean
 You may uninstall the package once the tests are completed:
 
-```cmd
-<python3.10.exe> -m pip uninstall ansys-scade-wux
-```
+* Unregister the package from SCADE as detailed in
+  [Uninstall](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#uninstall>).
+* Unregister the test extension:
 
-If you are using SCADE 2024 R2 or below, remove the SCADE registration:
-
-```cmd
-del %APPDATA%\SCADE\Customize\wux24r2.srg
-```
-
-Perform a similar command to unregister the test extension:
-
-```cmd
-del %APPDATA%\SCADE\Customize\wux_ut_ext.srg
-```
+  ```cmd
+  del %APPDATA%\SCADE\Customize\wux_ut_ext.srg
+  ```

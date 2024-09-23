@@ -6,19 +6,8 @@ The project `Variables` allows testing manually the Generic Integration wrapper 
 * WUX2_SDY
 
 ## Setup
-Register the package to SCADE:
-
-```cmd
-<python310.exe> -m pip install --user --editable .
-```
-
-You can reuse any `<SCADE Installation dir>\SCADE\contrib\Python310\python.exe` or Python 3.10 installation on your computer.
-
-If you are using SCADE 2024 R2 or below, register the package to SCADE:
-
-```cmd
-<python310.exe> -m ansys.scade.wux.register
-```
+* Register the package to SCADE as detailed in
+  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#install-in-user-mode>).
 
 ## Test
 * Select the configuration `SdyExt` for SCADE 2025 R1 or greater, otherwise the configuration `SdyExt 24R2`.
@@ -26,16 +15,8 @@ If you are using SCADE 2024 R2 or below, register the package to SCADE:
 * Launch the command `Project/Code Generator/Run Node Engine` and verify a small  window pops up with two counters.
 * Close the window and verify the command `Project/Code Generator/Stop` is no longer available.
 
-
-## Cleaning
+## Clean
 You may uninstall the package once the tests are completed:
 
-```cmd
-<python3.10.exe> -m pip uninstall ansys-scade-wux
-```
-
-If you are using SCADE 2024 R2 or below, remove the SCADE registration:
-
-```cmd
-del %APPDATA%\SCADE\Customize\wux24r2.srg
-```
+* Unregister the package from SCADE as detailed in
+  [Uninstall](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#uninstall>).
