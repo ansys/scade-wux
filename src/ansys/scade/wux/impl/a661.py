@@ -29,11 +29,11 @@ Extension for embedding UAs in other wrappers.
 import os
 from pathlib import Path
 
-import scade.code.suite.sctoc as sctoc
 import scade.model.suite.displaycoupling as display
 
 from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux import __version__
+import ansys.scade.wux.impl.sctoc as sctoc
 import ansys.scade.wux.wux as wux
 
 

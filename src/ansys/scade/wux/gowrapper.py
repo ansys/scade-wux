@@ -35,10 +35,10 @@ the ``wux`` module.
 from pathlib import Path
 
 from scade.code.suite.mapping.c import MappingFile
-import scade.code.suite.sctoc as sctoc
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
+import ansys.scade.wux.impl.sctoc as sctoc
 import ansys.scade.wux.wux as wux
 
 

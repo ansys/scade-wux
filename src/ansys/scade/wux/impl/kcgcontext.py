@@ -25,12 +25,12 @@
 from pathlib import Path
 
 from scade.code.suite.mapping.c import MappingFile
-import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
+import ansys.scade.wux.impl.sctoc as sctoc
 import ansys.scade.wux.wux as wux
 from ansys.scade.wux.wux import writeln
 

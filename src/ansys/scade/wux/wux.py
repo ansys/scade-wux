@@ -27,9 +27,10 @@ from pathlib import Path
 from typing import List, Optional, Set
 
 from scade.code.suite.mapping.c import MappingFile
-import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
+
+import ansys.scade.wux.impl.sctoc as sctoc
 
 # globals
 mf: Optional[MappingFile] = None
@@ -81,9 +82,9 @@ def add_sources(paths: List[Path]):
     global _sources
 
     # prevent adding the source file twice to sctoc
-    paths = {_.as_posix() for _ in paths}
-    sctoc.add_c_files(list(paths - _sources), False, 'WUX')
-    _sources |= paths
+    set_paths = {_.as_posix() for _ in paths}
+    sctoc.add_c_files(list(set_paths - _sources), False, 'WUX')
+    _sources |= set_paths
 
 
 def add_includes(paths: List[Path]):
@@ -103,9 +104,9 @@ def add_includes(paths: List[Path]):
     global _includes
 
     # prevent adding the directory file twice to sctoc
-    paths = {_.as_posix() for _ in paths}
-    sctoc.add_include_files(list(paths - _includes), False)
-    _includes |= paths
+    set_paths = {_.as_posix() for _ in paths}
+    sctoc.add_include_files(list(set_paths - _includes), False)
+    _includes |= set_paths
 
 
 def add_libraries(paths: List[Path]):
@@ -124,9 +125,9 @@ def add_libraries(paths: List[Path]):
     """
     global _libraries
 
-    paths = {_.as_posix() for _ in paths}
-    sctoc.add_obj_files(list(paths - _libraries), False)
-    _libraries |= paths
+    set_paths = {_.as_posix() for _ in paths}
+    sctoc.add_obj_files(list(set_paths - _libraries), False)
+    _libraries |= set_paths
 
 
 # prevent adding the preprocessor definition twice to sctoc
@@ -148,9 +149,9 @@ def add_definitions(*definitions: str):
     # prevent adding the preprocessor definition twice to sctoc
     global _definitions
 
-    definitions = {_ for _ in definitions}
-    sctoc.add_preprocessor_definitions(*(definitions - _definitions))
-    _definitions |= definitions
+    set_definitions = {_ for _ in definitions}
+    sctoc.add_preprocessor_definitions(*(set_definitions - _definitions))
+    _definitions |= set_definitions
 
 
 def writeln(f: TextIOBase, num_tabs: int = 0, text: str = ''):

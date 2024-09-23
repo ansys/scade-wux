@@ -25,11 +25,10 @@
 
 from pathlib import Path
 
-import scade.code.suite.sctoc as sctoc
-
 from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.display as display
 import ansys.scade.wux.impl.proxy as proxy
+import ansys.scade.wux.impl.sctoc as sctoc
 import ansys.scade.wux.wux as wux
 
 # ----------------------------------------------------------------------------
