@@ -66,19 +66,25 @@ class _WuxInterfacePrinter(InterfacePrinter):
             return path
 
     def get_in_context_var(self):
-        ctx_acc = (
-            '%s.%s' % (self._subst['wu_struct_var'], self._subst['inc_var'])
-            if not self._sep_ctx and self._subst['wu_struct_var']
-            else self._subst['inc_var']
-        )
+        if self.simulation:
+            ctx_acc = 'inputs_ctx'
+        else:
+            ctx_acc = (
+                '%s.%s' % (self._subst['wu_struct_var'], self._subst['inc_var'])
+                if not self._sep_ctx and self._subst['wu_struct_var']
+                else self._subst['inc_var']
+            )
         return ctx_acc
 
     def get_out_context_var(self):
-        ctx_acc = (
-            '%s.%s' % (self._subst['wu_struct_var'], self._subst['ctx_var'])
-            if not self._sep_ctx and self._subst['wu_struct_var']
-            else self._subst['ctx_var']
-        )
+        if self.simulation:
+            ctx_acc = 'outputs_ctx'
+        else:
+            ctx_acc = (
+                '%s.%s' % (self._subst['wu_struct_var'], self._subst['ctx_var'])
+                if not self._sep_ctx and self._subst['wu_struct_var']
+                else self._subst['ctx_var']
+            )
         return ctx_acc
 
 
@@ -110,6 +116,18 @@ class WuxContext:
 
     # files
     sources = []
+
+    @classmethod
+    def reset(cls):
+        # reset caches, for unit testing
+        # settings
+        cls.user_sensors = False
+
+        # options, may be overridden by clients
+        cls.simulation = False
+
+        # files
+        cls.sources = []
 
     @classmethod
     def init(cls, target_dir: str, project: Project, configuration: Configuration):
@@ -185,8 +203,11 @@ class WuxContext:
     @classmethod
     def gen_kcg_includes(cls, f):
         writeln(f, 0, '/* KCG generated files */')
+        include_sensors = True
         for ip in wux.ips:
-            f.write(ip.print_includes())
+            f.write(ip.print_includes(include_sensors))
+            # do not include sensors again when there are several roots
+            include_sensors = False
         writeln(f)
 
     @classmethod
@@ -219,6 +240,7 @@ class WuxContext:
 
     @classmethod
     def gen_sensors(cls, f):
+        assert wux.mf is not None
         sensors = wux.mf.get_all_sensors()
         if not cls.simulation and not cls.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')

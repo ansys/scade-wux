@@ -33,7 +33,7 @@ import scade
 import scade.model.project.stdproject as std
 
 # stub the proxy's entries
-import sctoc_stub  # noqa: F401
+import ansys.scade.wux.test.sctoc_stub  # noqa: F401
 
 
 def load_project(path: Path) -> std.Project:
