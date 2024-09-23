@@ -157,9 +157,9 @@ Indeed, the generation modules are called from a SCADE code generator session.
 Install in user mode
 ^^^^^^^^^^^^^^^^^^^^
 It is not possible to reuse the virtual environment setup for the repository.
-You must install the package in an environment accessible by SCADE, e.g. its
-own Python distribution, although this is not advised, or the Python 3.10
-*user* distribution:
+You must install the package in an environment accessible by SCADE, for
+example its own Python distribution, although this is not advised,
+or the Python 3.10 *user* distribution:
 
 .. code:: bash
 
