@@ -12,7 +12,6 @@ The following contribution information is specific to Ansys SCADE Wrapper Tools.
 
 Install in developer mode
 -------------------------
-
 Installing Ansys SCADE Wrapper Tools in developer mode allows you to modify the
 source and enhance it.
 
@@ -30,7 +29,7 @@ source and enhance it.
 
 #. Create a clean Python 3.10 environment and activate it:
 
-   You should use the interpreter delivered with Ansys SCADE. For example,
+   You can use the interpreter delivered with Ansys SCADE. For example,
    ``C:\Program Files\ANSYS Inc\v241\SCADE\contrib\Python310\python.exe``.
 
    .. code:: bash
@@ -74,16 +73,14 @@ source and enhance it.
 
       tox
 
-
-Test
-----
+Unit test
+---------
 Ansys SCADE Wrapper Tools uses `tox`_ for testing. This tool allows you to
 automate common development tasks (similar to ``Makefile``), but it is oriented
 towards Python development.
 
 Use ``tox``
 ^^^^^^^^^^^
-
 While ``Makefile`` has rules, ``tox`` has environments. In fact, ``tox`` creates its
 own virtual environment so that anything being tested is isolated from the project
 to guarantee the project's integrity.
@@ -152,6 +149,73 @@ However, the recommended way of checking documentation integrity is to use
 
     tox -e doc-html && your_browser_name .tox/doc_out/index.html
 
+Debug and integration test
+--------------------------
+Ansys SCADE Wrapper Tools needs to be registered to SCADE for integration testing.
+Indeed, the generation modules are called from a SCADE code generator session.
+
+Install in user mode
+^^^^^^^^^^^^^^^^^^^^
+It is not possible to reuse the virtual environment setup for the repository.
+You must install the package in an environment accessible by SCADE, for
+example its own Python distribution, although this is not advised,
+or the Python 3.10 *user* distribution:
+
+.. code:: bash
+
+   <python310.exe>  -m pip install --user --editable .
+
+*You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
+or Python 3.10 installation on your computer.*
+
+If you are using Ansys SCADE 2024 R2 or below, you must perform one additional
+step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
+
+.. code:: bash
+
+   <python310.exe>  -m ansys.scade.wux.register
+
+Debug
+^^^^^
+The ``.\tests\Debug\debug.py`` script uses internal SCADE Code Generator entry points
+to start a debug session for the scripts.
+
+You must use the Python 3.10 environment delivered with SCADE, located in
+``<install>\contrib\Python310``.
+
+For example:
+``C:\Program Files\ANSYS Inc\v251\SCADE\contrib\Python310``.
+
+Configure PYTHONPATH to refer to ``<install>\SCADE\bin`` and
+``<install>\SCADE\APIs\Python\lib``. For example:
+
+.. code:: bash
+
+   set PYTHONPATH=C:\Program Files\ANSYS Inc\v251\SCADE\SCADE\bin;C:\Program Files\ANSYS Inc\v251\SCADE\SCADE\APIs\Python\lib
+
+Refer to ``.\tests\Debug\debug.py`` for its command line parameters.
+
+Run the integration tests
+^^^^^^^^^^^^^^^^^^^^^^^^^
+These are manual tests. Refer to the test procedures, contained in each test
+directory as readme files.
+
+Uninstall
+^^^^^^^^^
+Once the test or debug sessions are completed, you may uninstall the package
+as follows:
+
+.. code:: bash
+
+   python -m pip uninstall ansys.scade.wux
+
+If you are using Ansys SCADE 2024 R2 or below, you should remove the
+registration file:
+
+.. code:: bash
+
+   del %APPDATA%\SCADE\Customize\wux.srg
+
 Distribute
 ----------
 If you would like to create either source or wheel files, start by installing
@@ -165,7 +229,6 @@ the building requirements and then executing the build module:
 
 Post issues
 -----------
-
 Use the `Ansys SCADE Wrapper Tools Issues <https://github.com/ansys/scade-wux/issues>`_
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:

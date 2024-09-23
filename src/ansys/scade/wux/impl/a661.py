@@ -150,11 +150,13 @@ class A661UAA:
             map = {'ua': cls.ua_base_name, 'addr': addr}
             code = (
                 '    static buffer_el msg[{ua}_MAX_SIZE_INPUT_BUFFER];\n'
+                '    size_t len;\n'
                 '\n'
                 '    /* receive from server */\n'
-                '    {ua}_receive_clear({addr}, NULL);\n'
-                '    if (A661Receive(msg, sizeof(msg)) == 0)\n'
-                '        {ua}_receive(msg, sizeof(msg), {addr}, NULL);\n'
+                '    {ua}_decode_clear({addr});\n'
+                '    len = A661Receive(msg, sizeof(msg));\n'
+                '    if (len > 0)\n'
+                '        {ua}_decode(msg, len, {addr});\n'
             )
             f.write(code.format_map(map))
         f.write('}\n')
@@ -175,10 +177,11 @@ class A661UAA:
             map = {'ua': cls.ua_base_name, 'addr': addr}
             code = (
                 '    static buffer_el msg[{ua}_MAX_SIZE_OUTPUT_BUFFER];\n'
+                '    size_t len;\n'
                 '\n'
-                '    uaa_size len = {ua}_send(msg, {addr}, NULL);\n'
+                '    len = {ua}_encode(msg, sizeof(msg), {addr});\n'
                 '    /* send to server */\n'
-                '    A661Send(msg, (int) len);\n'
+                '    A661Send(msg, len);\n'
             )
             f.write(code.format_map(map))
         f.write('}\n')
@@ -214,7 +217,7 @@ class A661UAA:
             return
         uua = cls.ansys_scade_dir / 'SCADE' / 'bin' / 'uaadaptor.exe'
         sdy = Path(display.get_roots()[0].mapping_file.pathname).as_posix()
-        trace = (Path(target_dir) / 'kcg_trace.xml').as_posix()
+        trace = (Path(target_dir) / 'mapping.xml').as_posix()
         hdr = cls.root.get_name() + '.h'
         # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
         uc = '' if cls.user_config == '' else ' -user_config "{0}"'.format(cls.user_config)
@@ -230,20 +233,18 @@ class A661UAA:
             sgfx=Path(cls.a661_specs[0].pathname).as_posix(),
         )
         print(command)
-        ok = False
-        with os.popen(command) as f:
-            stdout = f.read()
-            for line in stdout.split('\n'):
-                tokens = line.split(': ')
-                if tokens[0] == 'I0006':
-                    path = Path(tokens[-1])
-                    if path.suffix == '.c':
-                        cls.sources.append(path)
-                    sctoc.add_generated_files('UA Adaptor', [path.name])
-                elif tokens[0] == 'I0808' and tokens[-1] == '[SUCCESSFUL]':
-                    ok = True
-            if not ok:
-                print(stdout)
+        f = os.popen(command)
+        stdout = f.read()
+        for line in stdout.split('\n'):
+            tokens = line.split(': ')
+            if tokens[0] == 'I0006':
+                path = Path(tokens[-1])
+                if path.suffix == '.c':
+                    cls.sources.append(path)
+                sctoc.add_generated_files('UA Adaptor', [path.name])
+        if f.close() is not None:
+            # error
+            print(stdout)
 
     # ------------------------------------------------------------------------
     # build
@@ -270,18 +271,45 @@ class A661UAA:
 
     @classmethod
     def set_a661_globals(cls, target_dir, project, configuration):
-        enabled_specs = [
-            Path(pair.split(',')[0]).name
-            for pair in project.get_tool_prop_def(
+        # gather all the DF specifications and the configurations they are involved in
+        uapc_projects = [_ for app in display.get_roots() for _ in app.sdy_projects if _.is_uapc()]
+        # configurations is indexed by SCADE display configuration name and contains
+        # the list of sources
+        # note: if there are two projects with homonymous configurations, the lists are merged
+        configurations = {}
+        for uapc_project in uapc_projects:
+            root = Path(uapc_project.pathname).parent
+            for conf in uapc_project.project.configurations:
+                sources = [
+                    Path(os.path.abspath(root / _))
+                    for _ in uapc_project.project.get_tool_prop_def('SDY', 'CONFSOURCE', [], conf)
+                ]
+                configurations.setdefault(conf.name, []).extend(sources)
+
+        pairs = [
+            _.split(',')
+            for _ in project.get_tool_prop_def(
                 'GENERATOR', 'DISPLAY_ENABLED_PANELS', [], configuration
             )
         ]
+        # convert to a list of tuples
+        root = Path(project.pathname).parent
+        pairs = [(Path(os.path.abspath(root / _[0])), _[1]) for _ in pairs]
+        # for old releases of SCADE, the first element is a specification,
+        # for new ones, the first element is a project
+        enabled_specs = set()
+        for path, conf in pairs:
+            if path.suffix.lower() == '.etp':
+                # add the specifications for this configuration
+                enabled_specs.update(configurations.get(conf, []))
+            else:
+                enabled_specs.add(path)
 
         for application in display.get_roots():
             for specification in application.specifications:
                 if (
                     cls.is_spec_a661(specification)
-                    and Path(specification.pathname).name in enabled_specs
+                    and Path(specification.pathname) in enabled_specs
                 ):
                     cls.a661_specs.append(specification)
 

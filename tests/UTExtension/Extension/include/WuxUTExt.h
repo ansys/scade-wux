@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 - 2024 ANSYS, Inc. and/or its affiliates.
+ * Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
  * SPDX-License-Identifier: MIT
  *
  *
@@ -22,29 +22,22 @@
  * SOFTWARE.
  */
 
-#ifndef _A661_CONNECT_H_C0291C6F_9E27_4813_B916_35D2827EB2C6_
-#define _A661_CONNECT_H_C0291C6F_9E27_4813_B916_35D2827EB2C6_
+#ifndef _WUX_UT_EXT_H_58DC4ECE_7980_40FC_9359_85C103398B46_
+#define _WUX_UT_EXT_H_58DC4ECE_7980_40FC_9359_85C103398B46_
+
+/* WUX2 Unit Test extension interfaces */
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-extern int A661SetLogFile(const char* pszPath);
-extern int A661ConnectServer(const char* pszHostName, unsigned short nPort);
-extern int A661DisconnectServer();
-extern size_t A661Receive(unsigned char* pszBuffer, size_t nBufSize);
-extern size_t A661ReceiveEx(unsigned char* pszBuffer, size_t nBufSize, int bWait);
-extern int A661Send(unsigned char* pszMessage, size_t nMsgLen);
-extern int A661GetLastError(const char** ppszError);
+#endif /* __cplusplus */
+
+/* interface of the generated code */
+void WuxUTExtReset();
+void WuxUTExtSetInputs();
+void WuxUTExtGetOutputs();
+
 #ifdef __cplusplus
-}
-#endif
+} /* extern "C" */
+#endif /* __cplusplus */
 
-#define OK                      0
-#define NOTCONNECTED_ERROR      1
-#define CONNECT_ERROR           2
-#define RECEIVE_ERROR           3
-#define SEND_ERROR              4
-#define OTHER_ERROR             5
-#define OVERFLOW_ERROR          6
-
-#endif /* _A661_CONNECT_H_C0291C6F_9E27_4813_B916_35D2827EB2C6_ */
+#endif /* _WUX_UT_EXT_H_58DC4ECE_7980_40FC_9359_85C103398B46_ */

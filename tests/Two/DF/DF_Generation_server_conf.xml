@@ -1,0 +1,12 @@
+<server_conf>
+  <!-- options/ -->
+  <display_conf>
+    <du width="256" height="256" ratio_x="20.0" ratio_y="20.0"/>
+    <conf>
+      <window du_id="1" x1="0.0" y1="0.0" x2="5119.0" y2="5119.0">
+        <layer app_id="12" layer_id="21" visible="true"/>
+      </window>
+    </conf>
+  </display_conf>
+  <!-- connectors/ -->
+</server_conf>

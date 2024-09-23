@@ -1,0 +1,1 @@
+"C:\Program Files\ANSYS Inc\v242\SCADE\SCADE A661\bin\A661Server.exe" .\DF\DF_Generation_server_conf.xml .\DF\DF\Two12.bin
