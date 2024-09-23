@@ -165,8 +165,8 @@ or the Python 3.10 *user* distribution:
 
    <python310.exe>  -m pip install --user --editable .
 
-*You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
-or Python 3.10 installation on your computer.*
+You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
+or Python 3.10 installation on your computer.
 
 If you are using Ansys SCADE 2024 R2 or below, you must perform one additional
 step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
