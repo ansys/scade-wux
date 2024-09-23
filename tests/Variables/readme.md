@@ -7,7 +7,7 @@ The project `Variables` allows testing manually the Generic Integration wrapper 
 
 ## Setup
 * Register the package to SCADE as detailed in
-  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#install-in-user-mode>).
+  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#install-in-user-mode>).
 
 ## Test
 * Select the configuration `SdyExt` for SCADE 2025 R1 or greater, otherwise the configuration `SdyExt 24R2`.
@@ -19,4 +19,4 @@ The project `Variables` allows testing manually the Generic Integration wrapper 
 You may uninstall the package once the tests are completed:
 
 * Unregister the package from SCADE as detailed in
-  [Uninstall](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#uninstall>).
+  [Uninstall](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#uninstall>).

@@ -7,7 +7,7 @@ The project `Two` allows testing manually the Generic Integration wrapper and th
 
 ## Setup
 * Register the package to SCADE as detailed in
-  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#install-in-user-mode>).
+  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#install-in-user-mode>).
 * Edit `start_server.bat` and update the path to `A661Server.exe` according to the release of SCADE you are using.
 * Open `DF/TwoDF.etp` with SCADE UA Page Creator and launch the command `Project/Generator/Generate`.
 
@@ -27,4 +27,4 @@ The project `Two` allows testing manually the Generic Integration wrapper and th
 You may uninstall the package once the tests are completed:
 
 * Unregister the package from SCADE as detailed in
-  [Uninstall](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#uninstall>).
+  [Uninstall](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#uninstall>).

@@ -9,7 +9,7 @@ It consists of a code generation extension that logs the available callbacks and
 
 ## Setup
 * Register the package to SCADE as detailed in
-  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#install-in-user-mode>).
+  [Install in user mode](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#install-in-user-mode>).
 * Register the test extension to SCADE: Run the PowerShell script
   `Extension\reggitext.ps1`, from its directory.
   A right click *Run with PowerShell* in the explorer window is easier.
@@ -87,7 +87,7 @@ It consists of a code generation extension that logs the available callbacks and
 You may uninstall the package once the tests are completed:
 
 * Unregister the package from SCADE as detailed in
-  [Uninstall](<https://wux.scade.docs.pyansys.com/version/stable/getting_started/contributing.html#uninstall>).
+  [Uninstall](<https://wux.scade.docs.pyansys.com/version/dev/contributing.html#uninstall>).
 * Unregister the test extension:
 
   ```cmd
