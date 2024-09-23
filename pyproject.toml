@@ -35,7 +35,8 @@ build = [
     "twine==5.1.1"
 ]
 tests = [
-    "pytest==8.3.2",
+    # 8.0.2 at most: https://github.com/microsoft/PTVS/issues/7853
+    "pytest==8.0.2",
     "pytest-cov==5.0.0"
 ]
 doc = [
