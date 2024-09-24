@@ -44,3 +44,10 @@ def load_project(path: Path) -> std.Project:
     """
     project = scade.load_project(str(path))
     return project
+
+
+def find_configuration(project: std.Project, name: str) -> std.Configuration:
+    for configuration in project.configurations:
+        if configuration.name == name:
+            return configuration
+    assert False

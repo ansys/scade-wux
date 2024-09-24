@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="244" defaultConfiguration="24">
+<Project id="1" oid_count="275" defaultConfiguration="24">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -58,6 +58,8 @@
 			<value>195</value>
 			<value>207</value>
 			<value>221</value>
+			<value>245</value>
+			<value>255</value>
 		</Prop>
 		<Prop id="25" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
@@ -334,6 +336,8 @@
 			<value>195</value>
 			<value>207</value>
 			<value>221</value>
+			<value>245</value>
+			<value>255</value>
 		</Prop>
 		<Prop id="92" name="@STUDIO:TOOLCONF">
 			<value>DiffAnalyzer</value>
@@ -351,6 +355,8 @@
 			<value>195</value>
 			<value>207</value>
 			<value>221</value>
+			<value>245</value>
+			<value>255</value>
 		</Prop>
 		<Prop id="93" name="@STUDIO:TOOLCONF">
 			<value>Synchronization</value>
@@ -368,6 +374,8 @@
 			<value>195</value>
 			<value>207</value>
 			<value>221</value>
+			<value>245</value>
+			<value>255</value>
 		</Prop>
 		<Prop id="94" name="@STUDIO:TOOLCONF">
 			<value>Import/Export</value>
@@ -385,6 +393,8 @@
 			<value>195</value>
 			<value>207</value>
 			<value>221</value>
+			<value>245</value>
+			<value>255</value>
 		</Prop>
 		<Prop id="98" name="@SCADE:CHECKED">
 			<value>false</value>
@@ -782,6 +792,130 @@
 			<value>Displays\Speed.sgfx</value>
 			<configuration>221</configuration>
 		</Prop>
+		<Prop id="247" name="@GENERATOR:ROOTNODE">
+			<value>Pkg::Engine</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="248" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="249" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="250" name="@GENERATOR:OPTLEVEL">
+			<value>1</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="251" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="252" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="253" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="254" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="256" name="@SIMULATOR:COMPILER">
+			<value>VS2022</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="257" name="@CNXWRP:DOMAIN">
+			<value>b</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="258" name="@CNXWRP:DOMAIN_LIBRARY">
+			<value>a</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="260" name="@GENERATOR:ROOTNODE">
+			<value>Pkg::Engine</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="261" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="262" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="263" name="@GENERATOR:SKIP_UNUSED">
+			<value>true</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="264" name="@GENERATOR:PROBES">
+			<value>true</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="265" name="@GENERATOR:DEBUG">
+			<value>true</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="266" name="@GENERATOR:OPTLEVEL">
+			<value>0</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="267" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="268" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="269" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="270" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="271" name="@GENERATOR:DISPLAY_ENABLED_PANELS">
+			<value>Displays\Throttles.sgfx,Co-simulation</value>
+			<value>Displays\Speed.sgfx,Co-simulation</value>
+			<configuration>255</configuration>
+		</Prop>
+		<Prop id="272" name="@GENERATOR:DISPLAY_ENABLED_PANELS">
+			<value>Displays\Throttles.sgfx,Co-simulation</value>
+			<value>Displays\Speed.sgfx,Co-simulation</value>
+			<configuration>245</configuration>
+		</Prop>
+		<Prop id="275" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>WUX2_24R2_GOWRP</value>
+			<configuration>245</configuration>
+		</Prop>
 	</props>
 	<roots>
 		<Folder id="3" extensions="vsp;etp" name="SCADE Libraries"/>
@@ -823,5 +957,7 @@
 		<Configuration id="195" name="SdyExt VS"/>
 		<Configuration id="207" name="SdyExt 24R2 VS"/>
 		<Configuration id="221" name="Generic Integration 24R2"/>
+		<Configuration id="245" name="UT KCG"/>
+		<Configuration id="255" name="UT Simulation"/>
 	</configurations>
 </Project>

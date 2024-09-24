@@ -32,7 +32,7 @@ import scade.model.project.stdproject as std
 from ansys.scade.wux.impl.kcgcontext import WuxContext, get_services
 from ansys.scade.wux.test.sctoc_stub import reset_stub
 import ansys.scade.wux.wux as wux
-from conftest import load_project
+from conftest import find_configuration, load_project
 
 
 @pytest.fixture(scope='session')
@@ -40,13 +40,6 @@ def ut_kcg_context() -> std.Project:
     """Load the project."""
     path = Path(__file__).parent / 'UT' / 'KcgContext' / 'KcgContext.etp'
     return load_project(path)
-
-
-def find_configuration(project: std.Project, name: str) -> std.Configuration:
-    for configuration in project.configurations:
-        if configuration.name == name:
-            return configuration
-    assert False
 
 
 def test_kcgcontext_ut_kcg(ut_kcg_context):
