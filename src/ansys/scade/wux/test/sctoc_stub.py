@@ -186,7 +186,7 @@ class SCToCStub:
         self.compiler_kind = kind
 
     def add_preprocessor_definitions(self, *definitions: str):
-        self.preprocessor_definitions.extend(*definitions)
+        self.preprocessor_definitions.extend(definitions)
 
     def get_compiler_object_directory(self) -> str:
         return ''
