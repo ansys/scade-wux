@@ -69,6 +69,9 @@ Documentation = "https://wux.scade.docs.pyansys.com"
 Releases = "https://github.com/ansys/scade-wux/releases"
 Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[project.entry-points."ansys.scade.registry"]
+srg = "ansys.scade.wux:srg"
+
 [project.scripts]
 register_ansys_scade_wux = "ansys.scade.wux.register:main"
 
@@ -115,5 +118,3 @@ show_missing = true
 testpaths = "tests"
 addopts = "-ra --cov=ansys.scade.wux --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
 
-[project.entry-points."ansys.scade.registry"]
-srg = "ansys.scade.wux:srg"
