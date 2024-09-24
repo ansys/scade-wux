@@ -66,12 +66,14 @@ def reset():
 
     Used for unit testing.
     """
+    global _sources, _libraries, _includes, _definitions
+
     # generated C files, for makefile
-    _sources: Set[str] = set()
+    _sources = set()
     # build
-    _libraries: Set[str] = set()
-    _includes: Set[str] = set()
-    _definitions: Set[str] = set()
+    _libraries = set()
+    _includes = set()
+    _definitions = set()
 
 
 def add_sources(paths: List[Path]):
