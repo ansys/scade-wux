@@ -102,24 +102,21 @@ def gen_proxy_functions(f, spec):
         writeln(
             f,
             0,
-            '    BOOL bError = LoadLayerPointer((PfnLayerFunction*)& m_pfnL_{1}, "{0}", "{1}");'.format(
-                prefix, spec.layers[0].name
-            ),
+            '    BOOL bError = LoadLayerPointer((PfnLayerFunction*)& '
+            'm_pfnL_{1}, "{0}", "{1}");'.format(prefix, spec.layers[0].name),
         )
         for layer in spec.layers[1:-2]:
             writeln(
                 f,
                 0,
-                '    bError = bError || LoadLayerPointer((PfnLayerFunction*)& m_pfnL_{1}, "{0}", "{1}");'.format(
-                    prefix, layer.name
-                ),
+                '    bError = bError || LoadLayerPointer((PfnLayerFunction*)& '
+                'm_pfnL_{1}, "{0}", "{1}");'.format(prefix, layer.name),
             )
         writeln(
             f,
             0,
-            '    return bError || LoadLayerPointer((PfnLayerFunction*)& m_pfnL_{1}, "{0}", "{1}");'.format(
-                prefix, spec.layers[-1].name
-            ),
+            '    return bError || LoadLayerPointer((PfnLayerFunction*)& '
+            'm_pfnL_{1}, "{0}", "{1}");'.format(prefix, spec.layers[-1].name),
         )
     writeln(f, 0, '}')
     writeln(f)
@@ -136,7 +133,8 @@ def gen_instances(f):
         writeln(
             f,
             0,
-            '#define SDY_PROC(RETURN,PREFIX,NAME,SIG,ARGS) DEF_SDY_DLL_PROC(RETURN,PREFIX,NAME,SIG,ARGS)',
+            '#define SDY_PROC(RETURN,PREFIX,NAME,SIG,ARGS) '
+            'DEF_SDY_DLL_PROC(RETURN,PREFIX,NAME,SIG,ARGS)',
         )
         for spec in _sdy_specifications:
             writeln(f, 0, 'DEF_SDY_DLL_INSTANCE({0})'.format(spec.prefix))

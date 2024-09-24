@@ -82,13 +82,13 @@ lint.select = [
     "N",    # pep8-naming, see https://beta.ruff.rs/docs/rules/#pep8-naming-n
 ]
 lint.ignore = [
-    "E501",  # Line too long. Ignoring this so "ruff.formatter" manages line length.
     "D203",  # One blank line required before class docstring.
     "D204",  # One blank line required after class docstring.
     "D206",  # To ignore: conflict with the formatter
 ]
 
-# TODO: preserve leads to an error, although it is documented
+# TODO: "preserve" leads to an error, although it is documented
+# and used in other repositories
 [tool.ruff.format]
 quote-style = "single"
 

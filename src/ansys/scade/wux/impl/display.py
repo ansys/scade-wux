@@ -782,7 +782,8 @@ def build(target_dir, project, configuration):
             with open(batch, 'w') as bf:
                 if spec.sdy_project.is_rapid_proto():
                     bf.write(
-                        '"{}\\bin\\ScadeRP.exe" batch generate "{}" -conf "{}" -source "{}" -outdir "{}" -prefix {}\n'.format(
+                        '"{}\\bin\\ScadeRP.exe" batch generate "{}" -conf "{}" '
+                        '-source "{}" -outdir "{}" -prefix {}\n'.format(
                             sdy_rapidproto_home,
                             sdy_project,
                             spec.conf,
@@ -793,7 +794,8 @@ def build(target_dir, project, configuration):
                     )
                 else:
                     bf.write(
-                        '"{}\\bin\\ScadeDisplayConsole.exe" batch generate "{}" -conf "{}" -source "{}" -outdir "{}" -prefix {}\n'.format(
+                        '"{}\\bin\\ScadeDisplayConsole.exe" batch generate "{}" -conf "{}" '
+                        '-source "{}" -outdir "{}" -prefix {}\n'.format(
                             sdy_display_home,
                             sdy_project,
                             spec.conf,
