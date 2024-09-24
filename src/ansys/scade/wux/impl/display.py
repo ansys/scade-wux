@@ -29,11 +29,11 @@ import re
 import subprocess
 import sys
 
+import scade.code.suite.sctoc as sctoc
 import scade.model.suite.displaycoupling as displaycoupling
 import scade.model.suite.suite as suite
 
 from ansys.scade.apitools.info import get_scade_home
-import ansys.scade.wux.impl.sctoc as sctoc
 from ansys.scade.wux.wux import writeln
 
 # ----------------------------------------------------------------------------
@@ -761,7 +761,7 @@ def build(target_dir, project, configuration):
         dll = os.path.join(os.path.abspath(target_dir), prefix + '.dll')
         state_ext = 'wux_' + prefix
         up_to_date = sctoc.is_state_up_to_date(state_ext)
-        state_files = sctoc.get_list_of_project_files2([], sdy_project, spec.conf)
+        state_files = sctoc.get_list_of_project_files([], sdy_project, spec.conf)
         state_files.append(dll)
 
         # Force rebuild

@@ -23,14 +23,12 @@
 """
 Wraps scade.code.suite.sctoc to allow unit testing.
 
-Redirect the entry points of ansys.scade.wux.impl.sctoc to this module.
+Redirects the entry points of scade.code.suite.scto to this module.
 """
 
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
-from scade.model.project.stdproject import Configuration, Project
-
-import ansys.scade.wux.impl.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc
 
 
 class SCToCStub:
@@ -81,23 +79,8 @@ class SCToCStub:
     def get_operator_sample_time(self) -> Tuple[float, float, bool]:
         return self.sample_time
 
-    def get_list_of_project_files(self, *file_exts: str) -> List[str]:
-        # do some usage of the parameters to avoid linter warnings
-        for ext in list(*file_exts):
-            assert isinstance(ext, str)
-        return []
-
-    def get_list_of_project_files2(
-        self,
-        file_exts: Optional[List[str]] = None,
-        project: Optional[Project] = None,
-        configuration: Optional[Configuration] = None,
-    ) -> List[str]:
-        if not file_exts:
-            file_exts = []
-        # do some usage of the parameters to avoid linter warnings
-        assert not project or isinstance(project, Project)
-        assert not configuration or isinstance(configuration, Configuration)
+    def get_list_of_project_files(self, *args, **kwargs) -> List[str]:
+        # two different interfaces in the documentation
         return []
 
     def get_list_of_external_files(self, *kinds: str) -> List[str]:
@@ -239,16 +222,8 @@ def _get_operator_sample_time() -> Tuple[float, float, bool]:
     return stub.get_operator_sample_time()
 
 
-def _get_list_of_project_files(*file_exts: str) -> List[str]:
-    return stub.get_list_of_project_files(*file_exts)
-
-
-def _get_list_of_project_files2(
-    file_exts: Optional[List[str]] = None,
-    project: Optional[Project] = None,
-    configuration: Optional[Configuration] = None,
-) -> List[str]:
-    return stub.get_list_of_project_files2(file_exts, project, configuration)
+def _get_list_of_project_files(*args, **kwargs) -> List[str]:
+    return stub.get_list_of_project_files(*args, **kwargs)
 
 
 def _get_list_of_external_files(*kinds: str) -> List[str]:
@@ -366,7 +341,6 @@ def _save_state(state_files: List[str], state_ext: str):
 # getting information from input project and model
 sctoc.get_operator_sample_time = _get_operator_sample_time
 sctoc.get_list_of_project_files = _get_list_of_project_files
-sctoc.get_list_of_project_files2 = _get_list_of_project_files2
 sctoc.get_list_of_external_files = _get_list_of_external_files
 # adding make directives
 sctoc.add_c_files = _add_c_files

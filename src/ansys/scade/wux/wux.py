@@ -27,10 +27,9 @@ from pathlib import Path
 from typing import List, Optional, Set
 
 from scade.code.suite.mapping.c import MappingFile
+import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
-
-import ansys.scade.wux.impl.sctoc as sctoc
 
 # globals
 mf: Optional[MappingFile] = None
