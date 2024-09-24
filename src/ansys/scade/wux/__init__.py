@@ -22,7 +22,10 @@
 
 """Provides a Generic code integration wrapper and utilities for SCADE."""
 
-import importlib.metadata as importlib_metadata
+try:
+    import importlib.metadata as importlib_metadata
+except ModuleNotFoundError:
+    import importlib_metadata
 from pathlib import Path
 
 try:
