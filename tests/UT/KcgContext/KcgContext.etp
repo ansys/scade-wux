@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="115" defaultConfiguration="23">
+<Project id="1" oid_count="123" defaultConfiguration="23">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -52,7 +52,9 @@
 			<value>23</value>
 			<value>44</value>
 			<value>57</value>
-			<value>90</value>
+			<value>88</value>
+			<value>97</value>
+			<value>112</value>
 		</Prop>
 		<Prop id="24" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
@@ -91,6 +93,10 @@
 		</Prop>
 		<Prop id="30" name="@GENERATOR:SKIP_UNUSED">
 			<value>true</value>
+			<configuration>23</configuration>
+		</Prop>
+		<Prop id="31" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>Simulator</value>
 			<configuration>23</configuration>
 		</Prop>
 		<Prop id="32" name="@GENERATOR:USER_CONFIG">
@@ -259,10 +265,10 @@
 			<configuration>65</configuration>
 		</Prop>
 		<Prop id="73" name="@SCADE:DEFAULTFILE">
-			<value>Model.xscade</value>
+			<value>KcgContext.xscade</value>
 		</Prop>
 		<Prop id="74" name="@SCADE:SEMFILE">
-			<value>Model.err</value>
+			<value>KcgContext.err</value>
 		</Prop>
 		<Prop id="75" name="@SCADE:NOTEFILE">
 			<value>$(SCADE)/lib/DefaultAty.aty</value>
@@ -304,53 +310,33 @@
 			<value>54</value>
 			<value>57</value>
 			<value>65</value>
-			<value>90</value>
+			<value>88</value>
+			<value>97</value>
+			<value>112</value>
 		</Prop>
-		<Prop id="86" name="@STUDIO:TOOLCONF">
-			<value>DiffAnalyzer</value>
-			<value>14</value>
-			<value>23</value>
-			<value>34</value>
-			<value>39</value>
-			<value>44</value>
-			<value>54</value>
-			<value>57</value>
-			<value>65</value>
-			<value>90</value>
+		<Prop id="87" name="@GENERATOR:ROOTNODE">
+			<value>P::Node</value>
+			<value>P::Function</value>
+			<configuration>14</configuration>
 		</Prop>
-		<Prop id="87" name="@STUDIO:TOOLCONF">
-			<value>Synchronization</value>
-			<value>14</value>
-			<value>23</value>
-			<value>34</value>
-			<value>39</value>
-			<value>44</value>
-			<value>54</value>
-			<value>57</value>
-			<value>65</value>
-			<value>90</value>
+		<Prop id="89" name="@GENERATOR:ROOTNODE">
+			<value>P::Node</value>
+			<value>P::Function</value>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="88" name="@STUDIO:TOOLCONF">
-			<value>Import/Export</value>
-			<value>14</value>
-			<value>23</value>
-			<value>34</value>
-			<value>39</value>
-			<value>44</value>
-			<value>54</value>
-			<value>57</value>
-			<value>65</value>
-			<value>90</value>
-		</Prop>
-		<Prop id="91" name="@SIMULATOR:CPU_TYPE">
+		<Prop id="90" name="@SIMULATOR:CPU_TYPE">
 			<value>win64</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="93" name="@GENERATOR:USER_CONFIG">
+		<Prop id="91" name="@GENERATOR:ENABLE_EXTENSIONS">
+			<value>false</value>
+			<configuration>88</configuration>
+		</Prop>
+		<Prop id="92" name="@GENERATOR:USER_CONFIG">
 			<value>$(TargetDir)\user_macros.h</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="94" name="@GENERATOR:USE_TYPES">
+		<Prop id="93" name="@GENERATOR:USE_TYPES">
 			<value>char</value>
 			<value>float32</value>
 			<value>float64</value>
@@ -363,43 +349,137 @@
 			<value>uint32</value>
 			<value>uint64</value>
 			<value>size</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="95" name="@GENERATOR:GENERATOR">
+		<Prop id="94" name="@GENERATOR:GENERATOR">
 			<value>C QUAL663</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="96" name="@VC6.0:ADD_COMP_OPTIONS">
+		<Prop id="95" name="@VC6.0:ADD_COMP_OPTIONS">
 			<value>/nologo /ML /O2</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="97" name="@GENERATOR:TARGET_DIR">
+		<Prop id="96" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
-			<configuration>90</configuration>
+			<configuration>88</configuration>
 		</Prop>
-		<Prop id="98" name="@GENERATOR:ROOTNODE">
-			<value>P::Root</value>
-			<configuration>90</configuration>
+		<Prop id="98" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>97</configuration>
 		</Prop>
-		<Prop id="100" name="@GENERATOR:OTHER_EXTENSIONS">
-			<value>WUX2_UT_EXT</value>
-			<configuration>90</configuration>
+		<Prop id="99" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>97</configuration>
 		</Prop>
-		<Prop id="101" name="@GENERATOR:TARGET_ADAPTOR">
-			<value>WUX2_24R2_GOWRP</value>
-			<configuration>90</configuration>
+		<Prop id="101" name="@GENERATOR:SKIP_UNUSED">
+			<value>true</value>
+			<configuration>97</configuration>
 		</Prop>
-		<Prop id="102" name="@GENERATOR:ROOTNODE">
-			<value>P::Root</value>
-			<configuration>23</configuration>
+		<Prop id="102" name="@GENERATOR:PROBES">
+			<value>true</value>
+			<configuration>97</configuration>
 		</Prop>
-		<Prop id="103" name="@GENERATOR:OTHER_EXTENSIONS">
-			<value>WUX2_UT_EXT</value>
-			<configuration>23</configuration>
+		<Prop id="103" name="@GENERATOR:DEBUG">
+			<value>true</value>
+			<configuration>97</configuration>
 		</Prop>
-		<Prop id="104" name="@GNU Cwin64:ADD_LINK_OPTIONS">
-			<value>-static -lstdc++</value>
-			<configuration>23</configuration>
+		<Prop id="104" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>97</configuration>
+		</Prop>
+		<Prop id="105" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>97</configuration>
+		</Prop>
+		<Prop id="106" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>97</configuration>
+		</Prop>
+		<Prop id="107" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>97</configuration>
+		</Prop>
+		<Prop id="108" name="@GENERATOR:PERIODICITY_MODE">
+			<value>USER</value>
+			<configuration>88</configuration>
+		</Prop>
+		<Prop id="109" name="@GENERATOR:USER_SENSORS_DECL">
+			<value>true</value>
+			<configuration>88</configuration>
+		</Prop>
+		<Prop id="110" name="@GENERATOR:TARGET_ADAPTOR">
+			<value></value>
+			<configuration>88</configuration>
+		</Prop>
+		<Prop id="111" name="@GENERATOR:ROOTNODE">
+			<value>P::Node</value>
+			<configuration>97</configuration>
+		</Prop>
+		<Prop id="113" name="@GENERATOR:TARGET_ADAPTOR">
+			<value></value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="114" name="@GENERATOR:USER_SENSORS_DECL">
+			<value>true</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="115" name="@GENERATOR:PERIODICITY_MODE">
+			<value>USER</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="116" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="117" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="118" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="119" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="120" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="121" name="@GENERATOR:ENABLE_EXTENSIONS">
+			<value>false</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="122" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>112</configuration>
+		</Prop>
+		<Prop id="123" name="@GENERATOR:ROOTNODE">
+			<value>P::Node</value>
+			<configuration>112</configuration>
 		</Prop>
 	</props>
 	<roots>
@@ -407,7 +487,7 @@
 		<Folder id="12" extensions="xscade;scade" name="Model Files">
 			<elements>
 				<Folder id="13" extensions="xscade;scade" name="Separate Files"/>
-				<FileRef id="89" persistAs="P.xscade"/>
+				<FileRef id="86" persistAs="P.xscade"/>
 			</elements>
 		</Folder>
 	</roots>
@@ -420,6 +500,8 @@
 		<Configuration id="54" name="MetricRule"/>
 		<Configuration id="57" name="Timing and Stack"/>
 		<Configuration id="65" name="Cert. Reporter"/>
-		<Configuration id="90" name="Integration"/>
+		<Configuration id="88" name="UT KCG"/>
+		<Configuration id="97" name="UT Simulation"/>
+		<Configuration id="112" name="UT Node"/>
 	</configurations>
 </Project>

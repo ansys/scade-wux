@@ -46,7 +46,7 @@ html_theme_options = {
         # "directory": "src/ansys",
         'class_content': 'both',  # documentation in https://sphinxdocs.ansys.com/version/stable/user-guide/autoapi.html
         'member_order': 'alphabetical',
-        'ignore': ['*/src/ansys/scade/wux/impl/*'],
+        'ignore': ['*/src/ansys/scade/wux/impl/*', '*/src/ansys/scade/wux/test/*'],
     },
 }
 
