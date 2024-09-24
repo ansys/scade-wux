@@ -1,4 +1,5 @@
 """Sphinx documentation configuration file."""
+
 from datetime import datetime
 import os
 from pathlib import Path
@@ -38,17 +39,19 @@ html_theme_options = {
         'json_url': f'https://{cname}/versions.json',
         'version_match': switcher_version,
     },
-    'logo': 'pyansys',
     'check_switcher': False,
+    'logo': 'pyansys',
     'ansys_sphinx_theme_autoapi': {
         'project': project,
         'own_page_level': 'function',
-        # "directory": "src/ansys",
         'class_content': 'both',  # documentation in https://sphinxdocs.ansys.com/version/stable/user-guide/autoapi.html
         'member_order': 'alphabetical',
         'ignore': ['*/src/ansys/scade/wux/impl/*', '*/src/ansys/scade/wux/test/*'],
     },
 }
+
+# Configuration for Sphinx autoapi
+# TODO autoapi_render_in_single_page = ["class", "enum", "exception", "function"]
 
 # Sphinx extensions
 extensions = [
@@ -133,19 +136,6 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
-
-
-# Configuration for Sphinx autoapi
-# TODO autoapi_dirs = ["../../src/ansys"]
-# TODO autoapi_options = [
-# TODO     "members",
-# TODO     "undoc-members",
-# TODO     "show-inheritance",
-# TODO     "show-module-summary",
-# TODO     "special-members",
-# TODO ]
-# TODO autoapi_render_in_single_page = ["class", "enum", "exception", "function"]
-# TODO autoapi_member_order = "alphabetical"
 
 # TODO: remove ignore links after public release
 linkcheck_ignore = [
