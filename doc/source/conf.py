@@ -76,7 +76,7 @@ autodoc_typehints = 'description'
 autodoc_mock_imports = ['scade', 'scade_env', '_scade_api']
 # Purpose of this option?
 add_module_names = False
-# ansys.scade.apitools.info not found when building the documentation
+# ansys.scade.wux.info not found when building the documentation
 suppress_warnings = ['autoapi.python_import_resolution']
 
 # autoclass_content: keep default
