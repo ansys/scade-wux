@@ -1,7 +1,7 @@
 [Scade/Simulator/Extensions/WUX2_UT_EXT]
 "Server1"="<no_settings>"
 "Kind"="Other"
-"Version"="24200"
+"Version"="21200"
 "DisplayName"="Unit test for WUX"
 
 [Scade/Generator/WUX2_UT_EXT]

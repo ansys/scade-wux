@@ -219,18 +219,24 @@ class A661UAA:
         sdy = Path(display.get_roots()[0].mapping_file.pathname).as_posix()
         trace = (Path(target_dir) / 'mapping.xml').as_posix()
         hdr = cls.root.get_name() + '.h'
-        # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
+        # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy \
+        # -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" \
+        # -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" \
+        # -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
         uc = '' if cls.user_config == '' else ' -user_config "{0}"'.format(cls.user_config)
-        command = '"{uua}" -sdy "{sdy}" -n "{conf}" -outdir "{dir}" -k "{trace}" -o {base}{uc} -i "{hdr}" -encoding "ASCII" "{sgfx}"'.format(
-            uua=uua,
-            sdy=sdy,
-            conf=cls.config_file,
-            dir=target_dir,
-            trace=trace,
-            base=cls.ua_base_name,
-            uc=uc,
-            hdr=hdr,
-            sgfx=Path(cls.a661_specs[0].pathname).as_posix(),
+        command = (
+            '"{uua}" -sdy "{sdy}" -n "{conf}" -outdir "{dir}" '
+            '-k "{trace}" -o {base}{uc} -i "{hdr}" -encoding "ASCII" "{sgfx}"'.format(
+                uua=uua,
+                sdy=sdy,
+                conf=cls.config_file,
+                dir=target_dir,
+                trace=trace,
+                base=cls.ua_base_name,
+                uc=uc,
+                hdr=hdr,
+                sgfx=Path(cls.a661_specs[0].pathname).as_posix(),
+            )
         )
         print(command)
         f = os.popen(command)

@@ -52,9 +52,10 @@ SCADE Code Generator extensions. It contains:
 Requirements
 ------------
 The ``ansys-scade-wux`` package supports only the versions of Python delivered with
-Ansys SCADE, starting from 2025 R1:
+Ansys SCADE, starting from 2021 R2:
 
-* 2025 R1 and later: Python 3.10
+* 2021 R2 through 2023 R1: Python 3.7
+* 2023 R2 and later: Python 3.10
 
 Ansys SCADE Wrapper Tools has two installation modes: user and developer. To install for use,
 see `Getting started <https://wux.scade.docs.pyansys.com/version/stable/getting_started/index.html>`_.

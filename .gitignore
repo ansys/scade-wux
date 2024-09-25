@@ -167,3 +167,4 @@ doc/source/_doxygen/
 *.exe
 *.pdb
 TestResults/
+.venv37/

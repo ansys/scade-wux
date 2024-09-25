@@ -53,7 +53,8 @@ class _WuxInterfacePrinter(InterfacePrinter):
     def get_generated_path(self, var_path, subst=None):
         path = super().get_generated_path(var_path, subst=subst)
         if self.simulation:
-            # TODO: code valid for standard generation only (no separate_io, no global_root_context, etc.)
+            # TODO: code valid for standard generation only
+            # (no separate_io, no global_root_context, etc.)
             elems = path.split('.')
             if len(elems) > 1:
                 ctx = 'outputs_ctx' if elems[1] == 'outC' else 'inputs_ctx'
