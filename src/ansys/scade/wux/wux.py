@@ -30,6 +30,7 @@ from scade.code.suite.mapping.c import MappingFile
 import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
+from scade.model.project.stdproject import Configuration, Project
 
 # globals
 mf: Optional[MappingFile] = None
@@ -145,7 +146,6 @@ def add_libraries(paths: List[Path]):
     _libraries |= set_paths
 
 
-# prevent adding the preprocessor definition twice to sctoc
 def add_definitions(*definitions: str):
     """
     Request the Code Generator to add preprocessor definitions to the Makefile.
@@ -167,6 +167,39 @@ def add_definitions(*definitions: str):
     set_definitions = {_ for _ in definitions}
     sctoc.add_preprocessor_definitions(*(set_definitions - _definitions))
     _definitions |= set_definitions
+
+
+def add_cpp_options(project: Project, configuration: Configuration):
+    """
+    Add the required compiler/linker options for C++ code.
+
+    * This is required for GNU C: -static -lstdc++
+    * There is no API in scade.code.suite.* to achieve this. The workaround
+      consists in adding the option to the project for the given configuration.
+
+    .. Note::
+
+      * The option is set only if the current compiler is GNU C.
+      * The project is modified but it is not expected to be saved in this context.
+        Should it be saved, this is still fine since the option is mandatory.
+    """
+    # the default value is 'GNU C' when the property is not set
+    compiler = project.get_scalar_tool_prop_def('SIMULATOR', 'COMPILER', 'GNU C', configuration)
+    if compiler != 'GNU C':
+        return
+    # add the platform: x64 is the only one supported
+    compiler += 'win64'
+    linker_options = project.get_scalar_tool_prop_def(
+        compiler, 'ADD_LINK_OPTIONS', '', configuration
+    )
+    new_linker_options = linker_options
+    for option in ['-static', '-lstdc++']:
+        if option not in linker_options:
+            new_linker_options += ' ' + option
+    if new_linker_options != linker_options:
+        project.set_scalar_tool_prop_def(
+            compiler, 'ADD_LINK_OPTIONS', new_linker_options, '', configuration
+        )
 
 
 def writeln(f: TextIOBase, num_tabs: int = 0, text: str = ''):

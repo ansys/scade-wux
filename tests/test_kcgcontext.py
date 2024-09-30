@@ -29,8 +29,10 @@ import shutil
 import pytest
 import scade.model.project.stdproject as std
 
-from ansys.scade.wux.impl.kcgcontext import WuxContext, get_services
-from ansys.scade.wux.test.sctoc_stub import reset_stub
+import ansys.scade.wux.impl.kcgcontext as wux_ctx
+from ansys.scade.wux.impl.kcgcontext import WuxContext
+from ansys.scade.wux.test.sctoc_stub import get_stub
+from ansys.scade.wux.test.utils import ServiceProxy, reset_test_env
 import ansys.scade.wux.wux as wux
 from conftest import find_configuration, load_project
 
@@ -47,10 +49,11 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     configuration = find_configuration(project, 'UT KCG')
     target_dir = Path(project.pathname).parent / configuration.name
 
-    WuxContext.reset()
-    WuxContext.set_simulation(project, configuration)
-    assert not WuxContext.simulation
-    WuxContext.set_globals(str(target_dir), project, configuration)
+    reset_test_env()
+    ctx = WuxContext()
+    ctx.set_simulation(project, configuration)
+    assert not ctx.simulation
+    ctx.set_globals(str(target_dir), project, configuration)
     # mf must be initialized
     assert wux.mf
     # sanity check: test on of the functions
@@ -67,7 +70,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     assert roots == {'Function', 'Node'}
 
     f = StringIO()
-    WuxContext.gen_kcg_includes(f)
+    ctx.gen_kcg_includes(f)
     text = f.getvalue()
     includes = {_.strip() for _ in text.strip(' \n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert includes == {
@@ -78,7 +81,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_contexts_declaration(f, project)
+    ctx.gen_contexts_declaration(f, project)
     text = f.getvalue()
     # no unit test: output not regular
     # --> cf. test_kcgcontext_ut_node with a smaller text
@@ -86,7 +89,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_contexts_definition(f)
+    ctx.gen_contexts_definition(f)
     text = f.getvalue()
     definitions = {_.strip() for _ in text.strip('\n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert definitions == {
@@ -96,7 +99,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_sensors(f)
+    ctx.gen_sensors(f)
     text = f.getvalue()
     sensors = {_.strip() for _ in text.strip('\n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert sensors == {
@@ -106,7 +109,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_init(f)
+    ctx.gen_init(f)
     text = f.getvalue()
     # no unit test: output not regular
     # --> cf. test_kcgcontext_ut_node with a smaller text
@@ -114,7 +117,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_cycles(f)
+    ctx.gen_cycles(f)
     text = f.getvalue()
     # no unit test: output not regular
     # --> cf. test_kcgcontext_ut_node with a smaller text
@@ -122,7 +125,7 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_period(f)
+    ctx.gen_period(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -141,10 +144,10 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     configuration = find_configuration(project, 'UT Simulation')
     target_dir = Path(project.pathname).parent / configuration.name
 
-    WuxContext.reset()
-    WuxContext.set_simulation(project, configuration)
-    assert WuxContext.simulation
-    WuxContext.set_globals(str(target_dir), project, configuration)
+    ctx = WuxContext()
+    ctx.set_simulation(project, configuration)
+    assert ctx.simulation
+    ctx.set_globals(str(target_dir), project, configuration)
     # mf must be initialized
     assert wux.mf
     # sanity check: test on of the functions
@@ -161,7 +164,7 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     assert roots == {'Node'}
 
     f = StringIO()
-    WuxContext.gen_kcg_includes(f)
+    ctx.gen_kcg_includes(f)
     text = f.getvalue()
     includes = {_.strip() for _ in text.strip(' \n').split('\n') if _.strip()[:2] != '/*'}
     assert includes == {
@@ -171,28 +174,28 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_contexts_declaration(f, project)
+    ctx.gen_contexts_declaration(f, project)
     text = f.getvalue()
     declarations = {_.strip() for _ in text.strip('\n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert declarations == {'#include "KcgContext_interface.h"'}
     f.close()
 
     f = StringIO()
-    WuxContext.gen_contexts_definition(f)
+    ctx.gen_contexts_definition(f)
     text = f.getvalue()
     definitions = {_.strip() for _ in text.strip('\n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert not definitions
     f.close()
 
     f = StringIO()
-    WuxContext.gen_sensors(f)
+    ctx.gen_sensors(f)
     text = f.getvalue()
     sensors = {_.strip() for _ in text.strip('\n').split('\n') if _ and _.strip()[:2] != '/*'}
     assert not sensors
     f.close()
 
     f = StringIO()
-    WuxContext.gen_init(f)
+    ctx.gen_init(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -210,7 +213,7 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_cycles(f)
+    ctx.gen_cycles(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -223,7 +226,7 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_period(f)
+    ctx.gen_period(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -257,17 +260,17 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     configuration = find_configuration(project, 'UT Node')
     target_dir = Path(project.pathname).parent / configuration.name
 
-    WuxContext.reset()
-    WuxContext.set_simulation(project, configuration)
-    assert not WuxContext.simulation
-    WuxContext.set_globals(str(target_dir), project, configuration)
+    ctx = WuxContext()
+    ctx.set_simulation(project, configuration)
+    assert not ctx.simulation
+    ctx.set_globals(str(target_dir), project, configuration)
     # mf, mh, ips must be initialized
     assert wux.mf
     assert wux.mh
     assert wux.ips
 
     f = StringIO()
-    WuxContext.gen_contexts_declaration(f, project)
+    ctx.gen_contexts_declaration(f, project)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -284,7 +287,7 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_contexts_definition(f)
+    ctx.gen_contexts_definition(f)
     text = f.getvalue()
     definitions = set(text.strip('\n').split('\n'))
     assert definitions == {
@@ -294,7 +297,7 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_init(f)
+    ctx.gen_init(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -319,7 +322,7 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     f.close()
 
     f = StringIO()
-    WuxContext.gen_cycles(f)
+    ctx.gen_cycles(f)
     text = f.getvalue()
     reference = '\n'.join(
         [
@@ -349,8 +352,8 @@ def test_kcgcontext_ut_node(ut_kcg_context):
 def test_kcgcontext_generate(tmpdir):
     # make sure the generation does not fail:
     # generated code tested by integration tests
-    WuxContext.reset()
-    stub = reset_stub()
+    reset_test_env()
+    stub = get_stub()
     path = Path(__file__).parent / 'UT' / 'KcgContext' / 'KcgContext.etp'
     project = load_project(path)
     configuration = find_configuration(project, 'UT KCG')
@@ -359,29 +362,12 @@ def test_kcgcontext_generate(tmpdir):
     # copy the mapping file to the target directory
     shutil.copy(path.parent / configuration.name / 'mapping.xml', tmpdir)
     # exercise the module interface
-    services = get_services()
-    assert len(services) == 1
-    service = services[0]
-    # sanity check
-    assert service[0] == 'WUX2_CTX'
-    for t in service[1:]:
-        if t[0] == '-OnInit':
-            init = t[1]
-            break
-    else:
-        assert False
+    ctx_service = ServiceProxy(wux_ctx)
     # make sure init can be called
-    dependencies = init(tmpdir, project, configuration)
+    dependencies = ctx_service.init(tmpdir, project, configuration)
     assert len(dependencies) > 0
 
-    # get the generated callback
-    for t in service[1:]:
-        if t[0] == '-OnGenerate':
-            gen = t[1]
-            break
-    else:
-        assert False
-    gen(tmpdir, project, configuration)
+    ctx_service.generate(tmpdir, project, configuration)
     # minimum assessment: generated files
     files = {Path(_).name for _ in stub.generated_files[WuxContext.tool]}
     model = path.stem

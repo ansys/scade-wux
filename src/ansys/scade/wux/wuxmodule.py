@@ -47,11 +47,12 @@ class WuxModule:
 
     # identification
     _tool = 'Utility services for wrappers'
+    _banner = '%s (%s)' % (_tool, __version__)
 
     @classmethod
     def get_services(cls):
         """Declare all the provided utility services."""
-        print(cls._tool, __version__)
+        print(cls._banner)
         services = []
         services.extend(kcgcontext.get_services())
         services.extend(sdyext.get_services())

@@ -201,50 +201,54 @@ class SCToCStub:
 
 
 # global instance
-stub = SCToCStub()
+_stub = SCToCStub()
 
 
 def reset_stub() -> SCToCStub:
-    global stub
+    global _stub
 
-    stub = SCToCStub()
-    return stub
+    _stub = SCToCStub()
+    return _stub
 
 
 def set_stub(new_stub: SCToCStub):
-    global stub
+    global _stub
 
-    stub = new_stub
+    _stub = new_stub
+
+
+def get_stub() -> SCToCStub:
+    return _stub
 
 
 # interface
 def _get_operator_sample_time() -> Tuple[float, float, bool]:
-    return stub.get_operator_sample_time()
+    return _stub.get_operator_sample_time()
 
 
 def _get_list_of_project_files(*args, **kwargs) -> List[str]:
-    return stub.get_list_of_project_files(*args, **kwargs)
+    return _stub.get_list_of_project_files(*args, **kwargs)
 
 
 def _get_list_of_external_files(*kinds: str) -> List[str]:
-    return stub.get_list_of_project_files(*kinds)
+    return _stub.get_list_of_project_files(*kinds)
 
 
 # adding make directives
 def _add_c_files(c_files: List[str], relative: bool, service: str):
-    stub.add_c_files(c_files, relative, service)
+    _stub.add_c_files(c_files, relative, service)
 
 
 def _add_ada_files(ada_files: List[str], relative: bool, service: str):
-    stub.add_ada_files(ada_files, relative, service)
+    _stub.add_ada_files(ada_files, relative, service)
 
 
 def _add_obj_files(obj_files: List[str], relative: bool):
-    stub.add_obj_files(obj_files, relative)
+    _stub.add_obj_files(obj_files, relative)
 
 
 def _add_include_files(directories: List[str], relative: bool):
-    stub.add_include_files(directories, relative)
+    _stub.add_include_files(directories, relative)
 
 
 def _add_dynamic_library_rule(
@@ -257,7 +261,7 @@ def _add_dynamic_library_rule(
     cpu_type: str = '',
     language: str = '',
 ):
-    stub.add_dynamic_library_rule(
+    _stub.add_dynamic_library_rule(
         basename, c_files, o_files, def_files, dependencies, main, cpu_type, language
     )
 
@@ -265,7 +269,7 @@ def _add_dynamic_library_rule(
 def _add_static_library_rule(
     basename: str, c_files: List[str], o_files: List[str], main: bool, cpu_type: str, language: str
 ):
-    stub.add_static_library_rule(basename, c_files, o_files, main, cpu_type, language)
+    _stub.add_static_library_rule(basename, c_files, o_files, main, cpu_type, language)
 
 
 def _add_executable_rule(
@@ -277,7 +281,7 @@ def _add_executable_rule(
     cpu_type: str = '',
     language: str = '',
 ):
-    stub.add_executable_rule(basename, c_files, o_files, dependencies, main, cpu_type, language)
+    _stub.add_executable_rule(basename, c_files, o_files, dependencies, main, cpu_type, language)
 
 
 def _add_custom_rule(
@@ -288,53 +292,53 @@ def _add_custom_rule(
     cpu_type: str = '',
     language: str = '',
 ):
-    stub.add_custom_rule(basename, dependencies, commands, main, cpu_type, language)
+    _stub.add_custom_rule(basename, dependencies, commands, main, cpu_type, language)
 
 
 def _add_variable(name: str, value: str):
-    stub.add_variable(name, value)
+    _stub.add_variable(name, value)
 
 
 def _add_path_variable(name: str, value: str, relative: bool):
-    stub.add_path_variable(name, value, relative)
+    _stub.add_path_variable(name, value, relative)
 
 
 def _set_compiler_kind(kind: str):
-    stub.set_compiler_kind(kind)
+    _stub.set_compiler_kind(kind)
 
 
 def _add_preprocessor_definitions(*definitions: str):
-    stub.add_preprocessor_definitions(*definitions)
+    _stub.add_preprocessor_definitions(*definitions)
 
 
 def _get_compiler_object_directory() -> str:
-    return stub.get_compiler_object_directory()
+    return _stub.get_compiler_object_directory()
 
 
 # sending feedback to SCADE Suite user interface
 def _add_error(category: str, code: str, messages: List[Tuple[str, str]]):
-    stub.add_error(category, code, messages)
+    _stub.add_error(category, code, messages)
 
 
 def _add_warning(category: str, code: str, messages: List[Tuple[str, str]]):
-    stub.add_warning(category, code, messages)
+    _stub.add_warning(category, code, messages)
 
 
 def _add_information(category: str, code: str, messages: List[Tuple[str, str]]):
-    stub.add_information(category, code, messages)
+    _stub.add_information(category, code, messages)
 
 
 def _add_generated_files(service: str, files: List[str]):
-    stub.add_generated_files(service, files)
+    _stub.add_generated_files(service, files)
 
 
 # misc. (undocumented)
 def _is_state_up_to_date(state_ext: str) -> bool:
-    return stub.is_state_up_to_date(state_ext)
+    return _stub.is_state_up_to_date(state_ext)
 
 
 def _save_state(state_files: List[str], state_ext: str):
-    stub.save_state(state_files, state_ext)
+    _stub.save_state(state_files, state_ext)
 
 
 # patch

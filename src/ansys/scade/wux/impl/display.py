@@ -40,6 +40,7 @@ from ansys.scade.wux.wux import writeln
 # variables
 # ----------------------------------------------------------------------------
 
+# TODO: refactoring required, not suitable for unit testing
 sdy_display_home = None
 sdy_rapidproto_home = None
 sdy_appplication = None
@@ -49,7 +50,7 @@ sdy_specifications = []
 
 
 # Initialize all script global variables
-def set_variables(project, configuration, roots):
+def set_variables(project, configuration, roots, sdy_apps):
     global sdy_display_home
     global sdy_rapidproto_home
     global sdy_appplication
@@ -71,7 +72,7 @@ def set_variables(project, configuration, roots):
     sdy_display_home = str(ansys_scade_dir / 'SCADE Display')
     sdy_rapidproto_home = str(ansys_scade_dir / 'SCADE Test' / 'Rapid Prototyper')
 
-    for app in displaycoupling.get_roots():
+    for app in sdy_apps:
         if app.mapping_file:
             rootname1 = os.path.abspath(os.path.splitext(app.mapping_file.pathname)[0])
             rootname2 = os.path.abspath(os.path.splitext(project.pathname)[0])
@@ -725,8 +726,8 @@ def gen_cancelled(f):
     writeln(f)
 
 
-def generate(f, target_dir, project, configuration, roots, ips):
-    set_variables(project, configuration, roots)
+def generate(f, target_dir, project, configuration, roots, ips, sdy_apps):
+    set_variables(project, configuration, roots, sdy_apps)
     gen_includes(f, project)
     gen_init(f)
     gen_draw(f)

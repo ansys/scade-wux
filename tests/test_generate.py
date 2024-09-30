@@ -27,12 +27,12 @@ import shutil
 
 import pytest
 
-import ansys.scade.wux.impl.a661 as uaa
-import ansys.scade.wux.impl.kcgcontext as ctx
-import ansys.scade.wux.impl.sdyext as sdy
-import ansys.scade.wux.impl.simuext as simu_ext
-from ansys.scade.wux.test.sctoc_stub import reset_stub
-import ansys.scade.wux.wux as wux
+import ansys.scade.wux.impl.a661 as wux_uaa
+import ansys.scade.wux.impl.kcgcontext as wux_ctx
+import ansys.scade.wux.impl.sdyext as wux_sdy
+import ansys.scade.wux.impl.simuext as wux_simu_ext
+from ansys.scade.wux.test.sctoc_stub import get_stub
+from ansys.scade.wux.test.utils import ServiceProxy, reset_test_env
 from conftest import find_configuration, load_project
 
 
@@ -48,9 +48,8 @@ from conftest import find_configuration, load_project
 def test_generate(file, name, tmpdir):
     # make sure the generation does not fail:
     # generated code tested by integration tests
-    wux.reset()
-    ctx.WuxContext.reset()
-    stub = reset_stub()
+    reset_test_env()
+    stub = get_stub()
 
     path = Path(__file__).parent / file
     project = load_project(path)
@@ -62,26 +61,27 @@ def test_generate(file, name, tmpdir):
     shutil.copy(path.parent / configuration.name / 'mapping.xml', tmpdir)
 
     # initialize the context, required for all other services
-    ctx.WuxContext.init(tmpdir, project, configuration)
-    status = ctx.WuxContext.generate(tmpdir, project, configuration)
+    ctx = ServiceProxy(wux_ctx)
+    ctx.init(tmpdir, project, configuration)
+    status = ctx.generate(tmpdir, project, configuration)
     assert status
 
     # WUX2_SDY
-    sdy.SdyExt.sources = []  # TODO provide at least a reset function
-    sdy.SdyExt.init(tmpdir, project, configuration)
-    status = sdy.SdyExt.generate(tmpdir, project, configuration)
+    sdy = ServiceProxy(wux_sdy)
+    sdy.init(tmpdir, project, configuration)
+    status = sdy.generate(tmpdir, project, configuration)
     assert status
     # minimum assessment: generated files
-    files = {Path(_).name for _ in stub.generated_files[sdy.SdyExt.tool]}
+    files = {Path(_).name for _ in stub.generated_files[wux_sdy.SdyExt.tool]}
     assert files == {'wuxsdy%s.c' % model, 'wuxsdyprx%s.cpp' % model}
 
     # WUX2_UAA
-    uaa.A661UAA.sources = []  # TODO provide at least a reset function
-    uaa.A661UAA.init(tmpdir, project, configuration)
-    status = uaa.A661UAA.generate(tmpdir, project, configuration)
+    uaa = ServiceProxy(wux_uaa)
+    uaa.init(tmpdir, project, configuration)
+    status = uaa.generate(tmpdir, project, configuration)
     assert status
     # minimum assessment: generated files
-    files = {Path(_).name for _ in stub.generated_files[uaa.A661UAA.tool]}
+    files = {Path(_).name for _ in stub.generated_files[wux_uaa.A661UAA.tool]}
     assert files == {'wuxuaa%s.c' % model}
 
     # WUX2_SIMU_EXT
@@ -91,8 +91,9 @@ def test_generate(file, name, tmpdir):
         shutil.copy(path.parent / configuration.name / interface, tmpdir)
     except FileNotFoundError:
         pass
-    simu_ext.WuxSimuExt.init(tmpdir, project, configuration)
-    status = simu_ext.WuxSimuExt.generate(tmpdir, project, configuration)
+    simu_ext = ServiceProxy(wux_simu_ext)
+    simu_ext.init(tmpdir, project, configuration)
+    status = simu_ext.generate(tmpdir, project, configuration)
     assert status
     # minimum assessment: generated files
-    assert simu_ext.WuxSimuExt.tool not in stub.generated_files
+    assert wux_simu_ext.WuxSimuExt.tool not in stub.generated_files
