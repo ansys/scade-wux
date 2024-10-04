@@ -179,7 +179,14 @@ breathe_default_project = 'interfaces'
 breathe_projects_source = {
     'interfaces': (
         '%s/src/ansys/scade/wux/include' % root_dir,
-        ['WuxA661Ext.h', 'WuxCtxExt.h', 'WuxDllExt.h', 'WuxSdyExt.h', 'WuxSimuExt.h'],
+        [
+            'WuxA661Ext.h',
+            'WuxCtxExt.h',
+            'WuxDllExt.h',
+            'WuxSdyExt.h',
+            'WuxSdyProxy.h',
+            'WuxSimuExt.h',
+        ],
     ),
 }
 breathe_show_include = False

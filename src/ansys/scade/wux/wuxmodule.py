@@ -31,6 +31,7 @@ from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.a661 as a661
 import ansys.scade.wux.impl.dllext as dllext
 import ansys.scade.wux.impl.kcgcontext as kcgcontext
+import ansys.scade.wux.impl.proxy as sdyproxy
 import ansys.scade.wux.impl.sdyext as sdyext
 import ansys.scade.wux.impl.simuext as simuext
 
@@ -59,4 +60,5 @@ class WuxModule:
         services.extend(a661.get_services())
         services.extend(simuext.get_services())
         services.extend(dllext.get_services())
+        services.extend(sdyproxy.get_services())
         return services

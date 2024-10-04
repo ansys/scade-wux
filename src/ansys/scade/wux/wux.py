@@ -23,7 +23,9 @@
 """Provides a collection of functions for developing wrappers."""
 
 from io import TextIOBase
+import os
 from pathlib import Path
+import re
 from typing import List, Optional, Set
 
 from scade.code.suite.mapping.c import MappingFile
@@ -32,7 +34,11 @@ from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
 from scade.model.project.stdproject import Configuration, Project
 from scade.model.suite import Session, get_roots as _get_sessions
-from scade.model.suite.displaycoupling import SdyApplication, get_roots as _get_sdy_applications
+from scade.model.suite.displaycoupling import (
+    SdyApplication,
+    Specification,
+    get_roots as _get_sdy_applications,
+)
 
 # globals
 mf: Optional[MappingFile] = None
@@ -64,6 +70,8 @@ _definitions: Set[str] = set()
 # roots for APIs
 _sessions: List[Session] = []
 _sdy_applications: List[SdyApplication] = []
+# cache
+_specifications: List[Specification] = []
 
 
 def reset():
@@ -72,7 +80,14 @@ def reset():
 
     Used for unit testing.
     """
-    global _sources, _libraries, _includes, _definitions, _sessions, _sdy_applications
+    global \
+        _sources, \
+        _libraries, \
+        _includes, \
+        _definitions, \
+        _sessions, \
+        _sdy_applications, \
+        _specifications
 
     # generated C files, for makefile
     _sources = set()
@@ -83,6 +98,8 @@ def reset():
     # APIs
     _sessions = []
     _sdy_applications = []
+    # cache
+    _specifications = []
 
 
 def add_sources(paths: List[Path]):
@@ -446,3 +463,53 @@ def set_sdy_applications(sdy_applications: List[SdyApplication]):
     global _sdy_applications
 
     _sdy_applications = sdy_applications
+
+
+def get_specifications(project: Project, configuration: Configuration) -> List[Specification]:
+    """
+    Return the list of graphical panel specifications selected for the input configuration.
+
+    This function adds a new ``prefix`` attribute to the specifications.
+
+    Parameters
+    ----------
+    project : Project
+        Input project.
+    configuration : Configuration
+        Input configuration.
+
+    Returns
+    -------
+    List[Specification]
+    """
+    global _specifications
+
+    sdy_applications = get_sdy_applications()
+    if not _specifications and sdy_applications:
+        # must be only one application
+        sdy_application = sdy_applications[0]
+        sdy_map_file_dir = os.path.dirname(sdy_application.mapping_file.pathname)
+        for panel_params in project.get_tool_prop_def(
+            'GENERATOR', 'DISPLAY_ENABLED_PANELS', [], configuration
+        ):
+            params = panel_params.split(',')
+            if len(params) >= 2 and params[1] != 'None':
+                for spec in sdy_application.specifications:
+                    if (
+                        os.path.abspath(spec.pathname)
+                        == os.path.abspath(os.path.join(sdy_map_file_dir, params[0]))
+                    ) and (spec.sdy_project.is_display() or spec.sdy_project.is_rapid_proto()):
+                        _specifications.append(spec)
+                        # set spec.conf and spec.basename
+                        spec.conf = params[1]
+                        spec.basename = os.path.splitext(os.path.basename(spec.pathname))[0]
+        # sort specifications by basename
+        _specifications = sorted(_specifications, key=lambda x: x.basename)
+        # compute specifications prefix
+        for id_spec_file, spec in enumerate(_specifications, start=1):
+            # add an attribute `prefix` to Specification
+            spec.prefix = 'SDY{}_{}'.format(
+                id_spec_file, re.sub(r'[^A-Za-z0-9_]', '_', spec.basename)
+            )
+
+    return _specifications

@@ -36,6 +36,7 @@
 
 #include "WuxCtxExt.h"
 #ifdef _WIN32
+#include "WuxSdyProxy.h"
 #include "WuxSdyExt.h"
 #include "WuxA661Ext.h"
 #endif

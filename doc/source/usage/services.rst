@@ -27,11 +27,14 @@ detailed in the next sections:
   * Generate a ``GetPeriod`` function for accessing the period specified in
     the code integration settings.
 
-* :ref:`SCADE Suite-Display Extension <usage/services:Display extension>` (``WUX2_SDY``):
+* :ref:`SCADE Display Proxy Extension <usage/services:Display extension>` (``WUX2_SDY_PROXY``):
 
   * Build the SCADE Display and SCADE Rapid Prototyper DLLs.
-  * Generate the glue code for connecting the generated code from the graphical panels and the SCADE models.
   * Generate proxies for loading the DLLs (avoid link edition and compiler issues).
+
+* :ref:`SCADE Suite-Display Extension <usage/services:Display extension>` (``WUX2_SDY``):
+
+  * Generate the glue code for connecting the generated code from the graphical panels and the SCADE models.
 
 * :ref:`SCADE Suite UA Adaptor Extension <usage/services:UA Adaptor extension>` (``WUX2_UAA``):
 
@@ -84,12 +87,10 @@ code generation target is ``Simulator``.
 Display extension
 -----------------
 
-This service (``WUX2_SDY``) is responsible for building the DLLs for each
-graphical panel referenced in the configuration, generating the glue code
-between SCADE Suite and SCADE Display, and providing functions to load the
-DLLs at runtime.
+This service (``WUX2_SDY``) is responsible for generating the glue code
+between SCADE Suite and SCADE Display.
 
-It generates the following functions spread in two files:
+It generates the following file:
 
 * ``<project name>_sydext.c``:
 
@@ -98,6 +99,25 @@ It generates the following functions spread in two files:
   * ``void WuxSdySetInputs()``: Copy the mapped values from the contexts to the layers.
   * ``void WuxSdyGetOutputs()``: Copy the mapped values from the layers to the contexts.
   * ``int WuxSdyCancelled()``: Return ``1`` if one of the display is closed.
+
+The generated files are declared to the Code Generator with the tag ``WUX``.
+
+.. Note::
+
+   The functions are always generated to avoid link errors, but are
+   empty if no graphical panel is referenced in the configuration.
+
+All the generated functions are declared in :std:doc:`/runtime/sdyext`,
+and the containing directory is declared to the Code Generator.
+
+Display proxy extension
+-----------------------
+
+This service (``WUX2_SDY_PROXY``) is responsible for building the DLLs for each
+graphical panel referenced in the configuration, and providing functions to load
+the DLLs at runtime.
+
+It generates the following file:
 
 * ``<project name>_sydextprx.cpp``:
 
@@ -111,7 +131,7 @@ The generated files are declared to the Code Generator with the tag ``WUX``.
    The functions are always generated to avoid link errors, but are
    empty if no graphical panel is referenced in the configuration.
 
-All the generated functions are declared in :std:doc:`/runtime/sdyext`,
+All the generated functions are declared in :std:doc:`/runtime/sdyproxy`,
 and the containing directory is declared to the Code Generator.
 
 The ``lib/WuxSdyProxy.cpp`` resource file is required and is declared to the

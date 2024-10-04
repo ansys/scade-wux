@@ -31,9 +31,31 @@ import ansys.scade.apitools  # noqa: F401
 # isort: split
 import scade
 import scade.model.project.stdproject as std
+import scade.model.suite as suite
+import scade.model.suite.displaycoupling as dc
 
 # stub the proxy's entries
 import ansys.scade.wux.test.sctoc_stub  # noqa: F401
+
+
+def load_session(*paths: Path) -> suite.Session:
+    """
+    Create an instance of Session instance and load the requested models.
+    """
+    session = suite.Session()
+    for path in paths:
+        session.load2(str(path))
+    return session
+
+
+def load_sdy_application(mapping: Path, *displays: Path) -> dc.SdyApplication:
+    """Load a Scade Suite - Display mapping file in a separate environment."""
+    app = dc.SdyApplication()
+    app.load_mapping_file_tcl(str(mapping))
+    # TODO: sounds like load_sdy_project_tcl does nothing in this context
+    for display in displays:
+        app.load_sdy_project_tcl(str(display))
+    return app
 
 
 def load_project(path: Path) -> std.Project:

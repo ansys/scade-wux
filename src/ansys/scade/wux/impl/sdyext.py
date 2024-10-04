@@ -29,7 +29,6 @@ import scade.code.suite.sctoc as sctoc
 
 from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.display as display
-import ansys.scade.wux.impl.proxy as proxy
 import ansys.scade.wux.wux as wux
 
 # ----------------------------------------------------------------------------
@@ -51,37 +50,29 @@ class SdyExt:
 
     @classmethod
     def get_service(cls):
-        """Declare the generation service Python Wrapper."""
+        """Declare the generation service SCADE Suite-Display Extension."""
         cls.instance = SdyExt()
-        scx = (
-            cls.ID,
-            ('-OnInit', cls.instance.init),
-            ('-OnGenerate', cls.instance.generate),
-            ('-OnBuild', cls.instance.build),
-        )
-        return scx
+        return (cls.ID, ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
 
     def init(self, target_dir, project, configuration):
-        cg = ('Code Generator', ('-Order', 'Before'))
-        ctx = ('WUX2_CTX', ('-Order', 'Before'))
-        return [cg, ctx]
+        return [
+            ('Code Generator', ('-Order', 'Before')),
+            ('WUX2_SDY_PROXY', ('-Order', 'Before')),
+            ('WUX2_CTX', ('-Order', 'Before')),
+        ]
 
     def generate(self, target_dir, project, configuration):
         print(self.banner)
 
+        assert wux.mf
         roots = wux.mf.get_root_operators()
 
         # generation
         self.generate_display(target_dir, project, configuration, roots, wux.ips)
-        self.generate_proxy_file(target_dir, project, configuration, roots)
 
         # build
         self.declare_target(target_dir, project, configuration, roots)
 
-        return True
-
-    def build(self, target_dir, project, configuration):
-        display.build(target_dir, project, configuration)
         return True
 
     # ----------------------------------------------------------------------------
@@ -100,16 +91,6 @@ class SdyExt:
             )
             wux.gen_footer(f)
 
-    def generate_proxy_file(self, target_dir, project, configuration, roots):
-        path = Path(project.pathname)
-        pathname = Path(target_dir) / ('wuxsdyprx' + path.stem + '.cpp')
-        sctoc.add_generated_files(self.tool, [pathname.name])
-        self.sources.append(pathname)
-        with open(str(pathname), 'w') as f:
-            wux.gen_header(f, self.banner)
-            proxy.generate(f, target_dir, project, configuration)
-            wux.gen_footer(f)
-
     # ----------------------------------------------------------------------------
     # build
     # ----------------------------------------------------------------------------
@@ -119,12 +100,6 @@ class SdyExt:
         include = self.script_dir.parent / 'include'
         wux.add_includes([include])
         wux.add_sources(self.sources)
-        if display.get_specifications():
-            lib = self.script_dir.parent / 'lib'
-            wux.add_sources([lib / 'WuxSdyProxy.cpp'])
-
-        # make sure the linker option -static -lstdc++ is set for gcc
-        wux.add_cpp_options(project, configuration)
 
 
 # ----------------------------------------------------------------------------

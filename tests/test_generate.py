@@ -29,6 +29,7 @@ import pytest
 
 import ansys.scade.wux.impl.a661 as wux_uaa
 import ansys.scade.wux.impl.kcgcontext as wux_ctx
+import ansys.scade.wux.impl.proxy as wux_proxy
 import ansys.scade.wux.impl.sdyext as wux_sdy
 import ansys.scade.wux.impl.simuext as wux_simu_ext
 from ansys.scade.wux.test.sctoc_stub import get_stub
@@ -66,6 +67,15 @@ def test_generate(file, name, tmpdir):
     status = ctx.generate(tmpdir, project, configuration)
     assert status
 
+    # WUX2_SDY_PROYX
+    proxy = ServiceProxy(wux_proxy)
+    proxy.init(tmpdir, project, configuration)
+    status = proxy.generate(tmpdir, project, configuration)
+    assert status
+    # minimum assessment: generated files
+    files = {Path(_).name for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]}
+    assert files == {'wuxsdyprx%s.cpp' % model}
+
     # WUX2_SDY
     sdy = ServiceProxy(wux_sdy)
     sdy.init(tmpdir, project, configuration)
@@ -73,7 +83,7 @@ def test_generate(file, name, tmpdir):
     assert status
     # minimum assessment: generated files
     files = {Path(_).name for _ in stub.generated_files[wux_sdy.SdyExt.tool]}
-    assert files == {'wuxsdy%s.c' % model, 'wuxsdyprx%s.cpp' % model}
+    assert files == {'wuxsdy%s.c' % model}
 
     # WUX2_UAA
     uaa = ServiceProxy(wux_uaa)
