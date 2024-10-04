@@ -29,7 +29,7 @@ import pytest
 
 import ansys.scade.wux.impl.a661 as wux_uaa
 import ansys.scade.wux.impl.kcgcontext as wux_ctx
-import ansys.scade.wux.impl.proxy as wux_proxy
+import ansys.scade.wux.impl.proxyext as wux_proxy
 import ansys.scade.wux.impl.sdyext as wux_sdy
 import ansys.scade.wux.impl.simuext as wux_simu_ext
 from ansys.scade.wux.test.sctoc_stub import get_stub

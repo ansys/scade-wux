@@ -31,7 +31,7 @@ from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.a661 as a661
 import ansys.scade.wux.impl.dllext as dllext
 import ansys.scade.wux.impl.kcgcontext as kcgcontext
-import ansys.scade.wux.impl.proxy as sdyproxy
+import ansys.scade.wux.impl.proxyext as sdyproxy
 import ansys.scade.wux.impl.sdyext as sdyext
 import ansys.scade.wux.impl.simuext as simuext
 

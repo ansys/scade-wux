@@ -35,8 +35,6 @@ import scade.model.suite.displaycoupling as sdy
 from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux import __version__
 import ansys.scade.wux.wux as wux
-
-# from ansys.scade.wux.impl.display import get_specifications
 from ansys.scade.wux.wux import writeln
 
 # ----------------------------------------------------------------------------
