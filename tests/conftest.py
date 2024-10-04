@@ -48,13 +48,13 @@ def load_session(*paths: Path) -> suite.Session:
     return session
 
 
-def load_sdy_application(mapping: Path, *displays: Path) -> dc.SdyApplication:
+def load_sdy_application(mapping: Path, model: suite.Model, *displays: Path) -> dc.SdyApplication:
     """Load a Scade Suite - Display mapping file in a separate environment."""
     app = dc.SdyApplication()
-    app.load_mapping_file_tcl(str(mapping))
-    # TODO: sounds like load_sdy_project_tcl does nothing in this context
     for display in displays:
         app.load_sdy_project_tcl(str(display))
+    app.load_mapping_file_tcl(str(mapping))
+    app.mapping_file.model = model
     return app
 
 

@@ -34,25 +34,27 @@ import ansys.scade.wux.impl.sdyext as wux_sdy
 import ansys.scade.wux.impl.simuext as wux_simu_ext
 from ansys.scade.wux.test.sctoc_stub import get_stub
 from ansys.scade.wux.test.utils import ServiceProxy, reset_test_env
-from conftest import find_configuration, load_project
+import ansys.scade.wux.wux as wux
+from conftest import find_configuration, load_project, load_sdy_application, load_session
 
 
 @pytest.mark.parametrize(
-    'file, name',
+    'file, display, name',
     [
-        ('Two/UA/Two.etp', 'UT KCG'),
-        ('Two/UA/Two.etp', 'UT Simulation'),
-        ('Variables/Variables.etp', 'UT KCG'),
-        ('Variables/Variables.etp', 'UT Simulation'),
+        ('Two/UA/Two.etp', 'Two/DF/TwoDF.etp', 'UT KCG'),
+        ('Two/UA/Two.etp', 'Two/DF/TwoDF.etp', 'UT Simulation'),
+        ('Variables/Variables.etp', 'Variables/Displays/Displays.etp', 'UT KCG'),
+        ('Variables/Variables.etp', 'Variables/Displays/Displays.etp', 'UT Simulation'),
     ],
 )
-def test_generate(file, name, tmpdir):
+def test_generate(file, name, display, tmpdir):
     # make sure the generation does not fail:
     # generated code tested by integration tests
     reset_test_env()
     stub = get_stub()
 
-    path = Path(__file__).parent / file
+    test_dir = Path(__file__).parent
+    path = test_dir / file
     project = load_project(path)
     configuration = find_configuration(project, name)
     model = path.stem
@@ -61,38 +63,49 @@ def test_generate(file, name, tmpdir):
     # copy the mapping file to the target directory
     shutil.copy(path.parent / configuration.name / 'mapping.xml', tmpdir)
 
+    # models
+    session = load_session(path)
+    wux.set_sessions([session])
+    if display:
+        mapping = path.with_suffix('.sdy')
+        app = load_sdy_application(mapping, session.model, test_dir / display)
+        wux.set_sdy_applications([app])
+
     # initialize the context, required for all other services
     ctx = ServiceProxy(wux_ctx)
     ctx.init(tmpdir, project, configuration)
     status = ctx.generate(tmpdir, project, configuration)
     assert status
 
-    # WUX2_SDY_PROYX
-    proxy = ServiceProxy(wux_proxy)
-    proxy.init(tmpdir, project, configuration)
-    status = proxy.generate(tmpdir, project, configuration)
-    assert status
-    # minimum assessment: generated files
-    files = {Path(_).name for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]}
-    assert files == {'wuxsdyprx%s.cpp' % model}
+    # WUX2_SDY_PROXY
+    if display:
+        proxy = ServiceProxy(wux_proxy)
+        proxy.init(tmpdir, project, configuration)
+        status = proxy.generate(tmpdir, project, configuration)
+        assert status
+        # minimum assessment: generated files
+        files = {Path(_).name for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]}
+        assert files == {'wuxsdyprx%s.cpp' % model}
 
     # WUX2_SDY
-    sdy = ServiceProxy(wux_sdy)
-    sdy.init(tmpdir, project, configuration)
-    status = sdy.generate(tmpdir, project, configuration)
-    assert status
-    # minimum assessment: generated files
-    files = {Path(_).name for _ in stub.generated_files[wux_sdy.SdyExt.tool]}
-    assert files == {'wuxsdy%s.c' % model}
+    if display:
+        sdy = ServiceProxy(wux_sdy)
+        sdy.init(tmpdir, project, configuration)
+        status = sdy.generate(tmpdir, project, configuration)
+        assert status
+        # minimum assessment: generated files
+        files = {Path(_).name for _ in stub.generated_files[wux_sdy.SdyExt.tool]}
+        assert files == {'wuxsdy%s.c' % model}
 
     # WUX2_UAA
-    uaa = ServiceProxy(wux_uaa)
-    uaa.init(tmpdir, project, configuration)
-    status = uaa.generate(tmpdir, project, configuration)
-    assert status
-    # minimum assessment: generated files
-    files = {Path(_).name for _ in stub.generated_files[wux_uaa.A661UAA.tool]}
-    assert files == {'wuxuaa%s.c' % model}
+    if display:
+        uaa = ServiceProxy(wux_uaa)
+        uaa.init(tmpdir, project, configuration)
+        status = uaa.generate(tmpdir, project, configuration)
+        assert status
+        # minimum assessment: generated files
+        files = {Path(_).name for _ in stub.generated_files[wux_uaa.A661UAA.tool]}
+        assert files == {'wuxuaa%s.c' % model}
 
     # WUX2_SIMU_EXT
     # copy the mapping file to the target directory

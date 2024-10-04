@@ -207,8 +207,8 @@ def test_set_get_models():
     assert sessions[0] == session
 
     mapping = Path(__file__).parent / 'Variables' / 'Variables.sdy'
-    display = Path(__file__).parent / 'Variables' / 'Displays' / 'Display.etp'
-    app = load_sdy_application(mapping, display)
+    display = Path(__file__).parent / 'Variables' / 'Displays' / 'Displays.etp'
+    app = load_sdy_application(mapping, session.model, display)
     wux.set_sdy_applications([app])
     apps = wux.get_sdy_applications()
     assert len(apps) == 1
@@ -219,7 +219,5 @@ def test_set_get_models():
     configuration = find_configuration(project, 'SdyExt')
     specs = wux.get_specifications(project, configuration)
     # alphabetical order
-    # TODO: following test fails: loading the mapping file does not behave
-    # as expected in this context of unit testing
-    names = [_.name for _ in specs]  # noqa: F841
-    # assert names == ['Speed', 'Throttle']
+    names = [Path(_.pathname).stem for _ in specs]
+    assert names == ['Speed', 'Throttles']
