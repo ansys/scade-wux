@@ -24,6 +24,7 @@ Contents
    api/index
    runtime/index
    contributing
+   changelog
 
 Indices and tables
 -------------------
