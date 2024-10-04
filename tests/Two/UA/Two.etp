@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="280" defaultConfiguration="24">
+<Project id="1" oid_count="307" defaultConfiguration="24">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -61,6 +61,7 @@
 			<value>217</value>
 			<value>253</value>
 			<value>262</value>
+			<value>294</value>
 		</Prop>
 		<Prop id="25" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
@@ -328,6 +329,7 @@
 			<value>217</value>
 			<value>253</value>
 			<value>262</value>
+			<value>294</value>
 		</Prop>
 		<Prop id="89" name="@STUDIO:TOOLCONF">
 			<value>DiffAnalyzer</value>
@@ -343,6 +345,7 @@
 			<value>217</value>
 			<value>253</value>
 			<value>262</value>
+			<value>294</value>
 		</Prop>
 		<Prop id="90" name="@STUDIO:TOOLCONF">
 			<value>Synchronization</value>
@@ -358,6 +361,7 @@
 			<value>217</value>
 			<value>253</value>
 			<value>262</value>
+			<value>294</value>
 		</Prop>
 		<Prop id="91" name="@STUDIO:TOOLCONF">
 			<value>Import/Export</value>
@@ -373,6 +377,7 @@
 			<value>217</value>
 			<value>253</value>
 			<value>262</value>
+			<value>294</value>
 		</Prop>
 		<Prop id="96" name="@SCADE:CHECKED">
 			<value>false</value>
@@ -457,7 +462,7 @@
 			<configuration>205</configuration>
 		</Prop>
 		<Prop id="208" name="@GENERATOR:TARGET_ADAPTOR">
-			<value>WUX2_24R2_GOWRP</value>
+			<value></value>
 			<configuration>205</configuration>
 		</Prop>
 		<Prop id="209" name="@GENERATOR:TARGET_DIR">
@@ -676,6 +681,65 @@
 			<value>WUX2_24R2_GOWRP</value>
 			<configuration>253</configuration>
 		</Prop>
+		<Prop id="295" name="@GENERATOR:ROOTNODE">
+			<value>Two</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="296" name="@GENERATOR:PERIODICITY_MODE">
+			<value>USER</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="298" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="299" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="300" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="301" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="302" name="@GENERATOR:OPTLEVEL">
+			<value>1</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="303" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="304" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="305" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>WUX2_GOWRP</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="306" name="@GENERATOR:DISPLAY_ENABLED_PANELS">
+			<value>..\DF\TwoDF.etp,DF Generation</value>
+			<configuration>294</configuration>
+		</Prop>
+		<Prop id="307" name="@GENERATOR:A661_SERVER_PORT">
+			<value>1242</value>
+			<configuration>294</configuration>
+		</Prop>
 	</props>
 	<roots>
 		<Folder id="3" extensions="vsp;etp" name="SCADE Libraries">
@@ -713,5 +777,6 @@
 		<Configuration id="217" name="Standalone"/>
 		<Configuration id="253" name="UT KCG"/>
 		<Configuration id="262" name="UT Simulation"/>
+		<Configuration id="294" name="A661"/>
 	</configurations>
 </Project>

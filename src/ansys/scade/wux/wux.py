@@ -31,6 +31,8 @@ import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
 from scade.model.project.stdproject import Configuration, Project
+from scade.model.suite import Session, get_roots as _get_sessions
+from scade.model.suite.displaycoupling import SdyApplication, get_roots as _get_sdy_applications
 
 # globals
 mf: Optional[MappingFile] = None
@@ -59,6 +61,9 @@ _sources: Set[str] = set()
 _libraries: Set[str] = set()
 _includes: Set[str] = set()
 _definitions: Set[str] = set()
+# roots for APIs
+_sessions: List[Session] = []
+_sdy_applications: List[SdyApplication] = []
 
 
 def reset():
@@ -67,7 +72,7 @@ def reset():
 
     Used for unit testing.
     """
-    global _sources, _libraries, _includes, _definitions
+    global _sources, _libraries, _includes, _definitions, _sessions, _sdy_applications
 
     # generated C files, for makefile
     _sources = set()
@@ -75,6 +80,9 @@ def reset():
     _libraries = set()
     _includes = set()
     _definitions = set()
+    # APIs
+    _sessions = []
+    _sdy_applications = []
 
 
 def add_sources(paths: List[Path]):
@@ -182,6 +190,13 @@ def add_cpp_options(project: Project, configuration: Configuration):
       * The option is set only if the current compiler is GNU C.
       * The project is modified but it is not expected to be saved in this context.
         Should it be saved, this is still fine since the option is mandatory.
+
+    Parameters
+    ----------
+    project : Project
+        Input project.
+    configuration : Configuration
+        Input configuration.
     """
     # the default value is 'GNU C' when the property is not set
     compiler = project.get_scalar_tool_prop_def('SIMULATOR', 'COMPILER', 'GNU C', configuration)
@@ -210,7 +225,7 @@ def writeln(f: TextIOBase, num_tabs: int = 0, text: str = ''):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     num_tabs : int
@@ -233,7 +248,7 @@ def write_indent(f: TextIOBase, tab: str, text: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     tab : str
@@ -264,7 +279,7 @@ def gen_start_protect(f: TextIOBase, name: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     name : str
@@ -290,7 +305,7 @@ def gen_end_protect(f: TextIOBase, name: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     name : str
@@ -307,7 +322,7 @@ def gen_header(f: TextIOBase, banner: str, start_comment: str = '/* ', end_comme
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     banner : str
@@ -329,7 +344,7 @@ def gen_footer(f: TextIOBase, start_comment: str = '/* ', end_comment: str = ' *
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     start_comment : str
@@ -349,7 +364,7 @@ def gen_includes(f: TextIOBase, files: List[str]):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     files : List[str]
@@ -359,3 +374,75 @@ def gen_includes(f: TextIOBase, files: List[str]):
     for file in files:
         writeln(f, 0, '#include "%s"' % file)
     writeln(f)
+
+
+def get_sessions() -> List[Session]:
+    """
+    Return the loaded SCADE models.
+
+    The nominal use cases consists of calling SCADE Suite API's ``get_roots()``,
+    unless the list of sessions has already been initialized,
+    for unit testing for example.
+
+    Returns
+    -------
+    List[Session]
+    """
+    global _sessions
+
+    if not _sessions:
+        _sessions = _get_sessions()
+    return _sessions
+
+
+def set_sessions(sessions: List[Session]):
+    """
+    Set the list of loaded SCADE models.
+
+    This function is present only for unit testing, where SCADE Suite API's ``get_roots()``
+    cannot be used.
+
+    Parameters
+    ----------
+    sessions : List[Session]
+        List of loaded SCADE Suite models.
+    """
+    global _sessions
+
+    _sessions = sessions
+
+
+def get_sdy_applications() -> List[SdyApplication]:
+    """
+    Return the loaded SCADE models.
+
+    The nominal use cases consists of calling SCADE Display Coupling API's ``get_roots()``,
+    unless the list of applications has already been initialized,
+    for unit testing for example.
+
+    Returns
+    -------
+    List[Session]
+    """
+    global _sdy_applications
+
+    if not _sdy_applications:
+        _sdy_applications = _get_sdy_applications()
+    return _sdy_applications
+
+
+def set_sdy_applications(sdy_applications: List[SdyApplication]):
+    """
+    Set the list of loaded SCADE Display Coupling applications.
+
+    This function is present only for unit testing, where SCADE Display Coupling API's
+    ``get_roots()`` cannot be used.
+
+    Parameters
+    ----------
+    sdy_applications : List[SdyApplication]
+        List of loaded SCADE Display Coupling models.
+    """
+    global _sdy_applications
+
+    _sdy_applications = sdy_applications

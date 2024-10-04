@@ -26,7 +26,6 @@
 from pathlib import Path
 
 import scade.code.suite.sctoc as sctoc
-import scade.model.suite.displaycoupling as sdy
 
 from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.display as display
@@ -45,8 +44,6 @@ class SdyExt:
 
     script_path = Path(__file__)
     script_dir = script_path.parent
-
-    sdy_applications = sdy.get_roots()
 
     def __init__(self):
         # files
@@ -99,7 +96,7 @@ class SdyExt:
         with open(str(pathname), 'w') as f:
             wux.gen_header(f, self.banner)
             display.generate(
-                f, target_dir, project, configuration, roots, ips, self.sdy_applications
+                f, target_dir, project, configuration, roots, ips, wux.get_sdy_applications()
             )
             wux.gen_footer(f)
 
