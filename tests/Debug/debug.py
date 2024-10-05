@@ -26,7 +26,7 @@ Main for debugging the wrapper.
 Cf. ESEG-EN-062 Debugging Python Wrappers.
 """
 
-# product search paths
+# example of product search paths
 # C:\Program Files\ANSYS Inc\v242\SCADE\SCADE\APIs\Python\lib
 # C:\Program Files\ANSYS Inc\v242\SCADE\SCADE\bin
 
@@ -73,7 +73,7 @@ sc_to_c_core(options.action, options.configuration)
 
 # debug
 """
-example of debug command lines:
+example of debug command lines, relative to the the repository's root directory:
 -p ./tests/Variables/Variables.etp -c SdyExt -a Generate
 -p ./tests/Variables/Variables.etp -c SdyExt -a Build
 -p ./tests/UTExtension/Model/Model.etp -c Integration -a Generate

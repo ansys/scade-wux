@@ -39,9 +39,7 @@ import ansys.scade.wux.test.sctoc_stub  # noqa: F401
 
 
 def load_session(*paths: Path) -> suite.Session:
-    """
-    Create an instance of Session instance and load the requested models.
-    """
+    """Create an instance of Session instance and load the requested models."""
     session = suite.Session()
     for path in paths:
         session.load2(str(path))
@@ -54,6 +52,7 @@ def load_sdy_application(mapping: Path, model: suite.Model, *displays: Path) -> 
     for display in displays:
         app.load_sdy_project_tcl(str(display))
     app.load_mapping_file_tcl(str(mapping))
+    # bind both models
     app.mapping_file.model = model
     return app
 
