@@ -109,100 +109,94 @@ class WuxContext:
     script_path = Path(__file__)
     script_dir = script_path.parent
 
-    # settings
-    user_sensors = False
-
-    # options, may be overridden by clients
-    simulation = False
-
-    # files
-    sources = []
-
-    @classmethod
-    def reset(cls):
-        # reset caches, for unit testing
+    def __init__(self):
         # settings
-        cls.user_sensors = False
+        self.user_sensors = False
 
         # options, may be overridden by clients
-        cls.simulation = False
+        self.simulation = False
 
         # files
-        cls.sources = []
+        self.sources = []
 
     @classmethod
-    def init(cls, target_dir: str, project: Project, configuration: Configuration):
+    def get_service(cls):
+        cls.instance = WuxContext()
+        wux_ctx = (
+            cls.ID,
+            ('-OnInit', cls.instance.init),
+            ('-OnGenerate', cls.instance.generate),
+        )
+        return wux_ctx
+
+    def init(self, target_dir: str, project: Project, configuration: Configuration):
         # KCG needed
         cg = ('Code Generator', ('-Order', 'Before'))
         return [cg]
 
-    @classmethod
-    def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        print(cls.banner)
+    def generate(self, target_dir: str, project: Project, configuration: Configuration):
+        print(self.banner)
 
         # check simulation mode
-        cls.set_simulation(project, configuration)
+        self.set_simulation(project, configuration)
 
         # other settings
-        cls.user_sensors = project.get_bool_tool_prop_def(
+        self.user_sensors = project.get_bool_tool_prop_def(
             'GENERATOR', 'USER_SENSORS_DECL', False, configuration
         )
 
         # initialize mf, mh and ips
-        cls.set_globals(target_dir, project, configuration)
+        self.set_globals(target_dir, project, configuration)
 
-        basename = '%s%s' % (cls.PREFIX, Path(project.pathname).name)
+        basename = '%s%s' % (self.PREFIX, Path(project.pathname).name)
         pathname = Path(target_dir) / basename
         pathheader = pathname.with_suffix('.h')
-        sctoc.add_generated_files(cls.tool, [pathheader.name])
+        sctoc.add_generated_files(self.tool, [pathheader.name])
         with open(str(pathheader), 'w') as f:
-            wux.gen_header(f, cls.banner)
+            wux.gen_header(f, self.banner)
             wux.gen_start_protect(f, pathheader.name)
-            cls.gen_kcg_includes(f)
-            cls.gen_contexts_declaration(f, project)
+            self.gen_kcg_includes(f)
+            self.gen_contexts_declaration(f, project)
             wux.gen_end_protect(f, pathheader.name)
             wux.gen_footer(f)
 
         pathsource = pathname.with_suffix('.c')
-        sctoc.add_generated_files(cls.tool, [pathsource.name])
-        cls.sources.append(pathsource)
+        sctoc.add_generated_files(self.tool, [pathsource.name])
+        self.sources.append(pathsource)
         with open(str(pathsource), 'w') as f:
-            wux.gen_header(f, cls.banner)
+            wux.gen_header(f, self.banner)
             wux.gen_includes(f, [pathheader.name])
-            cls.gen_contexts_definition(f)
-            cls.gen_sensors(f)
-            cls.gen_init(f)
-            cls.gen_cycles(f)
-            cls.gen_period(f)
+            self.gen_contexts_definition(f)
+            self.gen_sensors(f)
+            self.gen_init(f)
+            self.gen_cycles(f)
+            self.gen_period(f)
             wux.gen_footer(f)
 
         # build
-        cls.declare_target(target_dir, project, configuration)
+        self.declare_target(target_dir, project, configuration)
 
         return True
 
-    @classmethod
-    def set_simulation(cls, project: Project, configuration: Configuration):
+    def set_simulation(self, project: Project, configuration: Configuration):
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
         target = project.get_scalar_tool_prop_def(
             'GENERATOR', 'TARGET_ADAPTOR', 'Simulator', configuration
         )
-        cls.simulation = enable_extensions and target == 'Simulator'
+        self.simulation = enable_extensions and target == 'Simulator'
 
-    @classmethod
-    def set_globals(cls, target_dir: str, project: Project, configuration: Configuration):
+    def set_globals(self, target_dir: str, project: Project, configuration: Configuration):
         wux.mf = MappingFile((Path(target_dir) / 'mapping.xml').as_posix())
         wux.mh = MappingHelpers(wux.mf)
         roots = wux.mf.get_root_operators()
         wux.ips = []
         for index, root in enumerate(roots):
-            ip = _WuxInterfacePrinter(wux.mh, root.get_scade_path(), simulation=cls.simulation)
+            ip = _WuxInterfacePrinter(wux.mh, root.get_scade_path(), simulation=self.simulation)
             wux.ips.append(ip)
 
-    @classmethod
-    def gen_kcg_includes(cls, f):
+    def gen_kcg_includes(self, f):
         writeln(f, 0, '/* KCG generated files */')
         include_sensors = True
         for ip in wux.ips:
@@ -211,9 +205,8 @@ class WuxContext:
             include_sensors = False
         writeln(f)
 
-    @classmethod
-    def gen_contexts_declaration(cls, f, project):
-        if cls.simulation:
+    def gen_contexts_declaration(self, f, project):
+        if self.simulation:
             # cf. <project>_interface.h
             writeln(f, 0, '/* Simulator generated files */')
             writeln(f, 0, '#include "%s_interface.h"' % Path(project.pathname).stem)
@@ -229,21 +222,19 @@ class WuxContext:
                 )
             writeln(f)
 
-    @classmethod
-    def gen_contexts_definition(cls, f):
+    def gen_contexts_definition(self, f):
         writeln(f, 0, '/* contexts */')
-        if not cls.simulation:
+        if not self.simulation:
             for ip in wux.ips:
                 writeln(
                     f, 0, '{wu_struct_type} {wu_struct_var};'.format_map(ip.get_substitutions())
                 )
         writeln(f)
 
-    @classmethod
-    def gen_sensors(cls, f):
+    def gen_sensors(self, f):
         assert wux.mf is not None
         sensors = wux.mf.get_all_sensors()
-        if not cls.simulation and not cls.user_sensors and sensors:
+        if not self.simulation and not self.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')
             for sensor in sensors:
                 writeln(
@@ -256,8 +247,7 @@ class WuxContext:
                 )
         writeln(f)
 
-    @classmethod
-    def gen_init(cls, f):
+    def gen_init(self, f):
         writeln(f, 0, '/* initializations */')
         writeln(f, 0, 'void WuxReset()')
         writeln(f, 0, '{')
@@ -265,7 +255,7 @@ class WuxContext:
         writeln(f)
         writeln(f, 0, 'void WuxInit()')
         writeln(f, 0, '{')
-        if not cls.simulation:
+        if not self.simulation:
             sep = ''
             for ip in wux.ips:
                 f.write(sep)
@@ -284,18 +274,16 @@ class WuxContext:
         writeln(f, 0, '}')
         writeln(f)
 
-    @classmethod
-    def gen_cycles(cls, f):
+    def gen_cycles(self, f):
         writeln(f, 0, 'void WuxCycle()')
         writeln(f, 0, '{')
-        if not cls.simulation:
+        if not self.simulation:
             for ip in wux.ips:
                 wux.write_indent(f, '    ', ip.print_cycle_call())
         writeln(f, 0, '}')
         writeln(f)
 
-    @classmethod
-    def gen_period(cls, f):
+    def gen_period(self, f):
         writeln(f, 0, 'double WuxGetPeriod()')
         writeln(f, 0, '{')
         writeln(f, 0, '    return {0};'.format(sctoc.get_operator_sample_time()[0]))
@@ -306,11 +294,10 @@ class WuxContext:
     # build
     # ----------------------------------------------------------------------------
 
-    @classmethod
-    def declare_target(cls, target_dir, project, configuration):
-        wux.add_sources(cls.sources)
+    def declare_target(self, target_dir, project, configuration):
+        wux.add_sources(self.sources)
         # runtime files
-        include = Path(cls.script_dir).parent / 'include'
+        include = Path(self.script_dir).parent / 'include'
         wux.add_includes([include])
 
 
@@ -321,5 +308,4 @@ class WuxContext:
 
 def get_services():
     """Return the list of Generation services implemented by this module."""
-    wux_ctx = (WuxContext.ID, ('-OnInit', WuxContext.init), ('-OnGenerate', WuxContext.generate))
-    return [wux_ctx]
+    return [WuxContext.get_service()]

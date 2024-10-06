@@ -31,6 +31,7 @@ from ansys.scade.wux import __version__
 import ansys.scade.wux.impl.a661 as a661
 import ansys.scade.wux.impl.dllext as dllext
 import ansys.scade.wux.impl.kcgcontext as kcgcontext
+import ansys.scade.wux.impl.proxyext as sdyproxy
 import ansys.scade.wux.impl.sdyext as sdyext
 import ansys.scade.wux.impl.simuext as simuext
 
@@ -47,15 +48,17 @@ class WuxModule:
 
     # identification
     _tool = 'Utility services for wrappers'
+    _banner = '%s (%s)' % (_tool, __version__)
 
     @classmethod
     def get_services(cls):
         """Declare all the provided utility services."""
-        print(cls._tool, __version__)
+        print(cls._banner)
         services = []
         services.extend(kcgcontext.get_services())
         services.extend(sdyext.get_services())
         services.extend(a661.get_services())
         services.extend(simuext.get_services())
         services.extend(dllext.get_services())
+        services.extend(sdyproxy.get_services())
         return services

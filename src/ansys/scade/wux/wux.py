@@ -23,13 +23,22 @@
 """Provides a collection of functions for developing wrappers."""
 
 from io import TextIOBase
+import os
 from pathlib import Path
+import re
 from typing import List, Optional, Set
 
 from scade.code.suite.mapping.c import MappingFile
 import scade.code.suite.sctoc as sctoc
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
+from scade.model.project.stdproject import Configuration, Project
+from scade.model.suite import Session, get_roots as _get_sessions
+from scade.model.suite.displaycoupling import (
+    SdyApplication,
+    Specification,
+    get_roots as _get_sdy_applications,
+)
 
 # globals
 mf: Optional[MappingFile] = None
@@ -58,6 +67,11 @@ _sources: Set[str] = set()
 _libraries: Set[str] = set()
 _includes: Set[str] = set()
 _definitions: Set[str] = set()
+# roots for APIs
+_sessions: List[Session] = []
+_sdy_applications: List[SdyApplication] = []
+# cache
+_specifications: List[Specification] = []
 
 
 def reset():
@@ -66,7 +80,14 @@ def reset():
 
     Used for unit testing.
     """
-    global _sources, _libraries, _includes, _definitions
+    global \
+        _sources, \
+        _libraries, \
+        _includes, \
+        _definitions, \
+        _sessions, \
+        _sdy_applications, \
+        _specifications
 
     # generated C files, for makefile
     _sources = set()
@@ -74,6 +95,11 @@ def reset():
     _libraries = set()
     _includes = set()
     _definitions = set()
+    # APIs
+    _sessions = []
+    _sdy_applications = []
+    # cache
+    _specifications = []
 
 
 def add_sources(paths: List[Path]):
@@ -145,7 +171,6 @@ def add_libraries(paths: List[Path]):
     _libraries |= set_paths
 
 
-# prevent adding the preprocessor definition twice to sctoc
 def add_definitions(*definitions: str):
     """
     Request the Code Generator to add preprocessor definitions to the Makefile.
@@ -169,6 +194,46 @@ def add_definitions(*definitions: str):
     _definitions |= set_definitions
 
 
+def add_cpp_options(project: Project, configuration: Configuration):
+    """
+    Add the required compiler/linker options for C++ code.
+
+    * This is required for GNU C: -static -lstdc++
+    * There is no API in scade.code.suite.* to achieve this. The workaround
+      consists in adding the option to the project for the given configuration.
+
+    .. Note::
+
+      * The option is set only if the current compiler is GNU C.
+      * The project is modified but it is not expected to be saved in this context.
+        Should it be saved, this is still fine since the option is mandatory.
+
+    Parameters
+    ----------
+    project : Project
+        Input project.
+    configuration : Configuration
+        Input configuration.
+    """
+    # the default value is 'GNU C' when the property is not set
+    compiler = project.get_scalar_tool_prop_def('SIMULATOR', 'COMPILER', 'GNU C', configuration)
+    if compiler != 'GNU C':
+        return
+    # add the platform: x64 is the only one supported
+    compiler += 'win64'
+    linker_options = project.get_scalar_tool_prop_def(
+        compiler, 'ADD_LINK_OPTIONS', '', configuration
+    )
+    new_linker_options = linker_options
+    for option in ['-static', '-lstdc++']:
+        if option not in linker_options:
+            new_linker_options += ' ' + option
+    if new_linker_options != linker_options:
+        project.set_scalar_tool_prop_def(
+            compiler, 'ADD_LINK_OPTIONS', new_linker_options, '', configuration
+        )
+
+
 def writeln(f: TextIOBase, num_tabs: int = 0, text: str = ''):
     """
     Write a text with a level of indentation.
@@ -177,7 +242,7 @@ def writeln(f: TextIOBase, num_tabs: int = 0, text: str = ''):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     num_tabs : int
@@ -200,7 +265,7 @@ def write_indent(f: TextIOBase, tab: str, text: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     tab : str
@@ -231,7 +296,7 @@ def gen_start_protect(f: TextIOBase, name: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     name : str
@@ -257,7 +322,7 @@ def gen_end_protect(f: TextIOBase, name: str):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     name : str
@@ -274,7 +339,7 @@ def gen_header(f: TextIOBase, banner: str, start_comment: str = '/* ', end_comme
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     banner : str
@@ -296,7 +361,7 @@ def gen_footer(f: TextIOBase, start_comment: str = '/* ', end_comment: str = ' *
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     start_comment : str
@@ -316,7 +381,7 @@ def gen_includes(f: TextIOBase, files: List[str]):
 
     Parameters
     ----------
-    f: TextIOBase
+    f : TextIOBase
         Output file to write to.
 
     files : List[str]
@@ -326,3 +391,125 @@ def gen_includes(f: TextIOBase, files: List[str]):
     for file in files:
         writeln(f, 0, '#include "%s"' % file)
     writeln(f)
+
+
+def get_sessions() -> List[Session]:
+    """
+    Return the loaded SCADE models.
+
+    The nominal use cases consists of calling SCADE Suite API's ``get_roots()``,
+    unless the list of sessions has already been initialized,
+    for unit testing for example.
+
+    Returns
+    -------
+    List[Session]
+    """
+    global _sessions
+
+    if not _sessions:
+        _sessions = _get_sessions()
+    return _sessions
+
+
+def set_sessions(sessions: List[Session]):
+    """
+    Set the list of loaded SCADE models.
+
+    This function is present only for unit testing, where SCADE Suite API's ``get_roots()``
+    cannot be used.
+
+    Parameters
+    ----------
+    sessions : List[Session]
+        List of loaded SCADE Suite models.
+    """
+    global _sessions
+
+    _sessions = sessions
+
+
+def get_sdy_applications() -> List[SdyApplication]:
+    """
+    Return the loaded SCADE models.
+
+    The nominal use cases consists of calling SCADE Display Coupling API's ``get_roots()``,
+    unless the list of applications has already been initialized,
+    for unit testing for example.
+
+    Returns
+    -------
+    List[Session]
+    """
+    global _sdy_applications
+
+    if not _sdy_applications:
+        _sdy_applications = _get_sdy_applications()
+    return _sdy_applications
+
+
+def set_sdy_applications(sdy_applications: List[SdyApplication]):
+    """
+    Set the list of loaded SCADE Display Coupling applications.
+
+    This function is present only for unit testing, where SCADE Display Coupling API's
+    ``get_roots()`` cannot be used.
+
+    Parameters
+    ----------
+    sdy_applications : List[SdyApplication]
+        List of loaded SCADE Display Coupling models.
+    """
+    global _sdy_applications
+
+    _sdy_applications = sdy_applications
+
+
+def get_specifications(project: Project, configuration: Configuration) -> List[Specification]:
+    """
+    Return the list of graphical panel specifications selected for the input configuration.
+
+    This function adds a new ``prefix`` attribute to the specifications.
+
+    Parameters
+    ----------
+    project : Project
+        Input project.
+    configuration : Configuration
+        Input configuration.
+
+    Returns
+    -------
+    List[Specification]
+    """
+    global _specifications
+
+    sdy_applications = get_sdy_applications()
+    if not _specifications and sdy_applications:
+        # must be only one application
+        sdy_application = sdy_applications[0]
+        sdy_map_file_dir = os.path.dirname(sdy_application.mapping_file.pathname)
+        for panel_params in project.get_tool_prop_def(
+            'GENERATOR', 'DISPLAY_ENABLED_PANELS', [], configuration
+        ):
+            params = panel_params.split(',')
+            if len(params) >= 2 and params[1] != 'None':
+                for spec in sdy_application.specifications:
+                    if (
+                        os.path.abspath(spec.pathname)
+                        == os.path.abspath(os.path.join(sdy_map_file_dir, params[0]))
+                    ) and (spec.sdy_project.is_display() or spec.sdy_project.is_rapid_proto()):
+                        _specifications.append(spec)
+                        # set spec.conf and spec.basename
+                        spec.conf = params[1]
+                        spec.basename = os.path.splitext(os.path.basename(spec.pathname))[0]
+        # sort specifications by basename
+        _specifications = sorted(_specifications, key=lambda x: x.basename)
+        # compute specifications prefix
+        for id_spec_file, spec in enumerate(_specifications, start=1):
+            # add an attribute `prefix` to Specification
+            spec.prefix = 'SDY{}_{}'.format(
+                id_spec_file, re.sub(r'[^A-Za-z0-9_]', '_', spec.basename)
+            )
+
+    return _specifications

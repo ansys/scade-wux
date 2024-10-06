@@ -53,26 +53,32 @@ class WuxSimuExt:
     script_path = Path(__file__)
     script_dir = script_path.parent
 
-    # options, may be overridden by clients
-    simulation = False
+    def __init__(self):
+        # options, may be overridden by clients
+        self.simulation = False
 
     @classmethod
-    def init(cls, target_dir: str, project: Project, configuration: Configuration):
+    def get_service(cls):
+        """Declare the generation service Python Wrapper."""
+        cls.instance = WuxSimuExt()
+        scx = (cls.ID, ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
+        return scx
+
+    def init(self, target_dir: str, project: Project, configuration: Configuration):
         # check simulation mode
-        cls.set_simulation(project, configuration)
+        self.set_simulation(project, configuration)
         # if the simulator in involved, it must be executed before
-        if cls.simulation:
+        if self.simulation:
             simu = ('Simulator Wrapper', ('-Order', 'Before'))
             return [simu]
         else:
             return []
 
-    @classmethod
-    def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        if not cls.simulation:
+    def generate(self, target_dir: str, project: Project, configuration: Configuration):
+        if not self.simulation:
             return True
 
-        print(cls.banner)
+        print(self.banner)
 
         # patch the interface file
         # . include WuxSimuExt.h
@@ -126,22 +132,24 @@ class WuxSimuExt:
 
         # always add the files, to ease the integration
         # runtime files
-        include = cls.script_dir.parent / 'include'
+        include = self.script_dir.parent / 'include'
         wux.add_includes([include])
-        lib = cls.script_dir.parent / 'lib'
+        lib = self.script_dir.parent / 'lib'
         wux.add_sources([lib / 'WuxSimuExt.cpp'])
+
+        # make sure the linker option -static -lstdc++ is set for gcc
+        wux.add_cpp_options(project, configuration)
 
         return True
 
-    @classmethod
-    def set_simulation(cls, project: Project, configuration: Configuration):
+    def set_simulation(self, project: Project, configuration: Configuration):
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
         target = project.get_scalar_tool_prop_def(
             'GENERATOR', 'TARGET_ADAPTOR', 'Simulator', configuration
         )
-        cls.simulation = enable_extensions and target == 'Simulator'
+        self.simulation = enable_extensions and target == 'Simulator'
 
 
 # ----------------------------------------------------------------------------
@@ -151,5 +159,4 @@ class WuxSimuExt:
 
 def get_services():
     """Return the list of Generation services implemented by this module."""
-    wux_ctx = (WuxSimuExt.ID, ('-OnInit', WuxSimuExt.init), ('-OnGenerate', WuxSimuExt.generate))
-    return [wux_ctx]
+    return [WuxSimuExt.get_service()]

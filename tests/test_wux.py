@@ -29,6 +29,7 @@ import pytest
 
 from ansys.scade.wux.test.sctoc_stub import reset_stub
 import ansys.scade.wux.wux as wux
+from conftest import find_configuration, load_project, load_sdy_application, load_session
 
 
 def test_add_sources():
@@ -189,3 +190,34 @@ def test_gen_includes():
         '#include "b.hpp"',
     }
     f.close()
+
+
+def test_set_get_models():
+    wux.reset()
+    # calls to get_roots does nothing
+    assert not wux.get_sessions()
+    assert not wux.get_sdy_applications()
+
+    path = Path(__file__).parent / 'Variables' / 'Variables.etp'
+
+    session = load_session(path)
+    wux.set_sessions([session])
+    sessions = wux.get_sessions()
+    assert len(sessions) == 1
+    assert sessions[0] == session
+
+    mapping = Path(__file__).parent / 'Variables' / 'Variables.sdy'
+    display = Path(__file__).parent / 'Variables' / 'Displays' / 'Displays.etp'
+    app = load_sdy_application(mapping, session.model, display)
+    wux.set_sdy_applications([app])
+    apps = wux.get_sdy_applications()
+    assert len(apps) == 1
+    assert apps[0] == app
+
+    # verify the specifications, once the SCADE Display mapping application is loaded
+    project = load_project(path)
+    configuration = find_configuration(project, 'SdyExt')
+    specs = wux.get_specifications(project, configuration)
+    # alphabetical order
+    names = [Path(_.pathname).stem for _ in specs]
+    assert names == ['Speed', 'Throttles']

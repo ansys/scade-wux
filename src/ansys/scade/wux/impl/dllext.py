@@ -39,19 +39,27 @@ class WuxDllExt:
     script_dir = script_path.parent
 
     @classmethod
-    def init(cls, target_dir: str, project: Project, configuration: Configuration):
+    def get_service(cls):
+        """Declare the generation service Python Wrapper."""
+        cls.instance = WuxDllExt()
+        dll = (cls.ID, ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
+        return dll
+
+    def init(self, target_dir: str, project: Project, configuration: Configuration):
         return []
 
-    @classmethod
-    def generate(cls, target_dir: str, project: Project, configuration: Configuration):
-        print(cls.banner)
+    def generate(self, target_dir: str, project: Project, configuration: Configuration):
+        print(self.banner)
 
         # always add the files, to ease the integration
         # runtime files
-        include = cls.script_dir.parent / 'include'
+        include = self.script_dir.parent / 'include'
         wux.add_includes([include])
-        lib = cls.script_dir.parent / 'lib'
+        lib = self.script_dir.parent / 'lib'
         wux.add_sources([lib / 'WuxDllExt.cpp'])
+
+        # make sure the linker option -static -lstdc++ is set for gcc
+        wux.add_cpp_options(project, configuration)
 
         return True
 
@@ -62,5 +70,4 @@ class WuxDllExt:
 
 
 def get_services():
-    wux_ctx = (WuxDllExt.ID, ('-OnInit', WuxDllExt.init), ('-OnGenerate', WuxDllExt.generate))
-    return [wux_ctx]
+    return [WuxDllExt.get_service()]

@@ -32,7 +32,7 @@
 #include "sdy/sdy_events.h"
 
 #include "WuxSdyExt.h"
-#include "WuxSdyProxy.h"
+#include "WuxSdyDll.h"
 
 CSdyDllProxy::CSdyDllProxy()
     : m_hDll(NULL)

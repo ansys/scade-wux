@@ -19,4 +19,5 @@ Headers
    ctxext
    dllext
    sdyext
+   sdyproxy
    simuext

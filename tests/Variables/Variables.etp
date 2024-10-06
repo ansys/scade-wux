@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="275" defaultConfiguration="24">
+<Project id="1" oid_count="276" defaultConfiguration="24">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -912,8 +912,8 @@
 			<value>Displays\Speed.sgfx,Co-simulation</value>
 			<configuration>245</configuration>
 		</Prop>
-		<Prop id="275" name="@GENERATOR:TARGET_ADAPTOR">
-			<value>WUX2_24R2_GOWRP</value>
+		<Prop id="276" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>WUX2_GOWRP</value>
 			<configuration>245</configuration>
 		</Prop>
 	</props>
