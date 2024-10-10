@@ -33,6 +33,7 @@ SCADE 2025 R1 and above use the package's
 
 import os
 from pathlib import Path
+import sys
 
 _APPDATA = os.getenv('APPDATA')
 
@@ -49,7 +50,10 @@ def _register_srg_file(srg: Path, install: Path):
 def _wux_config():
     # register the Code Generator extension registry files (SRG).
     script_dir = Path(__file__).parent
-    _register_srg_file(script_dir / 'wux24r2.srg', script_dir)
+    # registrations depending on Python interpreter
+    python_version = str(sys.version_info.major) + str(sys.version_info.minor)
+    suffix = '23r1' if python_version == '37' else '24r2'
+    _register_srg_file(script_dir / ('wux%s.srg' % suffix), script_dir)
 
 
 def main():
