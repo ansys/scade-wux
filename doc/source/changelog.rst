@@ -9,6 +9,14 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.0.2 <https://github.com/ansys/scade-wux/releases/tag/v2.0.2>`_ - 2024-10-10
+==============================================================================
+
+Maintenance
+^^^^^^^^^^^
+
+- Refactor: Perform a separate registration for SCADE releases based on Python 3.7 or 3.10 `#13 <https://github.com/ansys/scade-wux/pull/13>`_
+
 `2.0.1 <https://github.com/ansys/scade-wux/releases/tag/v2.0.1>`_ - 2024-10-06
 ==============================================================================
 
