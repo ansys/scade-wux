@@ -26,14 +26,13 @@ see :ref:`contribute_scade_wux` for the steps for installing in developer mode.
 
       python -m pip install -U pip
 
-#. Install Ansys SCADE Wrapper Tools with this command:
+#. Run this command to install Ansys SCADE Wrapper Tools:
 
    .. code:: bash
 
        python -m pip install --user ansys-scade-wux
 
-#. For Ansys SCADE releases 2024 R2 and below, complete the installation with
-   this command:
+#. For Ansys SCADE releases 2024 R2 and below, run this command to complete the installation:
 
    .. code:: bash
 
