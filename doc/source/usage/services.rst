@@ -38,7 +38,7 @@ detailed in the next sections:
 
 * :ref:`SCADE Suite UA Adaptor Extension <usage/services:UA Adaptor extension>` (``WUX2_UAA``):
 
-  * Runs UA Adaptor for a (single) root operator.
+  * Runs UA Adaptor for the (only one) root operator.
   * Generates the glue code for sending and receiving A661 messages.
 
 * :ref:`Extension for SCADE Simulator's extensions <usage/services:Simulator extension>` (``WUX2_SIMU_EXT``):
