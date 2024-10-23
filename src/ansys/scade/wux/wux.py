@@ -113,7 +113,7 @@ def add_sources(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added sources so that they are not added twice to the makefile.
 
-    Refer to ``add_c_files`` under the *Adding Make Directives* section in chapter 3
+    Refer to ``add_c_files`` under *Adding Make Directives* in section 3
     of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
@@ -136,7 +136,7 @@ def add_includes(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added include directories so that they are not added twice to the makefile.
 
-    Refer to ``add_include_files`` under the *Adding Make Directives* section in chapter 3
+    Refer to ``add_include_files`` under *Adding Make Directives* in section 3
     of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
@@ -159,7 +159,7 @@ def add_libraries(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added files so that they are not added twice to the makefile.
 
-    Refer to ``add_obj_files`` under the *Adding Make Directives* section in chapter 3
+    Refer to ``add_obj_files`` under *Adding Make Directives* in section 3
     of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
@@ -181,8 +181,8 @@ def add_definitions(*definitions: str):
     This function may be called by different generation services.
     It caches the added definitions so that they are not added twice to the makefile.
 
-    Refer to ``add_preprocessor_definitions`` under the *Adding Make Directives* section
-    in chapter 3 of the *SCADE Python API Guide* in the SCADE Suite documentation.
+    Refer to ``add_preprocessor_definitions`` under *Adding Make Directives*
+    in section 3 of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
     ----------

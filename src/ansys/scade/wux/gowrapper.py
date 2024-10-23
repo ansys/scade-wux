@@ -77,7 +77,7 @@ class GoWrapper:
         """
         Declare the required generation services and the execution order.
 
-        Refer to the *Generation Service* section in chapter 3 of the *SCADE Python API Guide*
+        Refer to *Generation Service* in section 3 of the *SCADE Python API Guide*
         in the SCADE Suite documentation.
 
         Parameters
@@ -99,7 +99,7 @@ class GoWrapper:
         """
         Generate the code for this generation service.
 
-        Refer to the *Generation Service* section in chapter 3 of the *SCADE Python API Guide*
+        Refer to *Generation Service* in section 3 of the *SCADE Python API Guide*
         in the SCADE Suite documentation.
 
         Parameters
