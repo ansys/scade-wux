@@ -148,7 +148,7 @@ public:
     /**
      * @brief Process the notification ``BeforeSimStep``.
      *
-     * This notification is sent before the call to to the cyclic functions
+     * This notification is sent before the call to the cyclic function
      * of the root operators.
      *
      * The default implementation is empty.
@@ -157,7 +157,7 @@ public:
     /**
      * @brief Process the notification ``AfterSimStep``.
      *
-     * This notification is sent after the call to to the cyclic functions
+     * This notification is sent after the call to the cyclic function
      * of the root operators.
      *
      * The default implementation is empty.
@@ -264,7 +264,7 @@ public:
     /**
      * @brief Return whether the extension is alive.
      *
-     * The process stops assoon as a registered extensions returns ``false``.
+     * The process stops as soon as a registered extension returns ``false``.
      * For example, when a connection is closed.
      *
      * This function is not called when the target is the SCADE Simulator.

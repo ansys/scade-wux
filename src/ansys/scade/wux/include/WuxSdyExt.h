@@ -44,17 +44,17 @@ void WuxSdyInit();
  */
 void WuxSdyDraw();
 /**
- * @brief Set the of the graphical panels inputs plugs from the root operators.
+ * @brief Set the graphical panels' input plugs from the root operators.
  */
 void WuxSdySetInputs();
 /**
- * @brief Update the root operators inputs from the graphical panels plugs.
+ * @brief Update the root operator's inputs from the graphical panels' plugs.
  */
 void WuxSdyGetOutputs();
 /**
  * @brief Return whether a graphical panel window has been closed.
  * @return int
- *    1 if a windows has been closed, otherwise 0.
+ *    1 if a window has been closed, otherwise 0.
  */
 int WuxSdyCancelled();
 
@@ -77,7 +77,7 @@ typedef struct _WuxSdyScreen
  */
 int WuxSdyGetScreenCount();
 /**
- * @brief Return the pointer to the raw image of a graphical panels.
+ * @brief Return the pointer to the raw image of a graphical panel.
  * @return const WuxSdyScreen*
  */
 const WuxSdyScreen* WuxSdyGetScreen(int index);
