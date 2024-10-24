@@ -1,7 +1,7 @@
 Ansys SCADE Wrapper Tools
 =========================
 
-Refer to the *Generating Integration Code* section in chapter 3 of the *SCADE Python API Guide*
+Refer to *Generating Integration Code* in section 3 of the *SCADE Python API Guide*
 in the SCADE Suite documentation for a complete reference on SCADE Code Generator extensions,
 also known as wrappers.
 
