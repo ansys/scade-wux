@@ -27,7 +27,7 @@ Refer to the :ref:`installation <getting_started/index:install in user mode>`
 steps for more information.
 
 It addresses SCADE 2024 R2 and prior releases.
-SCADE 2025 R1 and above use the package's
+SCADE 2025 R1 and later use the package's
 ``ansys.scade.registry`` entry point.
 """
 

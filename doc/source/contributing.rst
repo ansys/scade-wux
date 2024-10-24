@@ -106,7 +106,7 @@ Ansys SCADE Wrapper Tools follows the PEP8 standard as outlined in
 the *PyAnsys developer's guide* and implements style checking using
 `pre-commit <https://pre-commit.com/>`_.
 
-To ensure your code meets minimum code styling standards, run these commands::
+To ensure your code meets minimum code styling standards, run the following commands::
 
   pip install pre-commit
   pre-commit run --all-files
@@ -219,7 +219,7 @@ registration file:
 Distribute
 ----------
 If you would like to create either source or wheel files, start by installing
-the building requirements and then executing the build module:
+the building requirements and then, execute the build module:
 
 .. code:: bash
 
@@ -233,10 +233,10 @@ Use the `Ansys SCADE Wrapper Tools Issues <https://github.com/ansys/scade-wux/is
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:
 
-* Bug, problem, error: For filing a bug report
-* Documentation error: For requesting modifications to the documentation
-* Adding an example: For proposing a new example
-* New feature: For requesting enhancements to the code
+* Bug, problem, error: for filing a bug report
+* Documentation error: for requesting modifications to the documentation
+* Adding an example: for proposing a new example
+* New feature: for requesting enhancements to the code
 
 If your issue does not fit into one of these template categories, click
 the link for opening a blank issue.

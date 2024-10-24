@@ -44,12 +44,12 @@ The extensions can redefine the following functions:
 * ``GetIdent``: Identifier of the extension, for error reporting or
   discrimination.
 * ``IntegrationStart``: ``argc``/``argv`` are the command line parameters of
-  the executable, no filter is applied. Return ``false`` to stop the process.
+  the executable, no filter is applied. Returns ``false`` to stop the process.
 * ``IntegrationStop``: Called just before the process terminates.
-* ``SelfPaced``: Return ``true`` if the extension is scheduled by
+* ``SelfPaced``: Returns ``true`` if the extension is scheduled by
   the environment, for example by waiting for some event in the
   ``BeforeSimStep`` function.
-* ``IsAlive``: Return ``false`` to stop the process.
+* ``IsAlive``: Returns ``false`` to stop the process.
 
 Refer to :ref:`usage/services:Simulator extension` for more information about
 the ``CWuxSimulatorExtension`` class.

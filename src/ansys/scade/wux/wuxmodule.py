@@ -42,8 +42,8 @@ class WuxModule:
 
     Refer to :ref:`usage/services:generation services` to for its usage.
 
-    Refer to *Generation Module* in the User Documentation,
-    section *Declaring Code Generator Extension*.
+    Refer to the *Generation Module* section in chapter 3 of the *SCADE Python API Guide*
+    in the SCADE Suite documentation.
     """
 
     # identification

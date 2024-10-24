@@ -113,7 +113,8 @@ def add_sources(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added sources so that they are not added twice to the makefile.
 
-    Refer to ``add_c_files`` in the User Documentation, section *Adding Make Directives*.
+    Refer to ``add_c_files`` under *Adding Make Directives* in section 3
+    of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
     ----------
@@ -135,7 +136,8 @@ def add_includes(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added include directories so that they are not added twice to the makefile.
 
-    Refer to ``add_include_files`` in the User Documentation, section *Adding Make Directives*.
+    Refer to ``add_include_files`` under *Adding Make Directives* in section 3
+    of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
     ----------
@@ -157,7 +159,8 @@ def add_libraries(paths: List[Path]):
     This function may be called by different generation services.
     It caches the added files so that they are not added twice to the makefile.
 
-    Refer to ``add_obj_files`` in the User Documentation, section *Adding Make Directives*.
+    Refer to ``add_obj_files`` under *Adding Make Directives* in section 3
+    of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
     ----------
@@ -178,8 +181,8 @@ def add_definitions(*definitions: str):
     This function may be called by different generation services.
     It caches the added definitions so that they are not added twice to the makefile.
 
-    Refer to ``add_preprocessor_definitions`` in the User Documentation,
-    section *Adding Make Directives*.
+    Refer to ``add_preprocessor_definitions`` under *Adding Make Directives*
+    in section 3 of the *SCADE Python API Guide* in the SCADE Suite documentation.
 
     Parameters
     ----------
@@ -397,7 +400,7 @@ def get_sessions() -> List[Session]:
     """
     Return the loaded SCADE models.
 
-    The nominal use cases consists of calling SCADE Suite API's ``get_roots()``,
+    The nominal use case consists in calling SCADE Suite API's ``get_roots()``,
     unless the list of sessions has already been initialized,
     for unit testing for example.
 
@@ -433,7 +436,7 @@ def get_sdy_applications() -> List[SdyApplication]:
     """
     Return the loaded SCADE models.
 
-    The nominal use cases consists of calling SCADE Display Coupling API's ``get_roots()``,
+    The nominal use case consists in calling SCADE Display Coupling API's ``get_roots()``,
     unless the list of applications has already been initialized,
     for unit testing for example.
 
