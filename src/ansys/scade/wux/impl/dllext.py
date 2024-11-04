@@ -31,6 +31,8 @@ import ansys.scade.wux.wux as wux
 
 
 class WuxDllExt:
+    """Generation service for the integration (``WUX2_DLL_EXT``)."""
+
     ID = 'WUX2_DLL_EXT'
     tool = 'Support for sharing DllMain'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -40,15 +42,17 @@ class WuxDllExt:
 
     @classmethod
     def get_service(cls):
-        """Declare the generation service Python Wrapper."""
+        """Declare the generation service DllMain extension."""
         cls.instance = WuxDllExt()
         dll = (cls.ID, ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
         return dll
 
     def init(self, target_dir: str, project: Project, configuration: Configuration):
+        """Initialize the generation service."""
         return []
 
     def generate(self, target_dir: str, project: Project, configuration: Configuration):
+        """Generate the files."""
         print(self.banner)
 
         # always add the files, to ease the integration
@@ -70,4 +74,5 @@ class WuxDllExt:
 
 
 def get_services():
+    """Return the list of Generation services implemented by this module."""
     return [WuxDllExt.get_service()]

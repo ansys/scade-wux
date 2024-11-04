@@ -21,9 +21,9 @@
 # SOFTWARE.
 
 """
-Wraps scade.code.suite.sctoc to allow unit testing.
+Wraps ``scade.code.suite.sctoc`` to allow unit testing.
 
-Redirects the entry points of scade.code.suite.scto to this module.
+Redirects the entry points of ``scade.code.suite.sctoc`` to this module.
 """
 
 from typing import List, Tuple
@@ -32,7 +32,7 @@ import scade.code.suite.sctoc as sctoc
 
 
 class SCToCStub:
-    """Stubs sctoc and stores all the data declared through its calls."""
+    """Stubs ``sctoc`` and stores all the data declared through its calls."""
 
     def __init__(self, sample_time: Tuple[float, float, bool] = (0.02, 0.0, True)) -> None:
         # getting information from input project and model
@@ -77,13 +77,29 @@ class SCToCStub:
     # getting information from input project and model
     # methods to be overridden in a sub-class for given unit tests
     def get_operator_sample_time(self) -> Tuple[float, float, bool]:
+        """
+        Return the period, offset, periodic properties for the model.
+
+        These properties are defined in Periodicity frame of Code Integration tab.
+        """
         return self.sample_time
 
     def get_list_of_project_files(self, *args, **kwargs) -> List[str]:
+        """
+        Return a list of file paths referenced by the current project and its libraries.
+
+        This list filtered according to provided file extensions.
+        """
         # two different interfaces in the documentation
         return []
 
     def get_list_of_external_files(self, *kinds: str) -> List[str]:
+        """
+        Return a list of external files referenced by the current project and its libraries.
+
+        This list is filtered according to file kinds: ``CS``, ``AdaS``, ``Obj``, ``Macro``,
+        or ``Type``.
+        """
         # do some usage of the parameters to avoid linter warnings
         for kind in list(*kinds):
             assert isinstance(kind, str)
@@ -91,15 +107,19 @@ class SCToCStub:
 
     # adding make directives
     def add_c_files(self, c_files: List[str], relative: bool, service: str):
+        """Request ``scade -code`` to add sources files to the Makefile for C build."""
         self.c_files.setdefault(service, []).extend([(_, relative) for _ in c_files])
 
     def add_ada_files(self, ada_files: List[str], relative: bool, service: str):
+        """Request ``scade -code`` to add sources files to the Makefile for Ada build."""
         self.ada_files.setdefault(service, []).extend([(_, relative) for _ in ada_files])
 
     def add_obj_files(self, obj_files: List[str], relative: bool):
+        """Request ``scade -code`` to add object files to the Makefile."""
         self.obj_files.extend([(_, relative) for _ in obj_files])
 
     def add_include_files(self, directories: List[str], relative: bool):
+        """Request ``scade -code`` to add include directories directives to the Makefile."""
         self.includes.extend([(_, relative) for _ in directories])
 
     def add_dynamic_library_rule(
@@ -113,6 +133,7 @@ class SCToCStub:
         cpu_type: str,
         language: str,
     ):
+        """Request ``scade -code`` to add a dynamic library (.dll) build rule to the Makefile."""
         self.dynamic_library_rules.append(
             (basename, c_files, o_files, def_files, dependencies, main, cpu_type, language),
         )
@@ -126,6 +147,7 @@ class SCToCStub:
         cpu_type: str,
         language: str,
     ):
+        """Request ``scade -code`` to add a static library (.lib) build rule to the Makefile."""
         self.static_library_rules.append(
             (basename, c_files, o_files, main, cpu_type, language),
         )
@@ -140,6 +162,7 @@ class SCToCStub:
         cpu_type: str,
         language: str,
     ):
+        """Request ``scade -code`` to add an executable (.exe) build rule to the Makefile."""
         self.static_executable_rules.append(
             (basename, c_files, o_files, dependencies, main, cpu_type, language),
         )
@@ -154,47 +177,59 @@ class SCToCStub:
         cpu_type: str,
         language: str,
     ):
+        """Request ``scade -code`` to add a custom build rule to the Makefile."""
         self.custom_rules.append(
             (basename, dependencies, commands, main, cpu_type, language),
         )
         pass
 
     def add_variable(self, name: str, value: str):
+        """Request ``scade -code`` to add line ``<variable>=<value>`` to the Makefile."""
         self.variables.append((name, value))
 
     def add_path_variable(self, name: str, value: str, relative: bool):
+        """Request ``scade -code`` to add line ``<variable>=<path>`` to the Makefile."""
         self.path_variables.append((name, value, relative))
 
     def set_compiler_kind(self, kind: str):
+        """Specify ``scade -code`` the kind of compiler expected to be used."""
         self.compiler_kind = kind
 
     def add_preprocessor_definitions(self, *definitions: str):
+        """Request ``scade -code`` to add preprocessor definitions to the Makefile."""
         self.preprocessor_definitions.extend(definitions)
 
     def get_compiler_object_directory(self) -> str:
+        """Return the object directory for the selected compiler and CPU Type."""
         return ''
 
     # sending feedback to SCADE Suite user interface
     def add_error(self, category: str, code: str, messages: List[Tuple[str, str]]):
+        """Display error messages."""
         self.errors.setdefault(category, []).append((code, messages))
 
     def add_warning(self, category: str, code: str, messages: List[Tuple[str, str]]):
+        """Display warning messages."""
         self.warnings.setdefault(category, []).append((code, messages))
 
     def add_information(self, category: str, code: str, messages: List[Tuple[str, str]]):
+        """Display information messages."""
         self.infos.setdefault(category, []).append((code, messages))
 
     def add_generated_files(self, service: str, files: List[str]):
+        """Display the list of files generated by the extension."""
         self.generated_files.setdefault(service, []).extend(files)
 
     # misc. (undocumented)
     def is_state_up_to_date(self, state_ext: str) -> bool:
+        """Return whether a set of files are obsolete with respect to their former version."""
         # do some usage of the parameters to avoid linter warnings
         assert isinstance(state_ext, str)
         # consider a file is always obsolete
         return False
 
     def save_state(self, state_files: List[str], state_ext: str):
+        """Store a ``md5`` value for a set of files."""
         for file in list(*state_files):
             assert isinstance(file, str)
         assert isinstance(state_ext, str)
@@ -205,6 +240,7 @@ _stub = SCToCStub()
 
 
 def reset_stub() -> SCToCStub:
+    """Create a new stub instance."""
     global _stub
 
     _stub = SCToCStub()
@@ -212,12 +248,14 @@ def reset_stub() -> SCToCStub:
 
 
 def set_stub(new_stub: SCToCStub):
+    """Set a new stub instance."""
     global _stub
 
     _stub = new_stub
 
 
 def get_stub() -> SCToCStub:
+    """Return the current stub instance."""
     return _stub
 
 

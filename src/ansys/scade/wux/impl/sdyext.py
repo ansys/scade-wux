@@ -45,6 +45,8 @@ from ansys.scade.wux.wux import writeln
 
 
 class SdyExt:
+    """Generation service for graphical panels (``WUX2_SDY``)."""
+
     ID = 'WUX2_SDY'
     tool = 'SCADE Suite-Display Extension'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -66,6 +68,7 @@ class SdyExt:
         return (cls.ID, ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
 
     def init(self, target_dir, project, configuration):
+        """Initialize the generation service."""
         return [
             ('Code Generator', ('-Order', 'Before')),
             ('WUX2_SDY_PROXY', ('-Order', 'Before')),
@@ -73,6 +76,7 @@ class SdyExt:
         ]
 
     def generate(self, target_dir, project, configuration):
+        """Generate the files."""
         print(self.banner)
 
         assert wux.mf
@@ -101,6 +105,7 @@ class SdyExt:
     # ----------------------------------------------------------------------------
 
     def generate_display(self, target_dir, project, configuration, roots, ips):
+        """Generate the file for a graphical panel."""
         path = Path(project.pathname)
         pathname = Path(target_dir) / ('wuxsdy' + path.stem + '.c')
         sctoc.add_generated_files(self.tool, [pathname.name])
@@ -116,6 +121,7 @@ class SdyExt:
 
     # Find spec by basename
     def get_spec_from_basename(self, basename: str) -> Optional[sdy.Specification]:
+        """Get the specification instance for a file."""
         for spec in self.specifications:
             if os.path.abspath(spec.pathname) == os.path.abspath(
                 os.path.join(self.map_file_dir, basename)
@@ -137,6 +143,7 @@ class SdyExt:
         sdy_type,
         sdy_prefix,
     ):
+        """Generate the declaration of the local variables."""
         # Resolve class types
         while isinstance(sdy_class, suite.NamedType) and not sdy_class.is_predefined():
             sdy_class = sdy_class.type
@@ -247,6 +254,7 @@ class SdyExt:
             print_error('Type {} of {} is unknown.'.format(scs_class.name, local_var_name))
 
     def fix_indexes(self, subelements):
+        """Adjust the indexes."""
         # Subtract 1 to indexes (in connection file, indexing starts at 1)
         return re.sub(r'\[(\d+)\]', lambda m: '[{}]'.format(int(m.group(1)) - 1), subelements)
 
@@ -262,6 +270,7 @@ class SdyExt:
         sdy_class,
         pluggable,
     ):
+        """Generate the assignments."""
         # Resolve class types
         while isinstance(sdy_class, suite.NamedType) and not sdy_class.is_predefined():
             sdy_class = sdy_class.type
@@ -373,6 +382,7 @@ class SdyExt:
                 writeln(f, level + 1, '{} = {};'.format(cpath, local_var_name))
 
     def gen_suite_display_connection(self, f: TextIOBase, ip, output, input):
+        """Generate the Suite to Display connections."""
         # Compute SCADE Suite output characteristics
         output_instance_path = output.instancepath
         if output_instance_path == '':
@@ -467,6 +477,7 @@ class SdyExt:
                 )
 
     def gen_display_suite_connection(self, f: TextIOBase, ip, output, input):
+        """Generate the Display to Suite connections."""
         # Compute SCADE Suite input characteristics
         input_instance_path = input.instancepath
         if input_instance_path == '':
@@ -612,6 +623,7 @@ class SdyExt:
                 )
 
     def gen_includes(self, f: TextIOBase, project: Project):
+        """Generate the include directives."""
         writeln(f, 0, '/* SCADE Suite contexts */')
         writeln(f, 0, '#include "wuxctx%s.h"' % Path(project.pathname).stem)
         writeln(f)
@@ -626,6 +638,7 @@ class SdyExt:
         writeln(f)
 
     def gen_init(self, f: TextIOBase):
+        """Generate the initialization calls."""
         count = len(self.specifications)
         writeln(f, 0, '/* SCADE Display init */')
         writeln(f, 0, '#ifdef WUX_DISPLAY_AS_BUFFERS')
@@ -666,6 +679,7 @@ class SdyExt:
         writeln(f)
 
     def gen_draw(self, f: TextIOBase):
+        """Generate the calls to the drawing functions."""
         writeln(f, 0, '/* SCADE Display cycle */')
         writeln(f, 0, 'void WuxSdyDraw()')
         writeln(f, 0, '{')
@@ -676,6 +690,7 @@ class SdyExt:
         writeln(f)
 
     def gen_ios(self, f: TextIOBase, ips):
+        """Generate the calls to connection functions."""
         writeln(f, 0, '/* Connections Suite => Display */')
         writeln(f, 0, 'void WuxSdySetInputs()')
         writeln(f, 0, '{')
@@ -712,6 +727,7 @@ class SdyExt:
         writeln(f)
 
     def gen_cancelled(self, f: TextIOBase):
+        """Generate the call cancel functions."""
         writeln(f, 0, '/* SCADE Display cancelled */')
         writeln(f, 0, 'int WuxSdyCancelled()')
         writeln(f, 0, '{')
@@ -726,6 +742,7 @@ class SdyExt:
     # ----------------------------------------------------------------------------
 
     def declare_target(self, target_dir, project, configuration, roots):
+        """Update the makefile: sources and include search paths."""
         # runtime files
         include = self.script_dir.parent / 'include'
         wux.add_includes([include])
@@ -738,10 +755,12 @@ class SdyExt:
 
 
 def print_info(*messages):
+    """Print information messages."""
     print(*messages)
 
 
 def print_error(message):
+    """Print error messages."""
     print('ERROR: ', message)
 
 
@@ -751,4 +770,5 @@ def print_error(message):
 
 
 def get_services():
+    """Return the list of Generation services implemented by this module."""
     return [SdyExt.get_service()]

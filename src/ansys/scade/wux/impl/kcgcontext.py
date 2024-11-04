@@ -121,6 +121,7 @@ class WuxContext:
 
     @classmethod
     def get_service(cls):
+        """Declare the generation service Context."""
         cls.instance = WuxContext()
         wux_ctx = (
             cls.ID,
@@ -130,11 +131,13 @@ class WuxContext:
         return wux_ctx
 
     def init(self, target_dir: str, project: Project, configuration: Configuration):
+        """Initialize the generation service."""
         # KCG needed
         cg = ('Code Generator', ('-Order', 'Before'))
         return [cg]
 
     def generate(self, target_dir: str, project: Project, configuration: Configuration):
+        """Generate the files."""
         print(self.banner)
 
         # check simulation mode
@@ -179,6 +182,7 @@ class WuxContext:
         return True
 
     def set_simulation(self, project: Project, configuration: Configuration):
+        """Check whether the current configuration targets the SCADE Simulator."""
         enable_extensions = project.get_bool_tool_prop_def(
             'GENERATOR', 'ENABLE_EXTENSIONS', True, configuration
         )
@@ -188,6 +192,7 @@ class WuxContext:
         self.simulation = enable_extensions and target == 'Simulator'
 
     def set_globals(self, target_dir: str, project: Project, configuration: Configuration):
+        """Create the global ``wux.mf``, ``wux.mh`` and ``wux.ips`` global instances."""
         wux.mf = MappingFile((Path(target_dir) / 'mapping.xml').as_posix())
         wux.mh = MappingHelpers(wux.mf)
         roots = wux.mf.get_root_operators()
@@ -197,6 +202,7 @@ class WuxContext:
             wux.ips.append(ip)
 
     def gen_kcg_includes(self, f):
+        """Generate the include directives."""
         writeln(f, 0, '/* KCG generated files */')
         include_sensors = True
         for ip in wux.ips:
@@ -206,6 +212,7 @@ class WuxContext:
         writeln(f)
 
     def gen_contexts_declaration(self, f, project):
+        """Generate the contexts declarations."""
         if self.simulation:
             # cf. <project>_interface.h
             writeln(f, 0, '/* Simulator generated files */')
@@ -223,6 +230,7 @@ class WuxContext:
             writeln(f)
 
     def gen_contexts_definition(self, f):
+        """Generate the contexts definitions."""
         writeln(f, 0, '/* contexts */')
         if not self.simulation:
             for ip in wux.ips:
@@ -232,6 +240,7 @@ class WuxContext:
         writeln(f)
 
     def gen_sensors(self, f):
+        """Generate the sensors definitions."""
         assert wux.mf is not None
         sensors = wux.mf.get_all_sensors()
         if not self.simulation and not self.user_sensors and sensors:
@@ -248,6 +257,7 @@ class WuxContext:
         writeln(f)
 
     def gen_init(self, f):
+        """Generate the initialization calls."""
         writeln(f, 0, '/* initializations */')
         writeln(f, 0, 'void WuxReset()')
         writeln(f, 0, '{')
@@ -275,6 +285,7 @@ class WuxContext:
         writeln(f)
 
     def gen_cycles(self, f):
+        """Generate the calls to the cyclic functions."""
         writeln(f, 0, 'void WuxCycle()')
         writeln(f, 0, '{')
         if not self.simulation:
@@ -284,6 +295,7 @@ class WuxContext:
         writeln(f)
 
     def gen_period(self, f):
+        """Generate the access top the period."""
         writeln(f, 0, 'double WuxGetPeriod()')
         writeln(f, 0, '{')
         writeln(f, 0, '    return {0};'.format(sctoc.get_operator_sample_time()[0]))
@@ -295,6 +307,7 @@ class WuxContext:
     # ----------------------------------------------------------------------------
 
     def declare_target(self, target_dir, project, configuration):
+        """Update the makefile: sources and include search paths."""
         wux.add_sources(self.sources)
         # runtime files
         include = Path(self.script_dir).parent / 'include'
