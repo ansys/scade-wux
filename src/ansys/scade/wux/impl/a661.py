@@ -37,6 +37,8 @@ import ansys.scade.wux.wux as wux
 
 
 class A661UAA:
+    """Generation service for UA Adaptor (``WUX2_UAA``)."""
+
     ID = 'WUX2_UAA'
     tool = 'SCADE Suite UA Adaptor Extension'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -66,16 +68,19 @@ class A661UAA:
 
     @classmethod
     def get_service(cls):
+        """Declare the generation service UA Adaptor extension."""
         cls.instance = A661UAA()
         uaa = ('WUX2_UAA', ('-OnInit', cls.instance.init), ('-OnGenerate', cls.instance.generate))
         return uaa
 
     def init(self, target_dir, project, configuration):
+        """Initialize the generation service."""
         cg = ('Code Generator', ('-Order', 'Before'))
         ctx = ('WUX2_CTX', ('-Order', 'Before'))
         return [cg, ctx]
 
     def generate(self, target_dir, project, configuration):
+        """Generate the files."""
         print(self.banner)
 
         roots = wux.mf.get_root_operators()
@@ -97,6 +102,7 @@ class A661UAA:
     # ------------------------------------------------------------------------
 
     def gen_includes(self, f, project):
+        """Generate the include directives."""
         f.write('/* includes */\n')
         # f.write('#include <windows.h>\n')
         # f.write('\n')
@@ -115,6 +121,7 @@ class A661UAA:
         f.write('\n')
 
     def gen_connect(self, f):
+        """Generate the call to connect to the server."""
         f.write('int WuxA661ConnectServer()\n')
         f.write('{\n')
         if self.ua_base_name is not None:
@@ -129,6 +136,7 @@ class A661UAA:
         f.write('\n')
 
     def gen_disconnect(self, f):
+        """Generate the call to disconnect from the server."""
         f.write('int WuxA661DisconnectServer()\n')
         f.write('{\n')
         if self.ua_base_name is not None:
@@ -139,6 +147,7 @@ class A661UAA:
         f.write('\n')
 
     def gen_receive(self, f):
+        """Generate the call to receive the messages."""
         f.write('void WuxA661ReceiveMessages()\n')
         f.write('{\n')
         if self.ua_base_name is not None:
@@ -163,6 +172,7 @@ class A661UAA:
         f.write('\n')
 
     def gen_send(self, f):
+        """Generate the call to send the messages."""
         f.write('void WuxA661SendMessages()\n')
         f.write('{\n')
         if self.ua_base_name is not None:
@@ -187,6 +197,7 @@ class A661UAA:
         f.write('\n')
 
     def generate_interface(self, target_dir, project, configuration):
+        """Generate the file."""
         path = Path(project.pathname)
         pathname = Path(target_dir) / (self.PREFIX + path.stem + '.c')
         sctoc.add_generated_files(self.tool, [pathname.name])
@@ -209,7 +220,7 @@ class A661UAA:
     # ------------------------------------------------------------------------
 
     def run_uua(self, target_dir, project, configuration):
-        # run UA Adaptor if needed
+        """Run UA Adaptor."""
         if self.ua_base_name is None:
             return
         uua = self.ansys_scade_dir / 'SCADE' / 'bin' / 'uaadaptor.exe'
@@ -254,6 +265,7 @@ class A661UAA:
     # ------------------------------------------------------------------------
 
     def declare_target(self, target_dir, project, configuration):
+        """Update the makefile: sources and include search paths."""
         include = self.script_dir.parent / 'include'
         wux.add_includes([include])
         if len(self.sources) != 0:
@@ -267,10 +279,12 @@ class A661UAA:
     # ------------------------------------------------------------------------
 
     def is_spec_a661(self, specification):
+        """Return whether the specification is a A661 definition file."""
         project = specification.sdy_project
         return project is not None and project.is_uapc()
 
     def set_a661_globals(self, target_dir, project, configuration):
+        """Get the A661 specifications."""
         # gather all the DF specifications and the configurations they are involved in
         uapc_projects = [
             _ for app in wux.get_sdy_applications() for _ in app.sdy_projects if _.is_uapc()

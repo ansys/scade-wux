@@ -43,6 +43,8 @@ from ansys.scade.wux.wux import writeln
 
 
 class SdyProxyExt:
+    """Generation service for graphical panels DLLs (``WUX2_SDY_PROXY``)."""
+
     ID = 'WUX2_SDY_PROXY'
     tool = 'SCADE Display Proxy Extension'
     banner = '%s (WUX %s)' % (tool, __version__)
@@ -58,7 +60,7 @@ class SdyProxyExt:
 
     @classmethod
     def get_service(cls):
-        """Declare the generation service SCADE Suite-Display Extension."""
+        """Declare the generation service SCADE Display Proxy Extension."""
         cls.instance = SdyProxyExt()
         scx = (
             cls.ID,
@@ -69,9 +71,11 @@ class SdyProxyExt:
         return scx
 
     def init(self, target_dir, project, configuration):
+        """Initialize the generation service."""
         return []
 
     def generate(self, target_dir, project, configuration):
+        """Generate the files."""
         print(self.banner)
 
         self.specifications = wux.get_specifications(project, configuration)
@@ -95,6 +99,7 @@ class SdyProxyExt:
         return True
 
     def build(self, target_dir, project, configuration):
+        """Run ``ScadeDisplayConsole`` or ``ScadeRP``."""
         ansys_scade_dir = get_scade_home()
         sdy_display_home = str(ansys_scade_dir / 'SCADE Display')
         sdy_rapidproto_home = str(ansys_scade_dir / 'SCADE Test' / 'Rapid Prototyper')
@@ -178,6 +183,7 @@ class SdyProxyExt:
     # ----------------------------------------------------------------------------
 
     def gen_includes(self, f):
+        """Generate the include directives."""
         writeln(f, 0, '#include <windows.h>')
         writeln(f, 0, '#include <stdio.h>')
         writeln(f)
@@ -196,6 +202,7 @@ class SdyProxyExt:
         writeln(f)
 
     def gen_proxy_class(self, f, spec):
+        """Generate the proxy classes declarations."""
         prefix = spec.prefix
         writeln(f, 0, 'class C{0}DllProxy : public CSdyDllProxy'.format(prefix))
         writeln(f, 0, '{')
@@ -214,6 +221,7 @@ class SdyProxyExt:
         writeln(f)
 
     def gen_proxy_functions(self, f, spec):
+        """Generate the proxy classes implementation."""
         prefix = spec.prefix
         writeln(f, 0, 'void C{0}DllProxy::ZeroPointers()'.format(prefix))
         writeln(f, 0, '{')
@@ -261,6 +269,7 @@ class SdyProxyExt:
             writeln(f, 0, '')
 
     def gen_instances(self, f):
+        """Generate the proxy classes instances."""
         if self.specifications:
             writeln(
                 f,
@@ -274,6 +283,7 @@ class SdyProxyExt:
             writeln(f)
 
     def gen_load(self, f):
+        """Generate the loading of the DLLs."""
         writeln(f, 0, 'int WuxLoadSdyDlls(/*HINSTANCE*/ void* hinstDll)')
         writeln(f, 0, '{')
         if self.specifications:
@@ -293,6 +303,7 @@ class SdyProxyExt:
         writeln(f)
 
     def gen_unload(self, f):
+        """Generate the unloading of the DLLs."""
         writeln(f, 0, 'int WuxUnloadSdyDlls(/*HINSTANCE*/ void* hinstDll)')
         writeln(f, 0, '{')
         if self.specifications:
@@ -310,6 +321,7 @@ class SdyProxyExt:
     # ----------------------------------------------------------------------------
 
     def declare_target(self, target_dir, project, configuration):
+        """Update the makefile: sources and include search paths."""
         # runtime files
         include = self.script_dir.parent / 'include'
         wux.add_includes([include])
@@ -328,4 +340,5 @@ class SdyProxyExt:
 
 
 def get_services():
+    """Return the list of Generation services implemented by this module."""
     return [SdyProxyExt.get_service()]
