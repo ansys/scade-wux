@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="ansys-scade-wux"
-version="2.0.dev0"
+version="3.0.dev0"
 description ="Generic code integration target for SCADE."
 readme="README.rst"
 
