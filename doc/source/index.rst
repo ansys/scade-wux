@@ -40,7 +40,7 @@ This package contains:
       :link: runtime/index
       :link-type: doc
 
-      Learn reference for the C/C++ interfaces 
+      Learn reference for the C/C++ interfaces
 
     .. grid-item-card:: :material-regular:`group;1.25em` Contributing
       :link: contributing
