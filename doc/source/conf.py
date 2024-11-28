@@ -152,33 +152,34 @@ if switcher_version != 'dev':
 
 # -- Import the C++ docs -----------------------------------------------------
 
-source_dir = Path(__file__).parent
-root_dir = source_dir.parent.parent
+SOURCE_DIR = Path(__file__).parent
+ROOT_DIR = SOURCE_DIR.parent.parent
+
 # output directory: make sure it exists
-doxygen_dir = source_dir / '_doxygen'
-doxygen_dir.mkdir(exist_ok=True)
+DOXYGEN_DIR = SOURCE_DIR / '_doxygen'
+DOXYGEN_DIR.mkdir(exist_ok=True)
 
 # path of doxygen configuration files are relative to the current directory
 # -> copy the configuration file from a template, patched with an
 #    absolute directory, so that the command is independent from the
 #    current directory
 # read the doxygen configuration template file
-text = (source_dir / '_templates' / 'includes.dox').open().read()
-# replace the macro {{repository}} by root_dir
-text = text.replace('{{repository}}', str(root_dir))
+text = (SOURCE_DIR / '_templates' / 'includes.dox').open().read()
+# replace the macro {{repository}} by ROOT_DIR
+text = text.replace('{{repository}}', str(ROOT_DIR))
 # write the configuration file to the doxygen target directory
-(doxygen_dir / 'includes.dox').open('w').write(text)
+(DOXYGEN_DIR / 'includes.dox').open('w').write(text)
 
-subprocess.call('doxygen %s/includes.dox' % doxygen_dir, shell=True)
+subprocess.call('doxygen %s/includes.dox' % DOXYGEN_DIR, shell=True)
 
 breathe_projects = {
-    'interfaces': '%s/xml/' % doxygen_dir,
+    'interfaces': '%s/xml/' % DOXYGEN_DIR,
 }
 breathe_default_project = 'interfaces'
 
 breathe_projects_source = {
     'interfaces': (
-        '%s/src/ansys/scade/wux/include' % root_dir,
+        '%s/src/ansys/scade/wux/include' % ROOT_DIR,
         [
             'WuxA661Ext.h',
             'WuxCtxExt.h',
