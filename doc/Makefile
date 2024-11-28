@@ -6,6 +6,7 @@ SPHINXOPTS    = -j auto
 SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = _build
+DOXYGENOUTPUT = $(SOURCEDIR)/_doxygen
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -27,4 +28,5 @@ pdf:
 clean:
 	rm -rf $(BUILDDIR)/*
 	rm -rf $(SOURCEDIR)/examples
+	rm -rf $(DOXYGENOUTPUT)/+
 	find . -type d -name "api" -exec rm -rf {} +
