@@ -55,9 +55,6 @@ html_theme_options = {
 
 # Sphinx extensions
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx_autodoc_typehints',
     'numpydoc',
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
@@ -70,21 +67,8 @@ extensions = [
 # Make sure the target is unique
 autosectionlabel_prefix_document = True
 
-# Print the type annotations from the signature in the description only
-autodoc_typehints = 'description'
-# When the documentation is run on Linux systems
-autodoc_mock_imports = ['scade', 'scade_env', '_scade_api']
-# Purpose of this option?
-add_module_names = False
-# ansys.scade.wux.info not found when building the documentation
+# # ansys.scade.wux.info not found when building the documentation
 suppress_warnings = ['autoapi.python_import_resolution', 'autosectionlabel.*']
-
-# autoclass_content: keep default
-# autodoc/autosummary flags
-autoclass_content = 'both'
-autosummary_generate = True
-# autodoc_class_signature: can't be used with enums
-# autodoc_class_signature = 'separated'
 
 # Intersphinx mapping
 intersphinx_mapping = {
@@ -152,34 +136,35 @@ if switcher_version != 'dev':
 
 # -- Import the C++ docs -----------------------------------------------------
 
+# Define directory paths
 SOURCE_DIR = Path(__file__).parent
 ROOT_DIR = SOURCE_DIR.parent.parent
-
-# output directory: make sure it exists
 DOXYGEN_DIR = SOURCE_DIR / '_doxygen'
+
+# Ensure the output directory exists
 DOXYGEN_DIR.mkdir(exist_ok=True)
 
-# path of doxygen configuration files are relative to the current directory
-# -> copy the configuration file from a template, patched with an
-#    absolute directory, so that the command is independent from the
-#    current directory
-# read the doxygen configuration template file
-text = (SOURCE_DIR / '_templates' / 'includes.dox').open().read()
-# replace the macro {{repository}} by ROOT_DIR
-text = text.replace('{{repository}}', str(ROOT_DIR))
-# write the configuration file to the doxygen target directory
-(DOXYGEN_DIR / 'includes.dox').open('w').write(text)
+# Read and patch the Doxygen configuration template
+template_path = SOURCE_DIR / '_templates' / 'includes.dox'
+output_path = DOXYGEN_DIR / 'includes.dox'
 
-subprocess.call('doxygen %s/includes.dox' % DOXYGEN_DIR, shell=True)
+with template_path.open('r') as template_file:
+    text = template_file.read().replace('{{repository}}', str(ROOT_DIR))
+
+with output_path.open('w') as output_file:
+    output_file.write(text)
+
+# Run Doxygen with the patched configuration file
+subprocess.call(['doxygen', str(output_path)])
 
 breathe_projects = {
-    'interfaces': '%s/xml/' % DOXYGEN_DIR,
+    'interfaces': f"{DOXYGEN_DIR}/xml/",
 }
 breathe_default_project = 'interfaces'
 
 breathe_projects_source = {
     'interfaces': (
-        '%s/src/ansys/scade/wux/include' % ROOT_DIR,
+        f"{ROOT_DIR}/src/ansys/scade/wux/include",
         [
             'WuxA661Ext.h',
             'WuxCtxExt.h',
