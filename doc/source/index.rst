@@ -19,7 +19,7 @@ This package contains:
     :padding: 1 2 3 3
 
     .. grid-item-card:: :material-regular:`power_settings_new;1.25em` Getting started
-      :link: getting_started/index
+      :link: getting-started/index
       :link-type: doc
 
       Learn how to install and use Ansys SCADE Wrapper Tools.
@@ -59,7 +59,7 @@ This package contains:
    :maxdepth: 1
    :hidden:
 
-   getting_started/index
+   getting-started/index
    usage/index
    api/index
    runtime/index
