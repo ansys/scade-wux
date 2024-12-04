@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?dom version="19.0" ?>
+
+<specification>
+    <IDE>
+        <project path="Types.etp"/>
+        <ratio horizontal="1" vertical="1"/>
+    </IDE>
+    <symbology>
+        <dimension height="256" width="256"/>
+    </symbology>
+    <children>
+        <layer oid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f">
+            <pathFromRoot value=""/>
+            <declaration>
+                <inputs>
+                    <input name="inLine" oid="364ed79f-579b-4455-b36b-d626cb1a6701" type="Line">
+                        <init>[{x: 0.0, y: 0.0}]</init>
+                    </input>
+                    <input name="inPoint" oid="ab3d88cc-ded5-4aa9-8850-799e214d3fe2" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </input>
+                    <input name="inString" oid="7399bf54-44b4-484e-98a1-8b5e469e6289" type="String">
+                        <init>{count: 0, buffer: [0]}</init>
+                    </input>
+                    <input name="inNotConnected" oid="1e7916de-30a0-4db5-938d-72359f4fe7f2" type="int">
+                        <init>0</init>
+                    </input>
+                    <input name="inSpeed" oid="933caefe-3ba9-4129-8a5c-8d989ff573e1" type="Speed">
+                        <init>0.0</init>
+                    </input>
+                    <input name="inUInt8" oid="43d09424-d8b4-46c3-9dd1-4e3a495b4cf9" type="uint8">
+                        <init>0</init>
+                    </input>
+                    <input name="inMask" oid="e6d1193e-fa89-45a6-a952-2fde646c38d0" type="Mask">
+                        <init>[false]</init>
+                    </input>
+                    <input name="inPartialLine" oid="8fa34cf3-4d07-4e93-af71-e94dba97d034" type="Line">
+                        <init>[{x: 0.0, y: 0.0}]</init>
+                    </input>
+                    <input group="inGroup" name="_inSpeed" oid="58b1a4da-6331-4cfa-a08f-a12071b7717d" type="Speed">
+                        <init>0.0</init>
+                    </input>
+                    <input group="inGroup" name="_inPoint" oid="84091dee-e801-40c6-bb12-709adbd863e8" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </input>
+                    <input group="inGroup" name="_inBits" oid="81e7c08d-21f3-4a2a-85ce-332beec00eb8" type="Bits">
+                        <init>[false]</init>
+                    </input>
+                    <input name="inPartialLine3x" oid="48eba2a1-8b2e-4e1b-a669-614b0c161e83" type="float32">
+                        <init>0.0</init>
+                    </input>
+                    <input name="inPartialLine1" oid="f5bad6d9-eb8c-43ad-a7d2-1212040881b0" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </input>
+                    <input name="inFlag" oid="e1ce5a90-e962-4067-8511-ff285192879c" type="Flag">
+                        <init>BLUE</init>
+                    </input>
+                    <input name="inAnonymousBits" oid="b64e629e-f0b7-4f62-9e03-a6554b392417" type="bool^8">
+                        <init>[false]</init>
+                    </input>
+                    <input name="inAnonymousPoint" oid="9271c16c-b2b3-4f03-a354-3f44eb0271e4" type="{x: float32, y: float32}">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </input>
+                    <input name="status" oid="a7dc35e3-a1cc-4437-b0e4-270d87ff80e7" type="bool">
+                        <init>false</init>
+                    </input>
+                </inputs>
+                <outputs>
+                    <output memory="false" name="outLine" oid="00b56d33-f9ac-4f11-97d7-36edd3a969c1" type="Line">
+                        <init>[{x: 0.0, y: 0.0}]</init>
+                    </output>
+                    <output memory="false" name="outPoint" oid="e180b5f3-5f13-43c3-8aa0-08057ac63c35" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </output>
+                    <output memory="false" name="outString" oid="78728c62-ce17-4bd3-b042-8327943c0a2f" type="String">
+                        <init>{count: 0, buffer: [0]}</init>
+                    </output>
+                    <output memory="true" name="outNotConnected" oid="11743523-648f-4064-b421-9753b0fd3ef4" type="int">
+                        <init>0</init>
+                    </output>
+                    <output memory="true" name="outSpeed" oid="cd7c927d-8295-426c-8b06-d3906634902f" type="Speed">
+                        <init>0.0</init>
+                    </output>
+                    <output memory="true" name="outUInt8" oid="fc966623-0209-44e0-9f5c-8fdeedd92a18" type="uint8">
+                        <init>0</init>
+                    </output>
+                    <output memory="true" name="outMask" oid="4db05c83-fd66-420a-929a-163b8dde57ae" type="Mask">
+                        <init>[false]</init>
+                    </output>
+                    <output memory="true" name="outPartialLine" oid="a07dd7c1-27f5-458b-9711-9f417ea190d7" type="Line">
+                        <init>[{x: 0.0, y: 0.0}]</init>
+                    </output>
+                    <output group="outGroup" memory="true" name="_outSpeed" oid="b7978df9-7bac-4b37-821a-ada5358a2fdf" type="Speed">
+                        <init>0.0</init>
+                    </output>
+                    <output group="outGroup" memory="true" name="_outPoint" oid="15221e39-7f11-4f60-97be-d880a06638e7" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </output>
+                    <output group="outGroup" memory="true" name="_outBits" oid="cdfc4641-ceb5-45ce-ad13-4a12019868e0" type="Bits">
+                        <init>[false]</init>
+                    </output>
+                    <output memory="true" name="outPartialLine3x" oid="0b5141ba-b2f7-4957-ba40-12ad27198045" type="float32">
+                        <init>0.0</init>
+                    </output>
+                    <output memory="true" name="outPartialLine1" oid="272243c3-4a84-45b2-9257-fb564c70c922" type="Point">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </output>
+                    <output memory="true" name="outFlag" oid="a6c95849-7c07-4246-9989-cab3ad7b1729" type="Flag">
+                        <init>BLUE</init>
+                    </output>
+                    <output memory="true" name="outAnonymousBits" oid="c7f1bd7f-8055-453e-951b-b77890de6ea2" type="bool^8">
+                        <init>[false]</init>
+                    </output>
+                    <output memory="true" name="outAnonymousPoint" oid="0c53e8d3-53d5-4837-bbfc-3a9b9aa42efa" type="{x: float32, y: float32}">
+                        <init>{x: 0.0, y: 0.0}</init>
+                    </output>
+                </outputs>
+            </declaration>
+            <properties name="symbology_layer">
+                <visible>
+                    <init>true</init>
+                </visible>
+                <origin>
+                    <x>
+                        <init>0.0</init>
+                    </x>
+                    <y>
+                        <init>0.0</init>
+                    </y>
+                </origin>
+                <id>
+                    <init>1</init>
+                </id>
+                <ratio horizontal="1" vertical="1"/>
+            </properties>
+            <children>
+                <assignment oid="63bb741c-fb4f-412c-a1d3-d672a4029916">
+                    <pathFromRoot value="0"/>
+                    <properties name="line">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>[{x: 0.0, y: 0.0}]</init>
+                            <expr>inLine</expr>
+                        </input>
+                        <output>
+                            <expr>outLine</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="34ce8da9-49a7-4481-a3cb-88fae1f87889">
+                    <pathFromRoot value="1"/>
+                    <properties name="point">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>{x: 0.0, y: 0.0}</init>
+                            <expr>inPoint</expr>
+                        </input>
+                        <output>
+                            <expr>outPoint</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="12245827-d2d5-440a-bad3-33c4ccd265b4">
+                    <pathFromRoot value="2"/>
+                    <properties name="string">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>{count: 0, buffer: [0]}</init>
+                            <expr>inString</expr>
+                        </input>
+                        <output>
+                            <expr>outString</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="3fef3f08-01ee-4558-bea1-01c736a427c3">
+                    <pathFromRoot value="3"/>
+                    <properties name="speed">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>0.0</init>
+                            <expr>inSpeed</expr>
+                        </input>
+                        <output>
+                            <expr>outSpeed</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="7e7f17b3-a2f7-4d2e-8825-6fc51a5cfa5c">
+                    <pathFromRoot value="4"/>
+                    <properties name="uint8">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>0</init>
+                            <expr>inUInt8</expr>
+                        </input>
+                        <output>
+                            <expr>outUInt8</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="798b4138-ffa0-46ba-ad90-59b1fd6868e1">
+                    <pathFromRoot value="5"/>
+                    <properties name="mask">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>[false]</init>
+                            <expr>inMask</expr>
+                        </input>
+                        <output>
+                            <expr>outMask</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="dc7beb8b-d5af-4c93-92ce-5b807b35a7ce">
+                    <pathFromRoot value="6"/>
+                    <properties name="partialLine">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>[{x: 0.0, y: 0.0}]</init>
+                            <expr>inPartialLine</expr>
+                        </input>
+                        <output>
+                            <expr>outPartialLine</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="05a28bfb-5834-4e23-bd56-d5b2b4a558fe">
+                    <pathFromRoot value="7"/>
+                    <properties name="_speed">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>0.0</init>
+                            <expr>_inSpeed</expr>
+                        </input>
+                        <output>
+                            <expr>_outSpeed</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="fcef38a3-717e-4792-ae78-9764fd7716d3">
+                    <pathFromRoot value="8"/>
+                    <properties name="_point">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>{x: 0.0, y: 0.0}</init>
+                            <expr>_inPoint</expr>
+                        </input>
+                        <output>
+                            <expr>_outPoint</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="05565cc4-e7c5-4ce7-953f-690e2fe8a6a0">
+                    <pathFromRoot value="9"/>
+                    <properties name="_bits">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>[false]</init>
+                            <expr>_inBits</expr>
+                        </input>
+                        <output>
+                            <expr>_outBits</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="29fc0bc8-22de-4dd0-81e1-9b97764e1919">
+                    <pathFromRoot value="10"/>
+                    <properties name="partialLine3x">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>0.0</init>
+                            <expr>inPartialLine3x</expr>
+                        </input>
+                        <output>
+                            <expr>outPartialLine3x</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="e4c25dc1-71af-4a9a-8eba-a112e62f7db2">
+                    <pathFromRoot value="11"/>
+                    <properties name="partialLine1">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>{x: 0.0, y: 0.0}</init>
+                            <expr>inPartialLine1</expr>
+                        </input>
+                        <output>
+                            <expr>outPartialLine1</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="4eb4663a-de25-4ba9-af05-02654a037f80">
+                    <pathFromRoot value="12"/>
+                    <properties name="flag">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>BLUE</init>
+                            <expr>inFlag</expr>
+                        </input>
+                        <output>
+                            <expr>outFlag</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="75c7f5cb-321a-485f-b8ec-21425e4e1ebf">
+                    <pathFromRoot value="13"/>
+                    <properties name="anonymousBits">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>[false]</init>
+                            <expr>inAnonymousBits</expr>
+                        </input>
+                        <output>
+                            <expr>outAnonymousBits</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <assignment oid="85ca77db-1fde-4380-9d35-e30debe81a83">
+                    <pathFromRoot value="14"/>
+                    <properties name="anonymousPoint">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>{x: 0.0, y: 0.0}</init>
+                            <expr>inAnonymousPoint</expr>
+                        </input>
+                        <output>
+                            <expr>outAnonymousPoint</expr>
+                        </output>
+                    </properties>
+                </assignment>
+                <circle oid="dd07d76d-8f87-481b-b630-0f36ceff416f">
+                    <pathFromRoot value="15"/>
+                    <properties name="ok">
+                        <visible>
+                            <init>true</init>
+                            <expr>status</expr>
+                        </visible>
+                        <center>
+                            <x>
+                                <init>0.0</init>
+                            </x>
+                            <y>
+                                <init>0.0</init>
+                            </y>
+                        </center>
+                        <radius>
+                            <init>40.459857</init>
+                        </radius>
+                        <lineWidth>
+                            <init>0</init>
+                        </lineWidth>
+                        <lineStipple>
+                            <init>0</init>
+                        </lineStipple>
+                        <lineCap>
+                            <init>round</init>
+                        </lineCap>
+                        <haloing>
+                            <init>false</init>
+                        </haloing>
+                        <haloColor>
+                            <init>-1</init>
+                        </haloColor>
+                        <outlineColor>
+                            <init>32</init>
+                        </outlineColor>
+                        <outlineOpacity>
+                            <init>255</init>
+                        </outlineOpacity>
+                        <fillColor>
+                            <init>46</init>
+                        </fillColor>
+                        <fillOpacity>
+                            <init>255</init>
+                        </fillOpacity>
+                        <polygonSmooth>
+                            <init>false</init>
+                        </polygonSmooth>
+                        <texture horizAlign="center" horizPattern="1.0" vertAlign="middle" vertPattern="1.0">
+                            <textureId>
+                                <init>-1</init>
+                            </textureId>
+                        </texture>
+                        <gradient>
+                            <init>-1</init>
+                        </gradient>
+                        <modulate>
+                            <init>false</init>
+                        </modulate>
+                    </properties>
+                </circle>
+                <circle oid="d8a273e7-30e9-4b79-b612-1502b34c74af">
+                    <pathFromRoot value="16"/>
+                    <properties name="nok">
+                        <visible>
+                            <init>true</init>
+                            <expr>not status</expr>
+                        </visible>
+                        <center>
+                            <x>
+                                <init>0.0</init>
+                            </x>
+                            <y>
+                                <init>0.0</init>
+                            </y>
+                        </center>
+                        <radius>
+                            <init>40.459857</init>
+                        </radius>
+                        <lineWidth>
+                            <init>0</init>
+                        </lineWidth>
+                        <lineStipple>
+                            <init>0</init>
+                        </lineStipple>
+                        <lineCap>
+                            <init>round</init>
+                        </lineCap>
+                        <haloing>
+                            <init>false</init>
+                        </haloing>
+                        <haloColor>
+                            <init>-1</init>
+                        </haloColor>
+                        <outlineColor>
+                            <init>32</init>
+                        </outlineColor>
+                        <outlineOpacity>
+                            <init>255</init>
+                        </outlineOpacity>
+                        <fillColor>
+                            <init>15</init>
+                        </fillColor>
+                        <fillOpacity>
+                            <init>255</init>
+                        </fillOpacity>
+                        <polygonSmooth>
+                            <init>false</init>
+                        </polygonSmooth>
+                        <texture horizAlign="center" horizPattern="1.0" vertAlign="middle" vertPattern="1.0">
+                            <textureId>
+                                <init>-1</init>
+                            </textureId>
+                        </texture>
+                        <gradient>
+                            <init>-1</init>
+                        </gradient>
+                        <modulate>
+                            <init>false</init>
+                        </modulate>
+                    </properties>
+                </circle>
+            </children>
+        </layer>
+    </children>
+</specification>
+
+<!-- crc32 : 2379781328 -->
+

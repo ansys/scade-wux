@@ -170,8 +170,9 @@ class SdyExt:
                         sdy_prefix,
                     )
             else:
-                scs_subelement2 = re.sub(r'^\[\d+\](.*)$', r'\1', scs_subelement)
-                if scs_subelement2:
+                match = re.match(r'^\[\d+\](.*)$', scs_subelement)
+                if match:
+                    scs_subelement2 = match.groups()[0]
                     self.declare_local_vars(
                         f,
                         scs_class.type,
@@ -210,7 +211,7 @@ class SdyExt:
                     sdy_type = re.sub(r'@float64@', r'SGLdouble', sdy_type)
                     sdy_type = re.sub(r'@(u?int\d+)@', r'SGL\1', sdy_type)
                     # finish
-                    sdy_type = re.sub(r'@([a-zA-Z_0-9]+)@', sdy_prefix + '\1')
+                    sdy_type = re.sub(r'@([a-zA-Z_0-9]+)@', sdy_prefix + r'\1', sdy_type)
                     sdy_type = re.sub(r',', ';', sdy_type)
                     sdy_type = re.sub(r'}', ';}', sdy_type)
                     writeln(f, 2, 'struct {} {};'.format(sdy_type, local_var_name))
@@ -305,8 +306,9 @@ class SdyExt:
                 )
                 writeln(f, level + 1, '}')
             else:
-                scs_subelement2 = re.sub(r'^\[\d+\](.*)$', r'\1', scs_subelement)
-                if scs_subelement2:
+                match = re.match(r'^\[\d+\](.*)$', scs_subelement)
+                if match:
+                    scs_subelement2 = match.groups()[0]
                     self.convert_var(
                         f,
                         kind,
@@ -439,7 +441,7 @@ class SdyExt:
                     input_spec.prefix + '_',
                 )
                 # project anonymous compound types
-                if re.match(r'{.*}', input.type):
+                if re.fullmatch(r'{.*}', input.type):
                     local_var_name = local_var_name + input_subelement
                 self.convert_var(
                     f,
@@ -514,7 +516,7 @@ class SdyExt:
                     output_spec.prefix + '_',
                 )
                 # project anonymous compound types
-                if re.match(r'{.*}', input.type):
+                if re.fullmatch(r'{.*}', input.type_definition):
                     writeln(
                         f,
                         2,
@@ -522,7 +524,7 @@ class SdyExt:
                             local_var_name, output_c, output_subelement, local_var_name
                         ),
                     )
-                elif isinstance(input.object_type, suite.Table):
+                elif re.fullmatch(r'.*\^.*', input.type_definition):
                     writeln(
                         f,
                         2,

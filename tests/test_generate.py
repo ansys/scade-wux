@@ -35,7 +35,7 @@ import ansys.scade.wux.impl.simuext as wux_simu_ext
 from ansys.scade.wux.test.sctoc_stub import get_stub
 from ansys.scade.wux.test.utils import ServiceProxy, reset_test_env
 import ansys.scade.wux.wux as wux
-from conftest import find_configuration, load_project, load_sdy_application, load_session
+from conftest import diff_files, load_project, load_sdy_application, load_session
 
 
 @pytest.mark.parametrize(
@@ -45,6 +45,7 @@ from conftest import find_configuration, load_project, load_sdy_application, loa
         ('Two/UA/Two.etp', 'Two/DF/TwoDF.etp', 'UT Simulation'),
         ('Variables/Variables.etp', 'Variables/Displays/Displays.etp', 'UT KCG'),
         ('Variables/Variables.etp', 'Variables/Displays/Displays.etp', 'UT Simulation'),
+        ('Types/Logic/Model.etp', 'Types/Graphics/Types.etp', 'UT KCG'),
     ],
 )
 def test_generate(file, name, display, tmpdir):
@@ -56,7 +57,8 @@ def test_generate(file, name, display, tmpdir):
     test_dir = Path(__file__).parent
     path = test_dir / file
     project = load_project(path)
-    configuration = find_configuration(project, name)
+    configuration = project.find_configuration(name)
+    assert configuration
     model = path.stem
     # remind the target directory to ease its access for manual verifications
     print('tmpdir:', tmpdir)
@@ -77,6 +79,9 @@ def test_generate(file, name, display, tmpdir):
     status = ctx.generate(tmpdir, project, configuration)
     assert status
 
+    # generated files
+    paths = []
+
     # WUX2_SDY_PROXY
     if display:
         proxy = ServiceProxy(wux_proxy)
@@ -84,7 +89,9 @@ def test_generate(file, name, display, tmpdir):
         status = proxy.generate(tmpdir, project, configuration)
         assert status
         # minimum assessment: generated files
-        files = {Path(_).name for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]}
+        proxy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]]
+        files = {_.name for _ in proxy_paths}
+        paths.extend(proxy_paths)
         assert files == {'wuxsdyprx%s.cpp' % model}
 
     # WUX2_SDY
@@ -94,7 +101,9 @@ def test_generate(file, name, display, tmpdir):
         status = sdy.generate(tmpdir, project, configuration)
         assert status
         # minimum assessment: generated files
-        files = {Path(_).name for _ in stub.generated_files[wux_sdy.SdyExt.tool]}
+        sdy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_sdy.SdyExt.tool]]
+        files = {_.name for _ in sdy_paths}
+        paths.extend(sdy_paths)
         assert files == {'wuxsdy%s.c' % model}
 
     # WUX2_UAA
@@ -104,7 +113,9 @@ def test_generate(file, name, display, tmpdir):
         status = uaa.generate(tmpdir, project, configuration)
         assert status
         # minimum assessment: generated files
-        files = {Path(_).name for _ in stub.generated_files[wux_uaa.A661UAA.tool]}
+        uaa_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_uaa.A661UAA.tool]]
+        files = {_.name for _ in uaa_paths}
+        paths.extend(uaa_paths)
         assert files == {'wuxuaa%s.c' % model}
 
     # WUX2_SIMU_EXT
@@ -120,3 +131,11 @@ def test_generate(file, name, display, tmpdir):
     assert status
     # minimum assessment: generated files
     assert wux_simu_ext.WuxSimuExt.tool not in stub.generated_files
+
+    # references
+    # compare to a reference file if exists
+    for p in paths:
+        ref = test_dir / 'ref' / ('generate_' + p.stem + '_' + '_'.join(name.split()) + p.suffix)
+        if ref.exists():
+            failure = diff_files(ref, p)
+            assert not failure

@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6.4 (build i3) **********
+** Command: kcg664.exe -config D:/AnsysDev/Nobackup/PyAnsys/wux/tests/Types/Logic/UT KCG/config.txt
+** Generation date: 2024-12-04T15:15:29
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/AnsysDev/Nobackup/PyAnsys/wux/tests/Types/Logic/Model.xscade"/>
+    <option name="input_file" value="D:/AnsysDev/Nobackup/PyAnsys/wux/tests/Types/Logic/P.xscade"/>
+    <option name="probes" value="#on#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#on#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/AnsysDev/Nobackup/PyAnsys/wux/tests/Types/Logic/UT KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="P::Mapped,P::NotMapped"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <struct id="1">
+      <field id="2" name="speed" type="29"/>
+      <field id="3" name="point" type="11"/>
+      <field id="4" name="bits" type="9"/>
+    </struct>
+    <array id="5" baseType="20" size="8"/>
+    <struct id="6">
+      <field id="7" name="count" type="23"/>
+      <field id="8" name="buffer" type="5"/>
+    </struct>
+    <array id="9" baseType="19" size="8"/>
+    <array id="10" baseType="11" size="5"/>
+    <struct id="11">
+      <field id="12" name="x" type="29"/>
+      <field id="13" name="y" type="29"/>
+    </struct>
+    <struct id="14">
+      <field id="15" name="speed" type="58"/>
+      <field id="16" name="point" type="53"/>
+      <field id="17" name="bits" type="56"/>
+    </struct>
+    <array id="18" baseType="53" size="5"/>
+    <predefType id="19" name="bool"/>
+    <predefType id="20" name="char"/>
+    <predefType id="21" name="int8"/>
+    <predefType id="22" name="int16"/>
+    <predefType id="23" name="int32"/>
+    <predefType id="24" name="int64"/>
+    <predefType id="25" name="uint8"/>
+    <predefType id="26" name="uint16"/>
+    <predefType id="27" name="uint32"/>
+    <predefType id="28" name="uint64"/>
+    <predefType id="29" name="float32"/>
+    <predefType id="30" name="float64"/>
+    <predefType id="31" name="size"/>
+    <package id="32" name="P">
+      <constant id="33" name="N" imported="false" type="23"/>
+      <constant id="34" name="POINT" imported="false" type="53"/>
+      <constant id="35" name="NULL_POINT" imported="false" type="53"/>
+      <constant id="36" name="LINE" imported="false" type="54"/>
+      <constant id="37" name="NULL_LINE" imported="false" type="54"/>
+      <constant id="38" name="NULL_STRING" imported="false" type="55"/>
+      <constant id="39" name="STRING" imported="false" type="55"/>
+      <constant id="40" name="MASK" imported="false" type="57"/>
+      <constant id="41" name="NULL_MASK" imported="false" type="57"/>
+      <constant id="42" name="SPEED" imported="false" type="58"/>
+      <constant id="43" name="NULL_SPEED" imported="false" type="58"/>
+      <constant id="44" name="UINT8" imported="false" type="25"/>
+      <constant id="45" name="NULL_UINT8" imported="false" type="25"/>
+      <constant id="46" name="FLOAT32" imported="false" type="29"/>
+      <constant id="47" name="NULL_FLOAT32" imported="false" type="29"/>
+      <constant id="48" name="GROUP" imported="false" type="59"/>
+      <constant id="49" name="NULL_GROUP" imported="false" type="59"/>
+      <constant id="50" name="PARTIAL_LINE" imported="false" type="54"/>
+      <constant id="51" name="NULL_FLAG" imported="false" type="60"/>
+      <constant id="52" name="FLAG" imported="false" type="60"/>
+      <type id="53" name="Point" imported="false" type="11"/>
+      <type id="54" name="Line" imported="false" type="18"/>
+      <type id="55" name="String" imported="false" type="6"/>
+      <type id="56" name="Bits" imported="false" type="9"/>
+      <type id="57" name="Mask" imported="false" type="56"/>
+      <type id="58" name="Speed" imported="false" type="29"/>
+      <type id="59" name="Group" imported="false" type="14"/>
+      <enum id="60" name="Flag">
+        <value id="61" name="BLUE" default="false"/>
+        <value id="62" name="WHITE" default="false"/>
+        <value id="63" name="RED" default="false"/>
+      </enum>
+      <operator id="64" name="Mapped" imported="false" root="true" expanded="false">
+        <input id="65" name="sdyInLine" clock="false" type="54"/>
+        <input id="66" name="sdyInPartialLine" clock="false" type="54"/>
+        <input id="67" name="sdyInPoint" clock="false" type="53"/>
+        <input id="68" name="sdyInString" clock="false" type="55"/>
+        <input id="69" name="sdyInPointX" clock="false" type="29"/>
+        <input id="70" name="sdyInLine2Y" clock="false" type="29"/>
+        <input id="71" name="inNotConnected" clock="false" type="19"/>
+        <input id="72" name="inNotSelectedIn" clock="false" type="23"/>
+        <input id="73" name="sdyInMask" clock="false" type="57"/>
+        <input id="74" name="sdyInSpeed" clock="false" type="58"/>
+        <input id="75" name="sdyInUInt8" clock="false" type="25"/>
+        <input id="76" name="sdyInPartialLine3x" clock="false" type="29"/>
+        <input id="77" name="sdyInPartialLine1" clock="false" type="53"/>
+        <input id="78" name="sdyInGroup" clock="false" type="59"/>
+        <input id="79" name="sdyInFlag" clock="false" type="60"/>
+        <input id="80" name="sdyInAnonymousBits" clock="false" type="9"/>
+        <input id="81" name="sdyInAnonymousPoint" clock="false" type="11"/>
+        <output id="82" name="sdyOutPartialLine" clock="false" type="54"/>
+        <output id="83" name="sdyOutPoint" clock="false" type="53"/>
+        <output id="84" name="sdyOutString" clock="false" type="55"/>
+        <output id="85" name="outNotConnected" clock="false" type="19"/>
+        <output id="86" name="outNoSelectedOut" clock="false" type="23"/>
+        <output id="87" name="sdyOutMask" clock="false" type="57"/>
+        <output id="88" name="sdyOutSpeed" clock="false" type="58"/>
+        <output id="89" name="sdyOutUInt8" clock="false" type="25"/>
+        <output id="90" name="sdyOutPartialLine3x" clock="false" type="29"/>
+        <output id="91" name="sdyOutPartialLine1" clock="false" type="53"/>
+        <output id="92" name="sdyOutGroup" clock="false" type="59"/>
+        <output id="93" name="sdyOutFlag" clock="false" type="60"/>
+        <output id="94" name="sdyOutAnonymousBits" clock="false" type="9"/>
+        <output id="95" name="sdyOutAnonymousPoint" clock="false" type="11"/>
+        <output id="96" name="status" clock="false" type="19"/>
+        <probe id="97" name="sdyOutLine" clock="false" type="54"/>
+        <instance id="98" name="string" op="131" expanded="false"/>
+        <guarantee id="99" name="ALine"/>
+        <instance id="100" name="1" op="138" expanded="false"/>
+        <guarantee id="101" name="AString"/>
+        <instance id="102" name="4" op="145" expanded="false"/>
+        <guarantee id="103" name="APoint"/>
+        <instance id="104" name="10" op="152" expanded="false"/>
+        <guarantee id="105" name="AMask"/>
+        <instance id="106" name="11" op="159" expanded="false"/>
+        <guarantee id="107" name="AUInt8"/>
+        <instance id="108" name="12" op="166" expanded="false"/>
+        <guarantee id="109" name="ASpeed"/>
+        <instance id="110" name="13" op="166" expanded="false"/>
+        <guarantee id="111" name="APartialLine3x"/>
+        <instance id="112" name="15" op="173" expanded="false"/>
+        <guarantee id="113" name="AGroup"/>
+        <instance id="114" name="16" op="145" expanded="false"/>
+        <guarantee id="115" name="APartialLine1Point"/>
+        <instance id="116" name="17" op="131" expanded="false"/>
+        <guarantee id="117" name="APartialLine"/>
+        <instance id="118" name="18" op="180" expanded="false"/>
+        <guarantee id="119" name="AFlag"/>
+        <instance id="120" name="19" op="152" expanded="false"/>
+        <guarantee id="121" name="AAnonymousBits"/>
+        <instance id="122" name="20" op="145" expanded="false"/>
+        <guarantee id="123" name="AAnonymousPoint"/>
+        <guarantee id="124" name="ASensor"/>
+        <guarantee id="125" name="APointtX"/>
+        <guarantee id="126" name="ALine2Y"/>
+      </operator>
+      <operator id="127" name="DelayedEqual" imported="false" root="false" expanded="false"/>
+      <operator id="128" name="NotMapped" imported="false" root="true" expanded="false">
+        <input id="129" name="i" clock="false" type="19"/>
+        <output id="130" name="o" clock="false" type="19"/>
+      </operator>
+      <mono id="131" src="127">
+        <typeVar id="132" name="T" type="10"/>
+        <input id="133" name="in" clock="false" type="10"/>
+        <input id="134" name="sdyIn" clock="false" type="10"/>
+        <input id="135" name="init" clock="false" type="10"/>
+        <output id="136" name="equal" clock="false" type="19"/>
+        <arrow id="137" name="1"/>
+      </mono>
+      <mono id="138" src="127">
+        <typeVar id="139" name="T" type="6"/>
+        <input id="140" name="in" clock="false" type="6"/>
+        <input id="141" name="sdyIn" clock="false" type="6"/>
+        <input id="142" name="init" clock="false" type="6"/>
+        <output id="143" name="equal" clock="false" type="19"/>
+        <arrow id="144" name="1"/>
+      </mono>
+      <mono id="145" src="127">
+        <typeVar id="146" name="T" type="11"/>
+        <input id="147" name="in" clock="false" type="11"/>
+        <input id="148" name="sdyIn" clock="false" type="11"/>
+        <input id="149" name="init" clock="false" type="11"/>
+        <output id="150" name="equal" clock="false" type="19"/>
+        <arrow id="151" name="1"/>
+      </mono>
+      <mono id="152" src="127">
+        <typeVar id="153" name="T" type="9"/>
+        <input id="154" name="in" clock="false" type="9"/>
+        <input id="155" name="sdyIn" clock="false" type="9"/>
+        <input id="156" name="init" clock="false" type="9"/>
+        <output id="157" name="equal" clock="false" type="19"/>
+        <arrow id="158" name="1"/>
+      </mono>
+      <mono id="159" src="127">
+        <typeVar id="160" name="T" type="25"/>
+        <input id="161" name="in" clock="false" type="25"/>
+        <input id="162" name="sdyIn" clock="false" type="25"/>
+        <input id="163" name="init" clock="false" type="25"/>
+        <output id="164" name="equal" clock="false" type="19"/>
+        <arrow id="165" name="1"/>
+      </mono>
+      <mono id="166" src="127">
+        <typeVar id="167" name="T" type="29"/>
+        <input id="168" name="in" clock="false" type="29"/>
+        <input id="169" name="sdyIn" clock="false" type="29"/>
+        <input id="170" name="init" clock="false" type="29"/>
+        <output id="171" name="equal" clock="false" type="19"/>
+        <arrow id="172" name="1"/>
+      </mono>
+      <mono id="173" src="127">
+        <typeVar id="174" name="T" type="1"/>
+        <input id="175" name="in" clock="false" type="1"/>
+        <input id="176" name="sdyIn" clock="false" type="1"/>
+        <input id="177" name="init" clock="false" type="1"/>
+        <output id="178" name="equal" clock="false" type="19"/>
+        <arrow id="179" name="1"/>
+      </mono>
+      <mono id="180" src="127">
+        <typeVar id="181" name="T" type="60"/>
+        <input id="182" name="in" clock="false" type="60"/>
+        <input id="183" name="sdyIn" clock="false" type="60"/>
+        <input id="184" name="init" clock="false" type="60"/>
+        <output id="185" name="equal" clock="false" type="19"/>
+        <arrow id="186" name="1"/>
+      </mono>
+    </package>
+    <sensor id="187" name="sdyPointX" type="29"/>
+  </model>
+  <generated>
+    <c>
+      <file id="188" name="NotMapped_P.h">
+        <function id="189" name="NotMapped_init_P">
+          <parameter id="190" name="outC" type="196" pointer="true"/>
+        </function>
+        <function id="191" name="NotMapped_reset_P">
+          <parameter id="192" name="outC" type="196" pointer="true"/>
+        </function>
+        <function id="193" name="NotMapped_P">
+          <parameter id="194" name="inC" type="198" pointer="true"/>
+          <parameter id="195" name="outC" type="196" pointer="true"/>
+        </function>
+        <struct id="196" name="outC_NotMapped_P">
+          <field id="197" name="o" type="449" pointer="false"/>
+        </struct>
+        <struct id="198" name="inC_NotMapped_P">
+          <field id="199" name="i" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="200" name="Mapped_P.h">
+        <function id="201" name="Mapped_init_P">
+          <parameter id="202" name="outC" type="208" pointer="true"/>
+        </function>
+        <function id="203" name="Mapped_reset_P">
+          <parameter id="204" name="outC" type="208" pointer="true"/>
+        </function>
+        <function id="205" name="Mapped_P">
+          <parameter id="206" name="inC" type="238" pointer="true"/>
+          <parameter id="207" name="outC" type="208" pointer="true"/>
+        </function>
+        <struct id="208" name="outC_Mapped_P">
+          <field id="209" name="sdyOutPartialLine" type="398" pointer="false"/>
+          <field id="210" name="sdyOutPoint" type="403" pointer="false"/>
+          <field id="211" name="sdyOutString" type="395" pointer="false"/>
+          <field id="212" name="outNotConnected" type="449" pointer="false"/>
+          <field id="213" name="outNoSelectedOut" type="440" pointer="false"/>
+          <field id="214" name="sdyOutMask" type="408" pointer="false"/>
+          <field id="215" name="sdyOutSpeed" type="406" pointer="false"/>
+          <field id="216" name="sdyOutUInt8" type="442" pointer="false"/>
+          <field id="217" name="sdyOutPartialLine3x" type="448" pointer="false"/>
+          <field id="218" name="sdyOutPartialLine1" type="403" pointer="false"/>
+          <field id="219" name="sdyOutGroup" type="399" pointer="false"/>
+          <field id="220" name="sdyOutFlag" type="411" pointer="false"/>
+          <field id="221" name="sdyOutAnonymousBits" type="409" pointer="false"/>
+          <field id="222" name="sdyOutAnonymousPoint" type="403" pointer="false"/>
+          <field id="223" name="status" type="449" pointer="false"/>
+          <field id="224" name="sdyOutLine" type="398" pointer="false"/>
+          <field id="225" name="Context_DelayedEqual_19" type="318" pointer="false"/>
+          <field id="226" name="Context_DelayedEqual_20" type="331" pointer="false"/>
+          <field id="227" name="Context_DelayedEqual_18" type="266" pointer="false"/>
+          <field id="228" name="Context_DelayedEqual_15" type="279" pointer="false"/>
+          <field id="229" name="Context_DelayedEqual_string" type="357" pointer="false"/>
+          <field id="230" name="Context_DelayedEqual_10" type="318" pointer="false"/>
+          <field id="231" name="Context_DelayedEqual_17" type="357" pointer="false"/>
+          <field id="232" name="Context_DelayedEqual_16" type="331" pointer="false"/>
+          <field id="233" name="Context_DelayedEqual_13" type="292" pointer="false"/>
+          <field id="234" name="Context_DelayedEqual_4" type="331" pointer="false"/>
+          <field id="235" name="Context_DelayedEqual_12" type="292" pointer="false"/>
+          <field id="236" name="Context_DelayedEqual_1" type="344" pointer="false"/>
+          <field id="237" name="Context_DelayedEqual_11" type="305" pointer="false"/>
+        </struct>
+        <struct id="238" name="inC_Mapped_P">
+          <field id="239" name="sdyInLine" type="398" pointer="false"/>
+          <field id="240" name="sdyInPartialLine" type="398" pointer="false"/>
+          <field id="241" name="sdyInPoint" type="403" pointer="false"/>
+          <field id="242" name="sdyInString" type="395" pointer="false"/>
+          <field id="243" name="sdyInPointX" type="448" pointer="false"/>
+          <field id="244" name="sdyInLine2Y" type="448" pointer="false"/>
+          <field id="245" name="inNotConnected" type="449" pointer="false"/>
+          <field id="246" name="inNotSelectedIn" type="440" pointer="false"/>
+          <field id="247" name="sdyInMask" type="408" pointer="false"/>
+          <field id="248" name="sdyInSpeed" type="406" pointer="false"/>
+          <field id="249" name="sdyInUInt8" type="442" pointer="false"/>
+          <field id="250" name="sdyInPartialLine3x" type="448" pointer="false"/>
+          <field id="251" name="sdyInPartialLine1" type="403" pointer="false"/>
+          <field id="252" name="sdyInGroup" type="399" pointer="false"/>
+          <field id="253" name="sdyInFlag" type="411" pointer="false"/>
+          <field id="254" name="sdyInAnonymousBits" type="409" pointer="false"/>
+          <field id="255" name="sdyInAnonymousPoint" type="403" pointer="false"/>
+        </struct>
+      </file>
+      <file id="256" name="DelayedEqual_P_Flag.h">
+        <function id="257" name="DelayedEqual_init_P_Flag">
+          <parameter id="258" name="outC" type="266" pointer="true"/>
+        </function>
+        <function id="259" name="DelayedEqual_reset_P_Flag">
+          <parameter id="260" name="outC" type="266" pointer="true"/>
+        </function>
+        <function id="261" name="DelayedEqual_P_Flag">
+          <parameter id="262" name="in_Flag" type="411" pointer="false"/>
+          <parameter id="263" name="sdyIn_Flag" type="411" pointer="false"/>
+          <parameter id="264" name="init_Flag" type="411" pointer="false"/>
+          <parameter id="265" name="outC" type="266" pointer="true"/>
+        </function>
+        <struct id="266" name="outC_DelayedEqual_P_Flag">
+          <field id="267" name="equal_Flag" type="449" pointer="false"/>
+          <field id="268" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="269" name="x3_DelayedEqual_P_struct.h">
+        <function id="270" name="x3_DelayedEqual_init_P_struct">
+          <parameter id="271" name="outC" type="279" pointer="true"/>
+        </function>
+        <function id="272" name="x3_DelayedEqual_reset_P_struct">
+          <parameter id="273" name="outC" type="279" pointer="true"/>
+        </function>
+        <function id="274" name="x3_DelayedEqual_P_struct">
+          <parameter id="275" name="in_struct" type="399" pointer="true"/>
+          <parameter id="276" name="sdyIn_struct" type="399" pointer="true"/>
+          <parameter id="277" name="init_struct" type="399" pointer="true"/>
+          <parameter id="278" name="outC" type="279" pointer="true"/>
+        </function>
+        <struct id="279" name="outC_x3_DelayedEqual_P_struct">
+          <field id="280" name="equal_struct" type="449" pointer="false"/>
+          <field id="281" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="282" name="DelayedEqual_P_float32.h">
+        <function id="283" name="DelayedEqual_init_P_float32">
+          <parameter id="284" name="outC" type="292" pointer="true"/>
+        </function>
+        <function id="285" name="DelayedEqual_reset_P_float32">
+          <parameter id="286" name="outC" type="292" pointer="true"/>
+        </function>
+        <function id="287" name="DelayedEqual_P_float32">
+          <parameter id="288" name="in_float32" type="448" pointer="false"/>
+          <parameter id="289" name="sdyIn_float32" type="448" pointer="false"/>
+          <parameter id="290" name="init_float32" type="448" pointer="false"/>
+          <parameter id="291" name="outC" type="292" pointer="true"/>
+        </function>
+        <struct id="292" name="outC_DelayedEqual_P_float32">
+          <field id="293" name="equal_float32" type="449" pointer="false"/>
+          <field id="294" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="295" name="DelayedEqual_P_uint8.h">
+        <function id="296" name="DelayedEqual_init_P_uint8">
+          <parameter id="297" name="outC" type="305" pointer="true"/>
+        </function>
+        <function id="298" name="DelayedEqual_reset_P_uint8">
+          <parameter id="299" name="outC" type="305" pointer="true"/>
+        </function>
+        <function id="300" name="DelayedEqual_P_uint8">
+          <parameter id="301" name="in_uint8" type="442" pointer="false"/>
+          <parameter id="302" name="sdyIn_uint8" type="442" pointer="false"/>
+          <parameter id="303" name="init_uint8" type="442" pointer="false"/>
+          <parameter id="304" name="outC" type="305" pointer="true"/>
+        </function>
+        <struct id="305" name="outC_DelayedEqual_P_uint8">
+          <field id="306" name="equal_uint8" type="449" pointer="false"/>
+          <field id="307" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="308" name="DelayedEqual_P_bool8.h">
+        <function id="309" name="DelayedEqual_init_P_bool8">
+          <parameter id="310" name="outC" type="318" pointer="true"/>
+        </function>
+        <function id="311" name="DelayedEqual_reset_P_bool8">
+          <parameter id="312" name="outC" type="318" pointer="true"/>
+        </function>
+        <function id="313" name="DelayedEqual_P_bool8">
+          <parameter id="314" name="in_bool8" type="409" pointer="true"/>
+          <parameter id="315" name="sdyIn_bool8" type="409" pointer="true"/>
+          <parameter id="316" name="init_bool8" type="409" pointer="true"/>
+          <parameter id="317" name="outC" type="318" pointer="true"/>
+        </function>
+        <struct id="318" name="outC_DelayedEqual_P_bool8">
+          <field id="319" name="equal_bool8" type="449" pointer="false"/>
+          <field id="320" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="321" name="x2_DelayedEqual_P_struct.h">
+        <function id="322" name="x2_DelayedEqual_init_P_struct">
+          <parameter id="323" name="outC" type="331" pointer="true"/>
+        </function>
+        <function id="324" name="x2_DelayedEqual_reset_P_struct">
+          <parameter id="325" name="outC" type="331" pointer="true"/>
+        </function>
+        <function id="326" name="x2_DelayedEqual_P_struct">
+          <parameter id="327" name="in_struct" type="403" pointer="true"/>
+          <parameter id="328" name="sdyIn_struct" type="403" pointer="true"/>
+          <parameter id="329" name="init_struct" type="403" pointer="true"/>
+          <parameter id="330" name="outC" type="331" pointer="true"/>
+        </function>
+        <struct id="331" name="outC_x2_DelayedEqual_P_struct">
+          <field id="332" name="equal_struct" type="449" pointer="false"/>
+          <field id="333" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="334" name="DelayedEqual_P_struct.h">
+        <function id="335" name="DelayedEqual_init_P_struct">
+          <parameter id="336" name="outC" type="344" pointer="true"/>
+        </function>
+        <function id="337" name="DelayedEqual_reset_P_struct">
+          <parameter id="338" name="outC" type="344" pointer="true"/>
+        </function>
+        <function id="339" name="DelayedEqual_P_struct">
+          <parameter id="340" name="in_struct" type="395" pointer="true"/>
+          <parameter id="341" name="sdyIn_struct" type="395" pointer="true"/>
+          <parameter id="342" name="init_struct" type="395" pointer="true"/>
+          <parameter id="343" name="outC" type="344" pointer="true"/>
+        </function>
+        <struct id="344" name="outC_DelayedEqual_P_struct">
+          <field id="345" name="equal_struct" type="449" pointer="false"/>
+          <field id="346" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="347" name="DelayedEqual_P_struct5.h">
+        <function id="348" name="DelayedEqual_init_P_struct5">
+          <parameter id="349" name="outC" type="357" pointer="true"/>
+        </function>
+        <function id="350" name="DelayedEqual_reset_P_struct5">
+          <parameter id="351" name="outC" type="357" pointer="true"/>
+        </function>
+        <function id="352" name="DelayedEqual_P_struct5">
+          <parameter id="353" name="in_struct5" type="398" pointer="true"/>
+          <parameter id="354" name="sdyIn_struct5" type="398" pointer="true"/>
+          <parameter id="355" name="init_struct5" type="398" pointer="true"/>
+          <parameter id="356" name="outC" type="357" pointer="true"/>
+        </function>
+        <struct id="357" name="outC_DelayedEqual_P_struct5">
+          <field id="358" name="equal_struct5" type="449" pointer="false"/>
+          <field id="359" name="init" type="449" pointer="false"/>
+        </struct>
+      </file>
+      <file id="360" name="kcg_types.h">
+        <macro id="361" name="kcg_copy_Mask_P"/>
+        <macro id="362" name="kcg_comp_Mask_P"/>
+        <macro id="363" name="kcg_copy_Bits_P"/>
+        <macro id="364" name="kcg_comp_Bits_P"/>
+        <macro id="365" name="kcg_use_array_bool_8"/>
+        <function id="366" name="kcg_comp_array_bool_8" returnType="449">
+          <parameter id="387" name="kcg_c1" type="409" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="409" pointer="true"/>
+        </function>
+        <macro id="369" name="kcg_use_array_char_8"/>
+        <function id="370" name="kcg_comp_array_char_8" returnType="449">
+          <parameter id="387" name="kcg_c1" type="410" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="410" pointer="true"/>
+        </function>
+        <macro id="373" name="kcg_use_Line_P"/>
+        <function id="374" name="kcg_comp_Line_P" returnType="449">
+          <parameter id="387" name="kcg_c1" type="398" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="398" pointer="true"/>
+        </function>
+        <macro id="377" name="kcg_use_Point_P"/>
+        <function id="378" name="kcg_comp_Point_P" returnType="449">
+          <parameter id="387" name="kcg_c1" type="403" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="403" pointer="true"/>
+        </function>
+        <macro id="381" name="kcg_use_String_P"/>
+        <function id="382" name="kcg_comp_String_P" returnType="449">
+          <parameter id="387" name="kcg_c1" type="395" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="395" pointer="true"/>
+        </function>
+        <macro id="385" name="kcg_use_Group_P"/>
+        <function id="386" name="kcg_comp_Group_P" returnType="449">
+          <parameter id="387" name="kcg_c1" type="399" pointer="true"/>
+          <parameter id="388" name="kcg_c2" type="399" pointer="true"/>
+        </function>
+        <macro id="389" name="kcg_copy_array_bool_8"/>
+        <macro id="390" name="kcg_copy_array_char_8"/>
+        <macro id="391" name="kcg_copy_Line_P"/>
+        <macro id="392" name="kcg_copy_Point_P"/>
+        <macro id="393" name="kcg_copy_String_P"/>
+        <macro id="394" name="kcg_copy_Group_P"/>
+        <struct id="395" name="String_P" tagName="kcg_tag_String_P">
+          <field id="396" name="count" type="440" pointer="false"/>
+          <field id="397" name="buffer" type="410" pointer="false"/>
+        </struct>
+        <array id="398" name="Line_P" baseType="403" size="5"/>
+        <struct id="399" name="Group_P" tagName="kcg_tag_Group_P">
+          <field id="400" name="speed" type="406" pointer="false"/>
+          <field id="401" name="point" type="403" pointer="false"/>
+          <field id="402" name="bits" type="407" pointer="false"/>
+        </struct>
+        <struct id="403" name="Point_P" tagName="kcg_tag_Point_P">
+          <field id="404" name="x" type="448" pointer="false"/>
+          <field id="405" name="y" type="448" pointer="false"/>
+        </struct>
+        <typedef id="406" name="Speed_P" aliasType="448"/>
+        <typedef id="407" name="Bits_P" aliasType="409"/>
+        <typedef id="408" name="Mask_P" aliasType="409"/>
+        <array id="409" name="array_bool_8" baseType="449" size="8"/>
+        <array id="410" name="array_char_8" baseType="450" size="8"/>
+        <enum id="411" name="Flag_P" tagName="kcg_tag_Flag_P">
+          <value id="412" name="BLUE_P"/>
+          <value id="413" name="WHITE_P"/>
+          <value id="414" name="RED_P"/>
+        </enum>
+        <macro id="415" name="kcg_assign_array"/>
+        <macro id="416" name="kcg_assign_struct"/>
+        <macro id="417" name="kcg_lnot_uint8"/>
+        <macro id="418" name="kcg_lnot_uint16"/>
+        <macro id="419" name="kcg_lnot_uint32"/>
+        <macro id="420" name="kcg_lnot_uint64"/>
+        <macro id="421" name="kcg_lsl_uint8"/>
+        <macro id="422" name="kcg_lsl_uint16"/>
+        <macro id="423" name="kcg_lsl_uint32"/>
+        <macro id="424" name="kcg_lsl_uint64"/>
+        <macro id="425" name="kcg_true"/>
+        <macro id="426" name="kcg_false"/>
+        <macro id="427" name="kcg_lit_int8"/>
+        <macro id="428" name="kcg_lit_int16"/>
+        <macro id="429" name="kcg_lit_int32"/>
+        <macro id="430" name="kcg_lit_int64"/>
+        <macro id="431" name="kcg_lit_uint8"/>
+        <macro id="432" name="kcg_lit_uint16"/>
+        <macro id="433" name="kcg_lit_uint32"/>
+        <macro id="434" name="kcg_lit_uint64"/>
+        <macro id="435" name="kcg_lit_size"/>
+        <macro id="436" name="kcg_lit_float64"/>
+        <macro id="437" name="kcg_lit_float32"/>
+        <predefType id="438" name="kcg_int8"/>
+        <predefType id="439" name="kcg_int16"/>
+        <predefType id="440" name="kcg_int32"/>
+        <predefType id="441" name="kcg_int64"/>
+        <predefType id="442" name="kcg_uint8"/>
+        <predefType id="443" name="kcg_uint16"/>
+        <predefType id="444" name="kcg_uint32"/>
+        <predefType id="445" name="kcg_uint64"/>
+        <predefType id="446" name="kcg_size"/>
+        <predefType id="447" name="kcg_float64"/>
+        <predefType id="448" name="kcg_float32"/>
+        <predefType id="449" name="kcg_bool"/>
+        <predefType id="450" name="kcg_char"/>
+        <macro id="451" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="452" name="kcg_consts.h">
+        <constant id="453" name="POINT_P" type="403" pointer="false"/>
+        <constant id="454" name="NULL_POINT_P" type="403" pointer="false"/>
+        <macro id="455" name="N_P" type="440"/>
+        <constant id="456" name="LINE_P" type="398" pointer="false"/>
+        <constant id="457" name="NULL_LINE_P" type="398" pointer="false"/>
+        <constant id="458" name="NULL_STRING_P" type="395" pointer="false"/>
+        <constant id="459" name="STRING_P" type="395" pointer="false"/>
+        <constant id="460" name="MASK_P" type="408" pointer="false"/>
+        <constant id="461" name="NULL_MASK_P" type="408" pointer="false"/>
+        <macro id="462" name="SPEED_P" type="406"/>
+        <macro id="463" name="NULL_SPEED_P" type="406"/>
+        <macro id="464" name="UINT8_P" type="442"/>
+        <macro id="465" name="NULL_UINT8_P" type="442"/>
+        <macro id="466" name="FLOAT32_P" type="448"/>
+        <macro id="467" name="NULL_FLOAT32_P" type="448"/>
+        <constant id="468" name="GROUP_P" type="399" pointer="false"/>
+        <constant id="469" name="NULL_GROUP_P" type="399" pointer="false"/>
+        <constant id="470" name="PARTIAL_LINE_P" type="398" pointer="false"/>
+        <macro id="471" name="NULL_FLAG_P" type="411"/>
+        <macro id="472" name="FLAG_P" type="411"/>
+      </file>
+      <file id="473" name="kcg_sensors.h">
+        <global id="474" name="sdyPointX" type="448" pointer="false"/>
+      </file>
+    </c>
+    <map srcId="408" dstId="362" role="type-comparison"/>
+    <map srcId="408" dstId="361" role="type-copy"/>
+    <map srcId="407" dstId="364" role="type-comparison"/>
+    <map srcId="407" dstId="363" role="type-copy"/>
+    <map srcId="447" dstId="436" role="wrapped-lit"/>
+    <map srcId="448" dstId="437" role="wrapped-lit"/>
+    <map srcId="446" dstId="435" role="wrapped-lit"/>
+    <map srcId="445" dstId="434" role="wrapped-lit"/>
+    <map srcId="445" dstId="420" role="wrapped-lnot"/>
+    <map srcId="445" dstId="424" role="wrapped-lsl"/>
+    <map srcId="444" dstId="433" role="wrapped-lit"/>
+    <map srcId="444" dstId="419" role="wrapped-lnot"/>
+    <map srcId="444" dstId="423" role="wrapped-lsl"/>
+    <map srcId="443" dstId="432" role="wrapped-lit"/>
+    <map srcId="443" dstId="418" role="wrapped-lnot"/>
+    <map srcId="443" dstId="422" role="wrapped-lsl"/>
+    <map srcId="442" dstId="431" role="wrapped-lit"/>
+    <map srcId="442" dstId="417" role="wrapped-lnot"/>
+    <map srcId="442" dstId="421" role="wrapped-lsl"/>
+    <map srcId="441" dstId="430" role="wrapped-lit"/>
+    <map srcId="440" dstId="429" role="wrapped-lit"/>
+    <map srcId="439" dstId="428" role="wrapped-lit"/>
+    <map srcId="438" dstId="427" role="wrapped-lit"/>
+    <map srcId="403" dstId="377" role="type-use"/>
+    <map srcId="403" dstId="378" role="type-comparison"/>
+    <map srcId="403" dstId="392" role="type-copy"/>
+    <map srcId="409" dstId="365" role="type-use"/>
+    <map srcId="409" dstId="366" role="type-comparison"/>
+    <map srcId="409" dstId="389" role="type-copy"/>
+    <map srcId="410" dstId="369" role="type-use"/>
+    <map srcId="410" dstId="370" role="type-comparison"/>
+    <map srcId="410" dstId="390" role="type-copy"/>
+    <map srcId="395" dstId="381" role="type-use"/>
+    <map srcId="395" dstId="382" role="type-comparison"/>
+    <map srcId="395" dstId="393" role="type-copy"/>
+    <map srcId="399" dstId="385" role="type-use"/>
+    <map srcId="399" dstId="386" role="type-comparison"/>
+    <map srcId="399" dstId="394" role="type-copy"/>
+    <map srcId="398" dstId="373" role="type-use"/>
+    <map srcId="398" dstId="374" role="type-comparison"/>
+    <map srcId="398" dstId="391" role="type-copy"/>
+  </generated>
+  <map modelId="62" generatedId="413"/>
+  <map modelId="128" generatedId="190" role="context-parameter"/>
+  <map modelId="128" generatedId="189" role="init-method"/>
+  <map modelId="128" generatedId="192" role="context-parameter"/>
+  <map modelId="128" generatedId="191" role="reset-method"/>
+  <map modelId="128" generatedId="194" role="input-struct-parameter"/>
+  <map modelId="129" generatedId="199"/>
+  <map modelId="128" generatedId="198" role="input-struct-type"/>
+  <map modelId="128" generatedId="195" role="context-parameter"/>
+  <map modelId="130" generatedId="197"/>
+  <map modelId="128" generatedId="196" role="context-type"/>
+  <map modelId="128" generatedId="188" role="interface-file"/>
+  <map modelId="128" generatedId="193" role="cycle-method"/>
+  <map modelId="64" generatedId="202" role="context-parameter"/>
+  <map modelId="64" generatedId="201" role="init-method"/>
+  <map modelId="64" generatedId="204" role="context-parameter"/>
+  <map modelId="64" generatedId="203" role="reset-method"/>
+  <map modelId="64" generatedId="206" role="input-struct-parameter"/>
+  <map modelId="81" generatedId="255"/>
+  <map modelId="80" generatedId="254"/>
+  <map modelId="79" generatedId="253"/>
+  <map modelId="78" generatedId="252"/>
+  <map modelId="77" generatedId="251"/>
+  <map modelId="76" generatedId="250"/>
+  <map modelId="75" generatedId="249"/>
+  <map modelId="74" generatedId="248"/>
+  <map modelId="73" generatedId="247"/>
+  <map modelId="72" generatedId="246"/>
+  <map modelId="71" generatedId="245"/>
+  <map modelId="70" generatedId="244"/>
+  <map modelId="69" generatedId="243"/>
+  <map modelId="68" generatedId="242"/>
+  <map modelId="67" generatedId="241"/>
+  <map modelId="66" generatedId="240"/>
+  <map modelId="65" generatedId="239"/>
+  <map modelId="64" generatedId="238" role="input-struct-type"/>
+  <map modelId="64" generatedId="207" role="context-parameter"/>
+  <map modelId="106" generatedId="237"/>
+  <map modelId="100" generatedId="236"/>
+  <map modelId="108" generatedId="235"/>
+  <map modelId="102" generatedId="234"/>
+  <map modelId="110" generatedId="233"/>
+  <map modelId="114" generatedId="232"/>
+  <map modelId="116" generatedId="231"/>
+  <map modelId="104" generatedId="230"/>
+  <map modelId="98" generatedId="229"/>
+  <map modelId="112" generatedId="228"/>
+  <map modelId="118" generatedId="227"/>
+  <map modelId="122" generatedId="226"/>
+  <map modelId="120" generatedId="225"/>
+  <map modelId="97" generatedId="224"/>
+  <map modelId="96" generatedId="223"/>
+  <map modelId="95" generatedId="222"/>
+  <map modelId="94" generatedId="221"/>
+  <map modelId="93" generatedId="220"/>
+  <map modelId="92" generatedId="219"/>
+  <map modelId="91" generatedId="218"/>
+  <map modelId="90" generatedId="217"/>
+  <map modelId="89" generatedId="216"/>
+  <map modelId="88" generatedId="215"/>
+  <map modelId="87" generatedId="214"/>
+  <map modelId="86" generatedId="213"/>
+  <map modelId="85" generatedId="212"/>
+  <map modelId="84" generatedId="211"/>
+  <map modelId="83" generatedId="210"/>
+  <map modelId="82" generatedId="209"/>
+  <map modelId="64" generatedId="208" role="context-type"/>
+  <map modelId="64" generatedId="200" role="interface-file"/>
+  <map modelId="64" generatedId="205" role="cycle-method"/>
+  <map modelId="180" generatedId="258" role="context-parameter"/>
+  <map modelId="180" generatedId="257" role="init-method"/>
+  <map modelId="180" generatedId="260" role="context-parameter"/>
+  <map modelId="180" generatedId="259" role="reset-method"/>
+  <map modelId="184" generatedId="264"/>
+  <map modelId="183" generatedId="263"/>
+  <map modelId="182" generatedId="262"/>
+  <map modelId="180" generatedId="265" role="context-parameter"/>
+  <map modelId="186" generatedId="268" role="init"/>
+  <map modelId="185" generatedId="267"/>
+  <map modelId="180" generatedId="266" role="context-type"/>
+  <map modelId="180" generatedId="256" role="interface-file"/>
+  <map modelId="180" generatedId="261" role="cycle-method"/>
+  <map modelId="173" generatedId="271" role="context-parameter"/>
+  <map modelId="173" generatedId="270" role="init-method"/>
+  <map modelId="173" generatedId="273" role="context-parameter"/>
+  <map modelId="173" generatedId="272" role="reset-method"/>
+  <map modelId="177" generatedId="277"/>
+  <map modelId="176" generatedId="276"/>
+  <map modelId="175" generatedId="275"/>
+  <map modelId="173" generatedId="278" role="context-parameter"/>
+  <map modelId="179" generatedId="281" role="init"/>
+  <map modelId="178" generatedId="280"/>
+  <map modelId="173" generatedId="279" role="context-type"/>
+  <map modelId="173" generatedId="269" role="interface-file"/>
+  <map modelId="173" generatedId="274" role="cycle-method"/>
+  <map modelId="166" generatedId="284" role="context-parameter"/>
+  <map modelId="166" generatedId="283" role="init-method"/>
+  <map modelId="166" generatedId="286" role="context-parameter"/>
+  <map modelId="166" generatedId="285" role="reset-method"/>
+  <map modelId="170" generatedId="290"/>
+  <map modelId="169" generatedId="289"/>
+  <map modelId="168" generatedId="288"/>
+  <map modelId="166" generatedId="291" role="context-parameter"/>
+  <map modelId="172" generatedId="294" role="init"/>
+  <map modelId="171" generatedId="293"/>
+  <map modelId="166" generatedId="292" role="context-type"/>
+  <map modelId="166" generatedId="282" role="interface-file"/>
+  <map modelId="166" generatedId="287" role="cycle-method"/>
+  <map modelId="159" generatedId="297" role="context-parameter"/>
+  <map modelId="159" generatedId="296" role="init-method"/>
+  <map modelId="159" generatedId="299" role="context-parameter"/>
+  <map modelId="159" generatedId="298" role="reset-method"/>
+  <map modelId="163" generatedId="303"/>
+  <map modelId="162" generatedId="302"/>
+  <map modelId="161" generatedId="301"/>
+  <map modelId="159" generatedId="304" role="context-parameter"/>
+  <map modelId="165" generatedId="307" role="init"/>
+  <map modelId="164" generatedId="306"/>
+  <map modelId="159" generatedId="305" role="context-type"/>
+  <map modelId="159" generatedId="295" role="interface-file"/>
+  <map modelId="159" generatedId="300" role="cycle-method"/>
+  <map modelId="152" generatedId="310" role="context-parameter"/>
+  <map modelId="152" generatedId="309" role="init-method"/>
+  <map modelId="152" generatedId="312" role="context-parameter"/>
+  <map modelId="152" generatedId="311" role="reset-method"/>
+  <map modelId="156" generatedId="316"/>
+  <map modelId="155" generatedId="315"/>
+  <map modelId="154" generatedId="314"/>
+  <map modelId="152" generatedId="317" role="context-parameter"/>
+  <map modelId="158" generatedId="320" role="init"/>
+  <map modelId="157" generatedId="319"/>
+  <map modelId="152" generatedId="318" role="context-type"/>
+  <map modelId="152" generatedId="308" role="interface-file"/>
+  <map modelId="152" generatedId="313" role="cycle-method"/>
+  <map modelId="145" generatedId="323" role="context-parameter"/>
+  <map modelId="145" generatedId="322" role="init-method"/>
+  <map modelId="145" generatedId="325" role="context-parameter"/>
+  <map modelId="145" generatedId="324" role="reset-method"/>
+  <map modelId="149" generatedId="329"/>
+  <map modelId="148" generatedId="328"/>
+  <map modelId="147" generatedId="327"/>
+  <map modelId="145" generatedId="330" role="context-parameter"/>
+  <map modelId="151" generatedId="333" role="init"/>
+  <map modelId="150" generatedId="332"/>
+  <map modelId="145" generatedId="331" role="context-type"/>
+  <map modelId="145" generatedId="321" role="interface-file"/>
+  <map modelId="145" generatedId="326" role="cycle-method"/>
+  <map modelId="138" generatedId="336" role="context-parameter"/>
+  <map modelId="138" generatedId="335" role="init-method"/>
+  <map modelId="138" generatedId="338" role="context-parameter"/>
+  <map modelId="138" generatedId="337" role="reset-method"/>
+  <map modelId="142" generatedId="342"/>
+  <map modelId="141" generatedId="341"/>
+  <map modelId="140" generatedId="340"/>
+  <map modelId="138" generatedId="343" role="context-parameter"/>
+  <map modelId="144" generatedId="346" role="init"/>
+  <map modelId="143" generatedId="345"/>
+  <map modelId="138" generatedId="344" role="context-type"/>
+  <map modelId="138" generatedId="334" role="interface-file"/>
+  <map modelId="138" generatedId="339" role="cycle-method"/>
+  <map modelId="131" generatedId="349" role="context-parameter"/>
+  <map modelId="131" generatedId="348" role="init-method"/>
+  <map modelId="131" generatedId="351" role="context-parameter"/>
+  <map modelId="131" generatedId="350" role="reset-method"/>
+  <map modelId="135" generatedId="355"/>
+  <map modelId="134" generatedId="354"/>
+  <map modelId="133" generatedId="353"/>
+  <map modelId="131" generatedId="356" role="context-parameter"/>
+  <map modelId="137" generatedId="359" role="init"/>
+  <map modelId="136" generatedId="358"/>
+  <map modelId="131" generatedId="357" role="context-type"/>
+  <map modelId="131" generatedId="347" role="interface-file"/>
+  <map modelId="131" generatedId="352" role="cycle-method"/>
+  <map modelId="63" generatedId="414"/>
+  <map modelId="52" generatedId="472"/>
+  <map modelId="61" generatedId="412"/>
+  <map modelId="51" generatedId="471"/>
+  <map modelId="50" generatedId="470"/>
+  <map modelId="49" generatedId="469"/>
+  <map modelId="48" generatedId="468"/>
+  <map modelId="47" generatedId="467"/>
+  <map modelId="46" generatedId="466"/>
+  <map modelId="45" generatedId="465"/>
+  <map modelId="44" generatedId="464"/>
+  <map modelId="43" generatedId="463"/>
+  <map modelId="42" generatedId="462"/>
+  <map modelId="41" generatedId="461"/>
+  <map modelId="40" generatedId="460"/>
+  <map modelId="39" generatedId="459"/>
+  <map modelId="38" generatedId="458"/>
+  <map modelId="37" generatedId="457"/>
+  <map modelId="36" generatedId="456"/>
+  <map modelId="33" generatedId="455"/>
+  <map modelId="35" generatedId="454"/>
+  <map modelId="34" generatedId="453"/>
+  <map modelId="187" generatedId="474"/>
+  <map modelId="60" generatedId="411"/>
+  <map modelId="58" generatedId="406"/>
+  <map modelId="57" generatedId="408"/>
+  <map modelId="56" generatedId="407"/>
+  <map modelId="13" generatedId="405"/>
+  <map modelId="12" generatedId="404"/>
+  <map modelId="53" generatedId="403"/>
+  <map modelId="11" generatedId="403"/>
+  <map modelId="9" generatedId="409"/>
+  <map modelId="5" generatedId="410"/>
+  <map modelId="8" generatedId="397"/>
+  <map modelId="7" generatedId="396"/>
+  <map modelId="55" generatedId="395"/>
+  <map modelId="6" generatedId="395"/>
+  <map modelId="17" generatedId="402"/>
+  <map modelId="16" generatedId="401"/>
+  <map modelId="15" generatedId="400"/>
+  <map modelId="59" generatedId="399"/>
+  <map modelId="14" generatedId="399"/>
+  <map modelId="54" generatedId="398"/>
+  <map modelId="18" generatedId="398"/>
+  <map modelId="20" generatedId="450"/>
+  <map modelId="19" generatedId="449"/>
+  <map modelId="30" generatedId="447"/>
+  <map modelId="29" generatedId="448"/>
+  <map modelId="31" generatedId="446"/>
+  <map modelId="28" generatedId="445"/>
+  <map modelId="27" generatedId="444"/>
+  <map modelId="26" generatedId="443"/>
+  <map modelId="25" generatedId="442"/>
+  <map modelId="24" generatedId="441"/>
+  <map modelId="23" generatedId="440"/>
+  <map modelId="22" generatedId="439"/>
+  <map modelId="21" generatedId="438"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6.4 (build i3) **********
+** mapping.xml
+** Generation date: 2024-12-04T15:15:29
+*************************************************************$-->

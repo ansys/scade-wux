@@ -29,7 +29,7 @@ import pytest
 
 from ansys.scade.wux.test.sctoc_stub import reset_stub
 import ansys.scade.wux.wux as wux
-from conftest import find_configuration, load_project, load_sdy_application, load_session
+from conftest import load_project, load_sdy_application, load_session
 
 
 def test_add_sources():
@@ -216,7 +216,8 @@ def test_set_get_models():
 
     # verify the specifications, once the SCADE Display mapping application is loaded
     project = load_project(path)
-    configuration = find_configuration(project, 'SdyExt')
+    configuration = project.find_configuration('SdyExt')
+    assert configuration
     specs = wux.get_specifications(project, configuration)
     # alphabetical order
     names = [Path(_.pathname).stem for _ in specs]

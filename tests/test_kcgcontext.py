@@ -34,7 +34,7 @@ from ansys.scade.wux.impl.kcgcontext import WuxContext
 from ansys.scade.wux.test.sctoc_stub import get_stub
 from ansys.scade.wux.test.utils import ServiceProxy, reset_test_env
 import ansys.scade.wux.wux as wux
-from conftest import find_configuration, load_project
+from conftest import load_project
 
 
 @pytest.fixture(scope='session')
@@ -46,7 +46,8 @@ def ut_kcg_context() -> std.Project:
 
 def test_kcgcontext_ut_kcg(ut_kcg_context):
     project = ut_kcg_context
-    configuration = find_configuration(project, 'UT KCG')
+    configuration = project.find_configuration('UT KCG')
+    assert configuration
     target_dir = Path(project.pathname).parent / configuration.name
 
     reset_test_env()
@@ -141,7 +142,8 @@ def test_kcgcontext_ut_kcg(ut_kcg_context):
 
 def test_kcgcontext_ut_simulation(ut_kcg_context):
     project = ut_kcg_context
-    configuration = find_configuration(project, 'UT Simulation')
+    configuration = project.find_configuration('UT Simulation')
+    assert configuration
     target_dir = Path(project.pathname).parent / configuration.name
 
     ctx = WuxContext()
@@ -257,7 +259,8 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     # comparable to ut_kcg
     # only one root operator to test large functions
     project = ut_kcg_context
-    configuration = find_configuration(project, 'UT Node')
+    configuration = project.find_configuration('UT Node')
+    assert configuration
     target_dir = Path(project.pathname).parent / configuration.name
 
     ctx = WuxContext()
@@ -356,7 +359,8 @@ def test_kcgcontext_generate(tmpdir):
     stub = get_stub()
     path = Path(__file__).parent / 'UT' / 'KcgContext' / 'KcgContext.etp'
     project = load_project(path)
-    configuration = find_configuration(project, 'UT KCG')
+    configuration = project.find_configuration('UT KCG')
+    assert configuration
     # remind the target directory to ease its access for manual verifications
     print('tmpdir:', tmpdir)
     # copy the mapping file to the target directory

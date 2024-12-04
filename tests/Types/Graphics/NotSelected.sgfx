@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?dom version="19.0" ?>
+
+<specification>
+    <IDE>
+        <project path="Types.etp"/>
+        <ratio horizontal="1" vertical="1"/>
+    </IDE>
+    <symbology>
+        <dimension height="256" width="256"/>
+    </symbology>
+    <children>
+        <layer oid="1a104a71-cef5-4fae-9baa-a5bcc5016648">
+            <pathFromRoot value=""/>
+            <declaration>
+                <inputs>
+                    <input name="in" oid="e8778993-1d91-4e41-adf8-b92b6ac5ae0a" type="int">
+                        <init>0</init>
+                    </input>
+                </inputs>
+                <outputs>
+                    <output memory="true" name="out" oid="aafa8156-4710-429e-9c8e-6352a9c9b9bb" type="int">
+                        <init>0</init>
+                    </output>
+                </outputs>
+            </declaration>
+            <properties name="symbology_layer">
+                <visible>
+                    <init>true</init>
+                </visible>
+                <origin>
+                    <x>
+                        <init>0.0</init>
+                    </x>
+                    <y>
+                        <init>0.0</init>
+                    </y>
+                </origin>
+                <id>
+                    <init>1</init>
+                </id>
+                <ratio horizontal="1" vertical="1"/>
+            </properties>
+            <children>
+                <assignment oid="b9f5b56f-b93e-4e38-bcfd-eaa603122733">
+                    <pathFromRoot value="0"/>
+                    <properties name="assignment">
+                        <enable>
+                            <init>true</init>
+                        </enable>
+                        <input>
+                            <init>0</init>
+                            <expr>in</expr>
+                        </input>
+                        <output>
+                            <expr>out</expr>
+                        </output>
+                    </properties>
+                </assignment>
+            </children>
+        </layer>
+    </children>
+</specification>
+
+<!-- crc32 : 2771992518 -->
+
