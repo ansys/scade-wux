@@ -24,6 +24,7 @@
 
 import difflib
 from pathlib import Path
+from typing import Optional
 
 # note: importing apitools modifies sys.path to access SCADE APIs
 import ansys.scade.apitools  # noqa: F401
@@ -47,14 +48,17 @@ def load_session(*paths: Path) -> suite.Session:
     return session
 
 
-def load_sdy_application(mapping: Path, model: suite.Model, *displays: Path) -> dc.SdyApplication:
+def load_sdy_application(
+    mapping: Optional[Path], model: suite.Model, *displays: Path
+) -> dc.SdyApplication:
     """Load a Scade Suite - Display mapping file in a separate environment."""
     app = dc.SdyApplication()
     for display in displays:
         app.load_sdy_project_tcl(str(display))
-    app.load_mapping_file_tcl(str(mapping))
-    # bind both models
-    app.mapping_file.model = model
+    if mapping:
+        app.load_mapping_file_tcl(str(mapping))
+        # bind both models
+        app.mapping_file.model = model
     return app
 
 

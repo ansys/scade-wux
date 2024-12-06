@@ -85,6 +85,8 @@ class SdyExt:
 
         sdy_application = wux.get_sdy_applications()[0]
         for root in roots:
+            if not sdy_application.mapping_file:
+                continue
             for op in sdy_application.mapping_file.mapping_operators:
                 if (op.name + '/') == root.get_scade_path():
                     self.mapping_operators.append(op)

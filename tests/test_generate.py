@@ -41,6 +41,7 @@ from conftest import diff_files, load_project, load_sdy_application, load_sessio
 @pytest.mark.parametrize(
     'file, display, name',
     [
+        ('UT/KcgContext/KcgContext.etp', None, 'UT KCG'),
         ('Two/UA/Two.etp', 'Two/DF/TwoDF.etp', 'UT KCG'),
         ('Two/UA/Two.etp', 'Two/DF/TwoDF.etp', 'UT Simulation'),
         ('Variables/Variables.etp', 'Variables/Displays/Displays.etp', 'UT KCG'),
@@ -71,7 +72,9 @@ def test_generate(file, name, display, tmpdir):
     if display:
         mapping = path.with_suffix('.sdy')
         app = load_sdy_application(mapping, session.model, test_dir / display)
-        wux.set_sdy_applications([app])
+    else:
+        app = load_sdy_application(None, session.model)
+    wux.set_sdy_applications([app])
 
     # initialize the context, required for all other services
     ctx = ServiceProxy(wux_ctx)
@@ -83,40 +86,37 @@ def test_generate(file, name, display, tmpdir):
     paths = []
 
     # WUX2_SDY_PROXY
-    if display:
-        proxy = ServiceProxy(wux_proxy)
-        proxy.init(tmpdir, project, configuration)
-        status = proxy.generate(tmpdir, project, configuration)
-        assert status
-        # minimum assessment: generated files
-        proxy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]]
-        files = {_.name for _ in proxy_paths}
-        paths.extend(proxy_paths)
-        assert files == {'wuxsdyprx%s.cpp' % model}
+    proxy = ServiceProxy(wux_proxy)
+    proxy.init(tmpdir, project, configuration)
+    status = proxy.generate(tmpdir, project, configuration)
+    assert status
+    # minimum assessment: generated files
+    proxy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_proxy.SdyProxyExt.tool]]
+    files = {_.name for _ in proxy_paths}
+    paths.extend(proxy_paths)
+    assert files == {'wuxsdyprx%s.cpp' % model}
 
     # WUX2_SDY
-    if display:
-        sdy = ServiceProxy(wux_sdy)
-        sdy.init(tmpdir, project, configuration)
-        status = sdy.generate(tmpdir, project, configuration)
-        assert status
-        # minimum assessment: generated files
-        sdy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_sdy.SdyExt.tool]]
-        files = {_.name for _ in sdy_paths}
-        paths.extend(sdy_paths)
-        assert files == {'wuxsdy%s.c' % model}
+    sdy = ServiceProxy(wux_sdy)
+    sdy.init(tmpdir, project, configuration)
+    status = sdy.generate(tmpdir, project, configuration)
+    assert status
+    # minimum assessment: generated files
+    sdy_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_sdy.SdyExt.tool]]
+    files = {_.name for _ in sdy_paths}
+    paths.extend(sdy_paths)
+    assert files == {'wuxsdy%s.c' % model}
 
     # WUX2_UAA
-    if display:
-        uaa = ServiceProxy(wux_uaa)
-        uaa.init(tmpdir, project, configuration)
-        status = uaa.generate(tmpdir, project, configuration)
-        assert status
-        # minimum assessment: generated files
-        uaa_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_uaa.A661UAA.tool]]
-        files = {_.name for _ in uaa_paths}
-        paths.extend(uaa_paths)
-        assert files == {'wuxuaa%s.c' % model}
+    uaa = ServiceProxy(wux_uaa)
+    uaa.init(tmpdir, project, configuration)
+    status = uaa.generate(tmpdir, project, configuration)
+    assert status
+    # minimum assessment: generated files
+    uaa_paths = [Path(tmpdir) / _ for _ in stub.generated_files[wux_uaa.A661UAA.tool]]
+    files = {_.name for _ in uaa_paths}
+    paths.extend(uaa_paths)
+    assert files == {'wuxuaa%s.c' % model}
 
     # WUX2_SIMU_EXT
     # copy the mapping file to the target directory

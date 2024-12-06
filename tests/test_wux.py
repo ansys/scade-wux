@@ -222,3 +222,33 @@ def test_set_get_models():
     # alphabetical order
     names = [Path(_.pathname).stem for _ in specs]
     assert names == ['Speed', 'Throttles']
+
+
+def test_set_get_models_robustness():
+    wux.reset()
+    # calls to get_roots does nothing
+    assert not wux.get_sessions()
+    assert not wux.get_sdy_applications()
+
+    path = Path(__file__).parent / 'Variables' / 'Variables.etp'
+
+    session = load_session(path)
+    wux.set_sessions([session])
+    sessions = wux.get_sessions()
+    assert len(sessions) == 1
+    assert sessions[0] == session
+
+    # create an empty application, which is the use case when integrated to SCADE
+    app = load_sdy_application(None, session.model)
+
+    wux.set_sdy_applications([app])
+    apps = wux.get_sdy_applications()
+    assert len(apps) == 1
+    assert apps[0] == app
+
+    # verify the specifications, once the SCADE Display mapping application is loaded
+    project = load_project(path)
+    configuration = project.find_configuration('SdyExt')
+    assert configuration
+    specs = wux.get_specifications(project, configuration)
+    assert len(specs) == 0
