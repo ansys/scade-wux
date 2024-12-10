@@ -144,6 +144,10 @@ DOXYGEN_DIR = SOURCE_DIR / '_doxygen'
 # Ensure the output directory exists
 DOXYGEN_DIR.mkdir(exist_ok=True)
 
+# path of doxygen configuration files are relative to the current directory
+# -> copy the configuration file from a template, patched with an
+#    absolute directory, so that the command is independent from the
+#    current directory
 # Read and patch the Doxygen configuration template
 template_path = SOURCE_DIR / '_templates' / 'includes.dox'
 output_path = DOXYGEN_DIR / 'includes.dox'
