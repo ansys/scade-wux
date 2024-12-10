@@ -158,13 +158,13 @@ with output_path.open('w') as output_file:
 subprocess.call(['doxygen', str(output_path)])
 
 breathe_projects = {
-    'interfaces': f"{DOXYGEN_DIR}/xml/",
+    'interfaces': f'{DOXYGEN_DIR}/xml/',
 }
 breathe_default_project = 'interfaces'
 
 breathe_projects_source = {
     'interfaces': (
-        f"{ROOT_DIR}/src/ansys/scade/wux/include",
+        f'{ROOT_DIR}/src/ansys/scade/wux/include',
         [
             'WuxA661Ext.h',
             'WuxCtxExt.h',
