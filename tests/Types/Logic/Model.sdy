@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MappingFile>
+	 	<operatorMappings>
+		<OperatorMapping name="P::Mapped" oid="!ed/84/679A/75D8/674dc63f3dcb">
+			<mappingItems>
+				<MappingItem>
+					<output>
+						<Plug name="outLine" type="Line" oid="00b56d33-f9ac-4f11-97d7-36edd3a969c1" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInLine" type="Line" oid="!ed/f0/679A/75D8/674dc76aeea" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPoint" type="Point" oid="e180b5f3-5f13-43c3-8aa0-08057ac63c35" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPoint" type="Point" oid="!ed/fa/679A/75D8/674dc77317af" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outString" type="String" oid="78728c62-ce17-4bd3-b042-8327943c0a2f" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInString" type="String" oid="!ed/104/679A/75D8/674dc77b2905" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPoint" type="Point" oid="!ed/118/679A/75D8/674dc787553c" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inPoint" type="Point" oid="ab3d88cc-ded5-4aa9-8850-799e214d3fe2" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutString" type="String" oid="!ed/123/679A/75D8/674dc7933ddf" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inString" type="String" oid="7399bf54-44b4-484e-98a1-8b5e469e6289" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outLine" type="float32" oid="00b56d33-f9ac-4f11-97d7-36edd3a969c1" subelement="[3].y" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInLine2Y" type="float32" oid="!ed/39c7/112A/8D00/674ee26d72a8" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPoint" type="float32" oid="e180b5f3-5f13-43c3-8aa0-08057ac63c35" subelement=".x" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyPointX" type="float32" oid="!ed/3b56/112A/8D00/674eec564d34"/>
+						<Variable name="sdyInPointX" type="float32" oid="!ed/3995/112A/8D00/674ee1ee4332" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutLine" type="Line" oid="!ed/3b65/112A/8D00/674eecf965c1" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inLine" type="Line" oid="364ed79f-579b-4455-b36b-d626cb1a6701" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="outNoSelectedOut" type="int32" oid="!ed/3d26/112A/8D00/674ef7e77131" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="in" type="int" oid="e8778993-1d91-4e41-adf8-b92b6ac5ae0a" pathname="..\Graphics\NotSelected.sgfx" layer="symbology_layer" layerOid="1a104a71-cef5-4fae-9baa-a5bcc5016648"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="out" type="int" oid="aafa8156-4710-429e-9c8e-6352a9c9b9bb" pathname="..\Graphics\NotSelected.sgfx" layer="symbology_layer" layerOid="1a104a71-cef5-4fae-9baa-a5bcc5016648"/>
+					</output>
+					<inputs>
+						<Variable name="inNotSelectedIn" type="int32" oid="!ed/3d1d/112A/8D00/674ef7d156a8" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outMask" type="Mask" oid="4db05c83-fd66-420a-929a-163b8dde57ae" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInMask" type="Mask" oid="!ed/3ea5/112A/8D00/674efa7431dd" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutMask" type="Mask" oid="!ed/3eaf/112A/8D00/674efa7e3776" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inMask" type="Mask" oid="e6d1193e-fa89-45a6-a952-2fde646c38d0" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutSpeed" type="Speed" oid="!ed/3b7/4494/213C/674f045342af" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inSpeed" type="Speed" oid="933caefe-3ba9-4129-8a5c-8d989ff573e1" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outSpeed" type="Speed" oid="cd7c927d-8295-426c-8b06-d3906634902f" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInSpeed" type="Speed" oid="!ed/3ae/4494/213C/674f044a529d" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutUInt8" type="uint8" oid="!ed/3e4/4494/213C/674f04ba4d30" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inUInt8" type="uint8" oid="43d09424-d8b4-46c3-9dd1-4e3a495b4cf9" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outUInt8" type="uint8" oid="fc966623-0209-44e0-9f5c-8fdeedd92a18" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInUInt8" type="uint8" oid="!ed/3db/4494/213C/674f04af10ee" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPartialLine3x" type="float32" oid="!ed/896/4494/213C/674f0ac4419a" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inPartialLine" type="float32" oid="8fa34cf3-4d07-4e93-af71-e94dba97d034" subelement="[3].x" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPartialLine" type="float32" oid="a07dd7c1-27f5-458b-9711-9f417ea190d7" subelement="[3].x" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPartialLine3x" type="float32" oid="!ed/88d/4494/213C/674f0ab6196f" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutGroup" type="Group" oid="!ed/104b/4494/213C/674f16776045" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inGroup" type="{_inSpeed : Speed, _inPoint : Point, _inBits : Bits}" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outGroup" type="{_outSpeed : Speed, _outPoint : Point, _outBits : Bits}" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInGroup" type="Group" oid="!ed/1041/4494/213C/674f166d4769" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPartialLine1" type="Point" oid="!ed/527/506A/68B4/674f212e80" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inPartialLine" type="Point" oid="8fa34cf3-4d07-4e93-af71-e94dba97d034" subelement="[1]" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPartialLine" type="Point" oid="a07dd7c1-27f5-458b-9711-9f417ea190d7" subelement="[1]" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPartialLine1" type="Point" oid="!ed/52d/506A/68B4/674f214ddd2" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPartialLine1" type="Point" oid="272243c3-4a84-45b2-9257-fb564c70c922" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPartialLine" type="Point" oid="!ed/538/FD2/2D98/674f39095890" subelement="[1]" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outPartialLine3x" type="float32" oid="0b5141ba-b2f7-4957-ba40-12ad27198045" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPartialLine" type="float32" oid="!ed/538/FD2/2D98/674f39095890" subelement="[3].x" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPartialLine" type="Point" oid="!ed/53f/FD2/2D98/674f39532be1" subelement="[1]" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inPartialLine1" type="Point" oid="f5bad6d9-eb8c-43ad-a7d2-1212040881b0" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPartialLine" type="float32" oid="!ed/53f/FD2/2D98/674f39532be1" subelement="[3].x" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inPartialLine3x" type="float32" oid="48eba2a1-8b2e-4e1b-a669-614b0c161e83" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutFlag" type="Flag" oid="!ed/d29/FD2/2D98/67501f0a4184" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inFlag" type="Flag" oid="e1ce5a90-e962-4067-8511-ff285192879c" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outFlag" type="Flag" oid="a6c95849-7c07-4246-9989-cab3ad7b1729" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInFlag" type="Flag" oid="!ed/d1f/FD2/2D98/67501f0119e" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outAnonymousBits" type="bool ^8" oid="c7f1bd7f-8055-453e-951b-b77890de6ea2" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInAnonymousBits" type="bool ^8" oid="!ed/11a2/FD2/2D98/6750228b16bb" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Plug name="outAnonymousPoint" type="{x : float32, y : float32}" oid="0c53e8d3-53d5-4837-bbfc-3a9b9aa42efa" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInAnonymousPoint" type="{x : float32, y : float32}" oid="!ed/11b4/FD2/2D98/675022b61326" instancepath="P::Mapped/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutAnonymousBits" type="bool ^8" oid="!ed/11ab/FD2/2D98/6750229b5e87" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inAnonymousBits" type="bool ^8" oid="b64e629e-f0b7-4f62-9e03-a6554b392417" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutAnonymousPoint" type="{x : float32, y : float32}" oid="!ed/11bf/FD2/2D98/675022c37bba" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="inAnonymousPoint" type="{x : float32, y : float32}" oid="9271c16c-b2b3-4f03-a354-3f44eb0271e4" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="status" type="bool" oid="!ed/148c/FD2/2D98/67505dc05db5" instancepath="P::Mapped/"/>
+					</output>
+					<inputs>
+						<Plug name="status" type="bool" oid="a7dc35e3-a1cc-4437-b0e4-270d87ff80e7" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+			</mappingItems>
+		</OperatorMapping>
+		<OperatorMapping name="P::MappedNotGenerated" oid="!ed/3a4e/112A/8D00/674ee8c27b11">
+			<mappingItems>
+				<MappingItem>
+					<output>
+						<Plug name="outPoint" type="Point" oid="e180b5f3-5f13-43c3-8aa0-08057ac63c35" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</output>
+					<inputs>
+						<Variable name="sdyInPoint" type="Point" oid="!ed/3a50/112A/8D00/674ee8d87dcd" instancepath="P::MappedNotGenerated/"/>
+					</inputs>
+				</MappingItem>
+				<MappingItem>
+					<output>
+						<Variable name="sdyOutPoint" type="Point" oid="!ed/3a5a/112A/8D00/674ee8e13565" instancepath="P::MappedNotGenerated/"/>
+					</output>
+					<inputs>
+						<Plug name="inPoint" type="Point" oid="ab3d88cc-ded5-4aa9-8850-799e214d3fe2" pathname="..\Graphics\Interface.sgfx" layer="symbology_layer" layerOid="ee54c4a7-fb3e-42bc-b186-eb5cb7a5cd6f"/>
+					</inputs>
+				</MappingItem>
+			</mappingItems>
+		</OperatorMapping>
+	</operatorMappings>
+</MappingFile>

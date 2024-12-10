@@ -26,7 +26,8 @@ repos:
             .*\.vsw|
             .*\.scade|
             .*\.xscade|
-            .*\.sct
+            .*\.sct|
+            .*\.xml
         )$
 
 - repo: https://github.com/pre-commit/pre-commit-hooks

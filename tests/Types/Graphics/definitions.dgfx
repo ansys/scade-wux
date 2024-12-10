@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?dom version="19.0" ?>
+
+<globals>
+    <type name="Point" oid="135f4642-a79e-48ed-98e7-f81646308816">
+        <definition>{x: float32, y: float32}</definition>
+    </type>
+    <constant name="N" oid="a2954c59-f809-4b59-b357-cfd581145c22" type="int32">
+        <init>5</init>
+    </constant>
+    <type name="Line" oid="58aeac0c-f33b-4193-916a-075ca5ecf1ab">
+        <definition>Point^N</definition>
+    </type>
+    <type name="Speed" oid="d7ee46a0-bf48-4cdc-a861-21d8a747b946">
+        <definition>float32</definition>
+    </type>
+    <type name="Bits" oid="687137b5-fde6-4d0e-ab4f-cb450e07bb73">
+        <definition>bool^8</definition>
+    </type>
+    <type name="Mask" oid="28e8062b-b6af-4c01-bfd3-34138e801499">
+        <definition>Bits</definition>
+    </type>
+    <type name="String" oid="ca92528a-dc1f-4e8e-9ce4-f31bed2a4376">
+        <definition>{count: int32, buffer: char^8}</definition>
+    </type>
+    <type name="Flag" oid="927060cf-6a7f-4097-9abe-74f90279eeb9">
+        <definition>enum {BLUE, WHITE, RED}</definition>
+    </type>
+</globals>
+
+<!-- crc32 : 160962053 -->
+
