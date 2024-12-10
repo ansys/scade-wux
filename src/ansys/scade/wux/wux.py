@@ -491,6 +491,8 @@ def get_specifications(project: Project, configuration: Configuration) -> List[S
     if not _specifications and sdy_applications:
         # must be only one application
         sdy_application = sdy_applications[0]
+        if not sdy_application.mapping_file:
+            return _specifications
         sdy_map_file_dir = os.path.dirname(sdy_application.mapping_file.pathname)
         for panel_params in project.get_tool_prop_def(
             'GENERATOR', 'DISPLAY_ENABLED_PANELS', [], configuration
