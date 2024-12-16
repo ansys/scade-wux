@@ -125,13 +125,6 @@ jobs:
       contents: write
     steps:
 
-      - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@v8
-        with:
-          library-name: ${{ env.LIBRARY_NAME }}
-          twine-username: "__token__"
-          twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
-
       - name: "Release to the public PyPI repository"
         uses: ansys/actions/release-pypi-public@v8
         with:
