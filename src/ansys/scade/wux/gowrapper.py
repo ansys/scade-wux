@@ -39,7 +39,13 @@ import scade.code.suite.sctoc as sctoc
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
-import ansys.scade.wux.wux as wux
+
+# SCADE evaluates the wrappers' main script instead of importing them:
+# * this may lead to name conflicts in the global namespace
+# * the legacy version of WUX declares a global variable wux
+#   -> use wux2 instead of wux to ensure compatibility until
+#      the legacy version is updated
+import ansys.scade.wux.wux as wux2
 
 
 class GoWrapper:
@@ -140,12 +146,12 @@ class GoWrapper:
     def _declare_target(self, target_dir, project, configuration):
         # add the wrapper's main file
         lib = self._script_dir / 'lib'
-        wux.add_sources([lib / 'WuxGoMain.cpp'])
-        wux.add_definitions('WUX_INTEGRATION', 'WUX_STANDALONE')
+        wux2.add_sources([lib / 'WuxGoMain.cpp'])
+        wux2.add_definitions('WUX_INTEGRATION', 'WUX_STANDALONE')
         # temporary hack: reuse the design developed for the co-simulation
         include = self._script_dir / 'include'
-        wux.add_includes([include])
-        wux.add_sources([lib / 'WuxSimuExt.cpp'])
+        wux2.add_includes([include])
+        wux2.add_sources([lib / 'WuxSimuExt.cpp'])
 
         # declare the target to sctoc
         path = self._get_target_exe(target_dir, project, configuration)
@@ -155,4 +161,4 @@ class GoWrapper:
         sctoc.add_executable_rule(path, [], [], exts, True)
 
         # make sure the linker option -static -lstdc++ is set for gcc
-        wux.add_cpp_options(project, configuration)
+        wux2.add_cpp_options(project, configuration)
