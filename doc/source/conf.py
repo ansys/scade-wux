@@ -152,11 +152,8 @@ DOXYGEN_DIR.mkdir(exist_ok=True)
 template_path = SOURCE_DIR / '_templates' / 'includes.dox'
 output_path = DOXYGEN_DIR / 'includes.dox'
 
-with template_path.open('r') as template_file:
-    text = template_file.read().replace('{{repository}}', str(ROOT_DIR))
-
-with output_path.open('w') as output_file:
-    output_file.write(text)
+text = template_path.read_text(encoding="utf-8").replace('{{repository}}', str(ROOT_DIR))
+output_path.write_text(text, encoding="utf-8")
 
 # Run Doxygen with the patched configuration file
 subprocess.call(['doxygen', str(output_path)])
