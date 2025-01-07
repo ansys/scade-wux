@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="ansys-scade-wux"
-version="2.0.dev0"
+version="2.1.dev0"
 description ="Generic code integration target for SCADE."
 readme="README.rst"
 
@@ -12,10 +12,10 @@ readme="README.rst"
 requires-python = ">=3.7,!=3.8.*,!=3.9.*,<3.11"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Ansys, Inc.", email = "pyansys.core@ansys.com"},
+    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"},
 ]
 maintainers = [
-    {name = "Ansys, Inc.", email = "pyansys.core@ansys.com"},
+    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"},
 ]
 dependencies=[
     "importlib-metadata >= 1.0; python_version < '3.8'",
@@ -41,13 +41,12 @@ tests = [
     "pytest-cov==5.0.0"
 ]
 doc = [
-    "ansys-sphinx-theme[autoapi]==1.0.9",
+    "ansys-sphinx-theme[autoapi]==1.2.4",
     "autodoc_pydantic==2.2.0",
     "jupyter_sphinx==0.5.3",
     "nbsphinx==0.9.5",
     "numpydoc==1.8.0",
-    "sphinx==8.0.2",
-    "sphinx-autoapi<=3.3.0",
+    "sphinx==8.1.3",
     "sphinx-autodoc-typehints==2.3.0",
     "sphinxcontrib-globalsubs==0.1.1",
     "sphinxcontrib-httpdomain==1.8.1",

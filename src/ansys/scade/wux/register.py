@@ -1,4 +1,4 @@
-# Copyright (C) 2020 - 2024 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2020 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -23,7 +23,7 @@
 """
 Registers the Code Generator extension registry files (SRG).
 
-Refer to the :ref:`installation <getting_started/index:install in user mode>`
+Refer to the :ref:`installation <getting-started/index:install in user mode>`
 steps for more information.
 
 It addresses SCADE 2024 R2 and prior releases.
