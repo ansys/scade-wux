@@ -9,6 +9,36 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.1.0 <https://github.com/ansys/scade-wux/releases/tag/v2.1.0>`_ - 2025-01-20
+==============================================================================
+
+Added
+^^^^^
+
+- feat: technical review `#17 <https://github.com/ansys/scade-wux/pull/17>`_
+
+
+Fixed
+^^^^^
+
+- fix: Avoid name conflict with legacy WrapUtilsEx 1.x `#19 <https://github.com/ansys/scade-wux/pull/19>`_
+- fix: changelog action inputs `#20 <https://github.com/ansys/scade-wux/pull/20>`_
+
+
+Documentation
+^^^^^^^^^^^^^
+
+- chore: update CHANGELOG for v2.0.1 `#12 <https://github.com/ansys/scade-wux/pull/12>`_
+- chore: update CHANGELOG for v2.0.2 `#14 <https://github.com/ansys/scade-wux/pull/14>`_
+- docs: doc review `#15 <https://github.com/ansys/scade-wux/pull/15>`_
+- docs: Add minimal doc-strings for test stubs and implementation files `#16 <https://github.com/ansys/scade-wux/pull/16>`_
+
+
+Test
+^^^^
+
+- test: Complete unit tests for SCADE Suite - SCADE Display connections `#18 <https://github.com/ansys/scade-wux/pull/18>`_
+
 `2.0.2 <https://github.com/ansys/scade-wux/releases/tag/v2.0.2>`_ - 2024-10-10
 ==============================================================================
 
