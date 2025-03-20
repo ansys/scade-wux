@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="115" defaultConfiguration="23">
+<Project id="1" oid_count="120" defaultConfiguration="23">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -381,14 +381,6 @@
 			<value>P::Root</value>
 			<configuration>90</configuration>
 		</Prop>
-		<Prop id="100" name="@GENERATOR:OTHER_EXTENSIONS">
-			<value>WUX2_UT_EXT</value>
-			<configuration>90</configuration>
-		</Prop>
-		<Prop id="101" name="@GENERATOR:TARGET_ADAPTOR">
-			<value>WUX2_24R2_GOWRP</value>
-			<configuration>90</configuration>
-		</Prop>
 		<Prop id="102" name="@GENERATOR:ROOTNODE">
 			<value>P::Root</value>
 			<configuration>23</configuration>
@@ -400,6 +392,14 @@
 		<Prop id="104" name="@GNU Cwin64:ADD_LINK_OPTIONS">
 			<value>-static -lstdc++</value>
 			<configuration>23</configuration>
+		</Prop>
+		<Prop id="119" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>WUX2_GOWRP</value>
+			<configuration>90</configuration>
+		</Prop>
+		<Prop id="120" name="@GENERATOR:OTHER_EXTENSIONS">
+			<value>WUX2_UT_EXT</value>
+			<configuration>90</configuration>
 		</Prop>
 	</props>
 	<roots>

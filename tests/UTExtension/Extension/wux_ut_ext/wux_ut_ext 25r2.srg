@@ -1,8 +1,9 @@
-[Scade/Simulator/Extensions/WUX2_UT_EXT]
+[Scade/Simulator/Extensions/WUX2_25R2_UT_EXT]
 "Server1"="<no_settings>"
 "Kind"="Other"
 "Version"="21200"
+"Expire"="26000"
 "DisplayName"="Unit test for WUX"
 
-[Scade/Generator/WUX2_UT_EXT]
+[Scade/Generator/WUX2_25R2_UT_EXT]
 "Pathname"="%TARGETDIR%/Extension.py"
