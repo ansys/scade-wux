@@ -9,6 +9,32 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.1.1 <https://github.com/ansys/scade-wux/releases/tag/v2.1.1>`_ - March 20, 2025
+==================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - feat: Add register and unregister entry points for Extensions Manager
+          - `#22 <https://github.com/ansys/scade-wux/pull/22>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - ci: Specify the version of Python for updating the change log
+          - `#23 <https://github.com/ansys/scade-wux/pull/23>`_
+
+
 `2.1.0 <https://github.com/ansys/scade-wux/releases/tag/v2.1.0>`_ - 2025-01-20
 ==============================================================================
 
