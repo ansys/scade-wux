@@ -70,9 +70,13 @@ Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
 [project.entry-points."ansys.scade.registry"]
 srg = "ansys.scade.wux:srg"
+register = "ansys.scade.wux.register:register"
+unregister = "ansys.scade.wux.unregister:unregister"
 
 [project.scripts]
+# backward compatibility
 register_ansys_scade_wux = "ansys.scade.wux.register:main"
+unregister_ansys_scade_wux = "ansys.scade.wux.unregister:main"
 
 [tool.ruff]
 line-length = 100
