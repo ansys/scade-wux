@@ -1,11 +1,14 @@
 # Integration test for an extension
 ## Overview
-The project `UTExtension` allows testing manually the Generic Integration wrapper and the following generation services:
+The project `UTExtension` allows testing the Generic Integration wrapper and the following generation services:
 
 * WUX2_CTX
 * WUX2_SIMU_EXT
 
 It consists of a code generation extension that logs the available callbacks and illustrates how to generate C code.
+
+The test is automated for environments based on Python 3.12, or greater, and Ansys SCADE starting 2026 R1.
+The next sections describe the manual test procedure for Ansys SCADE up to 2025 R2.
 
 ## Setup
 * Register the package to SCADE as detailed in
