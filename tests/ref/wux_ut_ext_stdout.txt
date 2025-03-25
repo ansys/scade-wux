@@ -1,0 +1,16 @@
+INFO: IntegrationStart() with 5 parameters
+INFO: set max steps steps to 2
+INFO: set max logged steps to 1
+INFO: SelfPaced()
+INFO: BeforeSimInit()
+INFO: AfterSimInit()
+INFO: IsAlive()
+INFO: BeforeSimStep(1)
+INFO: AfterSimStep(1)
+INFO: last = 1
+INFO: IsAlive()
+INFO: last = 2
+INFO: IsAlive()
+extension terminated WUX Unit Test Extension: exiting
+INFO: ExtendedSimStop()
+INFO: IntegrationStop()

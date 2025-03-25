@@ -24,6 +24,7 @@
 
 import difflib
 from pathlib import Path
+import subprocess
 from typing import Optional
 
 # note: importing apitools modifies sys.path to access SCADE APIs
@@ -98,3 +99,14 @@ def diff_files(ref: Path, dst: Path) -> bool:
         print(d.rstrip('\r\n'))
         failure = True
     return failure
+
+
+def run(cmd, env=None) -> subprocess.CompletedProcess:
+    print('running', cmd)
+    status = subprocess.run(cmd, capture_output=True, env=env)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').replace('\r', '').strip('\n'))
+        assert False
+    out = status.stdout.decode('utf-8').replace('\r', '').strip('\n')
+    print(out)
+    return status
