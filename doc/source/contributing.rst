@@ -27,7 +27,8 @@ source and enhance it.
 
       cd scade-wux
 
-#. Create a clean Python 3.10 environment and activate it:
+#. Create a clean Python environment, compatible with the targeted version of
+   SCADE, and activate it:
 
    You can use the interpreter delivered with Ansys SCADE. For example,
    ``C:\Program Files\ANSYS Inc\v241\SCADE\contrib\Python310\python.exe``.

@@ -9,9 +9,11 @@ page on the Ansys website.
 Requirements
 ------------
 The ``ansys-scade-wux`` package supports only the versions of Python delivered with
-Ansys SCADE, starting from 2023 R2:
+Ansys SCADE, starting from 2021 R2:
 
-* 2023 R2 and later: Python 3.10
+* 2021 R2 through 2023 R1: Python 3.7
+* 2023 R2 through 2025 R2: Python 3.10
+* 2026 R1 and later: Python 3.12 and greater
 
 Install in user mode
 --------------------
