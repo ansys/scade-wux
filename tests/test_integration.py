@@ -48,14 +48,10 @@ def wux_ut_ext() -> bool:
 
 def _run_scade(*args) -> subprocess.CompletedProcess:
     """Run scade.exe in a subprocess."""
-    if not os.environ.get('VIRTUAL_ENV'):
-        venv = Path(sys.executable).parent.parent.as_posix()
-        print('setting VIRTUAL_ENV to', venv)
-        env = os.environ.copy()
-        env['VIRTUAL_ENV'] = venv
-    else:
-        print('using VIRTUAL_ENV =', os.environ.get('VIRTUAL_ENV'))
-        env = None
+    venv = Path(sys.executable).parent.parent.as_posix()
+    print('setting VIRTUAL_ENV to', venv)
+    env = os.environ.copy()
+    env['VIRTUAL_ENV'] = venv
     cmd = [str(info.get_scade_home() / 'SCADE' / 'bin' / 'scade.exe')]
     cmd.extend([str(_) for _ in args])
     status = run(cmd, env)
