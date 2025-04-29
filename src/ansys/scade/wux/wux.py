@@ -170,7 +170,7 @@ def add_libraries(paths: List[Path]):
     global _libraries
 
     set_paths = {_.as_posix() for _ in paths}
-    sctoc.add_obj_files(list(set_paths - _libraries), False)
+    sctoc.add_object_files(list(set_paths - _libraries), False)
     _libraries |= set_paths
 
 

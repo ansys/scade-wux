@@ -114,7 +114,7 @@ class SCToCStub:
         """Request ``scade -code`` to add sources files to the Makefile for Ada build."""
         self.ada_files.setdefault(service, []).extend([(_, relative) for _ in ada_files])
 
-    def add_obj_files(self, obj_files: List[str], relative: bool):
+    def add_object_files(self, obj_files: List[str], relative: bool):
         """Request ``scade -code`` to add object files to the Makefile."""
         self.obj_files.extend([(_, relative) for _ in obj_files])
 
@@ -281,8 +281,8 @@ def _add_ada_files(ada_files: List[str], relative: bool, service: str):
     _stub.add_ada_files(ada_files, relative, service)
 
 
-def _add_obj_files(obj_files: List[str], relative: bool):
-    _stub.add_obj_files(obj_files, relative)
+def _add_object_files(obj_files: List[str], relative: bool):
+    _stub.add_object_files(obj_files, relative)
 
 
 def _add_include_files(directories: List[str], relative: bool):
@@ -387,7 +387,7 @@ sctoc.get_list_of_external_files = _get_list_of_external_files
 # adding make directives
 sctoc.add_c_files = _add_c_files
 sctoc.add_ada_files = _add_ada_files
-sctoc.add_obj_files = _add_obj_files
+sctoc.add_object_files = _add_object_files
 sctoc.add_include_files = _add_include_files
 sctoc.add_dynamic_library_rule = _add_dynamic_library_rule
 sctoc.add_static_library_rule = _add_static_library_rule
