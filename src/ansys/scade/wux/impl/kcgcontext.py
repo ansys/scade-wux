@@ -70,22 +70,28 @@ class _WuxInterfacePrinter(InterfacePrinter):
         if self.simulation:
             ctx_acc = 'inputs_ctx'
         else:
-            ctx_acc = (
-                '%s.%s' % (self._subst['wu_struct_var'], self._subst['inc_var'])
-                if not self._sep_ctx and self._subst['wu_struct_var']
-                else self._subst['inc_var']
-            )
+            if self._global_root_context:
+                ctx_acc = ''
+            else:
+                ctx_acc = (
+                    '%s.%s' % (self._subst['wu_struct_var'], self._subst['inc_var'])
+                    if not self._sep_ctx and self._subst['wu_struct_var']
+                    else self._subst['inc_var']
+                )
         return ctx_acc
 
     def get_out_context_var(self):
         if self.simulation:
             ctx_acc = 'outputs_ctx'
         else:
-            ctx_acc = (
-                '%s.%s' % (self._subst['wu_struct_var'], self._subst['ctx_var'])
-                if not self._sep_ctx and self._subst['wu_struct_var']
-                else self._subst['ctx_var']
-            )
+            if self._global_root_context:
+                ctx_acc = ''
+            else:
+                ctx_acc = (
+                    '%s.%s' % (self._subst['wu_struct_var'], self._subst['ctx_var'])
+                    if not self._sep_ctx and self._subst['wu_struct_var']
+                    else self._subst['ctx_var']
+                )
         return ctx_acc
 
 
@@ -221,12 +227,15 @@ class WuxContext:
         else:
             writeln(f, 0, '/* contexts */')
             for ip in wux.ips:
-                writeln(f, 0, ip.print_context_def().replace('  ', '    '))
-                writeln(
-                    f,
-                    0,
-                    'extern {wu_struct_type} {wu_struct_var};'.format_map(ip.get_substitutions()),
-                )
+                if ip._subst['wu_struct_var']:
+                    writeln(f, 0, ip.print_context_def().replace('  ', '    '))
+                    writeln(
+                        f,
+                        0,
+                        'extern {wu_struct_type} {wu_struct_var};'.format_map(
+                            ip.get_substitutions()
+                        ),
+                    )
             writeln(f)
 
     def gen_contexts_definition(self, f):
@@ -234,9 +243,10 @@ class WuxContext:
         writeln(f, 0, '/* contexts */')
         if not self.simulation:
             for ip in wux.ips:
-                writeln(
-                    f, 0, '{wu_struct_type} {wu_struct_var};'.format_map(ip.get_substitutions())
-                )
+                if ip._subst['wu_struct_var']:
+                    writeln(
+                        f, 0, '{wu_struct_type} {wu_struct_var};'.format_map(ip.get_substitutions())
+                    )
         writeln(f)
 
     def gen_sensors(self, f):

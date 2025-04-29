@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="123" defaultConfiguration="23">
+<Project id="1" oid_count="139" defaultConfiguration="23">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -55,6 +55,7 @@
 			<value>88</value>
 			<value>97</value>
 			<value>112</value>
+			<value>127</value>
 		</Prop>
 		<Prop id="24" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
@@ -313,6 +314,7 @@
 			<value>88</value>
 			<value>97</value>
 			<value>112</value>
+			<value>127</value>
 		</Prop>
 		<Prop id="87" name="@GENERATOR:ROOTNODE">
 			<value>P::Node</value>
@@ -481,6 +483,110 @@
 			<value>P::Node</value>
 			<configuration>112</configuration>
 		</Prop>
+		<Prop id="124" name="@STUDIO:TOOLCONF">
+			<value>DiffAnalyzer</value>
+			<value>14</value>
+			<value>23</value>
+			<value>34</value>
+			<value>39</value>
+			<value>44</value>
+			<value>54</value>
+			<value>57</value>
+			<value>65</value>
+			<value>88</value>
+			<value>97</value>
+			<value>112</value>
+			<value>127</value>
+		</Prop>
+		<Prop id="125" name="@STUDIO:TOOLCONF">
+			<value>Synchronization</value>
+			<value>14</value>
+			<value>23</value>
+			<value>34</value>
+			<value>39</value>
+			<value>44</value>
+			<value>54</value>
+			<value>57</value>
+			<value>65</value>
+			<value>88</value>
+			<value>97</value>
+			<value>112</value>
+			<value>127</value>
+		</Prop>
+		<Prop id="126" name="@STUDIO:TOOLCONF">
+			<value>Import/Export</value>
+			<value>14</value>
+			<value>23</value>
+			<value>34</value>
+			<value>39</value>
+			<value>44</value>
+			<value>54</value>
+			<value>57</value>
+			<value>65</value>
+			<value>88</value>
+			<value>97</value>
+			<value>112</value>
+			<value>127</value>
+		</Prop>
+		<Prop id="128" name="@GENERATOR:ROOTNODE">
+			<value>P::Node</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="129" name="@SIMULATOR:CPU_TYPE">
+			<value>win64</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="130" name="@GENERATOR:ENABLE_EXTENSIONS">
+			<value>false</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="131" name="@GENERATOR:USER_CONFIG">
+			<value>$(TargetDir)\user_macros.h</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="132" name="@GENERATOR:USE_TYPES">
+			<value>char</value>
+			<value>float32</value>
+			<value>float64</value>
+			<value>int8</value>
+			<value>int16</value>
+			<value>int32</value>
+			<value>int64</value>
+			<value>uint8</value>
+			<value>uint16</value>
+			<value>uint32</value>
+			<value>uint64</value>
+			<value>size</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="133" name="@GENERATOR:GENERATOR">
+			<value>C QUAL663</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="134" name="@VC6.0:ADD_COMP_OPTIONS">
+			<value>/nologo /ML /O2</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="135" name="@GENERATOR:TARGET_DIR">
+			<value>$(Configuration)</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="136" name="@GENERATOR:PERIODICITY_MODE">
+			<value>USER</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="137" name="@GENERATOR:USER_SENSORS_DECL">
+			<value>true</value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="138" name="@GENERATOR:TARGET_ADAPTOR">
+			<value></value>
+			<configuration>127</configuration>
+		</Prop>
+		<Prop id="139" name="@GENERATOR:GLOBAL_ROOT_CONTEXT">
+			<value>true</value>
+			<configuration>127</configuration>
+		</Prop>
 	</props>
 	<roots>
 		<Folder id="3" extensions="vsp;etp" name="SCADE Libraries"/>
@@ -503,5 +609,6 @@
 		<Configuration id="88" name="UT KCG"/>
 		<Configuration id="97" name="UT Simulation"/>
 		<Configuration id="112" name="UT Node"/>
+		<Configuration id="127" name="UT Global"/>
 	</configurations>
 </Project>
