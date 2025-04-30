@@ -352,6 +352,96 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     assert var == 'Wu_Ctx_Node_P.outC'
 
 
+def test_kcgcontext_ut_global(ut_kcg_context):
+    # comparable to ut_kcg
+    # only one root operator to test large functions
+    project = ut_kcg_context
+    configuration = project.find_configuration('UT Global')
+    assert configuration
+    target_dir = Path(project.pathname).parent / configuration.name
+
+    ctx = WuxContext()
+    ctx.set_simulation(project, configuration)
+    assert not ctx.simulation
+    ctx.set_globals(str(target_dir), project, configuration)
+    # mf, mh, ips must be initialized
+    assert wux.mf
+    assert wux.mh
+    assert wux.ips
+
+    f = StringIO()
+    ctx.gen_contexts_declaration(f, project)
+    text = f.getvalue()
+    reference = '\n'.join(
+        [
+            '/* contexts */',
+        ]
+    )
+    assert text.strip('\n') == reference
+    f.close()
+
+    f = StringIO()
+    ctx.gen_contexts_definition(f)
+    text = f.getvalue()
+    definitions = set(text.strip('\n').split('\n'))
+    assert definitions == {
+        '/* contexts */',
+    }
+    f.close()
+
+    f = StringIO()
+    ctx.gen_init(f)
+    text = f.getvalue()
+    reference = '\n'.join(
+        [
+            '/* initializations */',
+            'void WuxReset()',
+            '{',
+            '}',
+            '',
+            'void WuxInit()',
+            '{',
+            '#   ifndef KCG_USER_DEFINED_INIT',
+            '    Node_init_P();',
+            '#   else',
+            '#   ifndef KCG_NO_EXTERN_CALL_TO_RESET',
+            '    Node_reset_P();',
+            '#   endif /* KCG_NO_EXTERN_CALL_TO_RESET */',
+            '#   endif /* KCG_USER_DEFINED_INIT */',
+            '}',
+        ]
+    )
+    assert text.strip('\n') == reference
+    f.close()
+
+    f = StringIO()
+    ctx.gen_cycles(f)
+    text = f.getvalue()
+    reference = '\n'.join(
+        [
+            'void WuxCycle()',
+            '{',
+            '    Node_P();',
+            '}',
+        ]
+    )
+    assert text.strip('\n') == reference
+    f.close()
+
+    # extended IP
+    ip = wux.ips[0]
+    io = ip.get_generated_path('P::Node/origin/')
+    assert io == 'origin'
+    io = ip.get_generated_path('P::Node/out/')
+    assert io == 'out'
+    io = ip.get_generated_path('P::speed/')
+    assert io == 'speed_P'
+    var = ip.get_in_context_var()
+    assert var == ''
+    var = ip.get_out_context_var()
+    assert var == ''
+
+
 def test_kcgcontext_generate(tmpdir):
     # make sure the generation does not fail:
     # generated code tested by integration tests
