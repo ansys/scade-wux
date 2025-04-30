@@ -9,6 +9,22 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.1.3 <https://github.com/ansys/scade-wux/releases/tag/v2.1.3>`_ - April 30, 2025
+==================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - fix: Blocking issues
+          - `#28 <https://github.com/ansys/scade-wux/pull/28>`_
+
+
 `2.1.1 <https://github.com/ansys/scade-wux/releases/tag/v2.1.1>`_ - March 20, 2025
 ==================================================================================
 
