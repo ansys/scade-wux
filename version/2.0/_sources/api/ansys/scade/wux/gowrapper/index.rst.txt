@@ -1,0 +1,88 @@
+
+
+
+
+
+
+The ``gowrapper.py`` module
+===========================
+
+.. py:module:: ansys.scade.wux.gowrapper
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: gowrapper
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.gowrapper.GoWrapper`
+            - Implements the *Generic Integration* (``WUX2_GOWRP``) generation module.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> GoWrapper</api/ansys/scade/wux/gowrapper/GoWrapper>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Generic wrapper for hosting combined SCADE Suite integration extensions.
+
+* 99% of the generation is ensured by the extensions
+* The wrapper declares the target
+
+Design note: the core extensions register to this wrapper which gathers the
+makefile elements to build the executable. The communication between the
+wrapper and the extensions is done through the global variables of
+the ``wux`` module.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+
