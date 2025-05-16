@@ -96,6 +96,10 @@ class SdyProxyExt:
             self.gen_unload(f)
             wux.gen_footer(f)
 
+        # must be called before build else it is not considered
+        # when sc2c_integration_files.txt is generated (issue #30)
+        self.declare_target(target_dir, project, configuration)
+
         return True
 
     def build(self, target_dir, project, configuration):
@@ -175,7 +179,6 @@ class SdyProxyExt:
                 if os.path.isfile(dll):
                     sctoc.add_generated_files('Graphical Panels', [Path(dll).name])
 
-        self.declare_target(target_dir, project, configuration)
         return True
 
     # ----------------------------------------------------------------------------
