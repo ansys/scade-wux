@@ -29,7 +29,7 @@ Extension for embedding UAs in other wrappers.
 import os
 from pathlib import Path
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 
 from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux import __version__
@@ -83,6 +83,7 @@ class A661UAA:
         """Generate the files."""
         print(self.banner)
 
+        assert wux.mf is not None  # nosec  # addresses linter
         roots = wux.mf.get_root_operators()
         self.root = roots[0]
 
@@ -154,7 +155,8 @@ class A661UAA:
             # assume only one root node
             ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
-            inctxvar = ip.get_in_context_var()
+            inctxvar = ip.get_in_context_var()  # type: ignore
+            assert self.root is not None  # nosec  # addresses linter
             addr = 'NULL' if len(self.root.get_inputs()) == 0 or inctxvar == '' else '&' + inctxvar
             map = {'ua': self.ua_base_name, 'addr': addr}
             code = (
@@ -179,7 +181,8 @@ class A661UAA:
             # assume only one root node
             ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
-            outctxvar = ip.get_out_context_var()
+            outctxvar = ip.get_out_context_var()  # type: ignore
+            assert self.root is not None  # nosec  # addresses linter
             addr = (
                 'NULL' if len(self.root.get_outputs()) == 0 or outctxvar == '' else '&' + outctxvar
             )
@@ -226,6 +229,7 @@ class A661UAA:
         uua = self.ansys_scade_dir / 'SCADE' / 'bin' / 'uaadaptor.exe'
         sdy = Path(wux.get_sdy_applications()[0].mapping_file.pathname).as_posix()
         trace = (Path(target_dir) / 'mapping.xml').as_posix()
+        assert self.root is not None  # nosec  # addresses linter
         hdr = self.root.get_name() + '.h'
         # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy \
         # -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" \

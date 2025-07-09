@@ -28,7 +28,7 @@ Redirects the entry points of ``scade.code.suite.sctoc`` to this module.
 
 from typing import List, Tuple
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 
 
 class SCToCStub:

@@ -29,7 +29,7 @@ from pathlib import Path
 import re
 from typing import List, Optional
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 from scade.model.project.stdproject import Project
 import scade.model.suite as suite
 import scade.model.suite.displaycoupling as sdy
@@ -56,7 +56,7 @@ class SdyExt:
 
     def __init__(self):
         self.map_file_dir: str = ''
-        self.mapping_operators: List[suite.Operator] = []
+        self.mapping_operators: List[Optional[suite.Operator]] = []
         self.specifications: List[sdy.Specification] = []
         # files
         self.sources = []
@@ -79,7 +79,7 @@ class SdyExt:
         """Generate the files."""
         print(self.banner)
 
-        assert wux.mf
+        assert wux.mf is not None  # nosec  # addresses linter
         roots = wux.mf.get_root_operators()
         self.specifications = wux.get_specifications(project, configuration)
 
@@ -414,8 +414,20 @@ class SdyExt:
                         input_subelement,
                     )
             else:
-                field = re.search(r'([a-zA-Z_]+[a-zA-Z_0-9]*) : .*', input.type).group(1)
-                input_c = 'kcg_assign(&{}_L_{}()->{}'.format(input_spec.prefix, input.layer, field)
+                m = re.search(r'([a-zA-Z_]+[a-zA-Z_0-9]*) : .*', input.type)
+                if m:
+                    field = m.group(1)
+                    input_c = 'kcg_assign(&{}_L_{}()->{}'.format(
+                        input_spec.prefix, input.layer, field
+                    )
+                else:
+                    # Bad connection
+                    print_info(
+                        'Invalid connection {}{} => {}{}. Please update the connections!'.format(
+                            output.name, output_subelement, input.name, input_subelement
+                        )
+                    )
+                    return
             # Call Display input setter macro, arrays and structures are passed as pointers
             writeln(
                 f,

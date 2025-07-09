@@ -29,7 +29,7 @@ import subprocess
 import sys
 from typing import List
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 import scade.model.suite.displaycoupling as sdy
 
 from ansys.scade.apitools.info import get_scade_home
