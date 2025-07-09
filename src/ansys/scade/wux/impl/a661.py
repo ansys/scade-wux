@@ -255,8 +255,8 @@ class A661UAA:
         print(command)
         cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
         if cp.stderr:
-            print(cp.stderr.decode('utf8'))
-        for line in cp.stdout.decode('utf8').split('\n'):
+            print(cp.stderr.decode('utf8').replace('\r', ''))
+        for line in cp.stdout.decode('utf8').replace('\r', '').split('\n'):
             tokens = line.split(': ')
             if tokens[0] == 'I0006':
                 path = Path(tokens[-1])
