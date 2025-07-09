@@ -45,7 +45,7 @@ jobs:
         os: [ubuntu-latest]
         python-version: ['3.10']
     steps:
-      - uses: ansys/actions/build-wheelhouse@v6
+      - uses: ansys/actions/build-wheelhouse@v10
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           operating-system: ${{ matrix.os }}
