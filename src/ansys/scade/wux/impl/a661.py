@@ -28,6 +28,7 @@ Extension for embedding UAs in other wrappers.
 
 import os
 from pathlib import Path
+import subprocess  # nosec  # used to call uaadaptor.exe
 
 import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 
@@ -231,6 +232,7 @@ class A661UAA:
         trace = (Path(target_dir) / 'mapping.xml').as_posix()
         assert self.root is not None  # nosec  # addresses linter
         hdr = self.root.get_name() + '.h'
+        # command line example:
         # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy \
         # -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" \
         # -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" \
@@ -251,18 +253,16 @@ class A661UAA:
             )
         )
         print(command)
-        f = os.popen(command)
-        stdout = f.read()
-        for line in stdout.split('\n'):
+        cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
+        if cp.stderr:
+            print(cp.stderr.decode('utf8'))
+        for line in cp.stdout.decode('utf8').split('\n'):
             tokens = line.split(': ')
             if tokens[0] == 'I0006':
                 path = Path(tokens[-1])
                 if path.suffix == '.c':
                     self.sources.append(path)
                 sctoc.add_generated_files('UA Adaptor', [path.name])
-        if f.close() is not None:
-            # error
-            print(stdout)
 
     # ------------------------------------------------------------------------
     # build
