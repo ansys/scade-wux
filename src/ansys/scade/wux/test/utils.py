@@ -40,7 +40,6 @@ class ServiceProxy:
 
     def __init__(self, cls: type) -> None:
         services = cls.get_services()
-        assert len(services) == 1
         callbacks = {n: m for (n, m) in services[0][1:]}
         self._init = callbacks.get('-OnInit')
         self._generate = callbacks.get('-OnGenerate')

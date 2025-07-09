@@ -100,9 +100,6 @@ class SCToCStub:
         This list is filtered according to file kinds: ``CS``, ``AdaS``, ``Obj``, ``Macro``,
         or ``Type``.
         """
-        # do some usage of the parameters to avoid linter warnings
-        for kind in list(*kinds):
-            assert isinstance(kind, str)
         return []
 
     # adding make directives
@@ -223,16 +220,12 @@ class SCToCStub:
     # misc. (undocumented)
     def is_state_up_to_date(self, state_ext: str) -> bool:
         """Return whether a set of files are obsolete with respect to their former version."""
-        # do some usage of the parameters to avoid linter warnings
-        assert isinstance(state_ext, str)
         # consider a file is always obsolete
         return False
 
     def save_state(self, state_files: List[str], state_ext: str):
         """Store a ``md5`` value for a set of files."""
-        for file in list(*state_files):
-            assert isinstance(file, str)
-        assert isinstance(state_ext, str)
+        pass
 
 
 # global instance
