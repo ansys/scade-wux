@@ -251,7 +251,7 @@ class WuxContext:
 
     def gen_sensors(self, f):
         """Generate the sensors definitions."""
-        assert wux.mf is not None  # nosec  # addresses linter
+        assert wux.mf is not None  # nosec B101  # addresses linter
         sensors = wux.mf.get_all_sensors()
         if not self.simulation and not self.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')

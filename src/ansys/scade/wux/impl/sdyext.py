@@ -79,7 +79,7 @@ class SdyExt:
         """Generate the files."""
         print(self.banner)
 
-        assert wux.mf is not None  # nosec  # addresses linter
+        assert wux.mf is not None  # nosec B101  # addresses linter
         roots = wux.mf.get_root_operators()
         self.specifications = wux.get_specifications(project, configuration)
 
