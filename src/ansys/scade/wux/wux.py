@@ -175,7 +175,7 @@ def add_libraries(paths: List[Path]):
 
 
 def add_definitions(*definitions: str):
-    """
+    r"""
     Request the Code Generator to add preprocessor definitions to the Makefile.
 
     This function may be called by different generation services.
@@ -186,7 +186,7 @@ def add_definitions(*definitions: str):
 
     Parameters
     ----------
-    *definitions : str
+    \*definitions : str
         Preprocessor definitions to be added to the makefile.
     """
     # prevent adding the preprocessor definition twice to sctoc
