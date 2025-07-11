@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="307" defaultConfiguration="24">
+<Project id="1" oid_count="308" defaultConfiguration="24">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -461,10 +461,6 @@
 			<value>USER</value>
 			<configuration>205</configuration>
 		</Prop>
-		<Prop id="208" name="@GENERATOR:TARGET_ADAPTOR">
-			<value></value>
-			<configuration>205</configuration>
-		</Prop>
 		<Prop id="209" name="@GENERATOR:TARGET_DIR">
 			<value>$(Configuration)</value>
 			<configuration>205</configuration>
@@ -739,6 +735,10 @@
 		<Prop id="307" name="@GENERATOR:A661_SERVER_PORT">
 			<value>1242</value>
 			<configuration>294</configuration>
+		</Prop>
+		<Prop id="308" name="@GENERATOR:TARGET_ADAPTOR">
+			<value>WUX2_24R2_GOWRP</value>
+			<configuration>205</configuration>
 		</Prop>
 	</props>
 	<roots>

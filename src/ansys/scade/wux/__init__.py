@@ -40,8 +40,8 @@ def get_srg_name() -> str:
     """
     Return the name of the registration file for Ansys SCADE IDE.
 
-    It addresses SCADE 2024 R1 and prior releases.
-    SCADE 2024 R2 and later use the package's
+    It addresses SCADE 2024 R2 and prior releases.
+    SCADE 2025 R1 and above use the package's
     ``ansys.scade.registry`` entry point.
     """
     # registrations depending on Python interpreter

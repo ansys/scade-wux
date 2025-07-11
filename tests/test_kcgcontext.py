@@ -249,9 +249,11 @@ def test_kcgcontext_ut_simulation(ut_kcg_context):
     assert io == 'outputs_ctx.out'
     io = ip.get_generated_path('P::speed/')
     assert io == '_ctx_speed_P_buffer'
-    var = ip.get_in_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_in_context_var()  # type: ignore
     assert var == 'inputs_ctx'
-    var = ip.get_out_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_out_context_var()  # type: ignore
     assert var == 'outputs_ctx'
 
 
@@ -346,9 +348,11 @@ def test_kcgcontext_ut_node(ut_kcg_context):
     assert io == 'Wu_Ctx_Node_P.outC.out'
     io = ip.get_generated_path('P::speed/')
     assert io == 'speed_P'
-    var = ip.get_in_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_in_context_var()  # type: ignore
     assert var == 'Wu_Ctx_Node_P.inC'
-    var = ip.get_out_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_out_context_var()  # type: ignore
     assert var == 'Wu_Ctx_Node_P.outC'
 
 
@@ -436,9 +440,11 @@ def test_kcgcontext_ut_global(ut_kcg_context):
     assert io == 'out'
     io = ip.get_generated_path('P::speed/')
     assert io == 'speed_P'
-    var = ip.get_in_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_in_context_var()  # type: ignore
     assert var == ''
-    var = ip.get_out_context_var()
+    # extended ip, cf. kcgcontext.py
+    var = ip.get_out_context_var()  # type: ignore
     assert var == ''
 
 

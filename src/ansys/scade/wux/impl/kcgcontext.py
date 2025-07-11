@@ -25,7 +25,7 @@
 from pathlib import Path
 
 from scade.code.suite.mapping.c import MappingFile
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 from scade.code.suite.wrapgen.c import InterfacePrinter
 from scade.code.suite.wrapgen.model import MappingHelpers
 from scade.model.project.stdproject import Configuration, Project
@@ -251,7 +251,7 @@ class WuxContext:
 
     def gen_sensors(self, f):
         """Generate the sensors definitions."""
-        assert wux.mf is not None
+        assert wux.mf is not None  # nosec B101  # addresses linter
         sensors = wux.mf.get_all_sensors()
         if not self.simulation and not self.user_sensors and sensors:
             writeln(f, 0, '/* sensors */')

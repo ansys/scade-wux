@@ -40,23 +40,22 @@ class ServiceProxy:
 
     def __init__(self, cls: type) -> None:
         services = cls.get_services()
-        assert len(services) == 1
         callbacks = {n: m for (n, m) in services[0][1:]}
-        self.init = callbacks.get('-OnInit')
-        self.generate = callbacks.get('-OnGenerate')
-        self.build = callbacks.get('-OnBuild')
+        self._init = callbacks.get('-OnInit')
+        self._generate = callbacks.get('-OnGenerate')
+        self._build = callbacks.get('-OnBuild')
 
     def init(self, target_dir: str, project: Project, configuration: Configuration):
         """Call the service's initialization function, if defined."""
-        return self.init(target_dir, project, configuration) if self.init else []
+        return self._init(target_dir, project, configuration) if self._init else []
 
     def generate(self, target_dir: str, project: Project, configuration: Configuration) -> bool:
         """Call the service's initialization function, if defined."""
-        return self.generate(target_dir, project, configuration) if self.generate else True
+        return self._generate(target_dir, project, configuration) if self._generate else True
 
     def build(self, target_dir: str, project: Project, configuration: Configuration) -> bool:
         """Call the service's initialization function, if defined."""
-        return self.build(target_dir, project, configuration) if self.build else True
+        return self._build(target_dir, project, configuration) if self._build else True
 
 
 def reset_test_env():
