@@ -238,20 +238,12 @@ class A661UAA:
         # -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" \
         # -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
         uc = '' if self.user_config == '' else ' -user_config "{0}"'.format(self.user_config)
-        command = (
-            '"{uua}" -sdy "{sdy}" -n "{conf}" -outdir "{dir}" '
-            '-k "{trace}" -o {base}{uc} -i "{hdr}" -encoding "ASCII" "{sgfx}"'.format(
-                uua=uua,
-                sdy=sdy,
-                conf=self.config_file,
-                dir=target_dir,
-                trace=trace,
-                base=self.ua_base_name,
-                uc=uc,
-                hdr=hdr,
-                sgfx=Path(self.a661_specs[0].pathname).as_posix(),
-            )
-        )
+        command = [
+            f'{uua}', '-sdy', f'{sdy}', '-n', f'{self.config_file}',
+            '-outdir', f'{target_dir}', '-k', f'{trace}', '-o',
+            f'{self.ua_base_name}{uc}', '-i', f'{hdr}', '-encoding',
+            'ASCII', f'{Path(self.a661_specs[0].pathname).as_posix()}',
+        ]
         print(command)
         cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
         if cp.stderr:
