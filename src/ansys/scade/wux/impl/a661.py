@@ -253,10 +253,10 @@ class A661UAA:
             f'{hdr}',
             '-encoding',
             'ASCII',
-            f'{Path(self.a661_specs[0].pathname).as_posix()}',
         ]
         if self.user_config:
             command.extend(['user-config', f'{self.user_config}'])
+        command.append(f'{Path(self.a661_specs[0].pathname).as_posix()}')
         print(command)
         cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
         if cp.stderr:
