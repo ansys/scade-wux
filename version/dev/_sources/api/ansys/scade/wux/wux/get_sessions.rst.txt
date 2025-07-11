@@ -1,0 +1,32 @@
+ansys.scade.wux.wux.get_sessions
+================================
+
+.. py:function:: ansys.scade.wux.wux.get_sessions() -> List[scade.model.suite.Session]
+
+   
+   Return the loaded SCADE models.
+
+   The nominal use case consists in calling SCADE Suite API's ``get_roots()``,
+   unless the list of sessions has already been initialized,
+   for unit testing for example.
+
+
+
+
+   :Returns:
+
+       :obj:`List`\[:obj:`Session`]
+           ..
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
