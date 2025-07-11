@@ -237,13 +237,26 @@ class A661UAA:
         # -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" \
         # -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" \
         # -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
-        uc = '' if self.user_config == '' else ' -user_config "{0}"'.format(self.user_config)
         command = [
-            f'{uua}', '-sdy', f'{sdy}', '-n', f'{self.config_file}',
-            '-outdir', f'{target_dir}', '-k', f'{trace}', '-o',
-            f'{self.ua_base_name}{uc}', '-i', f'{hdr}', '-encoding',
-            'ASCII', f'{Path(self.a661_specs[0].pathname).as_posix()}',
+            f'{uua}',
+            '-sdy',
+            f'{sdy}',
+            '-n',
+            f'{self.config_file}',
+            '-outdir',
+            f'{target_dir}',
+            '-k',
+            f'{trace}',
+            '-o',
+            f'{self.ua_base_name}',
+            '-i',
+            f'{hdr}',
+            '-encoding',
+            'ASCII',
+            f'{Path(self.a661_specs[0].pathname).as_posix()}',
         ]
+        if self.user_config:
+            command.extend(['user-config', f'{self.user_config}'])
         print(command)
         cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
         if cp.stderr:
