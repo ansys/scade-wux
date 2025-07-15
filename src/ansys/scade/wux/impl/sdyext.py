@@ -414,9 +414,9 @@ class SdyExt:
                         input_subelement,
                     )
             else:
-                m = re.search(r'([a-zA-Z_]+[a-zA-Z_0-9]*) : .*', input.type)
-                if m:
-                    field = m.group(1)
+                match_ = re.search(r'([a-zA-Z_]+[a-zA-Z_0-9]*) : .*', input.type)
+                if match_:
+                    field = match_.group(1)
                     input_c = 'kcg_assign(&{}_L_{}()->{}'.format(
                         input_spec.prefix, input.layer, field
                     )
