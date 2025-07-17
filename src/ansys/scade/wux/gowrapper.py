@@ -35,7 +35,7 @@ the ``wux`` module.
 from pathlib import Path
 
 from scade.code.suite.mapping.c import MappingFile
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 from scade.model.project.stdproject import Configuration, Project
 
 from ansys.scade.wux import __version__
