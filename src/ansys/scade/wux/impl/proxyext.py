@@ -25,7 +25,7 @@
 
 import os
 from pathlib import Path
-import subprocess  # nosec  # used to call SCADE Display command line tools
+import subprocess  # nosec B404  # used to call SCADE Display command line tools
 import sys
 from typing import List
 
@@ -156,7 +156,7 @@ class SdyProxyExt:
                             '-prefix',
                             prefix,
                         ]
-                        subprocess.call(cmd, stdout=lf, stderr=lf)  # nosec  # inputs checked
+                        subprocess.call(cmd, stdout=lf, stderr=lf)  # nosec B603  # inputs checked
                     if os.path.isfile(sdydll):
                         os.replace(sdydll, dll)
                         sctoc.add_generated_files('Graphical Panels', [Path(dll).name])

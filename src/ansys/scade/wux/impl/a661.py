@@ -28,7 +28,7 @@ Extension for embedding UAs in other wrappers.
 
 import os
 from pathlib import Path
-import subprocess  # nosec  # used to call uaadaptor.exe
+import subprocess  # nosec B404  # used to call uaadaptor.exe
 
 import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 
@@ -258,7 +258,7 @@ class A661UAA:
             command.extend(['user-config', f'{self.user_config}'])
         command.append(f'{Path(self.a661_specs[0].pathname).as_posix()}')
         print(command)
-        cp = subprocess.run(command, capture_output=True)  # nosec  # inputs checked
+        cp = subprocess.run(command, capture_output=True)  # nosec B603  # inputs checked
         if cp.stderr:
             print(cp.stderr.decode('utf8').replace('\r', ''))
         for line in cp.stdout.decode('utf8').replace('\r', '').split('\n'):
