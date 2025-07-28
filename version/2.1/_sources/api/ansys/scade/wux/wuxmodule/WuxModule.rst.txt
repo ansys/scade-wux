@@ -1,0 +1,103 @@
+
+
+
+
+
+
+:class:`WuxModule`
+==================
+
+.. py:class:: ansys.scade.wux.wuxmodule.WuxModule
+
+   
+   Implements the generation module interface for ``WUX2_MODULE``.
+
+   Refer to :ref:`usage/services:generation services` to for its usage.
+
+   Refer to the *Generation Module* section in chapter 3 of the *SCADE Python API Guide*
+   in the SCADE Suite documentation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+.. py:currentmodule:: WuxModule
+
+Overview
+--------
+
+.. tab-set::
+
+
+   .. tab-item:: Constructors
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~get_services`
+            - Declare all the provided utility services.
+
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.wux.wuxmodule import WuxModule
+
+
+
+Method detail
+-------------
+
+.. py:method:: get_services()
+   :classmethod:
+
+
+   
+   Declare all the provided utility services.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+
