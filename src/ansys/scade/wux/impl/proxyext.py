@@ -25,11 +25,11 @@
 
 import os
 from pathlib import Path
-import subprocess
+import subprocess  # nosec B404  # used to call SCADE Display command line tools
 import sys
 from typing import List
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 import scade.model.suite.displaycoupling as sdy
 
 from ansys.scade.apitools.info import get_scade_home
@@ -156,7 +156,7 @@ class SdyProxyExt:
                             '-prefix',
                             prefix,
                         ]
-                        subprocess.call(cmd, stdout=lf, stderr=lf)
+                        subprocess.call(cmd, stdout=lf, stderr=lf)  # nosec B603  # inputs checked
                     if os.path.isfile(sdydll):
                         os.replace(sdydll, dll)
                         sctoc.add_generated_files('Graphical Panels', [Path(dll).name])

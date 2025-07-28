@@ -28,8 +28,9 @@ Extension for embedding UAs in other wrappers.
 
 import os
 from pathlib import Path
+import subprocess  # nosec B404  # used to call uaadaptor.exe
 
-import scade.code.suite.sctoc as sctoc
+import scade.code.suite.sctoc as sctoc  # type: ignore  # CPython module defined dynamically
 
 from ansys.scade.apitools.info import get_scade_home
 from ansys.scade.wux import __version__
@@ -83,6 +84,7 @@ class A661UAA:
         """Generate the files."""
         print(self.banner)
 
+        assert wux.mf is not None  # nosec B101  # addresses linter
         roots = wux.mf.get_root_operators()
         self.root = roots[0]
 
@@ -154,7 +156,8 @@ class A661UAA:
             # assume only one root node
             ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
-            inctxvar = ip.get_in_context_var()
+            inctxvar = ip.get_in_context_var()  # type: ignore
+            assert self.root is not None  # nosec B101  # addresses linter
             addr = 'NULL' if len(self.root.get_inputs()) == 0 or inctxvar == '' else '&' + inctxvar
             map = {'ua': self.ua_base_name, 'addr': addr}
             code = (
@@ -179,7 +182,8 @@ class A661UAA:
             # assume only one root node
             ip = wux.ips[0]
             # extended ip, cf. kcgcontext.py
-            outctxvar = ip.get_out_context_var()
+            outctxvar = ip.get_out_context_var()  # type: ignore
+            assert self.root is not None  # nosec B101  # addresses linter
             addr = (
                 'NULL' if len(self.root.get_outputs()) == 0 or outctxvar == '' else '&' + outctxvar
             )
@@ -226,39 +230,44 @@ class A661UAA:
         uua = self.ansys_scade_dir / 'SCADE' / 'bin' / 'uaadaptor.exe'
         sdy = Path(wux.get_sdy_applications()[0].mapping_file.pathname).as_posix()
         trace = (Path(target_dir) / 'mapping.xml').as_posix()
+        assert self.root is not None  # nosec B101  # addresses linter
         hdr = self.root.get_name() + '.h'
+        # command line example:
         # "%SCADE_DIR%\SCADE\bin\uaadaptor.exe" -sdy FuelManagementUA.sdy \
         # -n "%SCADE_DIR%/SCADE Display/config/a661_description/a661.xml" -outdir "UA" \
         # -k "KCG/kcg_trace.xml" -o "FuelManagementUA_FMUA_UA_1" \
         # -i "FuelManagementUA_interface.h"  -encoding "ASCII"  "../DF/FuelManagement.sgfx"
-        uc = '' if self.user_config == '' else ' -user_config "{0}"'.format(self.user_config)
-        command = (
-            '"{uua}" -sdy "{sdy}" -n "{conf}" -outdir "{dir}" '
-            '-k "{trace}" -o {base}{uc} -i "{hdr}" -encoding "ASCII" "{sgfx}"'.format(
-                uua=uua,
-                sdy=sdy,
-                conf=self.config_file,
-                dir=target_dir,
-                trace=trace,
-                base=self.ua_base_name,
-                uc=uc,
-                hdr=hdr,
-                sgfx=Path(self.a661_specs[0].pathname).as_posix(),
-            )
-        )
+        command = [
+            f'{uua}',
+            '-sdy',
+            f'{sdy}',
+            '-n',
+            f'{self.config_file}',
+            '-outdir',
+            f'{target_dir}',
+            '-k',
+            f'{trace}',
+            '-o',
+            f'{self.ua_base_name}',
+            '-i',
+            f'{hdr}',
+            '-encoding',
+            'ASCII',
+        ]
+        if self.user_config:
+            command.extend(['user-config', f'{self.user_config}'])
+        command.append(f'{Path(self.a661_specs[0].pathname).as_posix()}')
         print(command)
-        f = os.popen(command)
-        stdout = f.read()
-        for line in stdout.split('\n'):
+        cp = subprocess.run(command, capture_output=True)  # nosec B603  # inputs checked
+        if cp.stderr:
+            print(cp.stderr.decode('utf8').replace('\r', ''))
+        for line in cp.stdout.decode('utf8').replace('\r', '').split('\n'):
             tokens = line.split(': ')
             if tokens[0] == 'I0006':
                 path = Path(tokens[-1])
                 if path.suffix == '.c':
                     self.sources.append(path)
                 sctoc.add_generated_files('UA Adaptor', [path.name])
-        if f.close() is not None:
-            # error
-            print(stdout)
 
     # ------------------------------------------------------------------------
     # build
