@@ -36,7 +36,7 @@ class Hooks:
     """
     Implements the *C/C++ Simulation Hools* (``WUX2_HOOKS``) extension.
 
-    Refer to :ref:`Wrapper <usage/hooks:Extension>` to for its usage.
+    Refer to :ref:`Wrapper <usage/extension:Extension>` to for its usage.
 
     Refer to *Generation Module* in the User Documentation,
     section *3/ Code Integration Toolbox/Declaring Code Generator Extension*.
