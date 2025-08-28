@@ -7,3 +7,4 @@ User guide
    services
    library
    wrapper
+   extension
