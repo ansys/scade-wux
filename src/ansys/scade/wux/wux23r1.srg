@@ -16,3 +16,15 @@
 "Version"="21200"
 "Expire"="23200"
 "Pathname"="%TARGETDIR%/GoWrapper.py"
+
+[Scade/Simulator/Extensions/WUX2_23R1_HOOKS]
+"Server1"="<no_settings>"
+"Kind"="Other"
+"Version"="21200"
+"Expire"="23200"
+"DisplayName"="C/C++ Simulation Hooks"
+
+[Scade/Generator/WUX2_23R1_HOOKS]
+"Version"="21200"
+"Expire"="23200"
+"Pathname"="%TARGETDIR%/Hooks.py"

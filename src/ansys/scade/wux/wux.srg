@@ -13,3 +13,13 @@
 [Scade/Generator/WUX2_GOWRP]
 "Version"="25100"
 "Class"="ansys.scade.wux.gowrapper.GoWrapper"
+
+[Scade/Simulator/Extensions/WUX2_HOOKS]
+"Server1"="<no_settings>"
+"Kind"="Other"
+"Version"="25100"
+"DisplayName"="C/C++ Simulation Hooks"
+
+[Scade/Generator/WUX2_HOOKS]
+"Version"="25100"
+"Class"="ansys.scade.wux.hooks.Hooks"
