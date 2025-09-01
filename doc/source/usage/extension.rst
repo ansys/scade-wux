@@ -15,8 +15,8 @@ generate integration code from the model.
 Usage
 -----
 
-Once the extension is activated, you can add your own simulation hooks:
-implemented as classes derived from ``CWuxSimulatorExtension``.
+Once the extension is activated, you can add your own simulation hooks
+implemented as classes derived from ``CWuxSimulatorExtension``:
 
 * Create a C++ file defining an instance of ``CWuxSimulatorExtension`` and
   override the required functions.
