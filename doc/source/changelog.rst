@@ -9,6 +9,76 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.2.0 <https://github.com/ansys/scade-wux/releases/tag/v2.2.0>`_ - September 02, 2025
+======================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Feat: Add a bundle extension for defining C/C++ simulation hooks.
+          - `#43 <https://github.com/ansys/scade-wux/pull/43>`_
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - fix: Limit flit version
+          - `#25 <https://github.com/ansys/scade-wux/pull/25>`_
+
+        * - fix: Add the SCADE Display proxy generated file to the list of integration files
+          - `#31 <https://github.com/ansys/scade-wux/pull/31>`_
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Fix: enhance robustness
+          - `#34 <https://github.com/ansys/scade-wux/pull/34>`_
+
+        * - Ci: bump ansys/actions from 8 to 10 in the actions group
+          - `#35 <https://github.com/ansys/scade-wux/pull/35>`_
+
+        * - Ci: bump the actions group with 2 updates
+          - `#36 <https://github.com/ansys/scade-wux/pull/36>`_, `#45 <https://github.com/ansys/scade-wux/pull/45>`_
+
+        * - Build(deps): bump the dependencies group with 8 updates
+          - `#37 <https://github.com/ansys/scade-wux/pull/37>`_
+
+        * - Docs: update ``contributors.md`` with the latest contributors
+          - `#38 <https://github.com/ansys/scade-wux/pull/38>`_
+
+        * - Docs: Update ``CONTRIBUTORS.md`` with the latest contributors
+          - `#39 <https://github.com/ansys/scade-wux/pull/39>`_
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - chore: update CHANGELOG for v2.1.0
+          - `#21 <https://github.com/ansys/scade-wux/pull/21>`_
+
+        * - chore: update CHANGELOG for v2.1.1
+          - `#24 <https://github.com/ansys/scade-wux/pull/24>`_
+
+        * - chore: update CHANGELOG for v2.1.3
+          - `#29 <https://github.com/ansys/scade-wux/pull/29>`_
+
+
 `2.1.3 <https://github.com/ansys/scade-wux/releases/tag/v2.1.3>`_ - April 30, 2025
 ==================================================================================
 
