@@ -45,6 +45,8 @@ SCADE Code Generator extensions. It contains:
 
 * A SCADE Code Generator extension, `Generic Integration`, that produces
   a standalone executable and schedules optional additional wrappers.
+* A SCADE Code Generator extension, `C/C++ Simulation Hooks`, that allows
+  hooking Simulator functions.
 * Utility SCADE Code Generator generation services that can be involved
   by wrappers.
 * A Python library for developing wrappers.
