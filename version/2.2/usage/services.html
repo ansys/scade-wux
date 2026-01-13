@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:site_name" content="PyAnsys" />
+    <title>Generation services &#8212; Ansys SCADE Wrapper Tools</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=ce7f2556" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=ce7f2556" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=b06a6580"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage/services';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://wux.scade.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '2.2';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Library" href="library.html" />
+    <link rel="prev" title="User guide" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2.2.0" />
+  <link rel="canonical" href="https://wux.scade.docs.pyansys.com/version/stable/usage/services.html" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="Ansys SCADE Wrapper Tools - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="Ansys SCADE Wrapper Tools - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../runtime/index.html">
+    Runtime interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contribute
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+    Release notes
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/scade-wux" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+    <div id="announcement_msg"></div>
+<script>
+  fetch("announcement.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(
+      (text) => (document.getElementById("announcement_msg").innerHTML = text),
+    )
+    .catch((error) => console.error(`Fetch problem: ${error.message}`));
+</script>
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../runtime/index.html">
+    Runtime interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/scade-wux" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Generation services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrapper.html">Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">User guide</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Generation services</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="generation-services">
+<h1>Generation services<a class="headerlink" href="#generation-services" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The class <a class="reference internal" href="../api/ansys/scade/wux/wuxmodule/WuxModule.html#ansys.scade.wux.wuxmodule.WuxModule" title="ansys.scade.wux.wuxmodule.WuxModule"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WuxModule</span></code></a> defines
+the <code class="docutils literal notranslate"><span class="pre">WUX2_MODULE</span></code> generation module. Its generation services are not visible
+to the end user; they must be explicitly requested by client wrappers.</p>
+<p>The module registers all the generation services included to the Code Generator.</p>
+<p>Ansys SCADE Wrapper Tools provide the following generation services,
+detailed in the next sections:</p>
+<ul>
+<li><p><a class="reference internal" href="#context"><span class="std std-ref">Context allocation for Scade root operators</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_CTX</span></code>):</p>
+<ul>
+<li><p>Instantiates <code class="docutils literal notranslate"><span class="pre">MappingFile</span></code>, <code class="docutils literal notranslate"><span class="pre">MappingHelper</span></code> and <code class="docutils literal notranslate"><span class="pre">InterfacePrinter</span></code>
+for the root operators.</p></li>
+<li><p>Generates the header/source files for declaring/defining SCADE generated code contexts.</p>
+<p><strong>Note</strong>: The current version is not expected to support options like
+<code class="docutils literal notranslate"><span class="pre">separate_io</span></code>, <code class="docutils literal notranslate"><span class="pre">global_root_context</span></code> or root functions returning a scalar value.</p>
+</li>
+<li><p>Generates the <code class="docutils literal notranslate"><span class="pre">Init</span></code>, <code class="docutils literal notranslate"><span class="pre">Reset</span></code>, and <code class="docutils literal notranslate"><span class="pre">Cycle</span></code> functions that call the
+corresponding functions for all the root operators.</p></li>
+<li><p>Generates a <code class="docutils literal notranslate"><span class="pre">GetPeriod</span></code> function for accessing the period specified in
+the code integration settings.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#display-extension"><span class="std std-ref">SCADE Suite-Display Extension</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_SDY</span></code>):</p>
+<ul class="simple">
+<li><p>Generates the glue code for connecting the generated code from the graphical panels and the SCADE models.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#display-proxy-extension"><span class="std std-ref">SCADE Display Proxy Extension</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_SDY_PROXY</span></code>):</p>
+<ul class="simple">
+<li><p>Builds the SCADE Display and SCADE Rapid Prototyper DLLs.</p></li>
+<li><p>Generates proxies for loading the DLLs (avoids link editing and compiler issues).</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ua-adaptor-extension"><span class="std std-ref">SCADE Suite UA Adaptor Extension</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_UAA</span></code>):</p>
+<ul class="simple">
+<li><p>Runs UA Adaptor for the (only one) root operator.</p></li>
+<li><p>Generates the glue code for sending and receiving A661 messages.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#simulator-extension"><span class="std std-ref">Extension for SCADE Simulator’s extensions</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_SIMU_EXT</span></code>):</p>
+<ul class="simple">
+<li><p>Compatible with graphical panels.</p></li>
+<li><p>Avoids defining <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> for simulation start and stop hooks.</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dllmain-extension"><span class="std std-ref">Extension for DllMain services</span></a> (<code class="docutils literal notranslate"><span class="pre">WUX2_DLL_EXT</span></code>):</p>
+<ul class="simple">
+<li><p>Allows several extensions to register to DllMain’s hooks.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="context">
+<h2>Context<a class="headerlink" href="#context" title="Link to this heading">#</a></h2>
+<p>This service (<code class="docutils literal notranslate"><span class="pre">WUX2_CTX</span></code>) manages the integration of a root operator.
+It generates the following files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wuxctx&lt;project</span> <span class="pre">name&gt;.h</span></code></p>
+<ul>
+<li><p>Declaration of the contexts for the root operators.</p></li>
+<li><p>Reference to <cite>&lt;project name&gt;_interface.h</cite> instead of declaring
+new contexts when the current Target is the SCADE Simulator.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wuxctx&lt;project</span> <span class="pre">name&gt;.c</span></code></p>
+<ul>
+<li><p>Allocation of the contexts when the current Target is not the
+SCADE Simulator, otherwise nothing.</p></li>
+<li><p>Generation of the functions <a class="reference internal" href="../runtime/ctxext.html#_CPPv47WuxInitv" title="WuxInit"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">WuxInit()</span></code></a>, <a class="reference internal" href="../runtime/ctxext.html#_CPPv48WuxResetv" title="WuxReset"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">WuxReset()</span></code></a> and
+<a class="reference internal" href="../runtime/ctxext.html#_CPPv48WuxCyclev" title="WuxCycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">WuxCycle()</span></code></a>.
+These functions call the related code for each root operator, when the
+current Target is not the SCADE Simulator, otherwise they are empty.</p></li>
+<li><p>Generation of the <a class="reference internal" href="../runtime/ctxext.html#_CPPv412WuxGetPeriodv" title="WuxGetPeriod"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">WuxGetPeriod()</span></code></a> function that returns the
+period declared in the Code Integration settings.
+The returned value is in seconds.</p></li>
+</ul>
+</li>
+</ul>
+<p>All the generated functions are declared in the <a class="reference internal" href="../runtime/ctxext.html"><span class="doc">WuxCtxExt.h</span></a>
+resource file and its containing directory is added to the Code Generator.</p>
+<p>This generation service initializes the <a class="reference internal" href="../api/ansys/scade/wux/wux/index.html#wux.ips" title="wux.ips"><code class="xref py py-data docutils literal notranslate"><span class="pre">ips</span></code></a>,
+<a class="reference internal" href="../api/ansys/scade/wux/wux/index.html#wux.mf" title="wux.mf"><code class="xref py py-data docutils literal notranslate"><span class="pre">mf</span></code></a> and <a class="reference internal" href="../api/ansys/scade/wux/wux/index.html#wux.mh" title="wux.mh"><code class="xref py py-data docutils literal notranslate"><span class="pre">mh</span></code></a> global variables of the
+<a class="reference internal" href="../api/ansys/scade/wux/wux/index.html#module-ansys.scade.wux.wux" title="ansys.scade.wux.wux"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wux</span></code></a> module. Note that the
+<a class="reference internal" href="../api/ansys/scade/wux/wux/index.html#wux.ips" title="wux.ips"><code class="xref py py-data docutils literal notranslate"><span class="pre">ips</span></code></a> collection contains instances of a class derived from
+<code class="docutils literal notranslate"><span class="pre">InterfacePrinter</span></code>, that considers the SCADE Simulator’s context when the
+code generation target is <code class="docutils literal notranslate"><span class="pre">Simulator</span></code>.</p>
+</section>
+<section id="display-extension">
+<h2>Display extension<a class="headerlink" href="#display-extension" title="Link to this heading">#</a></h2>
+<p>This service (<code class="docutils literal notranslate"><span class="pre">WUX2_SDY</span></code>) is responsible for generating the glue code
+between SCADE Suite and SCADE Display.</p>
+<p>It generates the following file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;project</span> <span class="pre">name&gt;_sydext.c</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxSdyInit()</span></code>: Initializes the displays.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxSdyDraw()</span></code>: Draws the displays.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxSdySetInputs()</span></code>: Copies the mapped values from the contexts to the layers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxSdyGetOutputs()</span></code>: Copies the mapped values from the layers to the contexts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">WuxSdyCancelled()</span></code>: Returns <code class="docutils literal notranslate"><span class="pre">1</span></code> if one of the display is closed.</p></li>
+</ul>
+</li>
+</ul>
+<p>The generated files are declared to the Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functions are always generated to avoid link errors, but are
+empty if no graphical panel is referenced in the configuration.</p>
+</div>
+<p>All the generated functions are declared in <a class="reference internal" href="../runtime/sdyext.html"><span class="doc">WuxSdyExt.h</span></a>,
+and the containing directory is declared to the Code Generator.</p>
+</section>
+<section id="display-proxy-extension">
+<h2>Display proxy extension<a class="headerlink" href="#display-proxy-extension" title="Link to this heading">#</a></h2>
+<p>This service (<code class="docutils literal notranslate"><span class="pre">WUX2_SDY_PROXY</span></code>) is responsible for building the DLLs for each
+graphical panel referenced in the configuration, and for providing functions to load
+the DLLs at runtime.</p>
+<p>It generates the following file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;project</span> <span class="pre">name&gt;_sydextprx.cpp</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">WuxLoadSdyDlls(/*HINSTANCE*/</span> <span class="pre">void*</span> <span class="pre">hinstDll)</span></code>: Loads all the displays.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">WuxUnloadSdyDlls(/*HINSTANCE*/</span> <span class="pre">void*</span> <span class="pre">hinstDll)</span></code>: Unoads all the displays.</p></li>
+</ul>
+</li>
+</ul>
+<p>The generated files are declared to the Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functions are always generated to avoid link errors, but are
+empty if no graphical panel is referenced in the configuration.</p>
+</div>
+<p>All the generated functions are declared in <a class="reference internal" href="../runtime/sdyproxy.html"><span class="doc">WuxSdyProxy.h</span></a>,
+and the containing directory is declared to the Code Generator.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lib/WuxSdyProxy.cpp</span></code> resource file is required and is declared to the
+Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+</section>
+<section id="ua-adaptor-extension">
+<h2>UA Adaptor extension<a class="headerlink" href="#ua-adaptor-extension" title="Link to this heading">#</a></h2>
+<p>This service (<code class="docutils literal notranslate"><span class="pre">WUX2_UAA</span></code>) is responsible for generating the definition files
+(DF) files for each A661 panel referenced in the configuration, for running
+SCADE UA Adaptor for the root operators, and for providing functions to
+send/receive A661 messages at runtime.</p>
+<p>It generates the following functions in <code class="docutils literal notranslate"><span class="pre">wuxuaa&lt;project</span> <span class="pre">name&gt;.c</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">WuxA661ConnectServer()</span></code>: Connects to the A661 server,
+and return 0 on success.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">WuxA661DisconnectServer()</span></code>: Disconnects from the A661 server,
+and return 0 on success.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxA661ReceiveMessages()</span></code>: Receives the A661 messages,
+and copies the mapped values to the contexts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">WuxA661SendMessages()</span></code>: Gets the mapped values form the contexts,
+and sends all the A661 messages.</p></li>
+</ul>
+<p>The generated file as well as the files generated by SCADE UA Adaptor are
+declared to the Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functions are always generated to avoid link errors,
+but are empty if no UA is referenced in the configuration.</p>
+</div>
+<p>All the generated functions are declared in <a class="reference internal" href="../runtime/a661ext.html"><span class="doc">WuxA661Ext.h</span></a>,
+and the containing directory is declared to the Code Generator.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lib/A661Connect.c</span></code> resource file is required and is declared to the
+Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+</section>
+<section id="simulator-extension">
+<h2>Simulator extension<a class="headerlink" href="#simulator-extension" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This generation service was initially designed to allow the
+usage of SCADE Simulator with one or more wrappers together with
+SCADE graphical panels.
+It was then extended to provide a generic way for integrating extensions
+with the Wrapper <a class="reference internal" href="wrapper.html"><span class="doc">Generic Integration</span></a>.
+It was not renamed for compatibility reasons.
+The following text describes the connection to the SCADE Simulator but this
+applies to any host.</p>
+</div>
+<p>This generation service (<code class="docutils literal notranslate"><span class="pre">WUX2_SIMU_EXT</span></code>) does not generate new files, but
+provides a workaround for a limitation of the SCADE Simulator interface.
+Indeed, the SCADE Simulator allows hooks thanks to functions like
+<code class="docutils literal notranslate"><span class="pre">BeforeSimInit</span></code>, <code class="docutils literal notranslate"><span class="pre">BeforeSimStep</span></code>, or <code class="docutils literal notranslate"><span class="pre">AfterSimStep</span></code>, when the
+preprocessor variable <code class="docutils literal notranslate"><span class="pre">EXTENDED_SIM</span></code> is defined.
+This allows wrapping code, such as communications with external
+environments, to be executed in the SCADE Simulator without requiring imported
+operators for the I/Os.</p>
+<p>Unfortunately, if the wrapping code is used together with graphical panels,
+the existing hook mechanism is not enough: two different pieces of code define
+the same functions, leading to link errors.</p>
+<p>The purpose of this generation service is to patch the file
+<code class="docutils literal notranslate"><span class="pre">&lt;project</span> <span class="pre">name&gt;_interface.c</span></code> generated by the SCADE Simulator Wrapper
+so that:</p>
+<ul class="simple">
+<li><p>the file includes <a class="reference internal" href="../runtime/simuext.html"><span class="doc">WuxSimuExt.h</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTENDED_SIM</span></code> is always defined in this file</p></li>
+<li><p>all the calls to a <code class="docutils literal notranslate"><span class="pre">Xxx</span></code> hook function are replaced by calls to a
+<code class="docutils literal notranslate"><span class="pre">WuxXxx</span></code> function</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">WuxXxx</span></code> functions are declared in <a class="reference internal" href="../runtime/simuext.html"><span class="doc">WuxSimuExt.h</span></a> and the
+containing directory is declared to the Code Generator. They are implemented
+in the <code class="docutils literal notranslate"><span class="pre">lib/WuxSimuExt.cpp</span></code> resource file that is required, and declared to
+the Code Generator with the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>. The implementation consists in
+calling the function for each registered extension.</p>
+<p>The wrappers that want to hook the SCADE Simulator, or to be compatible with
+the <a class="reference internal" href="wrapper.html"><span class="doc">Generic Integration</span></a> wrapper, must create a
+static instance of a class deriving from <a class="reference internal" href="../runtime/simuext.html#_CPPv422CWuxSimulatorExtension" title="CWuxSimulatorExtension"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CWuxSimulatorExtension</span></code></a>.</p>
+<ul class="simple">
+<li><p>The constructor automatically registers the instance to the list of hooks.
+All the functions have an empty implementation by default.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">EXTENDED_SIM</span></code> is defined, the source defines a specific instance of
+<a class="reference internal" href="../runtime/simuext.html#_CPPv422CWuxSimulatorExtension" title="CWuxSimulatorExtension"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CWuxSimulatorExtension</span></code></a> that calls the former global hooks to ensure the
+compatibility with the existing services, especially the simulation with
+graphical panels.</p></li>
+</ul>
+<p>The example hereafter shows the usage of this feature by some wrapper:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MySimulatorExtension</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">CWuxSimulatorExtension</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">MySimulatorExtension</span><span class="p">()</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">m_participant</span><span class="p">(</span><span class="nb">NULL</span><span class="p">),</span><span class="w"> </span><span class="n">m_bInitialized</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">BeforeSimInit</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">m_bInitialized</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">m_participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateParticipant</span><span class="p">();</span>
+<span class="w">            </span><span class="n">m_bInitialized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">BeforeSimStep</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_participant</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_ReadData</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">AfterSimStep</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_participant</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_WriteData</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ExtendedSimStop</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DeleteParticipant</span><span class="p">(</span><span class="n">m_participant</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Participant</span><span class="o">*</span><span class="w"> </span><span class="n">m_participant</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">m_bInitialized</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">mySimulatorExtension</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">_ReadData()</span></code> function retrieves data from the environment and copies
+the values to the context of the root operators.
+The <code class="docutils literal notranslate"><span class="pre">_WriteData()</span></code> function does the reverse.</p></li>
+<li><p>The initialization/termination of the external environment has no more to be
+done in <code class="docutils literal notranslate"><span class="pre">DllMain</span></code>, which often leads to thread issues.</p></li>
+</ul>
+<p>This design allows using graphical panels in the Simulation. Or not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All target wrappers embedding these extensions must define the preprocessor
+directive <code class="docutils literal notranslate"><span class="pre">WUX_STANDALONE</span></code>. In other words, the macro <code class="docutils literal notranslate"><span class="pre">WUX_STANDALONE</span></code>
+is not defined if and only if the extension is used in the context of the
+SCADE Simulator.</p>
+</div>
+</section>
+<section id="dllmain-extension">
+<h2>DllMain extension<a class="headerlink" href="#dllmain-extension" title="Link to this heading">#</a></h2>
+<p>This generation service (<code class="docutils literal notranslate"><span class="pre">WUX2_DLL_EXT</span></code>) does not generate new files,
+but allows several services to subscribe to <code class="docutils literal notranslate"><span class="pre">DllMain</span></code>. It is used by
+generation services that produce a DLL instead of a standalone executable.</p>
+<p>A wrapper which needs an access to <code class="docutils literal notranslate"><span class="pre">DllMain</span></code> must include
+<a class="reference internal" href="../runtime/dllext.html"><span class="doc">WuxDllExt.h</span></a> and define a static instance of a class deriving
+from <a class="reference internal" href="../runtime/dllext.html#_CPPv415CWuxDllInstance" title="CWuxDllInstance"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CWuxDllInstance</span></code></a>.</p>
+<ul class="simple">
+<li><p>The constructor automatically registers the instance to the list of hooks.</p></li>
+<li><p>All the functions have an empty implementation by default.</p></li>
+</ul>
+<p>The directory containing <a class="reference internal" href="../runtime/dllext.html"><span class="doc">WuxDllExt.h</span></a> is declared to the
+Code Generator.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lib/WuxDllExt.cpp</span></code> resource file is declared to the Code Generator with
+the tag <code class="docutils literal notranslate"><span class="pre">WUX</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context">Context</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-extension">Display extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-proxy-extension">Display proxy extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ua-adaptor-extension">UA Adaptor extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-extension">Simulator extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dllmain-extension">DllMain extension</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+<!-- If there is no fix edit button function, use the PyData edit-this-button-->
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/usage/services.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"keys": ["title", "text", "objectID"], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2025 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.5.3. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

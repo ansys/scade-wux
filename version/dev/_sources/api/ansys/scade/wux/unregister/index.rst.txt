@@ -1,0 +1,109 @@
+
+
+
+
+
+
+The ``unregister.py`` module
+============================
+
+.. py:module:: ansys.scade.wux.unregister
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: unregister
+.. tab-set::
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.unregister.main`
+            - Implement the ``ansys.scade.wux.unregister`` packages's project script.
+
+
+          * - :py:obj:`~ansys.scade.wux.unregister.unregister`
+            - Implement the ``ansys.scade.registry/unregister`` entry point.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~code`
+            - 
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> main</api/ansys/scade/wux/unregister/main>
+    <span class="nf nf-md-function_variant"></span> unregister</api/ansys/scade/wux/unregister/unregister>
+
+
+
+
+
+
+Description
+-----------
+
+Unregisters the Code Generator extension registry files (SRG).
+
+Refer to the :ref:`installation <getting-started/index:install in user mode>`
+steps for more information.
+
+It addresses SCADE 2024 R2 and prior releases.
+SCADE 2025 R1 and later use the package's
+``ansys.scade.registry`` entry point.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: code
+   :value: 0
+
+
+
+
