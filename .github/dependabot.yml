@@ -3,7 +3,9 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: monthly
+      interval: "monthly"
+    cooldown:
+      default-days: 7
     labels:
       - "maintenance"
       - "dependencies"
@@ -20,6 +22,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     labels:
       - "maintenance"
     assignees:
