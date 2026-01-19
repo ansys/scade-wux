@@ -3,6 +3,7 @@
 from datetime import datetime
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 
@@ -157,17 +158,14 @@ text = template_path.read_text(encoding='utf-8').replace('{{repository}}', str(R
 output_path.write_text(text, encoding='utf-8')
 
 # Run Doxygen with the patched configuration file
-try:
-    subprocess.call(['doxygen', str(output_path)])
-except FileNotFoundError as e:
-    if sys.platform.startswith('linux'):
-        # Install doxygen on linux
-        subprocess.call(['sudo', 'apt', 'install', 'doxygen'])
-        subprocess.call(['doxygen', str(output_path)])
-    else:
-        print('can not execute doxygen')
-        print(str(e))
-        exit(1)
+if shutil.which('doxygen') is None:
+    if not sys.platform.startswith('linux'):
+        raise RuntimeError('doxygen cannot be executed')
+
+    subprocess.run(['sudo', 'apt', 'update'], check=True)
+    subprocess.run(['sudo', 'apt', 'install', '-y', 'doxygen'], check=True)
+
+subprocess.run(['doxygen', str(output_path)], check=True)
 
 breathe_projects = {
     'interfaces': f'{DOXYGEN_DIR}/xml/',
