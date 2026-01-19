@@ -3,7 +3,9 @@
 from datetime import datetime
 import os
 from pathlib import Path
+import shutil
 import subprocess
+import sys
 
 from ansys_sphinx_theme import (
     ansys_favicon,
@@ -156,7 +158,14 @@ text = template_path.read_text(encoding='utf-8').replace('{{repository}}', str(R
 output_path.write_text(text, encoding='utf-8')
 
 # Run Doxygen with the patched configuration file
-subprocess.call(['doxygen', str(output_path)])
+if shutil.which('doxygen') is None:
+    if not sys.platform.startswith('linux'):
+        raise RuntimeError('doxygen cannot be executed')
+
+    subprocess.run(['sudo', 'apt', 'update'], check=True)
+    subprocess.run(['sudo', 'apt', 'install', '-y', 'doxygen'], check=True)
+
+subprocess.run(['doxygen', str(output_path)], check=True)
 
 breathe_projects = {
     'interfaces': f'{DOXYGEN_DIR}/xml/',
