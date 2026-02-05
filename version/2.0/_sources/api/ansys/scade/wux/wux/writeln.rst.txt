@@ -1,0 +1,36 @@
+ansys.scade.wux.wux.writeln
+===========================
+
+.. py:function:: ansys.scade.wux.wux.writeln(f, num_tabs = 0, text = '')
+
+   
+   Write a text with a level of indentation.
+
+   The function writes four (4) spaces per level of indentation.
+
+   :Parameters:
+
+       **f** : :obj:`TextIOBase`
+           Output file to write to.
+
+       **num_tabs** : :class:`python:int`
+           Level of indentation.
+
+       **text** : :class:`python:str`
+           Input text.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

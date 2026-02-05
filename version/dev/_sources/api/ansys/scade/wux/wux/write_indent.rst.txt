@@ -1,0 +1,37 @@
+ansys.scade.wux.wux.write_indent
+================================
+
+.. py:function:: ansys.scade.wux.wux.write_indent(f: io.TextIOBase, tab: str, text: str)
+
+   
+   Write a multi-lined text with an indentation.
+
+   The function splits the test into lines and writes each line
+   with the prefix ``tab``.
+
+   :Parameters:
+
+       **f** : :obj:`TextIOBase`
+           Output file to write to.
+
+       **tab** : :class:`python:str`
+           Prefix.
+
+       **text** : :class:`python:str`
+           Input text.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,25 @@
+ansys.scade.wux.unregister.main
+===============================
+
+.. py:function:: ansys.scade.wux.unregister.main()
+
+   
+   Implement the ``ansys.scade.wux.unregister`` packages's project script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,83 @@
+
+
+
+
+
+
+The ``wuxmodule.py`` module
+===========================
+
+.. py:module:: ansys.scade.wux.wuxmodule
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: wuxmodule
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.wuxmodule.WuxModule`
+            - Implements the generation module interface for ``WUX2_MODULE``.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> WuxModule</api/ansys/scade/wux/wuxmodule/WuxModule>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+SCADE Code Generation Module for utility SCADE Code Generation Services.
+
+These :ref:`services <usage/services:generation services>` can be included
+on demand by SCADE Code Generator extensions: target, adaptor or extension.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+

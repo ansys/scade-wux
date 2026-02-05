@@ -1,0 +1,33 @@
+ansys.scade.wux.wux.add_includes
+================================
+
+.. py:function:: ansys.scade.wux.wux.add_includes(paths)
+
+   
+   Request the Code Generator to add include directories directives to the Makefile.
+
+   This function may be called by different generation services.
+   It caches the added include directories so that they are not added twice to the makefile.
+
+   Refer to ``add_include_files`` in the User Documentation, section *Adding Make Directives*.
+
+   :Parameters:
+
+       **paths** : :obj:`List`\[:obj:`Path`]
+           Paths of the include directories to be added to the makefile.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,85 @@
+
+
+
+
+
+
+The ``hooks.py`` module
+=======================
+
+.. py:module:: ansys.scade.wux.hooks
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: hooks
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.hooks.Hooks`
+            - Implements the *C/C++ Simulation Hooks* (``WUX2_HOOKS``) extension.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> Hooks</api/ansys/scade/wux/hooks/Hooks>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Generic extension for defining Simulation C/C++ hooks.
+
+* This activates WUX2_CTX and WUX2_SIMU_EXT.
+* It does not have any settings and generates no code.
+* It is up to the user to add the hooks implementation files
+  to the SCADE Suite project.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+

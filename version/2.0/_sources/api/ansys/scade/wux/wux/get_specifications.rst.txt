@@ -1,0 +1,37 @@
+ansys.scade.wux.wux.get_specifications
+======================================
+
+.. py:function:: ansys.scade.wux.wux.get_specifications(project, configuration)
+
+   
+   Return the list of graphical panel specifications selected for the input configuration.
+
+   This function adds a new ``prefix`` attribute to the specifications.
+
+   :Parameters:
+
+       **project** : :obj:`Project`
+           Input project.
+
+       **configuration** : :obj:`Configuration`
+           Input configuration.
+
+
+
+   :Returns:
+
+       :obj:`List`\[:obj:`Specification`]
+           ..
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,1367 @@
+[
+    {
+        "objectID": "api/ansys/scade/wux/wux/reset",
+        "href": "api/ansys/scade/wux/wux/reset.html#ansysscadewuxwuxreset",
+        "title": "ansys.scade.wux.wux.reset",
+        "section": "ansys.scade.wux.wux.reset",
+        "text": "Reset the global module’s global variables.\nUsed for unit testing.\nansys.scade.wux.wux.reset"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/reset",
+        "href": "api/ansys/scade/wux/wux/reset.html#ansys.scade.wux.wux.reset",
+        "title": "ansys.scade.wux.wux.reset > ansys.scade.wux.wux.reset > reset",
+        "section": "ansys.scade.wux.wux.reset > reset",
+        "text": "ansys.scade.wux.wux.reset()\n\nReset the global module’s global variables.\n\nUsed for unit testing.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_includes",
+        "href": "api/ansys/scade/wux/wux/add_includes.html#ansysscadewuxwuxadd_includes",
+        "title": "ansys.scade.wux.wux.add_includes",
+        "section": "ansys.scade.wux.wux.add_includes",
+        "text": "Request the Code Generator to add include directories directives to the Makefile.\nThis function may be called by different generation services.\nIt caches the added include directories so that they are not added twice to the makefile.\nRefer to add_include_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\nPaths of the include directories to be added to the makefile.\nansys.scade.wux.wux.add_includes\nadd_include_files\nList\nPath"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_includes",
+        "href": "api/ansys/scade/wux/wux/add_includes.html#ansys.scade.wux.wux.add_includes",
+        "title": "ansys.scade.wux.wux.add_includes > ansys.scade.wux.wux.add_includes > add_includes",
+        "section": "ansys.scade.wux.wux.add_includes > add_includes",
+        "text": "ansys.scade.wux.wux.add_includes(paths: List[pathlib.Path])\n\nRequest the Code Generator to add include directories directives to the Makefile.\n\nThis function may be called by different generation services.\nIt caches the added include directories so that they are not added twice to the makefile.\n\nRefer to add_include_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\n\nParameters\n\npaths\n\nList[Path]\n\nPaths of the include directories to be added to the makefile.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/get_srg_name",
+        "href": "api/ansys/scade/wux/get_srg_name.html#ansysscadewuxget_srg_name",
+        "title": "ansys.scade.wux.get_srg_name",
+        "section": "ansys.scade.wux.get_srg_name",
+        "text": "Return the name of the registration file for Ansys SCADE IDE.\nIt addresses SCADE 2024 R1 and prior releases.\nSCADE 2024 R2 and later use the package’s\nansys.scade.registry entry point.\nansys.scade.wux.get_srg_name\nansys.scade.registry"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/get_srg_name",
+        "href": "api/ansys/scade/wux/get_srg_name.html#ansys.scade.wux.get_srg_name",
+        "title": "ansys.scade.wux.get_srg_name > ansys.scade.wux.get_srg_name > get_srg_name",
+        "section": "ansys.scade.wux.get_srg_name > get_srg_name",
+        "text": "ansys.scade.wux.get_srg_name() -> str\n\nReturn the name of the registration file for Ansys SCADE IDE.\n\nIt addresses SCADE 2024 R1 and prior releases.\nSCADE 2024 R2 and later use the package’s\nansys.scade.registry entry point.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/set_sdy_applications",
+        "href": "api/ansys/scade/wux/wux/set_sdy_applications.html#ansysscadewuxwuxset_sdy_applications",
+        "title": "ansys.scade.wux.wux.set_sdy_applications",
+        "section": "ansys.scade.wux.wux.set_sdy_applications",
+        "text": "Set the list of loaded SCADE Display Coupling applications.\nThis function is present only for unit testing, where SCADE Display Coupling API’s\nget_roots() cannot be used.\nList of loaded SCADE Display Coupling models.\nansys.scade.wux.wux.set_sdy_applications\nget_roots()\nList\nSdyApplication"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/set_sdy_applications",
+        "href": "api/ansys/scade/wux/wux/set_sdy_applications.html#ansys.scade.wux.wux.set_sdy_applications",
+        "title": "ansys.scade.wux.wux.set_sdy_applications > ansys.scade.wux.wux.set_sdy_applications > set_sdy_applications",
+        "section": "ansys.scade.wux.wux.set_sdy_applications > set_sdy_applications",
+        "text": "ansys.scade.wux.wux.set_sdy_applications(sdy_applications: List[scade.model.suite.displaycoupling.SdyApplication])\n\nSet the list of loaded SCADE Display Coupling applications.\n\nThis function is present only for unit testing, where SCADE Display Coupling API’s\nget_roots() cannot be used.\n\nParameters\n\nsdy_applications\n\nList[SdyApplication]\n\nList of loaded SCADE Display Coupling models.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/write_indent",
+        "href": "api/ansys/scade/wux/wux/write_indent.html#ansysscadewuxwuxwrite_indent",
+        "title": "ansys.scade.wux.wux.write_indent",
+        "section": "ansys.scade.wux.wux.write_indent",
+        "text": "Write a multi-lined text with an indentation.\nThe function splits the test into lines and writes each line\nwith the prefix tab.\nOutput file to write to.\nPrefix.\nInput text.\nansys.scade.wux.wux.write_indent\ntab\nTextIOBase\npython:str\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/write_indent",
+        "href": "api/ansys/scade/wux/wux/write_indent.html#ansys.scade.wux.wux.write_indent",
+        "title": "ansys.scade.wux.wux.write_indent > ansys.scade.wux.wux.write_indent > write_indent",
+        "section": "ansys.scade.wux.wux.write_indent > write_indent",
+        "text": "ansys.scade.wux.wux.write_indent(f: io.TextIOBase, tab: str, text: str)\n\nWrite a multi-lined text with an indentation.\n\nThe function splits the test into lines and writes each line\nwith the prefix tab.\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\ntab\n\npython:str\n\nPrefix.\n\ntext\n\npython:str\n\nInput text.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_sessions",
+        "href": "api/ansys/scade/wux/wux/get_sessions.html#ansysscadewuxwuxget_sessions",
+        "title": "ansys.scade.wux.wux.get_sessions",
+        "section": "ansys.scade.wux.wux.get_sessions",
+        "text": "Return the loaded SCADE models.\nThe nominal use case consists in calling SCADE Suite API’s get_roots(),\nunless the list of sessions has already been initialized,\nfor unit testing for example.\nansys.scade.wux.wux.get_sessions\nget_roots()\nList\nSession"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_sessions",
+        "href": "api/ansys/scade/wux/wux/get_sessions.html#ansys.scade.wux.wux.get_sessions",
+        "title": "ansys.scade.wux.wux.get_sessions > ansys.scade.wux.wux.get_sessions > get_sessions",
+        "section": "ansys.scade.wux.wux.get_sessions > get_sessions",
+        "text": "ansys.scade.wux.wux.get_sessions() -> List[scade.model.suite.Session]\n\nReturn the loaded SCADE models.\n\nThe nominal use case consists in calling SCADE Suite API’s get_roots(),\nunless the list of sessions has already been initialized,\nfor unit testing for example.\n\nReturns\n\nList[Session]\n\n\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/main",
+        "href": "api/ansys/scade/wux/unregister/main.html#ansysscadewuxunregistermain",
+        "title": "ansys.scade.wux.unregister.main",
+        "section": "ansys.scade.wux.unregister.main",
+        "text": "Implement the ansys.scade.wux.unregister packages’s project script.\nansys.scade.wux.unregister.main\nansys.scade.wux.unregister"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/main",
+        "href": "api/ansys/scade/wux/unregister/main.html#ansys.scade.wux.unregister.main",
+        "title": "ansys.scade.wux.unregister.main > ansys.scade.wux.unregister.main > main",
+        "section": "ansys.scade.wux.unregister.main > main",
+        "text": "ansys.scade.wux.unregister.main()\n\nImplement the ansys.scade.wux.unregister packages’s project script.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/index",
+        "href": "api/index.html#api-reference",
+        "title": "API reference",
+        "section": "API reference",
+        "text": "This section describes ansys-scade-wux endpoints, their capabilities, and how\nto interact with them programmatically.\nAPI reference"
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#wuxsimuexth",
+        "title": "WuxSimuExt.h",
+        "section": "WuxSimuExt.h",
+        "text": "Interfaces for standalone executables or simulation DLL extensions. \n“Information” level for WuxLogf \n“Warning” level for WuxLogf \n“Error” level for WuxLogf \nLog a message. \nThe message is logged to the standard output, or to the Simulator tab of the output window when the target is the SCADE Simulator.\nnLevel – SIM_INFO, SIM_WARNING or SIM_ERROR \npszFormat – Format control \n... – Optional arguments \nReturn the number of registered extensions. \nint \nReturn the array of the registered extensions. \nThe number of elements is provided by WuxGetExtensionsCount. \nCWuxSimulatorExtension** \nBase class for extending a standalone executable or a SCADE simulation DLL. \nThis class provides two interfaces:\nCallbacks for the integrating application, for example the SCADE Simulator or the Generic Integration wrapper’s standalone executable.\n\nExtended callbacks for integration applications other than the SCADE Simulator. \nCallbacks for the integrating application, for example the SCADE Simulator or the Generic Integration wrapper’s standalone executable.\nExtended callbacks for integration applications other than the SCADE Simulator. \nConstruct the instance and registers it. \nUnregister the instance. \nProcess the notification BeforeSimInit. \nThis notification is sent before the initialization of the generated code, either from SCADE Suite or from SCADE Display.\nThe default implementation is empty. \nProcess the notification AfterSimInit. \nThis notification is sent after the initialization of the generated code, either from SCADE Suite or from SCADE Display.\nThe default implementation is empty. \nProcess the notification BeforeSimStep. \nThis notification is sent before the call to the cyclic function of the root operators.\nThe default implementation is empty. \nProcess the notification AfterSimStep. \nThis notification is sent after the call to the cyclic function of the root operators.\nThe default implementation is empty. \nProcess the notification ExtendedSimStop. \nThis notification is sent when the main loop exits.\nThe default implementation is empty. \nRetrieve additional dump data. \nThis function is called by the SCADE Simulator and its purpose is unclear.\nThe default implementation is empty. \nRestore additional dump data. \nThis function is called by the SCADE Simulator and its purpose is unclear.\nThe default implementation is empty. \nReturn the size of additional dump data. \nThis function is called by the SCADE Simulator and its purpose is unclear.\nThe default implementation returns 0. \nProcess the notification UpdateValues. \nThis function is called by the SCADE Simulator and its purpose is unclear.\nThe default implementation is empty. \nProcess the notification UpdateSimulatorValues. \nThis function is called by the SCADE Simulator and its purpose is unclear.\nThe default implementation is empty. \nReturn the identifier of the extension. \nThe default implementation returns \"<none>\". \nconst char* \nProcess the notification IntegrationStart. \nThis function is called at startup, when the target is not the SCADE Simulator. It allows accessing the command line parameters specified when running the standalone executable.\nReturn false to stop the process, otherwise true.\nThe default implementation is empty and returns true.\nargc – number of parameters \nargv – array of parameters @ return bool \nProcess the notification IntegrationStop. \nThis function is called before the process stops, when the target is not the SCADE Simulator.\nThe default implementation is empty. \nReturn whether the extension has its own synchronization mechanism. \nWhen none of the registered extensions returns true, the integration uses the specified period to clock the main loop.\nThis function is not called when the target is the SCADE Simulator.\nThe default implementation returns false. \nReturn whether the extension is alive. \nThe process stops as soon as a registered extension returns false. For example, when a connection is closed.\nThis function is not called when the target is the SCADE Simulator.\nThe default implementation returns true. \nWuxSimuExt.h\nWuxGetExtensionsCount\nBeforeSimInit\nAfterSimInit\nBeforeSimStep\nAfterSimStep\nExtendedSimStop\nUpdateValues\nUpdateSimulatorValues\n\"<none>\"\nIntegrationStart\nfalse\ntrue\ntrue\nIntegrationStop\ntrue\nfalse\nfalse\ntrue"
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#c.SIM_INFO",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > SIM_INFO",
+        "section": "WuxSimuExt.h > SIM_INFO",
+        "text": "SIM_INFO\n\n“Information” level for WuxLogf "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#c.SIM_WARNING",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > SIM_WARNING",
+        "section": "WuxSimuExt.h > SIM_WARNING",
+        "text": "SIM_WARNING\n\n“Warning” level for WuxLogf "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#c.SIM_ERROR",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > SIM_ERROR",
+        "section": "WuxSimuExt.h > SIM_ERROR",
+        "text": "SIM_ERROR\n\n“Error” level for WuxLogf "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv47WuxLogfiPKcz",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv47WuxLogfiPKcz",
+        "section": "WuxSimuExt.h > _CPPv47WuxLogfiPKcz",
+        "text": "void WuxLogf(int nLevel, const char *pszFormat, ...)\n\nLog a message. \n\nThe message is logged to the standard output, or to the Simulator tab of the output window when the target is the SCADE Simulator.\n\nParameters\n\nnLevel – SIM_INFO, SIM_WARNING or SIM_ERROR \n\npszFormat – Format control \n\n... – Optional arguments "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv421WuxGetExtensionsCountv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv421WuxGetExtensionsCountv",
+        "section": "WuxSimuExt.h > _CPPv421WuxGetExtensionsCountv",
+        "text": "int WuxGetExtensionsCount()\n\nReturn the number of registered extensions. \n\nReturns\n\nint "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv416WuxGetExtensionsv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv416WuxGetExtensionsv",
+        "section": "WuxSimuExt.h > _CPPv416WuxGetExtensionsv",
+        "text": "CWuxSimulatorExtension **WuxGetExtensions()\n\nReturn the array of the registered extensions. \n\nThe number of elements is provided by WuxGetExtensionsCount. \n\nReturns\n\nCWuxSimulatorExtension** "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv422CWuxSimulatorExtension",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv422CWuxSimulatorExtension",
+        "section": "WuxSimuExt.h > _CPPv422CWuxSimulatorExtension",
+        "text": "class CWuxSimulatorExtension\n\nBase class for extending a standalone executable or a SCADE simulation DLL. \n\nThis class provides two interfaces:\n\nCallbacks for the integrating application, for example the SCADE Simulator or the Generic Integration wrapper’s standalone executable.\n\nExtended callbacks for integration applications other than the SCADE Simulator. \n\nPublic Functions\n\n\n\nCWuxSimulatorExtension()\n\nConstruct the instance and registers it. \n\n\n\nvirtual ~CWuxSimulatorExtension()\n\nUnregister the instance. \n\n\n\nvirtual void BeforeSimInit()\n\nProcess the notification BeforeSimInit. \n\nThis notification is sent before the initialization of the generated code, either from SCADE Suite or from SCADE Display.\n\nThe default implementation is empty. \n\n\n\nvirtual void AfterSimInit()\n\nProcess the notification AfterSimInit. \n\nThis notification is sent after the initialization of the generated code, either from SCADE Suite or from SCADE Display.\n\nThe default implementation is empty. \n\n\n\nvirtual void BeforeSimStep()\n\nProcess the notification BeforeSimStep. \n\nThis notification is sent before the call to the cyclic function of the root operators.\n\nThe default implementation is empty. \n\n\n\nvirtual void AfterSimStep()\n\nProcess the notification AfterSimStep. \n\nThis notification is sent after the call to the cyclic function of the root operators.\n\nThe default implementation is empty. \n\n\n\nvirtual void ExtendedSimStop()\n\nProcess the notification ExtendedSimStop. \n\nThis notification is sent when the main loop exits.\n\nThe default implementation is empty. \n\n\n\nvirtual void ExtendedGatherDumpData(char *pData)\n\nRetrieve additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. \n\n\n\nvirtual void ExtendedRestoreDumpData(const char *pData)\n\nRestore additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. \n\n\n\nvirtual int ExtendedGetDumpSize()\n\nReturn the size of additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation returns 0. \n\n\n\nvirtual void UpdateValues()\n\nProcess the notification UpdateValues. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. \n\n\n\nvirtual void UpdateSimulatorValues()\n\nProcess the notification UpdateSimulatorValues. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. \n\n\n\nvirtual const char *GetIdent()\n\nReturn the identifier of the extension. \n\nThe default implementation returns \"<none>\". \n\nReturns\n\nconst char* \n\n\n\nvirtual bool IntegrationStart(int argc, char *argv[])\n\nProcess the notification IntegrationStart. \n\nThis function is called at startup, when the target is not the SCADE Simulator. It allows accessing the command line parameters specified when running the standalone executable.\n\nReturn false to stop the process, otherwise true.\n\nThe default implementation is empty and returns true.\n\nParameters\n\nargc – number of parameters \n\nargv – array of parameters @ return bool \n\n\n\nvirtual void IntegrationStop()\n\nProcess the notification IntegrationStop. \n\nThis function is called before the process stops, when the target is not the SCADE Simulator.\n\nThe default implementation is empty. \n\n\n\nvirtual bool SelfPaced()\n\nReturn whether the extension has its own synchronization mechanism. \n\nWhen none of the registered extensions returns true, the integration uses the specified period to clock the main loop.\n\nThis function is not called when the target is the SCADE Simulator.\n\nThe default implementation returns false. \n\n\n\nvirtual bool IsAlive()\n\nReturn whether the extension is alive. \n\nThe process stops as soon as a registered extension returns false. For example, when a connection is closed.\n\nThis function is not called when the target is the SCADE Simulator.\n\nThe default implementation returns true. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension22CWuxSimulatorExtensionEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension22CWuxSimulatorExtensionEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension22CWuxSimulatorExtensionEv",
+        "text": "CWuxSimulatorExtension()\n\nConstruct the instance and registers it. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtensionD0Ev",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtensionD0Ev",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtensionD0Ev",
+        "text": "virtual ~CWuxSimulatorExtension()\n\nUnregister the instance. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension13BeforeSimInitEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension13BeforeSimInitEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension13BeforeSimInitEv",
+        "text": "virtual void BeforeSimInit()\n\nProcess the notification BeforeSimInit. \n\nThis notification is sent before the initialization of the generated code, either from SCADE Suite or from SCADE Display.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension12AfterSimInitEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12AfterSimInitEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12AfterSimInitEv",
+        "text": "virtual void AfterSimInit()\n\nProcess the notification AfterSimInit. \n\nThis notification is sent after the initialization of the generated code, either from SCADE Suite or from SCADE Display.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension13BeforeSimStepEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension13BeforeSimStepEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension13BeforeSimStepEv",
+        "text": "virtual void BeforeSimStep()\n\nProcess the notification BeforeSimStep. \n\nThis notification is sent before the call to the cyclic function of the root operators.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension12AfterSimStepEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12AfterSimStepEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12AfterSimStepEv",
+        "text": "virtual void AfterSimStep()\n\nProcess the notification AfterSimStep. \n\nThis notification is sent after the call to the cyclic function of the root operators.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension15ExtendedSimStopEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension15ExtendedSimStopEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension15ExtendedSimStopEv",
+        "text": "virtual void ExtendedSimStop()\n\nProcess the notification ExtendedSimStop. \n\nThis notification is sent when the main loop exits.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension22ExtendedGatherDumpDataEPc",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension22ExtendedGatherDumpDataEPc",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension22ExtendedGatherDumpDataEPc",
+        "text": "virtual void ExtendedGatherDumpData(char *pData)\n\nRetrieve additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension23ExtendedRestoreDumpDataEPKc",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension23ExtendedRestoreDumpDataEPKc",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension23ExtendedRestoreDumpDataEPKc",
+        "text": "virtual void ExtendedRestoreDumpData(const char *pData)\n\nRestore additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension19ExtendedGetDumpSizeEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension19ExtendedGetDumpSizeEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension19ExtendedGetDumpSizeEv",
+        "text": "virtual int ExtendedGetDumpSize()\n\nReturn the size of additional dump data. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation returns 0. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension12UpdateValuesEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12UpdateValuesEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension12UpdateValuesEv",
+        "text": "virtual void UpdateValues()\n\nProcess the notification UpdateValues. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension21UpdateSimulatorValuesEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension21UpdateSimulatorValuesEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension21UpdateSimulatorValuesEv",
+        "text": "virtual void UpdateSimulatorValues()\n\nProcess the notification UpdateSimulatorValues. \n\nThis function is called by the SCADE Simulator and its purpose is unclear.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension8GetIdentEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension8GetIdentEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension8GetIdentEv",
+        "text": "virtual const char *GetIdent()\n\nReturn the identifier of the extension. \n\nThe default implementation returns \"<none>\". \n\nReturns\n\nconst char* "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension16IntegrationStartEiA_Pc",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension16IntegrationStartEiA_Pc",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension16IntegrationStartEiA_Pc",
+        "text": "virtual bool IntegrationStart(int argc, char *argv[])\n\nProcess the notification IntegrationStart. \n\nThis function is called at startup, when the target is not the SCADE Simulator. It allows accessing the command line parameters specified when running the standalone executable.\n\nReturn false to stop the process, otherwise true.\n\nThe default implementation is empty and returns true.\n\nParameters\n\nargc – number of parameters \n\nargv – array of parameters @ return bool "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension15IntegrationStopEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension15IntegrationStopEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension15IntegrationStopEv",
+        "text": "virtual void IntegrationStop()\n\nProcess the notification IntegrationStop. \n\nThis function is called before the process stops, when the target is not the SCADE Simulator.\n\nThe default implementation is empty. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension9SelfPacedEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension9SelfPacedEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension9SelfPacedEv",
+        "text": "virtual bool SelfPaced()\n\nReturn whether the extension has its own synchronization mechanism. \n\nWhen none of the registered extensions returns true, the integration uses the specified period to clock the main loop.\n\nThis function is not called when the target is the SCADE Simulator.\n\nThe default implementation returns false. "
+    },
+    {
+        "objectID": "runtime/simuext",
+        "href": "runtime/simuext.html#_CPPv4N22CWuxSimulatorExtension7IsAliveEv",
+        "title": "WuxSimuExt.h > WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension7IsAliveEv",
+        "section": "WuxSimuExt.h > _CPPv4N22CWuxSimulatorExtension7IsAliveEv",
+        "text": "virtual bool IsAlive()\n\nReturn whether the extension is alive. \n\nThe process stops as soon as a registered extension returns false. For example, when a connection is closed.\n\nThis function is not called when the target is the SCADE Simulator.\n\nThe default implementation returns true. "
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#ansys-scade-wrapper-tools",
+        "title": "Ansys SCADE Wrapper Tools",
+        "section": "Ansys SCADE Wrapper Tools",
+        "text": "Refer to Generating Integration Code in section 3 of the SCADE Python API Guide\nin the SCADE Suite documentation for a complete reference on SCADE Code Generator extensions,\nalso known as wrappers.\nThis package contains:\nA SCADE Code Generator extension, Generic Integration, that produces\na standalone executable and schedules optional additional wrappers.\nUtility SCADE Code Generator generation services that can be involved\nby wrappers.\nA Python library for developing wrappers.\nLearn how to install and use Ansys SCADE Wrapper Tools.\nLearn how to use the Ansys SCADE Wrapper Tools.\nExplore the Ansys SCADE Wrapper Tools API.\nLearn reference for the C/C++ interfaces\nLearn how to contribute to the Ansys SCADE Wrapper Tools.\nView the changelog for the Ansys SCADE Wrapper Tools.\nAnsys SCADE Wrapper Tools"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#indices-and-tables",
+        "title": "Ansys SCADE Wrapper Tools > Indices and tables",
+        "section": "Indices and tables",
+        "text": "genindex\nmodindex\nsearch\nIndices and tables"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_cpp_options",
+        "href": "api/ansys/scade/wux/wux/add_cpp_options.html#ansysscadewuxwuxadd_cpp_options",
+        "title": "ansys.scade.wux.wux.add_cpp_options",
+        "section": "ansys.scade.wux.wux.add_cpp_options",
+        "text": "Add the required compiler/linker options for C++ code.\nThis is required for GNU C: -static -lstdc++\nThere is no API in scade.code.suite.* to achieve this. The workaround\nconsists in adding the option to the project for the given configuration.\nThe option is set only if the current compiler is GNU C.\nThe project is modified but it is not expected to be saved in this context.\nShould it be saved, this is still fine since the option is mandatory.\nInput project.\nInput configuration.\nansys.scade.wux.wux.add_cpp_options\nProject\nConfiguration"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_cpp_options",
+        "href": "api/ansys/scade/wux/wux/add_cpp_options.html#ansys.scade.wux.wux.add_cpp_options",
+        "title": "ansys.scade.wux.wux.add_cpp_options > ansys.scade.wux.wux.add_cpp_options > add_cpp_options",
+        "section": "ansys.scade.wux.wux.add_cpp_options > add_cpp_options",
+        "text": "ansys.scade.wux.wux.add_cpp_options(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)\n\nAdd the required compiler/linker options for C++ code.\n\nThis is required for GNU C: -static -lstdc++\n\nThere is no API in scade.code.suite.* to achieve this. The workaround\nconsists in adding the option to the project for the given configuration.\n\nThe option is set only if the current compiler is GNU C.\n\nThe project is modified but it is not expected to be saved in this context.\nShould it be saved, this is still fine since the option is mandatory.\n\nParameters\n\nproject\n\nProject\n\nInput project.\n\nconfiguration\n\nConfiguration\n\nInput configuration.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/main",
+        "href": "api/ansys/scade/wux/register/main.html#ansysscadewuxregistermain",
+        "title": "ansys.scade.wux.register.main",
+        "section": "ansys.scade.wux.register.main",
+        "text": "Implement the ansys.scade.wux.register packages’s project script.\nansys.scade.wux.register.main\nansys.scade.wux.register"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/main",
+        "href": "api/ansys/scade/wux/register/main.html#ansys.scade.wux.register.main",
+        "title": "ansys.scade.wux.register.main > ansys.scade.wux.register.main > main",
+        "section": "ansys.scade.wux.register.main > main",
+        "text": "ansys.scade.wux.register.main()\n\nImplement the ansys.scade.wux.register packages’s project script.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_header",
+        "href": "api/ansys/scade/wux/wux/gen_header.html#ansysscadewuxwuxgen_header",
+        "title": "ansys.scade.wux.wux.gen_header",
+        "section": "ansys.scade.wux.wux.gen_header",
+        "text": "Write a generated by comment.\nOutput file to write to.\nText to write.\nStart comment, default “/* “.\nEnd comment, default “ */”.\nansys.scade.wux.wux.gen_header\nTextIOBase\npython:str\npython:str\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_header",
+        "href": "api/ansys/scade/wux/wux/gen_header.html#ansys.scade.wux.wux.gen_header",
+        "title": "ansys.scade.wux.wux.gen_header > ansys.scade.wux.wux.gen_header > gen_header",
+        "section": "ansys.scade.wux.wux.gen_header > gen_header",
+        "text": "ansys.scade.wux.wux.gen_header(f: io.TextIOBase, banner: str, start_comment: str = '/* ', end_comment: str = ' */')\n\nWrite a generated by comment.\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nbanner\n\npython:str\n\nText to write.\n\nstart_comment\n\npython:str\n\nStart comment, default “/* “.\n\nend_comment\n\npython:str\n\nEnd comment, default “ */”.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#the-wuxpy-module",
+        "title": "The wux.py module",
+        "section": "The wux.py module",
+        "text": "The wux.py module\nwux.py"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#summary",
+        "title": "The wux.py module > Summary",
+        "section": "Summary",
+        "text": "add_cpp_options\nAdd the required compiler/linker options for C++ code.\nadd_definitions\nRequest the Code Generator to add preprocessor definitions to the Makefile.\nadd_includes\nRequest the Code Generator to add include directories directives to the Makefile.\nadd_libraries\nRequest the Code Generator to add object or library files to the Makefile.\nadd_sources\nRequest the Code Generator to add sources files to the Makefile for C build.\ngen_end_protect\nWrite the end of a protection macro for a C header file.\ngen_footer\nWrite an end of file comment.\ngen_header\nWrite a generated by comment.\ngen_includes\nWrite C include directives for a list of files.\ngen_start_protect\nWrite the beginning of a protection macro for a C header file.\nget_sdy_applications\nReturn the loaded SCADE models.\nget_sessions\nReturn the loaded SCADE models.\nget_specifications\nReturn the list of graphical panel specifications selected for the input configuration.\nreset\nReset the global module’s global variables.\nset_sdy_applications\nSet the list of loaded SCADE Display Coupling applications.\nset_sessions\nSet the list of loaded SCADE models.\nwrite_indent\nWrite a multi-lined text with an indentation.\nwriteln\nWrite a text with a level of indentation.\nips\nList of WrapGen API InterfacePrinter instances for the root operators.\nmf\nKCG Mapping File data.\nmh\nWrapGen API MappingHelpers instance for the current project.\nSummary\nadd_cpp_options\nadd_definitions\nadd_includes\nadd_libraries\nadd_sources\ngen_end_protect\nC\ngen_footer\ngen_header\ngen_includes\ngen_start_protect\nC\nget_sdy_applications\nget_sessions\nget_specifications\nreset\nset_sdy_applications\nset_sessions\nwrite_indent\nwriteln\nips\nmf\nmh"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#description",
+        "title": "The wux.py module > Description",
+        "section": "Description",
+        "text": "Provides a collection of functions for developing wrappers.\nDescription"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#module-detail",
+        "title": "The wux.py module > Module detail",
+        "section": "Module detail",
+        "text": "List of WrapGen API InterfacePrinter instances for the root operators.\nThis attribute is initialized by the WuxContext generation service.\nKCG Mapping File data.\nThis attribute is initialized by the WuxContext generation service.\nWrapGen API MappingHelpers instance for the current project.\nThis attribute is initialized by the WuxContext generation service.\nModule detail\nWuxContext\nWuxContext\nWuxContext"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#wux.ips",
+        "title": "The wux.py module > Module detail > ips",
+        "section": "Module detail > ips",
+        "text": "wux.ips: List[scade.code.suite.wrapgen.c.InterfacePrinter] = []\n\nList of WrapGen API InterfacePrinter instances for the root operators.\n\nThis attribute is initialized by the WuxContext generation service.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#wux.mf",
+        "title": "The wux.py module > Module detail > mf",
+        "section": "Module detail > mf",
+        "text": "wux.mf: scade.code.suite.mapping.c.MappingFile | None = None\n\nKCG Mapping File data.\n\nThis attribute is initialized by the WuxContext generation service.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/index",
+        "href": "api/ansys/scade/wux/wux/index.html#wux.mh",
+        "title": "The wux.py module > Module detail > mh",
+        "section": "Module detail > mh",
+        "text": "wux.mh: scade.code.suite.wrapgen.model.MappingHelpers | None = None\n\nWrapGen API MappingHelpers instance for the current project.\n\nThis attribute is initialized by the WuxContext generation service.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/index",
+        "href": "api/ansys/scade/wux/wuxmodule/index.html#the-wuxmodulepy-module",
+        "title": "The wuxmodule.py module",
+        "section": "The wuxmodule.py module",
+        "text": "The wuxmodule.py module\nwuxmodule.py"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/index",
+        "href": "api/ansys/scade/wux/wuxmodule/index.html#summary",
+        "title": "The wuxmodule.py module > Summary",
+        "section": "Summary",
+        "text": "WuxModule\nImplements the generation module interface for WUX2_MODULE.\nSummary\nWuxModule\nWUX2_MODULE"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/index",
+        "href": "api/ansys/scade/wux/wuxmodule/index.html#description",
+        "title": "The wuxmodule.py module > Description",
+        "section": "Description",
+        "text": "SCADE Code Generation Module for utility SCADE Code Generation Services.\nThese services can be included\non demand by SCADE Code Generator extensions: target, adaptor or extension.\nDescription"
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#wuxdllexth",
+        "title": "WuxDllExt.h",
+        "section": "WuxDllExt.h",
+        "text": "Interfaces for subscribing to DllMain callbacks. \nThe lib/WuxDllExt.cpp runtime file defines DllMain and calls all the registered clients.\nThis is relevant if and only if the target is a DLL and not a standalone executable. \nReturn the number of registered clients. \nint \nReturn the array of the registered clients. \nThe number of elements is provided by WuxGetDllInstancesCount. \nCWuxDllInstance** \nReturn the instance of the DLL. \nThis handle is cached when DllMain is called with the reason DLL_PROCESS_ATTACH. \nHMODULE \nBase class for DllMain clients. \nConstruct the instance and register it to DllMain. \nUnregister the instance from DllMain. \nProcess the DLL_PROCESS_ATTACH notification. \nReturn TRUE on success, otherwise FALSE.\nThe default implementation is empty and returns True. \nbool \nProcess the DLL_THREAD_ATTACH notification. \nReturn TRUE on success, otherwise FALSE.\nThe default implementation is empty and returns True. \nbool \nProcess the DLL_THREAD_DETACH notification. \nReturn TRUE on success, otherwise FALSE.\nThe default implementation is empty and returns True. \nbool \nProcess the DLL_PROCESS_DETACH notification. \nReturn TRUE on success, otherwise FALSE.\nThe default implementation is empty and returns True. \nbool \nWuxDllExt.h\nDllMain\nlib/WuxDllExt.cpp\nDllMain\nWuxGetDllInstancesCount\nDllMain\nDLL_PROCESS_ATTACH\nDllMain\nDllMain\nDllMain\nDLL_PROCESS_ATTACH\nDLL_THREAD_ATTACH\nDLL_THREAD_DETACH\nDLL_PROCESS_DETACH"
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv423WuxGetDllInstancesCountv",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv423WuxGetDllInstancesCountv",
+        "section": "WuxDllExt.h > _CPPv423WuxGetDllInstancesCountv",
+        "text": "int WuxGetDllInstancesCount()\n\nReturn the number of registered clients. \n\nReturns\n\nint "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv418WuxGetDllInstancesv",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv418WuxGetDllInstancesv",
+        "section": "WuxDllExt.h > _CPPv418WuxGetDllInstancesv",
+        "text": "CWuxDllInstance **WuxGetDllInstances()\n\nReturn the array of the registered clients. \n\nThe number of elements is provided by WuxGetDllInstancesCount. \n\nReturns\n\nCWuxDllInstance** "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv417WuxGetDllInstancev",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv417WuxGetDllInstancev",
+        "section": "WuxDllExt.h > _CPPv417WuxGetDllInstancev",
+        "text": "HMODULE WuxGetDllInstance()\n\nReturn the instance of the DLL. \n\nThis handle is cached when DllMain is called with the reason DLL_PROCESS_ATTACH. \n\nReturns\n\nHMODULE "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv415CWuxDllInstance",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv415CWuxDllInstance",
+        "section": "WuxDllExt.h > _CPPv415CWuxDllInstance",
+        "text": "class CWuxDllInstance\n\nBase class for DllMain clients. \n\nPublic Functions\n\n\n\nCWuxDllInstance()\n\nConstruct the instance and register it to DllMain. \n\n\n\nvirtual ~CWuxDllInstance()\n\nUnregister the instance from DllMain. \n\n\n\nvirtual BOOL OnProcessAttach(HMODULE hDllInstance)\n\nProcess the DLL_PROCESS_ATTACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool \n\n\n\nvirtual BOOL OnThreadAttach(HMODULE hDllInstance)\n\nProcess the DLL_THREAD_ATTACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool \n\n\n\nvirtual BOOL OnThreadDetach(HMODULE hDllInstance)\n\nProcess the DLL_THREAD_DETACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool \n\n\n\nvirtual BOOL OnProcessDetach(HMODULE hDllInstance)\n\nProcess the DLL_PROCESS_DETACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstance15CWuxDllInstanceEv",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstance15CWuxDllInstanceEv",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstance15CWuxDllInstanceEv",
+        "text": "CWuxDllInstance()\n\nConstruct the instance and register it to DllMain. "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstanceD0Ev",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstanceD0Ev",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstanceD0Ev",
+        "text": "virtual ~CWuxDllInstance()\n\nUnregister the instance from DllMain. "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstance15OnProcessAttachE7HMODULE",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstance15OnProcessAttachE7HMODULE",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstance15OnProcessAttachE7HMODULE",
+        "text": "virtual BOOL OnProcessAttach(HMODULE hDllInstance)\n\nProcess the DLL_PROCESS_ATTACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstance14OnThreadAttachE7HMODULE",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstance14OnThreadAttachE7HMODULE",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstance14OnThreadAttachE7HMODULE",
+        "text": "virtual BOOL OnThreadAttach(HMODULE hDllInstance)\n\nProcess the DLL_THREAD_ATTACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstance14OnThreadDetachE7HMODULE",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstance14OnThreadDetachE7HMODULE",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstance14OnThreadDetachE7HMODULE",
+        "text": "virtual BOOL OnThreadDetach(HMODULE hDllInstance)\n\nProcess the DLL_THREAD_DETACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool "
+    },
+    {
+        "objectID": "runtime/dllext",
+        "href": "runtime/dllext.html#_CPPv4N15CWuxDllInstance15OnProcessDetachE7HMODULE",
+        "title": "WuxDllExt.h > WuxDllExt.h > _CPPv4N15CWuxDllInstance15OnProcessDetachE7HMODULE",
+        "section": "WuxDllExt.h > _CPPv4N15CWuxDllInstance15OnProcessDetachE7HMODULE",
+        "text": "virtual BOOL OnProcessDetach(HMODULE hDllInstance)\n\nProcess the DLL_PROCESS_DETACH notification. \n\nReturn TRUE on success, otherwise FALSE.\n\nThe default implementation is empty and returns True. \n\nReturns\n\nbool "
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_definitions",
+        "href": "api/ansys/scade/wux/wux/add_definitions.html#ansysscadewuxwuxadd_definitions",
+        "title": "ansys.scade.wux.wux.add_definitions",
+        "section": "ansys.scade.wux.wux.add_definitions",
+        "text": "Request the Code Generator to add preprocessor definitions to the Makefile.\nThis function may be called by different generation services.\nIt caches the added definitions so that they are not added twice to the makefile.\nRefer to add_preprocessor_definitions under Adding Make Directives\nin section 3 of the SCADE Python API Guide in the SCADE Suite documentation.\nPreprocessor definitions to be added to the makefile.\nansys.scade.wux.wux.add_definitions\nadd_preprocessor_definitions\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_definitions",
+        "href": "api/ansys/scade/wux/wux/add_definitions.html#ansys.scade.wux.wux.add_definitions",
+        "title": "ansys.scade.wux.wux.add_definitions > ansys.scade.wux.wux.add_definitions > add_definitions",
+        "section": "ansys.scade.wux.wux.add_definitions > add_definitions",
+        "text": "ansys.scade.wux.wux.add_definitions(*definitions: str)\n\nRequest the Code Generator to add preprocessor definitions to the Makefile.\n\nThis function may be called by different generation services.\nIt caches the added definitions so that they are not added twice to the makefile.\n\nRefer to add_preprocessor_definitions under Adding Make Directives\nin section 3 of the SCADE Python API Guide in the SCADE Suite documentation.\n\nParameters\n\n*definitions\n\npython:str\n\nPreprocessor definitions to be added to the makefile.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_includes",
+        "href": "api/ansys/scade/wux/wux/gen_includes.html#ansysscadewuxwuxgen_includes",
+        "title": "ansys.scade.wux.wux.gen_includes",
+        "section": "ansys.scade.wux.wux.gen_includes",
+        "text": "Write C include directives for a list of files.\nThe function prefixes the include directives with /* includes */.\nOutput file to write to.\nList of files to be included.\nansys.scade.wux.wux.gen_includes\n/* includes */\nTextIOBase\nList\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_includes",
+        "href": "api/ansys/scade/wux/wux/gen_includes.html#ansys.scade.wux.wux.gen_includes",
+        "title": "ansys.scade.wux.wux.gen_includes > ansys.scade.wux.wux.gen_includes > gen_includes",
+        "section": "ansys.scade.wux.wux.gen_includes > gen_includes",
+        "text": "ansys.scade.wux.wux.gen_includes(f: io.TextIOBase, files: List[str])\n\nWrite C include directives for a list of files.\n\nThe function prefixes the include directives with /* includes */.\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nfiles\n\nList[python:str]\n\nList of files to be included.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/writeln",
+        "href": "api/ansys/scade/wux/wux/writeln.html#ansysscadewuxwuxwriteln",
+        "title": "ansys.scade.wux.wux.writeln",
+        "section": "ansys.scade.wux.wux.writeln",
+        "text": "Write a text with a level of indentation.\nThe function writes four (4) spaces per level of indentation.\nOutput file to write to.\nLevel of indentation.\nInput text.\nansys.scade.wux.wux.writeln\nTextIOBase\npython:int\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/writeln",
+        "href": "api/ansys/scade/wux/wux/writeln.html#ansys.scade.wux.wux.writeln",
+        "title": "ansys.scade.wux.wux.writeln > ansys.scade.wux.wux.writeln > writeln",
+        "section": "ansys.scade.wux.wux.writeln > writeln",
+        "text": "ansys.scade.wux.wux.writeln(f: io.TextIOBase, num_tabs: int = 0, text: str = '')\n\nWrite a text with a level of indentation.\n\nThe function writes four (4) spaces per level of indentation.\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nnum_tabs\n\npython:int\n\nLevel of indentation.\n\ntext\n\npython:str\n\nInput text.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "runtime/index",
+        "href": "runtime/index.html#runtime-interfaces",
+        "title": "Runtime interfaces",
+        "section": "Runtime interfaces",
+        "text": "This section is the reference for the C/C++ interfaces of the code\ngenerated by the generation services of this package, as well as their\nruntime code.\nThe header files are in the site-packages/ansys/scade/wux/include directory.\nThe runtime implementation files that are not generated are in the\nsite-packages/ansys/scade/wux/lib directory.\nRuntime interfaces\nsite-packages/ansys/scade/wux/include\nsite-packages/ansys/scade/wux/lib"
+    },
+    {
+        "objectID": "runtime/index",
+        "href": "runtime/index.html#headers",
+        "title": "Runtime interfaces > Headers",
+        "section": "Headers",
+        "text": "Headers"
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#wuxsdyexth",
+        "title": "WuxSdyExt.h",
+        "section": "WuxSdyExt.h",
+        "text": "Declarations of the functions generated by the service SdyExt. \nCall the initialization functions for all graphical panels. \nDraw all the graphical panels. \nSet the graphical panels’ input plugs from the root operators. \nUpdate the root operator’s inputs from the graphical panels’ plugs. \nReturn whether a graphical panel window has been closed. \nint 1 if a window has been closed, otherwise 0. \nWuxSdyExt.h"
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#_CPPv410WuxSdyInitv",
+        "title": "WuxSdyExt.h > WuxSdyExt.h > _CPPv410WuxSdyInitv",
+        "section": "WuxSdyExt.h > _CPPv410WuxSdyInitv",
+        "text": "void WuxSdyInit()\n\nCall the initialization functions for all graphical panels. "
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#_CPPv410WuxSdyDrawv",
+        "title": "WuxSdyExt.h > WuxSdyExt.h > _CPPv410WuxSdyDrawv",
+        "section": "WuxSdyExt.h > _CPPv410WuxSdyDrawv",
+        "text": "void WuxSdyDraw()\n\nDraw all the graphical panels. "
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#_CPPv415WuxSdySetInputsv",
+        "title": "WuxSdyExt.h > WuxSdyExt.h > _CPPv415WuxSdySetInputsv",
+        "section": "WuxSdyExt.h > _CPPv415WuxSdySetInputsv",
+        "text": "void WuxSdySetInputs()\n\nSet the graphical panels’ input plugs from the root operators. "
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#_CPPv416WuxSdyGetOutputsv",
+        "title": "WuxSdyExt.h > WuxSdyExt.h > _CPPv416WuxSdyGetOutputsv",
+        "section": "WuxSdyExt.h > _CPPv416WuxSdyGetOutputsv",
+        "text": "void WuxSdyGetOutputs()\n\nUpdate the root operator’s inputs from the graphical panels’ plugs. "
+    },
+    {
+        "objectID": "runtime/sdyext",
+        "href": "runtime/sdyext.html#_CPPv415WuxSdyCancelledv",
+        "title": "WuxSdyExt.h > WuxSdyExt.h > _CPPv415WuxSdyCancelledv",
+        "section": "WuxSdyExt.h > _CPPv415WuxSdyCancelledv",
+        "text": "int WuxSdyCancelled()\n\nReturn whether a graphical panel window has been closed. \n\nReturns\n\nint 1 if a window has been closed, otherwise 0. "
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_end_protect",
+        "href": "api/ansys/scade/wux/wux/gen_end_protect.html#ansysscadewuxwuxgen_end_protect",
+        "title": "ansys.scade.wux.wux.gen_end_protect",
+        "section": "ansys.scade.wux.wux.gen_end_protect",
+        "text": "Write the end of a protection macro for a C header file.\nThe dots (.) present in name are replaced by underscores (_).\nThe name of the macro is uppercase.\nThe function writes the following snippet:\nOutput file to write to.\nName of the preprocessor macro.\nansys.scade.wux.wux.gen_end_protect\nC\n.\n_\nTextIOBase\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_end_protect",
+        "href": "api/ansys/scade/wux/wux/gen_end_protect.html#ansys.scade.wux.wux.gen_end_protect",
+        "title": "ansys.scade.wux.wux.gen_end_protect > ansys.scade.wux.wux.gen_end_protect > gen_end_protect",
+        "section": "ansys.scade.wux.wux.gen_end_protect > gen_end_protect",
+        "text": "ansys.scade.wux.wux.gen_end_protect(f: io.TextIOBase, name: str)\n\nWrite the end of a protection macro for a C header file.\n\nThe dots (.) present in name are replaced by underscores (_).\n\nThe name of the macro is uppercase.\n\nThe function writes the following snippet:\n\n#endif /* _NAME_ */\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nname\n\npython:str\n\nName of the preprocessor macro.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "runtime/a661ext",
+        "href": "runtime/a661ext.html#wuxa661exth",
+        "title": "WuxA661Ext.h",
+        "section": "WuxA661Ext.h",
+        "text": "Declarations of the functions generated by the service A661UAA. \nThe implementation relies on the lib/A661Connect.c runtime file, derived from SCADE/lib/A661Cosim.c delivered with Ansys SCADE. \nConnect to the A661 server. \nReturn 1 when the connection is successful, otherwise 0.\nNote: This function does nothing and returns 1 when there is no UA in the project.\nint \nDisconnect from the A661 server. \nReturn 1 when the disconnection is successful, otherwise 0.\nNote: This function does nothing and returns 1 when there is no UA in the project.\nint \nSend the A661 messages from the root operator outputs. \nNote: This function is empty when there is no UA in the project. \nReceive the A661 messages and update the root operator inputs. \nNote: This function is empty when there is no UA in the project. \nWuxA661Ext.h\nlib/A661Connect.c\nSCADE/lib/A661Cosim.c"
+    },
+    {
+        "objectID": "runtime/a661ext",
+        "href": "runtime/a661ext.html#_CPPv420WuxA661ConnectServerv",
+        "title": "WuxA661Ext.h > WuxA661Ext.h > _CPPv420WuxA661ConnectServerv",
+        "section": "WuxA661Ext.h > _CPPv420WuxA661ConnectServerv",
+        "text": "int WuxA661ConnectServer()\n\nConnect to the A661 server. \n\nReturn 1 when the connection is successful, otherwise 0.\n\nNote: This function does nothing and returns 1 when there is no UA in the project.\n\nReturns\n\nint "
+    },
+    {
+        "objectID": "runtime/a661ext",
+        "href": "runtime/a661ext.html#_CPPv423WuxA661DisconnectServerv",
+        "title": "WuxA661Ext.h > WuxA661Ext.h > _CPPv423WuxA661DisconnectServerv",
+        "section": "WuxA661Ext.h > _CPPv423WuxA661DisconnectServerv",
+        "text": "int WuxA661DisconnectServer()\n\nDisconnect from the A661 server. \n\nReturn 1 when the disconnection is successful, otherwise 0.\n\nNote: This function does nothing and returns 1 when there is no UA in the project.\n\nReturns\n\nint "
+    },
+    {
+        "objectID": "runtime/a661ext",
+        "href": "runtime/a661ext.html#_CPPv419WuxA661SendMessagesv",
+        "title": "WuxA661Ext.h > WuxA661Ext.h > _CPPv419WuxA661SendMessagesv",
+        "section": "WuxA661Ext.h > _CPPv419WuxA661SendMessagesv",
+        "text": "void WuxA661SendMessages()\n\nSend the A661 messages from the root operator outputs. \n\nNote: This function is empty when there is no UA in the project. "
+    },
+    {
+        "objectID": "runtime/a661ext",
+        "href": "runtime/a661ext.html#_CPPv422WuxA661ReceiveMessagesv",
+        "title": "WuxA661Ext.h > WuxA661Ext.h > _CPPv422WuxA661ReceiveMessagesv",
+        "section": "WuxA661Ext.h > _CPPv422WuxA661ReceiveMessagesv",
+        "text": "void WuxA661ReceiveMessages()\n\nReceive the A661 messages and update the root operator inputs. \n\nNote: This function is empty when there is no UA in the project. "
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/index",
+        "href": "api/ansys/scade/wux/unregister/index.html#the-unregisterpy-module",
+        "title": "The unregister.py module",
+        "section": "The unregister.py module",
+        "text": "The unregister.py module\nunregister.py"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/index",
+        "href": "api/ansys/scade/wux/unregister/index.html#summary",
+        "title": "The unregister.py module > Summary",
+        "section": "Summary",
+        "text": "main\nImplement the ansys.scade.wux.unregister packages’s project script.\nunregister\nImplement the ansys.scade.registry/unregister entry point.\ncode\nSummary\nmain\nansys.scade.wux.unregister\nunregister\nansys.scade.registry/unregister\ncode"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/index",
+        "href": "api/ansys/scade/wux/unregister/index.html#description",
+        "title": "The unregister.py module > Description",
+        "section": "Description",
+        "text": "Unregisters the Code Generator extension registry files (SRG).\nRefer to the installation\nsteps for more information.\nIt addresses SCADE 2024 R2 and prior releases.\nSCADE 2025 R1 and later use the package’s\nansys.scade.registry entry point.\nDescription\nansys.scade.registry"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/index",
+        "href": "api/ansys/scade/wux/unregister/index.html#module-detail",
+        "title": "The unregister.py module > Module detail",
+        "section": "Module detail",
+        "text": "Module detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/index",
+        "href": "api/ansys/scade/wux/unregister/index.html#unregister.code",
+        "title": "The unregister.py module > Module detail > code",
+        "section": "Module detail > code",
+        "text": "unregister.code\n\n"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#wuxmodule",
+        "title": "WuxModule",
+        "section": "WuxModule",
+        "text": "Implements the generation module interface for WUX2_MODULE.\nRefer to usage/services:generation services to for its usage.\nRefer to the Generation Module section in chapter 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\nWuxModule\nWuxModule\nWUX2_MODULE"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#ansys.scade.wux.wuxmodule.WuxModule",
+        "title": "WuxModule > WuxModule > WuxModule",
+        "section": "WuxModule > WuxModule",
+        "text": "class ansys.scade.wux.wuxmodule.WuxModule\n\nImplements the generation module interface for WUX2_MODULE.\n\nRefer to usage/services:generation services to for its usage.\n\nRefer to the Generation Module section in chapter 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#overview",
+        "title": "WuxModule > Overview",
+        "section": "Overview",
+        "text": "get_services\nDeclare all the provided utility services.\nOverview\nget_services"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#import-detail",
+        "title": "WuxModule > Import detail",
+        "section": "Import detail",
+        "text": "Import detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#method-detail",
+        "title": "WuxModule > Method detail",
+        "section": "Method detail",
+        "text": "Declare all the provided utility services.\nMethod detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wuxmodule/WuxModule",
+        "href": "api/ansys/scade/wux/wuxmodule/WuxModule.html#WuxModule.get_services",
+        "title": "WuxModule > Method detail > get_services",
+        "section": "Method detail > get_services",
+        "text": "classmethod WuxModule.get_services()\n\nDeclare all the provided utility services.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_libraries",
+        "href": "api/ansys/scade/wux/wux/add_libraries.html#ansysscadewuxwuxadd_libraries",
+        "title": "ansys.scade.wux.wux.add_libraries",
+        "section": "ansys.scade.wux.wux.add_libraries",
+        "text": "Request the Code Generator to add object or library files to the Makefile.\nThis function may be called by different generation services.\nIt caches the added files so that they are not added twice to the makefile.\nRefer to add_obj_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\nPaths of the files to be added to the makefile.\nansys.scade.wux.wux.add_libraries\nadd_obj_files\nList\nPath"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_libraries",
+        "href": "api/ansys/scade/wux/wux/add_libraries.html#ansys.scade.wux.wux.add_libraries",
+        "title": "ansys.scade.wux.wux.add_libraries > ansys.scade.wux.wux.add_libraries > add_libraries",
+        "section": "ansys.scade.wux.wux.add_libraries > add_libraries",
+        "text": "ansys.scade.wux.wux.add_libraries(paths: List[pathlib.Path])\n\nRequest the Code Generator to add object or library files to the Makefile.\n\nThis function may be called by different generation services.\nIt caches the added files so that they are not added twice to the makefile.\n\nRefer to add_obj_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\n\nParameters\n\npaths\n\nList[Path]\n\nPaths of the files to be added to the makefile.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/srg",
+        "href": "api/ansys/scade/wux/srg.html#ansysscadewuxsrg",
+        "title": "ansys.scade.wux.srg",
+        "section": "ansys.scade.wux.srg",
+        "text": "Return the path of the SCADE Studio registry file.\nThis function implements the entry point “ansys.scade.registry/srg”\nintroduced in SCADE 2025 R1. It avoids creating an explicit srg file\nin %APPDATA%\\Scade\\Customize when the package is installed.\nansys.scade.wux.srg\n%APPDATA%\\Scade\\Customize"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/srg",
+        "href": "api/ansys/scade/wux/srg.html#ansys.scade.wux.srg",
+        "title": "ansys.scade.wux.srg > ansys.scade.wux.srg > srg",
+        "section": "ansys.scade.wux.srg > srg",
+        "text": "ansys.scade.wux.srg() -> str\n\nReturn the path of the SCADE Studio registry file.\n\nThis function implements the entry point “ansys.scade.registry/srg”\nintroduced in SCADE 2025 R1. It avoids creating an explicit srg file\nin %APPDATA%\\Scade\\Customize when the package is installed.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "usage/wrapper",
+        "href": "usage/wrapper.html#wrapper",
+        "title": "Wrapper",
+        "section": "Wrapper",
+        "text": "Wrapper"
+    },
+    {
+        "objectID": "usage/wrapper",
+        "href": "usage/wrapper.html#overview",
+        "title": "Wrapper > Overview",
+        "section": "Overview",
+        "text": "The wrapper Generic Integration is a SCADE target designed to host any\nnumber of extensions. It has a behavior comparable to the SCADE Simulator:\nIt manages the graphical panels, UAs and/or A661 server connections\nwhen available.\nIt manages the registered extensions, for example instances of classes\nderived from CWuxSimulatorExtension through calls to the WuxXxx\nsimulation hooks.\nThe wrapper does not generate code: it provides the main function,\ndefined in WuxGoMain.cpp, and declares a target to the build system with\nthe files generated by KCG and those added by the generation services with\nthe tag WUX.\nThe lib/WuxGoMain.cpp resource file is declared to the Code Generator\nwith the tag WUX.\nOverview\nGeneric Integration\nCWuxSimulatorExtension\nWuxXxx\nmain\nWuxGoMain.cpp\nKCG\nWUX\nlib/WuxGoMain.cpp\nWUX"
+    },
+    {
+        "objectID": "usage/wrapper",
+        "href": "usage/wrapper.html#interface",
+        "title": "Wrapper > Interface",
+        "section": "Interface",
+        "text": "The extensions can redefine the following functions:\nGetIdent: Identifier of the extension, for error reporting or\ndiscrimination.\nIntegrationStart: argc/argv are the command line parameters of\nthe executable, no filter is applied. Returns false to stop the process.\nIntegrationStop: Called just before the process terminates.\nSelfPaced: Returns true if the extension is scheduled by\nthe environment, for example by waiting for some event in the\nBeforeSimStep function.\nIsAlive: Returns false to stop the process.\nRefer to usage/services:Simulator extension for more information about\nthe CWuxSimulatorExtension class.\nInterface\nGetIdent\nIntegrationStart\nargc\nargv\nfalse\nIntegrationStop\nSelfPaced\ntrue\nBeforeSimStep\nIsAlive\nfalse\nCWuxSimulatorExtension"
+    },
+    {
+        "objectID": "usage/wrapper",
+        "href": "usage/wrapper.html#main-loop-period",
+        "title": "Wrapper > Main loop period",
+        "section": "Main loop period",
+        "text": "When no extension is self-paced, the period is the one defined in the\nCode Generator Integration settings; Else, the period can be specified\non the command line with the option -latency (ms) otherwise it is 0.\nThe behavior is unclear when several extensions are registered and if at\nleast one of them is self-paced.\nFor a project involving conflicting extensions, it is advised to provide a\ncustomized version of lib/WuxGoMain.cpp to implement the desired\nscheduling and interactions between the required extensions.\nMain loop period\n-latency\n0\nlib/WuxGoMain.cpp"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "To use Ansys SCADE Wrapper Tools, you must have a valid license for Ansys SCADE.\nFor information on getting a licensed copy, see the\nAnsys SCADE Suite\npage on the Ansys website.\nGetting started"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#requirements",
+        "title": "Getting started > Requirements",
+        "section": "Requirements",
+        "text": "The ansys-scade-wux package supports only the versions of Python delivered with\nAnsys SCADE, starting from 2023 R2:\n2023 R2 and later: Python 3.10\nRequirements\nansys-scade-wux"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#install-in-user-mode",
+        "title": "Getting started > Install in user mode",
+        "section": "Install in user mode",
+        "text": "The following steps are for installing Ansys SCADE Wrapper Tools in user mode.\nIf you want to contribute to Ansys SCADE Wrapper Tools,\nsee contribute_scade_wux for the steps for installing in developer mode.\nBefore installing Ansys SCADE Wrapper Tools in user mode, run this command\nto ensure that you have the latest version of pip:\nRun this command to install Ansys SCADE Wrapper Tools:\nFor Ansys SCADE releases 2024 R2 and below, run this command to complete the installation:\nThis additional step is not required when installing the package with\nAnsys SCADE Extension Manager.\nInstall in user mode"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_footer",
+        "href": "api/ansys/scade/wux/wux/gen_footer.html#ansysscadewuxwuxgen_footer",
+        "title": "ansys.scade.wux.wux.gen_footer",
+        "section": "ansys.scade.wux.wux.gen_footer",
+        "text": "Write an end of file comment.\nOutput file to write to.\nStart comment, default “/* “.\nEnd comment, default “ */”.\nansys.scade.wux.wux.gen_footer\nTextIOBase\npython:str\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_footer",
+        "href": "api/ansys/scade/wux/wux/gen_footer.html#ansys.scade.wux.wux.gen_footer",
+        "title": "ansys.scade.wux.wux.gen_footer > ansys.scade.wux.wux.gen_footer > gen_footer",
+        "section": "ansys.scade.wux.wux.gen_footer > gen_footer",
+        "text": "ansys.scade.wux.wux.gen_footer(f: io.TextIOBase, start_comment: str = '/* ', end_comment: str = ' */')\n\nWrite an end of file comment.\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nstart_comment\n\npython:str\n\nStart comment, default “/* “.\n\nend_comment\n\npython:str\n\nEnd comment, default “ */”.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/set_sessions",
+        "href": "api/ansys/scade/wux/wux/set_sessions.html#ansysscadewuxwuxset_sessions",
+        "title": "ansys.scade.wux.wux.set_sessions",
+        "section": "ansys.scade.wux.wux.set_sessions",
+        "text": "Set the list of loaded SCADE models.\nThis function is present only for unit testing, where SCADE Suite API’s get_roots()\ncannot be used.\nList of loaded SCADE Suite models.\nansys.scade.wux.wux.set_sessions\nget_roots()\nList\nSession"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/set_sessions",
+        "href": "api/ansys/scade/wux/wux/set_sessions.html#ansys.scade.wux.wux.set_sessions",
+        "title": "ansys.scade.wux.wux.set_sessions > ansys.scade.wux.wux.set_sessions > set_sessions",
+        "section": "ansys.scade.wux.wux.set_sessions > set_sessions",
+        "text": "ansys.scade.wux.wux.set_sessions(sessions: List[scade.model.suite.Session])\n\nSet the list of loaded SCADE models.\n\nThis function is present only for unit testing, where SCADE Suite API’s get_roots()\ncannot be used.\n\nParameters\n\nsessions\n\nList[Session]\n\nList of loaded SCADE Suite models.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "runtime/ctxext",
+        "href": "runtime/ctxext.html#wuxctxexth",
+        "title": "WuxCtxExt.h",
+        "section": "WuxCtxExt.h",
+        "text": "Declarations of the functions generated by the service WuxContext. \nCall the initialization functions for all root operators. \nCall the reset functions for all root operators. \nCall the cyclic functions for all root operators. \nReturn the period specified in the Code Integration settings, in seconds. \ndouble \nWuxCtxExt.h"
+    },
+    {
+        "objectID": "runtime/ctxext",
+        "href": "runtime/ctxext.html#_CPPv47WuxInitv",
+        "title": "WuxCtxExt.h > WuxCtxExt.h > _CPPv47WuxInitv",
+        "section": "WuxCtxExt.h > _CPPv47WuxInitv",
+        "text": "void WuxInit()\n\nCall the initialization functions for all root operators. "
+    },
+    {
+        "objectID": "runtime/ctxext",
+        "href": "runtime/ctxext.html#_CPPv48WuxResetv",
+        "title": "WuxCtxExt.h > WuxCtxExt.h > _CPPv48WuxResetv",
+        "section": "WuxCtxExt.h > _CPPv48WuxResetv",
+        "text": "void WuxReset()\n\nCall the reset functions for all root operators. "
+    },
+    {
+        "objectID": "runtime/ctxext",
+        "href": "runtime/ctxext.html#_CPPv48WuxCyclev",
+        "title": "WuxCtxExt.h > WuxCtxExt.h > _CPPv48WuxCyclev",
+        "section": "WuxCtxExt.h > _CPPv48WuxCyclev",
+        "text": "void WuxCycle()\n\nCall the cyclic functions for all root operators. "
+    },
+    {
+        "objectID": "runtime/ctxext",
+        "href": "runtime/ctxext.html#_CPPv412WuxGetPeriodv",
+        "title": "WuxCtxExt.h > WuxCtxExt.h > _CPPv412WuxGetPeriodv",
+        "section": "WuxCtxExt.h > _CPPv412WuxGetPeriodv",
+        "text": "double WuxGetPeriod()\n\nReturn the period specified in the Code Integration settings, in seconds. \n\nReturns\n\ndouble "
+    },
+    {
+        "objectID": "runtime/sdyproxy",
+        "href": "runtime/sdyproxy.html#wuxsdyproxyh",
+        "title": "WuxSdyProxy.h",
+        "section": "WuxSdyProxy.h",
+        "text": "Declarations of the functions generated by the service SdyProxy. \nLoad the DLLs of the graphical panels. \nint 1 if successful, otherwise 0. \nUnload the DLLs of the graphical panels. \nint 1 if successful, otherwise 0. \nWuxSdyProxy.h"
+    },
+    {
+        "objectID": "runtime/sdyproxy",
+        "href": "runtime/sdyproxy.html#_CPPv414WuxLoadSdyDllsPv",
+        "title": "WuxSdyProxy.h > WuxSdyProxy.h > _CPPv414WuxLoadSdyDllsPv",
+        "section": "WuxSdyProxy.h > _CPPv414WuxLoadSdyDllsPv",
+        "text": "int WuxLoadSdyDlls(void *hinstDll)\n\nLoad the DLLs of the graphical panels. \n\nReturns\n\nint 1 if successful, otherwise 0. "
+    },
+    {
+        "objectID": "runtime/sdyproxy",
+        "href": "runtime/sdyproxy.html#_CPPv416WuxUnloadSdyDllsPv",
+        "title": "WuxSdyProxy.h > WuxSdyProxy.h > _CPPv416WuxUnloadSdyDllsPv",
+        "section": "WuxSdyProxy.h > _CPPv416WuxUnloadSdyDllsPv",
+        "text": "int WuxUnloadSdyDlls(void *hinstDll)\n\nUnload the DLLs of the graphical panels. \n\nReturns\n\nint 1 if successful, otherwise 0. "
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/unregister",
+        "href": "api/ansys/scade/wux/unregister/unregister.html#ansysscadewuxunregisterunregister",
+        "title": "ansys.scade.wux.unregister.unregister",
+        "section": "ansys.scade.wux.unregister.unregister",
+        "text": "Implement the ansys.scade.registry/unregister entry point.\nansys.scade.wux.unregister.unregister\nansys.scade.registry/unregister"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/unregister/unregister",
+        "href": "api/ansys/scade/wux/unregister/unregister.html#ansys.scade.wux.unregister.unregister",
+        "title": "ansys.scade.wux.unregister.unregister > ansys.scade.wux.unregister.unregister > unregister",
+        "section": "ansys.scade.wux.unregister.unregister > unregister",
+        "text": "ansys.scade.wux.unregister.unregister() -> Tuple[int, str]\n\nImplement the ansys.scade.registry/unregister entry point.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in\nContributing\nin the PyAnsys developer’s guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to Ansys SCADE Wrapper Tools.\nThe following contribution information is specific to Ansys SCADE Wrapper Tools.\nContribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#install-in-developer-mode",
+        "title": "Contribute > Install in developer mode",
+        "section": "Install in developer mode",
+        "text": "Installing Ansys SCADE Wrapper Tools in developer mode allows you to modify the\nsource and enhance it.\nClone the ansys-scade-wux repository:\nAccess the scade-wux directory where the repository has been cloned:\nCreate a clean Python 3.10 environment and activate it:\nYou can use the interpreter delivered with Ansys SCADE. For example,\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe.\nMake sure that you have the latest required build system, documentation, testing,\nand CI tools:\nInstall doxygen\nhttps://www.doxygen.nl/download.html\nInstall the project in editable mode:\nUse tox to verify your development installation:\nInstall in developer mode\nansys-scade-wux\nscade-wux\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#unit-test",
+        "title": "Contribute > Unit test",
+        "section": "Unit test",
+        "text": "Ansys SCADE Wrapper Tools uses tox for testing. This tool allows you to\nautomate common development tasks (similar to Makefile), but it is oriented\ntowards Python development.\nUnit test\nMakefile"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-tox",
+        "title": "Contribute > Use tox",
+        "section": "Use tox",
+        "text": "While Makefile has rules, tox has environments. In fact, tox creates its\nown virtual environment so that anything being tested is isolated from the project\nto guarantee the project’s integrity.\nThe following tox commands are provided:\ntox -e style: Checks for coding style quality.\ntox -e py: Checks for unit tests.\ntox -e py-coverage: Checks for unit testing and code coverage.\ntox -e doc: Checks for the documentation-building process.\nUse tox\ntox\nMakefile\ntox\ntox\ntox\ntox -e style\ntox -e py\ntox -e py-coverage\ntox -e doc"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-raw-testing",
+        "title": "Contribute > Use raw testing",
+        "section": "Use raw testing",
+        "text": "If required, from the command line, you can call style commands like\nruff. You can also call unit testing commands like pytest.\nHowever, running these commands does not guarantee that your project is being tested in an\nisolated environment, which is the reason why tools like tox exist.\nUse raw testing\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-pre-commit",
+        "title": "Contribute > Use pre-commit",
+        "section": "Use pre-commit",
+        "text": "Ansys SCADE Wrapper Tools follows the PEP8 standard as outlined in\nPEP 8 in\nthe PyAnsys developer’s guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run the following commands:\nYou can also install this as a pre-commit hook by running this command:\nThis way, it’s not possible for you to push code that fails the style checks:\nUse pre-commit\npre-commit"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "For building documentation, you can run the usual rules provided in the\nSphinx make file. Here are some examples:\nHowever, the recommended way of checking documentation integrity is to use\ntox:\nBuild documentation\nmake\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#debug-and-integration-test",
+        "title": "Contribute > Debug and integration test",
+        "section": "Debug and integration test",
+        "text": "Ansys SCADE Wrapper Tools needs to be registered to SCADE for integration testing.\nIndeed, the generation modules are called from a SCADE code generator session.\nDebug and integration test"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#install-in-user-mode",
+        "title": "Contribute > Install in user mode",
+        "section": "Install in user mode",
+        "text": "It is not possible to reuse the virtual environment setup for the repository.\nYou must install the package in an environment accessible by SCADE, for\nexample its own Python distribution, although this is not advised,\nor the Python 3.10 user distribution:\nYou can reuse any <install>\\SCADE\\contrib\\Python310\\python.exe\nor Python 3.10 installation on your computer.\nIf you are using Ansys SCADE 2024 R2 or below, you must perform one additional\nstep, to install a registration file in %APPDATA%\\SCADE\\Customize:\nInstall in user mode\n<install>\\SCADE\\contrib\\Python310\\python.exe\n%APPDATA%\\SCADE\\Customize"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#debug",
+        "title": "Contribute > Debug",
+        "section": "Debug",
+        "text": "The .\\tests\\Debug\\debug.py script uses internal SCADE Code Generator entry points\nto start a debug session for the scripts.\nYou must use the Python 3.10 environment delivered with SCADE, located in\n<install>\\contrib\\Python310.\nFor example:\nC:\\Program Files\\ANSYS Inc\\v251\\SCADE\\contrib\\Python310.\nConfigure PYTHONPATH to refer to <install>\\SCADE\\bin and\n<install>\\SCADE\\APIs\\Python\\lib. For example:\nRefer to .\\tests\\Debug\\debug.py for its command line parameters.\nDebug\n.\\tests\\Debug\\debug.py\n<install>\\contrib\\Python310\nC:\\Program Files\\ANSYS Inc\\v251\\SCADE\\contrib\\Python310\n<install>\\SCADE\\bin\n<install>\\SCADE\\APIs\\Python\\lib\n.\\tests\\Debug\\debug.py"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#run-the-integration-tests",
+        "title": "Contribute > Run the integration tests",
+        "section": "Run the integration tests",
+        "text": "These are manual tests. Refer to the test procedures, contained in each test\ndirectory as readme files.\nRun the integration tests"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#uninstall",
+        "title": "Contribute > Uninstall",
+        "section": "Uninstall",
+        "text": "Once the test or debug sessions are completed, you may uninstall the package\nas follows:\nIf you are using Ansys SCADE 2024 R2 or below, you should remove the\nregistration file:\nUninstall"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#distribute",
+        "title": "Contribute > Distribute",
+        "section": "Distribute",
+        "text": "If you would like to create either source or wheel files, start by installing\nthe building requirements and then, execute the build module:\nDistribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#post-issues",
+        "title": "Contribute > Post issues",
+        "section": "Post issues",
+        "text": "Use the Ansys SCADE Wrapper Tools Issues\npage to submit questions, report bugs, and request new features. When possible, use\nthese templates:\nBug, problem, error: for filing a bug report\nDocumentation error: for requesting modifications to the documentation\nAdding an example: for proposing a new example\nNew feature: for requesting enhancements to the code\nIf your issue does not fit into one of these template categories, click\nthe link for opening a blank issue.\nTo reach the project support team, email pyansys.core@ansys.com.\nPost issues"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/index",
+        "href": "api/ansys/scade/wux/register/index.html#the-registerpy-module",
+        "title": "The register.py module",
+        "section": "The register.py module",
+        "text": "The register.py module\nregister.py"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/index",
+        "href": "api/ansys/scade/wux/register/index.html#summary",
+        "title": "The register.py module > Summary",
+        "section": "Summary",
+        "text": "main\nImplement the ansys.scade.wux.register packages’s project script.\nregister\nImplement the ansys.scade.registry/register entry point.\ncode\nSummary\nmain\nansys.scade.wux.register\nregister\nansys.scade.registry/register\ncode"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/index",
+        "href": "api/ansys/scade/wux/register/index.html#description",
+        "title": "The register.py module > Description",
+        "section": "Description",
+        "text": "Registers the Code Generator extension registry files (SRG).\nRefer to the installation\nsteps for more information.\nIt addresses SCADE 2024 R2 and prior releases.\nSCADE 2025 R1 and later use the package’s\nansys.scade.registry entry point.\nDescription\nansys.scade.registry"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/index",
+        "href": "api/ansys/scade/wux/register/index.html#module-detail",
+        "title": "The register.py module > Module detail",
+        "section": "Module detail",
+        "text": "Module detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/index",
+        "href": "api/ansys/scade/wux/register/index.html#register.code",
+        "title": "The register.py module > Module detail > code",
+        "section": "Module detail > code",
+        "text": "register.code\n\n"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_sdy_applications",
+        "href": "api/ansys/scade/wux/wux/get_sdy_applications.html#ansysscadewuxwuxget_sdy_applications",
+        "title": "ansys.scade.wux.wux.get_sdy_applications",
+        "section": "ansys.scade.wux.wux.get_sdy_applications",
+        "text": "Return the loaded SCADE models.\nThe nominal use case consists in calling SCADE Display Coupling API’s get_roots(),\nunless the list of applications has already been initialized,\nfor unit testing for example.\nansys.scade.wux.wux.get_sdy_applications\nget_roots()\nList\nSession"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_sdy_applications",
+        "href": "api/ansys/scade/wux/wux/get_sdy_applications.html#ansys.scade.wux.wux.get_sdy_applications",
+        "title": "ansys.scade.wux.wux.get_sdy_applications > ansys.scade.wux.wux.get_sdy_applications > get_sdy_applications",
+        "section": "ansys.scade.wux.wux.get_sdy_applications > get_sdy_applications",
+        "text": "ansys.scade.wux.wux.get_sdy_applications() -> List[scade.model.suite.displaycoupling.SdyApplication]\n\nReturn the loaded SCADE models.\n\nThe nominal use case consists in calling SCADE Display Coupling API’s get_roots(),\nunless the list of applications has already been initialized,\nfor unit testing for example.\n\nReturns\n\nList[Session]\n\n\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#gowrapper",
+        "title": "GoWrapper",
+        "section": "GoWrapper",
+        "text": "Implements the Generic Integration (WUX2_GOWRP) generation module.\nRefer to Wrapper to for its usage.\nRefer to Generation Module in the User Documentation,\nsection 3/ Code Integration Toolbox/Declaring Code Generator Extension.\nGoWrapper\nGoWrapper\nWUX2_GOWRP"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#ansys.scade.wux.gowrapper.GoWrapper",
+        "title": "GoWrapper > GoWrapper > GoWrapper",
+        "section": "GoWrapper > GoWrapper",
+        "text": "class ansys.scade.wux.gowrapper.GoWrapper\n\nImplements the Generic Integration (WUX2_GOWRP) generation module.\n\nRefer to Wrapper to for its usage.\n\nRefer to Generation Module in the User Documentation,\nsection 3/ Code Integration Toolbox/Declaring Code Generator Extension.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#overview",
+        "title": "GoWrapper > Overview",
+        "section": "Overview",
+        "text": "get_services\nDeclare the generation service GoWrapper.\ngenerate\nGenerate the code for this generation service.\ninit\nDeclare the required generation services and the execution order.\nOverview\nget_services\ngenerate\ninit"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#import-detail",
+        "title": "GoWrapper > Import detail",
+        "section": "Import detail",
+        "text": "Import detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#method-detail",
+        "title": "GoWrapper > Method detail",
+        "section": "Method detail",
+        "text": "Generate the code for this generation service.\nRefer to Generation Service in section 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\nTarget directory for the code generation.\nInput SCADE Suite project.\nSCADE Suite configuration selected for the code generation.\nDeclare the generation service GoWrapper.\nDeclare the required generation services and the execution order.\nRefer to Generation Service in section 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\nTarget directory for the code generation.\nInput SCADE Suite project.\nSCADE Suite configuration selected for the code generation.\nMethod detail\npython:str\nProject\nconfiguration\npython:str\nProject\nconfiguration"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#GoWrapper.generate",
+        "title": "GoWrapper > Method detail > generate",
+        "section": "Method detail > generate",
+        "text": "GoWrapper.generate(target_dir: str, project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)\n\nGenerate the code for this generation service.\n\nRefer to Generation Service in section 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\n\nParameters\n\ntarget_dir\n\npython:str\n\nTarget directory for the code generation.\n\nproject\n\nProject\n\nInput SCADE Suite project.\n\nconfiguration\n\nconfiguration\n\nSCADE Suite configuration selected for the code generation.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#GoWrapper.get_services",
+        "title": "GoWrapper > Method detail > get_services",
+        "section": "Method detail > get_services",
+        "text": "classmethod GoWrapper.get_services()\n\nDeclare the generation service GoWrapper.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/GoWrapper",
+        "href": "api/ansys/scade/wux/gowrapper/GoWrapper.html#GoWrapper.init",
+        "title": "GoWrapper > Method detail > init",
+        "section": "Method detail > init",
+        "text": "GoWrapper.init(target_dir: str, project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)\n\nDeclare the required generation services and the execution order.\n\nRefer to Generation Service in section 3 of the SCADE Python API Guide\nin the SCADE Suite documentation.\n\nParameters\n\ntarget_dir\n\npython:str\n\nTarget directory for the code generation.\n\nproject\n\nProject\n\nInput SCADE Suite project.\n\nconfiguration\n\nconfiguration\n\nSCADE Suite configuration selected for the code generation.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#generation-services",
+        "title": "Generation services",
+        "section": "Generation services",
+        "text": "Generation services"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#overview",
+        "title": "Generation services > Overview",
+        "section": "Overview",
+        "text": "The class WuxModule defines\nthe WUX2_MODULE generation module. Its generation services are not visible\nto the end user; they must be explicitly requested by client wrappers.\nThe module registers all the generation services included to the Code Generator.\nAnsys SCADE Wrapper Tools provide the following generation services,\ndetailed in the next sections:\nContext allocation for Scade root operators (WUX2_CTX):\nInstantiates MappingFile, MappingHelper and InterfacePrinter\nfor the root operators.\nGenerates the header/source files for declaring/defining SCADE generated code contexts.\nNote: The current version is not expected to support options like\nseparate_io, global_root_context or root functions returning a scalar value.\nGenerates the Init, Reset, and Cycle functions that call the\ncorresponding functions for all the root operators.\nGenerates a GetPeriod function for accessing the period specified in\nthe code integration settings.\nSCADE Suite-Display Extension (WUX2_SDY):\nGenerates the glue code for connecting the generated code from the graphical panels and the SCADE models.\nSCADE Display Proxy Extension (WUX2_SDY_PROXY):\nBuilds the SCADE Display and SCADE Rapid Prototyper DLLs.\nGenerates proxies for loading the DLLs (avoids link editing and compiler issues).\nSCADE Suite UA Adaptor Extension (WUX2_UAA):\nRuns UA Adaptor for the (only one) root operator.\nGenerates the glue code for sending and receiving A661 messages.\nExtension for SCADE Simulator’s extensions (WUX2_SIMU_EXT):\nCompatible with graphical panels.\nAvoids defining DllMain for simulation start and stop hooks.\nExtension for DllMain services (WUX2_DLL_EXT):\nAllows several extensions to register to DllMain’s hooks.\nOverview\nWuxModule\nWUX2_MODULE\nWUX2_CTX\nMappingFile\nMappingHelper\nInterfacePrinter\nseparate_io\nglobal_root_context\nInit\nReset\nCycle\nGetPeriod\nWUX2_SDY\nWUX2_SDY_PROXY\nWUX2_UAA\nWUX2_SIMU_EXT\nDllMain\nWUX2_DLL_EXT"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#context",
+        "title": "Generation services > Context",
+        "section": "Context",
+        "text": "This service (WUX2_CTX) manages the integration of a root operator.\nIt generates the following files:\nwuxctx<project name>.h\nDeclaration of the contexts for the root operators.\nReference to <project name>_interface.h instead of declaring\nnew contexts when the current Target is the SCADE Simulator.\nwuxctx<project name>.c\nAllocation of the contexts when the current Target is not the\nSCADE Simulator, otherwise nothing.\nGeneration of the functions WuxInit(), WuxReset() and\nWuxCycle().\nThese functions call the related code for each root operator, when the\ncurrent Target is not the SCADE Simulator, otherwise they are empty.\nGeneration of the WuxGetPeriod() function that returns the\nperiod declared in the Code Integration settings.\nThe returned value is in seconds.\nAll the generated functions are declared in the /runtime/ctxext\nresource file and its containing directory is added to the Code Generator.\nThis generation service initializes the ips,\nmf and mh global variables of the\nwux module. Note that the\nips collection contains instances of a class derived from\nInterfacePrinter, that considers the SCADE Simulator’s context when the\ncode generation target is Simulator.\nContext\nWUX2_CTX\nwuxctx<project name>.h\nwuxctx<project name>.c\nWuxInit()\nWuxReset()\nWuxCycle()\nWuxGetPeriod()\nips\nmf\nmh\nwux\nips\nInterfacePrinter\nSimulator"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#display-extension",
+        "title": "Generation services > Display extension",
+        "section": "Display extension",
+        "text": "This service (WUX2_SDY) is responsible for generating the glue code\nbetween SCADE Suite and SCADE Display.\nIt generates the following file:\n<project name>_sydext.c:\nvoid WuxSdyInit(): Initializes the displays.\nvoid WuxSdyDraw(): Draws the displays.\nvoid WuxSdySetInputs(): Copies the mapped values from the contexts to the layers.\nvoid WuxSdyGetOutputs(): Copies the mapped values from the layers to the contexts.\nint WuxSdyCancelled(): Returns 1 if one of the display is closed.\nThe generated files are declared to the Code Generator with the tag WUX.\nThe functions are always generated to avoid link errors, but are\nempty if no graphical panel is referenced in the configuration.\nAll the generated functions are declared in /runtime/sdyext,\nand the containing directory is declared to the Code Generator.\nDisplay extension\nWUX2_SDY\n<project name>_sydext.c\nvoid WuxSdyInit()\nvoid WuxSdyDraw()\nvoid WuxSdySetInputs()\nvoid WuxSdyGetOutputs()\nint WuxSdyCancelled()\n1\nWUX"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#display-proxy-extension",
+        "title": "Generation services > Display proxy extension",
+        "section": "Display proxy extension",
+        "text": "This service (WUX2_SDY_PROXY) is responsible for building the DLLs for each\ngraphical panel referenced in the configuration, and for providing functions to load\nthe DLLs at runtime.\nIt generates the following file:\n<project name>_sydextprx.cpp:\nint WuxLoadSdyDlls(/*HINSTANCE*/ void* hinstDll): Loads all the displays.\nint WuxUnloadSdyDlls(/*HINSTANCE*/ void* hinstDll): Unoads all the displays.\nThe generated files are declared to the Code Generator with the tag WUX.\nThe functions are always generated to avoid link errors, but are\nempty if no graphical panel is referenced in the configuration.\nAll the generated functions are declared in /runtime/sdyproxy,\nand the containing directory is declared to the Code Generator.\nThe lib/WuxSdyProxy.cpp resource file is required and is declared to the\nCode Generator with the tag WUX.\nDisplay proxy extension\nWUX2_SDY_PROXY\n<project name>_sydextprx.cpp\nint WuxLoadSdyDlls(/*HINSTANCE*/ void* hinstDll)\nint WuxUnloadSdyDlls(/*HINSTANCE*/ void* hinstDll)\nWUX\nlib/WuxSdyProxy.cpp\nWUX"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#ua-adaptor-extension",
+        "title": "Generation services > UA Adaptor extension",
+        "section": "UA Adaptor extension",
+        "text": "This service (WUX2_UAA) is responsible for generating the definition files\n(DF) files for each A661 panel referenced in the configuration, for running\nSCADE UA Adaptor for the root operators, and for providing functions to\nsend/receive A661 messages at runtime.\nIt generates the following functions in wuxuaa<project name>.c:\nint WuxA661ConnectServer(): Connects to the A661 server,\nand return 0 on success.\nint WuxA661DisconnectServer(): Disconnects from the A661 server,\nand return 0 on success.\nvoid WuxA661ReceiveMessages(): Receives the A661 messages,\nand copies the mapped values to the contexts.\nvoid WuxA661SendMessages(): Gets the mapped values form the contexts,\nand sends all the A661 messages.\nThe generated file as well as the files generated by SCADE UA Adaptor are\ndeclared to the Code Generator with the tag WUX.\nThe functions are always generated to avoid link errors,\nbut are empty if no UA is referenced in the configuration.\nAll the generated functions are declared in /runtime/a661ext,\nand the containing directory is declared to the Code Generator.\nThe lib/A661Connect.c resource file is required and is declared to the\nCode Generator with the tag WUX.\nUA Adaptor extension\nWUX2_UAA\nwuxuaa<project name>.c\nint WuxA661ConnectServer()\nint WuxA661DisconnectServer()\nvoid WuxA661ReceiveMessages()\nvoid WuxA661SendMessages()\nWUX\nlib/A661Connect.c\nWUX"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#simulator-extension",
+        "title": "Generation services > Simulator extension",
+        "section": "Simulator extension",
+        "text": "This generation service was initially designed to allow the\nusage of SCADE Simulator with one or more wrappers together with\nSCADE graphical panels.\nIt was then extended to provide a generic way for integrating extensions\nwith the Wrapper Generic Integration.\nIt was not renamed for compatibility reasons.\nThe following text describes the connection to the SCADE Simulator but this\napplies to any host.\nThis generation service (WUX2_SIMU_EXT) does not generate new files, but\nprovides a workaround for a limitation of the SCADE Simulator interface.\nIndeed, the SCADE Simulator allows hooks thanks to functions like\nBeforeSimInit, BeforeSimStep, or AfterSimStep, when the\npreprocessor variable EXTENDED_SIM is defined.\nThis allows wrapping code, such as communications with external\nenvironments, to be executed in the SCADE Simulator without requiring imported\noperators for the I/Os.\nUnfortunately, if the wrapping code is used together with graphical panels,\nthe existing hook mechanism is not enough: two different pieces of code define\nthe same functions, leading to link errors.\nThe purpose of this generation service is to patch the file\n<project name>_interface.c generated by the SCADE Simulator Wrapper\nso that:\nthe file includes /runtime/simuext\nEXTENDED_SIM is always defined in this file\nall the calls to a Xxx hook function are replaced by calls to a\nWuxXxx function\nThe WuxXxx functions are declared in /runtime/simuext and the\ncontaining directory is declared to the Code Generator. They are implemented\nin the lib/WuxSimuExt.cpp resource file that is required, and declared to\nthe Code Generator with the tag WUX. The implementation consists in\ncalling the function for each registered extension.\nThe wrappers that want to hook the SCADE Simulator, or to be compatible with\nthe Generic Integration wrapper, must create a\nstatic instance of a class deriving from CWuxSimulatorExtension.\nThe constructor automatically registers the instance to the list of hooks.\nAll the functions have an empty implementation by default.\nWhen EXTENDED_SIM is defined, the source defines a specific instance of\nCWuxSimulatorExtension that calls the former global hooks to ensure the\ncompatibility with the existing services, especially the simulation with\ngraphical panels.\nThe example hereafter shows the usage of this feature by some wrapper:\nThe _ReadData() function retrieves data from the environment and copies\nthe values to the context of the root operators.\nThe _WriteData() function does the reverse.\nThe initialization/termination of the external environment has no more to be\ndone in DllMain, which often leads to thread issues.\nThis design allows using graphical panels in the Simulation. Or not.\nAll target wrappers embedding these extensions must define the preprocessor\ndirective WUX_STANDALONE. In other words, the macro WUX_STANDALONE\nis not defined if and only if the extension is used in the context of the\nSCADE Simulator.\nSimulator extension\nWUX2_SIMU_EXT\nBeforeSimInit\nBeforeSimStep\nAfterSimStep\nEXTENDED_SIM\n<project name>_interface.c\nEXTENDED_SIM\nXxx\nWuxXxx\nWuxXxx\nlib/WuxSimuExt.cpp\nWUX\nCWuxSimulatorExtension\nEXTENDED_SIM\nCWuxSimulatorExtension\n_ReadData()\n_WriteData()\nDllMain\nWUX_STANDALONE\nWUX_STANDALONE"
+    },
+    {
+        "objectID": "usage/services",
+        "href": "usage/services.html#dllmain-extension",
+        "title": "Generation services > DllMain extension",
+        "section": "DllMain extension",
+        "text": "This generation service (WUX2_DLL_EXT) does not generate new files,\nbut allows several services to subscribe to DllMain. It is used by\ngeneration services that produce a DLL instead of a standalone executable.\nA wrapper which needs an access to DllMain must include\n/runtime/dllext and define a static instance of a class deriving\nfrom CWuxDllInstance.\nThe constructor automatically registers the instance to the list of hooks.\nAll the functions have an empty implementation by default.\nThe directory containing /runtime/dllext is declared to the\nCode Generator.\nThe lib/WuxDllExt.cpp resource file is declared to the Code Generator with\nthe tag WUX.\nDllMain extension\nWUX2_DLL_EXT\nDllMain\nDllMain\nCWuxDllInstance\nlib/WuxDllExt.cpp\nWUX"
+    },
+    {
+        "objectID": "usage/index",
+        "href": "usage/index.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "User guide"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_sources",
+        "href": "api/ansys/scade/wux/wux/add_sources.html#ansysscadewuxwuxadd_sources",
+        "title": "ansys.scade.wux.wux.add_sources",
+        "section": "ansys.scade.wux.wux.add_sources",
+        "text": "Request the Code Generator to add sources files to the Makefile for C build.\nThe source files are associated to the virtual service WUX:\nUse the dependency WUX to declare a new target containing the sources\nfrom the generation services, either generated ones or runtime files.\nThis function may be called by different generation services.\nIt caches the added sources so that they are not added twice to the makefile.\nRefer to add_c_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\nPaths of the C/C++ sources files to be added to the makefile.\nansys.scade.wux.wux.add_sources\nWUX\nWUX\nadd_c_files\nList\nPath"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/add_sources",
+        "href": "api/ansys/scade/wux/wux/add_sources.html#ansys.scade.wux.wux.add_sources",
+        "title": "ansys.scade.wux.wux.add_sources > ansys.scade.wux.wux.add_sources > add_sources",
+        "section": "ansys.scade.wux.wux.add_sources > add_sources",
+        "text": "ansys.scade.wux.wux.add_sources(paths: List[pathlib.Path])\n\nRequest the Code Generator to add sources files to the Makefile for C build.\n\nThe source files are associated to the virtual service WUX:\nUse the dependency WUX to declare a new target containing the sources\nfrom the generation services, either generated ones or runtime files.\n\nThis function may be called by different generation services.\nIt caches the added sources so that they are not added twice to the makefile.\n\nRefer to add_c_files under Adding Make Directives in section 3\nof the SCADE Python API Guide in the SCADE Suite documentation.\n\nParameters\n\npaths\n\nList[Path]\n\nPaths of the C/C++ sources files to be added to the makefile.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#release-notes",
+        "title": "Release notes",
+        "section": "Release notes",
+        "text": "This document contains the release notes for the project.\nRelease notes"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#213---april-30-2025",
+        "title": "Release notes > 2.1.3 - April 30, 2025",
+        "section": "2.1.3 - April 30, 2025",
+        "text": "fix: Blocking issues\n#28\n2.1.3 - April 30, 2025"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#211---march-20-2025",
+        "title": "Release notes > 2.1.1 - March 20, 2025",
+        "section": "2.1.1 - March 20, 2025",
+        "text": "feat: Add register and unregister entry points for Extensions Manager\n#22\nci: Specify the version of Python for updating the change log\n#23\n2.1.1 - March 20, 2025"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#210---2025-01-20",
+        "title": "Release notes > 2.1.0 - 2025-01-20",
+        "section": "2.1.0 - 2025-01-20",
+        "text": "2.1.0 - 2025-01-20"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#added",
+        "title": "Release notes > Added",
+        "section": "Added",
+        "text": "feat: technical review #17\nAdded"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#fixed",
+        "title": "Release notes > Fixed",
+        "section": "Fixed",
+        "text": "fix: Avoid name conflict with legacy WrapUtilsEx 1.x #19\nfix: changelog action inputs #20\nFixed"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#documentation",
+        "title": "Release notes > Documentation",
+        "section": "Documentation",
+        "text": "chore: update CHANGELOG for v2.0.1 #12\nchore: update CHANGELOG for v2.0.2 #14\ndocs: doc review #15\ndocs: Add minimal doc-strings for test stubs and implementation files #16\nDocumentation"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#test",
+        "title": "Release notes > Test",
+        "section": "Test",
+        "text": "test: Complete unit tests for SCADE Suite - SCADE Display connections #18\nTest"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#202---2024-10-10",
+        "title": "Release notes > 2.0.2 - 2024-10-10",
+        "section": "2.0.2 - 2024-10-10",
+        "text": "2.0.2 - 2024-10-10"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#maintenance",
+        "title": "Release notes > Maintenance",
+        "section": "Maintenance",
+        "text": "Refactor: Perform a separate registration for SCADE releases based on Python 3.7 or 3.10 #13\nMaintenance"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#201---2024-10-06",
+        "title": "Release notes > 2.0.1 - 2024-10-06",
+        "section": "2.0.1 - 2024-10-06",
+        "text": "2.0.1 - 2024-10-06"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#fixed",
+        "title": "Release notes > Fixed",
+        "section": "Fixed",
+        "text": "fix: Add an action to update the change log before creating a release #8\nFixed"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#documentation",
+        "title": "Release notes > Documentation",
+        "section": "Documentation",
+        "text": "maint: Finalize the configuration #6\nci: fix change log #9\nrefactor: Refactor the classes and code to enhance reusability and testability #10\nDocumentation"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#maintenance",
+        "title": "Release notes > Maintenance",
+        "section": "Maintenance",
+        "text": "ci: Fix the url for coverage #7\nMaintenance"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_start_protect",
+        "href": "api/ansys/scade/wux/wux/gen_start_protect.html#ansysscadewuxwuxgen_start_protect",
+        "title": "ansys.scade.wux.wux.gen_start_protect",
+        "section": "ansys.scade.wux.wux.gen_start_protect",
+        "text": "Write the beginning of a protection macro for a C header file.\nThe dots (.) present in name are replaced by underscores (_).\nThe name of the macro is uppercase.\nThe function writes the following snippet:\nOutput file to write to.\nName of the preprocessor macro.\nansys.scade.wux.wux.gen_start_protect\nC\n.\n_\nTextIOBase\npython:str"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/gen_start_protect",
+        "href": "api/ansys/scade/wux/wux/gen_start_protect.html#ansys.scade.wux.wux.gen_start_protect",
+        "title": "ansys.scade.wux.wux.gen_start_protect > ansys.scade.wux.wux.gen_start_protect > gen_start_protect",
+        "section": "ansys.scade.wux.wux.gen_start_protect > gen_start_protect",
+        "text": "ansys.scade.wux.wux.gen_start_protect(f: io.TextIOBase, name: str)\n\nWrite the beginning of a protection macro for a C header file.\n\nThe dots (.) present in name are replaced by underscores (_).\n\nThe name of the macro is uppercase.\n\nThe function writes the following snippet:\n\n#ifndef _NAME_\n#define _NAME_\n\nParameters\n\nf\n\nTextIOBase\n\nOutput file to write to.\n\nname\n\npython:str\n\nName of the preprocessor macro.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_specifications",
+        "href": "api/ansys/scade/wux/wux/get_specifications.html#ansysscadewuxwuxget_specifications",
+        "title": "ansys.scade.wux.wux.get_specifications",
+        "section": "ansys.scade.wux.wux.get_specifications",
+        "text": "Return the list of graphical panel specifications selected for the input configuration.\nThis function adds a new prefix attribute to the specifications.\nInput project.\nInput configuration.\nansys.scade.wux.wux.get_specifications\nprefix\nProject\nConfiguration\nList\nSpecification"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/wux/get_specifications",
+        "href": "api/ansys/scade/wux/wux/get_specifications.html#ansys.scade.wux.wux.get_specifications",
+        "title": "ansys.scade.wux.wux.get_specifications > ansys.scade.wux.wux.get_specifications > get_specifications",
+        "section": "ansys.scade.wux.wux.get_specifications > get_specifications",
+        "text": "ansys.scade.wux.wux.get_specifications(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration) -> List[scade.model.suite.displaycoupling.Specification]\n\nReturn the list of graphical panel specifications selected for the input configuration.\n\nThis function adds a new prefix attribute to the specifications.\n\nParameters\n\nproject\n\nProject\n\nInput project.\n\nconfiguration\n\nConfiguration\n\nInput configuration.\n\nReturns\n\nList[Specification]\n\n\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/index",
+        "href": "api/ansys/scade/wux/gowrapper/index.html#the-gowrapperpy-module",
+        "title": "The gowrapper.py module",
+        "section": "The gowrapper.py module",
+        "text": "The gowrapper.py module\ngowrapper.py"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/index",
+        "href": "api/ansys/scade/wux/gowrapper/index.html#summary",
+        "title": "The gowrapper.py module > Summary",
+        "section": "Summary",
+        "text": "GoWrapper\nImplements the Generic Integration (WUX2_GOWRP) generation module.\nSummary\nGoWrapper\nWUX2_GOWRP"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/gowrapper/index",
+        "href": "api/ansys/scade/wux/gowrapper/index.html#description",
+        "title": "The gowrapper.py module > Description",
+        "section": "Description",
+        "text": "Generic wrapper for hosting combined SCADE Suite integration extensions.\n99% of the generation is ensured by the extensions\nThe wrapper declares the target\nDesign note: the core extensions register to this wrapper which gathers the\nmakefile elements to build the executable. The communication between the\nwrapper and the extensions is done through the global variables of\nthe wux module.\nDescription\nwux"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/register",
+        "href": "api/ansys/scade/wux/register/register.html#ansysscadewuxregisterregister",
+        "title": "ansys.scade.wux.register.register",
+        "section": "ansys.scade.wux.register.register",
+        "text": "Implement the ansys.scade.registry/register entry point.\nansys.scade.wux.register.register\nansys.scade.registry/register"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/register/register",
+        "href": "api/ansys/scade/wux/register/register.html#ansys.scade.wux.register.register",
+        "title": "ansys.scade.wux.register.register > ansys.scade.wux.register.register > register",
+        "section": "ansys.scade.wux.register.register > register",
+        "text": "ansys.scade.wux.register.register() -> Tuple[int, str]\n\nImplement the ansys.scade.registry/register entry point.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/index",
+        "href": "api/ansys/scade/wux/index.html#the-ansysscadewux-library",
+        "title": "The ansys.scade.wux library",
+        "section": "The ansys.scade.wux library",
+        "text": "The ansys.scade.wux library\nansys.scade.wux"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/index",
+        "href": "api/ansys/scade/wux/index.html#summary",
+        "title": "The ansys.scade.wux library > Summary",
+        "section": "Summary",
+        "text": "gowrapper\nGeneric wrapper for hosting combined SCADE Suite integration extensions.\nregister\nRegisters the Code Generator extension registry files (SRG).\nunregister\nUnregisters the Code Generator extension registry files (SRG).\nwux\nProvides a collection of functions for developing wrappers.\nwuxmodule\nSCADE Code Generation Module for utility SCADE Code Generation Services.\nget_srg_name\nReturn the name of the registration file for Ansys SCADE IDE.\nsrg\nReturn the path of the SCADE Studio registry file.\n__version__\nSummary\ngowrapper\nregister\nunregister\nwux\nwuxmodule\nget_srg_name\nsrg\n__version__"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/index",
+        "href": "api/ansys/scade/wux/index.html#description",
+        "title": "The ansys.scade.wux library > Description",
+        "section": "Description",
+        "text": "Provides a Generic code integration wrapper and utilities for SCADE.\nDescription"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/index",
+        "href": "api/ansys/scade/wux/index.html#module-detail",
+        "title": "The ansys.scade.wux library > Module detail",
+        "section": "Module detail",
+        "text": "Module detail"
+    },
+    {
+        "objectID": "api/ansys/scade/wux/index",
+        "href": "api/ansys/scade/wux/index.html#wux.__version__",
+        "title": "The ansys.scade.wux library > Module detail > __version__",
+        "section": "Module detail > __version__",
+        "text": "wux.__version__\n\n"
+    },
+    {
+        "objectID": "usage/library",
+        "href": "usage/library.html#library",
+        "title": "Library",
+        "section": "Library",
+        "text": "The module ansys.scade.wux.wux contains helpers for generating code.\nIt also maintains global instances of WrapGen API classes that give access\nto the C generated code mapping file data, or the C root operators interfaces.\nA set of functions allows generation services to declare resources for the\nmakefile:\nSource files\nInclude directories\nObject files or libraries\nPreprocessor definitions\nThe mf, mh and\nips variables are initialized by the\nusage/services:Context generation service. They remain uninitialized\nif this service is not explicitly requested by a wrapper.\nLibrary\nansys.scade.wux.wux\nmf\nmh\nips"
+    }
+]
