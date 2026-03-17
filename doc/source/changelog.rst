@@ -9,6 +9,64 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.3.0 <https://github.com/ansys/scade-wux/releases/tag/v2.3.0>`_ - March 17, 2026
+==================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Maintenance missing or outdated check-vulnerabilities and check-actions-security ansys actions
+          - `#55 <https://github.com/ansys/scade-wux/pull/55>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump the dependencies group across 1 directory with 6 updates
+          - `#53 <https://github.com/ansys/scade-wux/pull/53>`_
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Chore: update CHANGELOG for v2.2.0
+          - `#46 <https://github.com/ansys/scade-wux/pull/46>`_
+
+        * - CHORE:  Update missing or outdated files
+          - `#51 <https://github.com/ansys/scade-wux/pull/51>`_
+
+        * - Ci: bump the actions group across 1 directory with 5 updates
+          - `#52 <https://github.com/ansys/scade-wux/pull/52>`_
+
+        * - Chore: Update license headers
+          - `#54 <https://github.com/ansys/scade-wux/pull/54>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump actions/download-artifact from 6.0.0 to 7.0.0 in the actions group
+          - `#56 <https://github.com/ansys/scade-wux/pull/56>`_
+
+        * - Bump Python and SCADE versions
+          - `#58 <https://github.com/ansys/scade-wux/pull/58>`_
+
+
 `2.2.0 <https://github.com/ansys/scade-wux/releases/tag/v2.2.0>`_ - September 02, 2025
 ======================================================================================
 
