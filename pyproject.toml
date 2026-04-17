@@ -10,17 +10,18 @@ readme="README.rst"
 
 # only 3.7, 3.10, or >= 3.12
 requires-python = ">=3.7,!=3.8.*,!=3.9.*,!=3.11.*"
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
-    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"},
+    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"}
 ]
 maintainers = [
-    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"},
+    {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"}
 ]
 dependencies=[
     "importlib-metadata >= 1.0; python_version < '3.8'",
     "importlib-metadata >= 4.0; python_version >= '3.8'",
-    "ansys-scade-apitools>=0.5.0",
+    "ansys-scade-apitools>=0.5.0"
 ]
 classifiers=[
     "Development Status :: 4 - Beta",
@@ -30,8 +31,7 @@ classifiers=[
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: Microsoft :: Windows",
+    "Operating System :: Microsoft :: Windows"
 ]
 keywords=["Scade", "Wrapper", "Integration"]
 
@@ -44,7 +44,7 @@ tests = [
     "pytest >= 9.0.1; python_version >= '3.8'",
     "pytest <= 7.4.4; python_version < '3.8'",
     "pytest-cov >= 6.0.0; python_version >= '3.8'",
-    "pytest-cov <= 4.1.0; python_version < '3.8'",
+    "pytest-cov <= 4.1.0; python_version < '3.8'"
 ]
 doc = [
     "ansys-sphinx-theme[autoapi]==1.7.0; python_version >= '3.12'",
@@ -62,7 +62,7 @@ doc = [
     "sphinx-copybutton==0.5.2",
     "sphinxnotes-strike==2.0; python_version >= '3.12'",
     "sphinxnotes-strike==1.2.1; python_version <= '3.10'",
-    "breathe>=4.33.1",
+    "breathe>=4.33.1"
 ]
 
 
@@ -116,7 +116,8 @@ known-first-party = ["ansys", "conftest", "test_utils"]
 convention = "numpy"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ["D",]
+"tests/*.py" = ["D"
+]
 
 [tool.coverage.run]
 source = ["ansys.scade.wux"]
