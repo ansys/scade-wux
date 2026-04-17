@@ -26,7 +26,6 @@ A661 user applications integration code.
 Extension for embedding UAs in other wrappers.
 """
 
-import os
 from pathlib import Path
 import subprocess  # nosec B404  # used to call uaadaptor.exe
 
@@ -206,7 +205,7 @@ class A661UAA:
         pathname = Path(target_dir) / (self.PREFIX + path.stem + '.c')
         sctoc.add_generated_files(self.tool, [pathname.name])
         self.sources.append(pathname)
-        with open(str(pathname), 'w') as f:
+        with pathname.open('w') as f:
             wux.gen_header(f, self.banner)
             self.gen_includes(f, project)
             # gen_kcg_declarations(f)
@@ -306,7 +305,7 @@ class A661UAA:
             root = Path(uapc_project.pathname).parent
             for conf in uapc_project.project.configurations:
                 sources = [
-                    Path(os.path.abspath(root / _))
+                    (root / _).resolve()
                     for _ in uapc_project.project.get_tool_prop_def('SDY', 'CONFSOURCE', [], conf)
                 ]
                 configurations.setdefault(conf.name, []).extend(sources)
@@ -319,7 +318,7 @@ class A661UAA:
         ]
         # convert to a list of tuples
         root = Path(project.pathname).parent
-        pairs = [(Path(os.path.abspath(root / _[0])), _[1]) for _ in pairs]
+        pairs = [((root / _[0]).resolve(), _[1]) for _ in pairs]
         # for old releases of SCADE, the first element is a specification,
         # for new ones, the first element is a project
         enabled_specs = set()
@@ -340,8 +339,8 @@ class A661UAA:
 
         if len(self.a661_specs) != 0:
             # assume one and only one root operator
-            # TODO: what if several root operators?
-            # TODO: what if both several specifications and root operators?
+            # TODO(JH): what if several root operators and or several specifications?
+            # https://github.com/ansys/scade-wux/issues/65
             specification = self.a661_specs[0]
             root = project.get_tool_prop_def('GENERATOR', 'ROOTNODE', [], configuration)[0]
             id = specification.application_id

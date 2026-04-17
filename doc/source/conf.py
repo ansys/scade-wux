@@ -52,9 +52,6 @@ html_theme_options = {
     },
 }
 
-# Configuration for Sphinx autoapi
-# TODO autoapi_render_in_single_page = ["class", "enum", "exception", "function"]
-
 # Sphinx extensions
 extensions = [
     'numpydoc',
@@ -94,9 +91,7 @@ numpydoc_validate = True
 numpydoc_validation_checks = {
     'GL06',  # Found unknown section
     'GL07',  # Sections are in the wrong order.
-    # Disabled the docstring validation as most of the methods doesn't have the docstring
-    # TODO: Add docstring and enable GL08 validation
-    # "GL08",  # The object does not have a docstring
+    'GL08',  # The object does not have a docstring
     'GL09',  # Deprecation warning should precede extended summary
     'GL10',  # reST directives {directives} must be followed by two colons
     'SS01',  # No summary found
@@ -123,11 +118,7 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# TODO: remove ignore links after public release
 linkcheck_ignore = [
-    'https://github.com/ansys/scade-wux',
-    'https://github.com/ansys/scade-wux/actions/workflows/ci_cd.yml',
-    'https://pypi.org/project/ansys-scade-wux',
     # The link below takes a long time to check
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',

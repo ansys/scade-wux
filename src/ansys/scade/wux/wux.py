@@ -23,7 +23,6 @@
 """Provides a collection of functions for developing wrappers."""
 
 from io import TextIOBase
-import os
 from pathlib import Path
 import re
 from typing import List, Optional, Set
@@ -493,7 +492,7 @@ def get_specifications(project: Project, configuration: Configuration) -> List[S
         sdy_application = sdy_applications[0]
         if not sdy_application.mapping_file:
             return _specifications
-        sdy_map_file_dir = os.path.dirname(sdy_application.mapping_file.pathname)
+        sdy_map_file_dir = Path(sdy_application.mapping_file.pathname).parent
         for panel_params in project.get_tool_prop_def(
             'GENERATOR', 'DISPLAY_ENABLED_PANELS', [], configuration
         ):
@@ -501,13 +500,13 @@ def get_specifications(project: Project, configuration: Configuration) -> List[S
             if len(params) >= 2 and params[1] != 'None':
                 for spec in sdy_application.specifications:
                     if (
-                        os.path.abspath(spec.pathname)
-                        == os.path.abspath(os.path.join(sdy_map_file_dir, params[0]))
+                        Path(spec.pathname).resolve()
+                        == (Path(sdy_map_file_dir) / params[0]).resolve()
                     ) and (spec.sdy_project.is_display() or spec.sdy_project.is_rapid_proto()):
                         _specifications.append(spec)
                         # set spec.conf and spec.basename
                         spec.conf = params[1]
-                        spec.basename = os.path.splitext(os.path.basename(spec.pathname))[0]
+                        spec.basename = Path(spec.pathname).stem
         # sort specifications by basename
         _specifications = sorted(_specifications, key=lambda x: x.basename)
         # compute specifications prefix

@@ -53,8 +53,9 @@ class _WuxInterfacePrinter(InterfacePrinter):
     def get_generated_path(self, var_path, subst=None):
         path = super().get_generated_path(var_path, subst=subst)
         if self.simulation:
-            # TODO: code valid for standard generation only
-            # (no separate_io, no global_root_context, etc.)
+            # code valid for standard generation only
+            # TODO(JH): address other options: no separate_io, no global_root_context, etc.
+            # https://github.com/ansys/scade-wux/issues/65
             elems = path.split('.')
             if len(elems) > 1:
                 ctx = 'outputs_ctx' if elems[1] == 'outC' else 'inputs_ctx'
@@ -161,7 +162,7 @@ class WuxContext:
         pathname = Path(target_dir) / basename
         pathheader = pathname.with_suffix('.h')
         sctoc.add_generated_files(self.tool, [pathheader.name])
-        with open(str(pathheader), 'w') as f:
+        with pathheader.open('w') as f:
             wux.gen_header(f, self.banner)
             wux.gen_start_protect(f, pathheader.name)
             self.gen_kcg_includes(f)
@@ -172,7 +173,7 @@ class WuxContext:
         pathsource = pathname.with_suffix('.c')
         sctoc.add_generated_files(self.tool, [pathsource.name])
         self.sources.append(pathsource)
-        with open(str(pathsource), 'w') as f:
+        with pathsource.open('w') as f:
             wux.gen_header(f, self.banner)
             wux.gen_includes(f, [pathheader.name])
             self.gen_contexts_definition(f)
