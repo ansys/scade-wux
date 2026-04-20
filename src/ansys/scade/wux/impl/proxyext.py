@@ -168,9 +168,9 @@ class SdyProxyExt:
                 print('Unexpected error:', sys.exc_info()[0])
         if ok:
             other_dlls = ['d3dcompiler_47.dll', 'libEGL.dll', 'libGLESv2.dll']
-            for dll_name in other_dlls:
-                sdydll = sdy_target_dir / dll_name
-                target_dll = target_dir / dll_name
+            for extra_dll_name in other_dlls:
+                sdydll = sdy_target_dir / extra_dll_name
+                target_dll = target_dir / extra_dll_name
                 if sdydll.is_file():
                     sdydll.replace(target_dll)
                 if target_dll.is_file():
