@@ -27,7 +27,6 @@ The interface file allows only one hook, ``EXTENDED_SIM``.
 This enhancement replaces the calls to a custom hook that can hold several hooks.
 """
 
-import os
 from pathlib import Path
 
 from scade.model.project.stdproject import Configuration, Project
@@ -130,7 +129,7 @@ class WuxSimuExt:
             f_out.write(line)
         f_in.close()
         f_out.close()
-        os.replace(tmp, pathname)
+        tmp.replace(pathname)
 
         # always add the files, to ease the integration
         # runtime files

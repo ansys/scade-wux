@@ -24,7 +24,6 @@
 """Extension for reusable SCADE-Suite co-simulation wrapper."""
 
 from io import TextIOBase
-import os
 from pathlib import Path
 import re
 from typing import List, Optional
@@ -112,7 +111,7 @@ class SdyExt:
         pathname = Path(target_dir) / ('wuxsdy' + path.stem + '.c')
         sctoc.add_generated_files(self.tool, [pathname.name])
         self.sources.append(pathname)
-        with open(str(pathname), 'w') as f:
+        with pathname.open('w') as f:
             wux.gen_header(f, self.banner)
             self.gen_includes(f, project)
             self.gen_init(f)
@@ -124,10 +123,9 @@ class SdyExt:
     # Find spec by basename
     def get_spec_from_basename(self, basename: str) -> Optional[sdy.Specification]:
         """Get the specification instance for a file."""
+        path = (Path(self.map_file_dir) / basename).resolve()
         for spec in self.specifications:
-            if os.path.abspath(spec.pathname) == os.path.abspath(
-                os.path.join(self.map_file_dir, basename)
-            ):
+            if Path(spec.pathname).resolve() == path:
                 return spec
         return None
 
