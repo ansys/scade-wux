@@ -40,7 +40,7 @@ keywords=["Scade", "Wrapper", "Integration"]
 
 [project.optional-dependencies]
 build = [
-    "build==1.4.1",
+    "build==1.4.4",
     "twine==6.2.0"
 ]
 tests = [
@@ -68,7 +68,6 @@ doc = [
     "breathe>=4.33.1",
 ]
 
-
 [project.urls]
 Source = "https://github.com/ansys/scade-wux"
 Issues = "https://github.com/ansys/scade-wux/issues"
@@ -82,16 +81,13 @@ srg = "ansys.scade.wux:srg"
 register = "ansys.scade.wux.register:register"
 unregister = "ansys.scade.wux.unregister:unregister"
 
-
 [project.scripts]
 # backward compatibility
 register_ansys_scade_wux = "ansys.scade.wux.register:main"
 unregister_ansys_scade_wux = "ansys.scade.wux.unregister:main"
 
-
 [tool.flit.module]
 name = "ansys.scade.wux"
-
 
 [tool.ruff]
 line-length = 100
@@ -127,7 +123,6 @@ convention = "numpy"
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["D",]
 
-
 [tool.coverage.run]
 source = ["ansys.scade.wux"]
 patch = ["subprocess"]
@@ -138,11 +133,9 @@ exclude_also = [
     "@(abc\\.)?abstractmethod",
 ]
 
-
 [tool.pytest.ini_options]
 testpaths = "tests"
 addopts = "-ra --cov=ansys.scade.wux --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
-
 
 [tool.towncrier]
 package = "ansys.scade.wux"
@@ -154,13 +147,13 @@ title_format = "`{version} <https://github.com/ansys/scade-wux/releases/tag/v{ve
 issue_format = "`#{issue} <https://github.com/ansys/scade-wux/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
-directory = "added"
-name = "Added"
+directory = "breaking"
+name = "Breaking"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "changed"
-name = "Changed"
+directory = "added"
+name = "Added"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -171,11 +164,6 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "documentation"
 name = "Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "test"
-name = "Test"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -191,6 +179,16 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "miscellaneous"
 name = "Miscellaneous"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "test"
+name = "Test"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
 showcontent = true
 
 [tool.codespell]
