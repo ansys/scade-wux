@@ -1,0 +1,35 @@
+ansys.scade.wux.wux.gen_footer
+==============================
+
+.. py:function:: ansys.scade.wux.wux.gen_footer(f, start_comment = '/* ', end_comment = ' */')
+
+   
+   Write an *end of file* comment.
+
+
+   :Parameters:
+
+       **f** : :obj:`TextIOBase`
+           Output file to write to.
+
+       **start_comment** : :class:`python:str`
+           Start comment, default "/\* ".
+
+       **end_comment** : :class:`python:str`
+           End comment, default " \*/".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,179 @@
+
+
+:class:`GoWrapper`
+==================
+
+.. py:class:: ansys.scade.wux.gowrapper.GoWrapper
+
+   
+   Implements the *Generic Integration* (``WUX2_GOWRP``) generation module.
+
+   Refer to :ref:`Wrapper <usage/wrapper:wrapper>` to for its usage.
+
+   Refer to *Generation Module* in the User Documentation,
+   section *3/ Code Integration Toolbox/Declaring Code Generator Extension*.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+.. py:currentmodule:: GoWrapper
+
+Overview
+--------
+
+.. tab-set::
+
+
+   .. tab-item:: Constructors
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~get_services`
+            - Declare the generation service GoWrapper.
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~generate`
+            - Generate the code for this generation service.
+          * - :py:attr:`~init`
+            - Declare the required generation services and the execution order.
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.wux.gowrapper import GoWrapper
+
+
+
+
+
+Method detail
+-------------
+.. py:method:: generate(target_dir, project, configuration)
+
+   
+   Generate the code for this generation service.
+
+   Refer to *Generation Service* in the User Documentation,
+   section *3/ Code Integration Toolbox/Declaring Code Generator Extension*.
+
+   :Parameters:
+
+       **target_dir** : :class:`python:str`
+           Target directory for the code generation.
+
+       **project** : :obj:`Project`
+           Input SCADE Suite project.
+
+       **configuration** : :obj:`configuration`
+           SCADE Suite configuration selected for the code generation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: get_services()
+   :classmethod:
+
+
+   
+   Declare the generation service GoWrapper.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: init(target_dir, project, configuration)
+
+   
+   Declare the required generation services and the execution order.
+
+   Refer to *Generation Service* in the User Documentation,
+   section *3/ Code Integration Toolbox/Declaring Code Generator Extension*.
+
+   :Parameters:
+
+       **target_dir** : :class:`python:str`
+           Target directory for the code generation.
+
+       **project** : :obj:`Project`
+           Input SCADE Suite project.
+
+       **configuration** : :obj:`configuration`
+           SCADE Suite configuration selected for the code generation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+

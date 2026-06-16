@@ -1,0 +1,154 @@
+
+
+
+
+
+
+The ``ansys.scade.wux`` library
+===============================
+
+.. py:module:: ansys.scade.wux
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: wux
+.. tab-set::
+
+
+    .. tab-item:: Submodules
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.gowrapper`
+            - Generic wrapper for hosting combined SCADE Suite integration extensions.
+
+
+          * - :py:obj:`~ansys.scade.wux.register`
+            - Registers the Code Generator extension registry files (SRG).
+
+
+          * - :py:obj:`~ansys.scade.wux.unregister`
+            - Unregisters the Code Generator extension registry files (SRG).
+
+
+          * - :py:obj:`~ansys.scade.wux.wux`
+            - Provides a collection of functions for developing wrappers.
+
+
+          * - :py:obj:`~ansys.scade.wux.wuxmodule`
+            - SCADE Code Generation Module for utility SCADE Code Generation Services.
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.get_srg_name`
+            - Return the name of the registration file for Ansys SCADE IDE.
+
+
+          * - :py:obj:`~ansys.scade.wux.srg`
+            - Return the path of the SCADE Studio registry file.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~__version__`
+            - 
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-fa-file"></span> gowrapper</api/ansys/scade/wux/gowrapper/index>
+    <span class="nf nf-fa-file"></span> register</api/ansys/scade/wux/register/index>
+    <span class="nf nf-fa-file"></span> unregister</api/ansys/scade/wux/unregister/index>
+    <span class="nf nf-fa-file"></span> wux</api/ansys/scade/wux/wux/index>
+    <span class="nf nf-fa-file"></span> wuxmodule</api/ansys/scade/wux/wuxmodule/index>
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> get_srg_name</api/ansys/scade/wux/get_srg_name>
+    <span class="nf nf-md-function_variant"></span> srg</api/ansys/scade/wux/srg>
+
+
+
+
+
+
+Description
+-----------
+
+
+Provides a Generic code integration wrapper and utilities for SCADE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: __version__
+
+
+

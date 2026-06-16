@@ -1,0 +1,34 @@
+ansys.scade.wux.wux.add_libraries
+=================================
+
+.. py:function:: ansys.scade.wux.wux.add_libraries(paths: List[pathlib.Path])
+
+   
+   Request the Code Generator to add object or library files to the Makefile.
+
+   This function may be called by different generation services.
+   It caches the added files so that they are not added twice to the makefile.
+
+   Refer to ``add_obj_files`` under *Adding Make Directives* in section 3
+   of the *SCADE Python API Guide* in the SCADE Suite documentation.
+
+   :Parameters:
+
+       **paths** : :obj:`List`\[:obj:`Path`]
+           Paths of the files to be added to the makefile.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

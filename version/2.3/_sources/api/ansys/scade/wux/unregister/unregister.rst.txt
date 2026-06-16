@@ -1,0 +1,25 @@
+ansys.scade.wux.unregister.unregister
+=====================================
+
+.. py:function:: ansys.scade.wux.unregister.unregister() -> Tuple[int, str]
+
+   
+   Implement the ``ansys.scade.registry/unregister`` entry point.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

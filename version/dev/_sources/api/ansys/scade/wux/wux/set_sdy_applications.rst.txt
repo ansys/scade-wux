@@ -1,0 +1,31 @@
+ansys.scade.wux.wux.set_sdy_applications
+========================================
+
+.. py:function:: ansys.scade.wux.wux.set_sdy_applications(sdy_applications: List[scade.model.suite.displaycoupling.SdyApplication])
+
+   
+   Set the list of loaded SCADE Display Coupling applications.
+
+   This function is present only for unit testing, where SCADE Display Coupling API's
+   ``get_roots()`` cannot be used.
+
+   :Parameters:
+
+       **sdy_applications** : :obj:`List`\[:obj:`SdyApplication`]
+           List of loaded SCADE Display Coupling models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

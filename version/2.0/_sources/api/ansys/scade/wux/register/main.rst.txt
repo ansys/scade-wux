@@ -1,0 +1,25 @@
+ansys.scade.wux.register.main
+=============================
+
+.. py:function:: ansys.scade.wux.register.main()
+
+   
+   Implement the ``ansys.scade.wux.register`` packages's project script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,41 @@
+ansys.scade.wux.wux.gen_start_protect
+=====================================
+
+.. py:function:: ansys.scade.wux.wux.gen_start_protect(f, name)
+
+   
+   Write the beginning of a protection macro for a ``C`` header file.
+
+   * The dots (``.``) present in name are replaced by underscores (``_``).
+   * The name of the macro is uppercase.
+
+   The function writes the following snippet:
+
+   .. code-block:: c
+
+      #ifndef _NAME_
+      #define _NAME_
+
+   :Parameters:
+
+       **f** : :obj:`TextIOBase`
+           Output file to write to.
+
+       **name** : :class:`python:str`
+           Name of the preprocessor macro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,41 @@
+ansys.scade.wux.wux.add_cpp_options
+===================================
+
+.. py:function:: ansys.scade.wux.wux.add_cpp_options(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+
+   
+   Add the required compiler/linker options for C++ code.
+
+   * This is required for GNU C: -static -lstdc++
+   * There is no API in scade.code.suite.* to achieve this. The workaround
+     consists in adding the option to the project for the given configuration.
+
+   .. Note::
+
+     * The option is set only if the current compiler is GNU C.
+     * The project is modified but it is not expected to be saved in this context.
+       Should it be saved, this is still fine since the option is mandatory.
+
+   :Parameters:
+
+       **project** : :obj:`Project`
+           Input project.
+
+       **configuration** : :obj:`Configuration`
+           Input configuration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

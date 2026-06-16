@@ -1,0 +1,26 @@
+ansys.scade.wux.wux.reset
+=========================
+
+.. py:function:: ansys.scade.wux.wux.reset()
+
+   
+   Reset the global module's global variables.
+
+   Used for unit testing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

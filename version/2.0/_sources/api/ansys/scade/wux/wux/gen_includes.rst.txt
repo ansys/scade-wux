@@ -1,0 +1,33 @@
+ansys.scade.wux.wux.gen_includes
+================================
+
+.. py:function:: ansys.scade.wux.wux.gen_includes(f, files)
+
+   
+   Write C include directives for a list of files.
+
+   The function prefixes the include directives with ``/* includes */``.
+
+   :Parameters:
+
+       **f** : :obj:`TextIOBase`
+           Output file to write to.
+
+       **files** : :obj:`List`\[:class:`python:str`]
+           List of files to be included.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

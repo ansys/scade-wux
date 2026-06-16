@@ -1,0 +1,107 @@
+
+
+
+
+
+
+The ``register.py`` module
+==========================
+
+.. py:module:: ansys.scade.wux.register
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: register
+.. tab-set::
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.wux.register.main`
+            - Implement the ``ansys.scade.wux.register`` packages's project script.
+
+
+          * - :py:obj:`~ansys.scade.wux.register.register`
+            - Implement the ``ansys.scade.registry/register`` entry point.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~code`
+            - 
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> main</api/ansys/scade/wux/register/main>
+    <span class="nf nf-md-function_variant"></span> register</api/ansys/scade/wux/register/register>
+
+
+
+
+
+
+Description
+-----------
+
+Registers the Code Generator extension registry files (SRG).
+
+Refer to the :ref:`installation <getting-started/index:install in user mode>`
+steps for more information.
+
+It addresses SCADE 2024 R2 and prior releases.
+SCADE 2025 R1 and later use the package's
+``ansys.scade.registry`` entry point.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: code
+
+
+

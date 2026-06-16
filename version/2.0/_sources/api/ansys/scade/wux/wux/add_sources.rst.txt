@@ -1,0 +1,37 @@
+ansys.scade.wux.wux.add_sources
+===============================
+
+.. py:function:: ansys.scade.wux.wux.add_sources(paths)
+
+   
+   Request the Code Generator to add sources files to the Makefile for C build.
+
+   The source files are associated to the virtual service ``WUX``:
+   Use the dependency ``WUX`` to declare a new target containing the sources
+   from the generation services, either generated ones or runtime files.
+
+   This function may be called by different generation services.
+   It caches the added sources so that they are not added twice to the makefile.
+
+   Refer to ``add_c_files`` in the User Documentation, section *Adding Make Directives*.
+
+   :Parameters:
+
+       **paths** : :obj:`List`\[:obj:`Path`]
+           Paths of the C/C++ sources files to be added to the makefile.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

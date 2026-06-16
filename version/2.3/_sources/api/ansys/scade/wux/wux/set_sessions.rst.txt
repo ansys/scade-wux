@@ -1,0 +1,31 @@
+ansys.scade.wux.wux.set_sessions
+================================
+
+.. py:function:: ansys.scade.wux.wux.set_sessions(sessions: List[scade.model.suite.Session])
+
+   
+   Set the list of loaded SCADE models.
+
+   This function is present only for unit testing, where SCADE Suite API's ``get_roots()``
+   cannot be used.
+
+   :Parameters:
+
+       **sessions** : :obj:`List`\[:obj:`Session`]
+           List of loaded SCADE Suite models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
